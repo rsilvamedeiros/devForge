@@ -79,8 +79,11 @@ src/app/
 │   ├── models/order.model.ts      # Order abstrata + BuyOrder/SellOrder (POO)
 │   ├── mock/assets.mock.ts
 │   ├── queue/queue.ts             # Queue<T> genérica (FIFO)
+│   ├── realtime/
+│   │   ├── price-feed.ts          # interface PriceFeed + InjectionToken PRICE_FEED
+│   │   └── simulated-price-feed.ts# implementação atual (RxJS interval + jitter)
 │   └── services/
-│       ├── asset.service.ts       # signals: assets/loading/error
+│       ├── asset.service.ts       # signals: assets/loading/error + assina o PriceFeed
 │       └── order.service.ts       # fila de ordens + processamento FIFO simulado
 ├── features/
 │   ├── market/asset-list/         # listagem + busca + filtro por setor
@@ -110,8 +113,8 @@ Cada nova feature entra como uma rota lazy (`loadComponent`) + um item em `share
 - [x] form (Reactive Forms em `order-form`)
 - [x] POO domain exercise (abstração/herança/polimorfismo em `order.model.ts`)
 - [x] Queue<T> (FIFO genérica em `core/queue/queue.ts`, usada por `OrderService` para processar ordens uma a uma)
-- [ ] RxJS stream
-- [ ] simulated prices
-- [ ] WebSocket abstraction
+- [x] RxJS stream (`interval` + `map` em `SimulatedPriceFeed`)
+- [x] simulated prices (Market atualiza preços ao vivo a cada 1.5s, com jitter)
+- [ ] WebSocket abstraction (a interface `PriceFeed`/`PRICE_FEED` já existe; falta uma implementação real via WebSocket para trocar via DI)
 - [ ] performance review
 - [ ] tests
