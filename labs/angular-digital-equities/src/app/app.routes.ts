@@ -10,6 +10,6 @@ export const routes: Routes = [
   {
     path: 'orders',
     loadComponent: () =>
-      import('./features/orders/orders-placeholder').then(m => m.OrdersPlaceholder),
+      import('./features/orders/orders-page/orders-page').then(m => m.OrdersPage),
   },
 ];

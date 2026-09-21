@@ -1,0 +1,52 @@
+.order-list {
+  &__empty {
+    color: #777;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid #e0e0e0;
+    }
+  }
+
+  &__side {
+    font-weight: 600;
+
+    &--buy {
+      color: #0a7a2f;
+    }
+
+    &--sell {
+      color: #b00020;
+    }
+  }
+
+  &__status {
+    text-transform: capitalize;
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.75rem;
+    font-size: 0.8rem;
+    background: #f0f0f0;
+
+    &--filled {
+      background: #e6f4ea;
+      color: #0a7a2f;
+    }
+
+    &--processing {
+      background: #fff4e0;
+      color: #8a5a00;
+    }
+
+    &--rejected {
+      background: #fdecea;
+      color: #b00020;
+    }
+  }
+}

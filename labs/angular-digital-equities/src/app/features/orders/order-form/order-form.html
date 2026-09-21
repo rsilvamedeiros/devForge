@@ -1,0 +1,27 @@
+<form class="order-form" [formGroup]="form" (ngSubmit)="submit()">
+  <input formControlName="symbol" placeholder="Ticker (ex: PETR4)" />
+
+  <select formControlName="side">
+    <option value="buy">Compra</option>
+    <option value="sell">Venda</option>
+  </select>
+
+  <input type="number" formControlName="quantity" placeholder="Quantidade" min="1" />
+
+  <input type="number" formControlName="price" placeholder="Preço" step="0.01" min="0.01" />
+
+  <button type="submit">Enviar ordem</button>
+
+  @if (form.controls.symbol.invalid && form.controls.symbol.touched) {
+    <p class="order-form__error">Informe o ticker.</p>
+  }
+  @if (form.controls.quantity.invalid && form.controls.quantity.touched) {
+    <p class="order-form__error">Quantidade deve ser maior que zero.</p>
+  }
+  @if (form.controls.price.invalid && form.controls.price.touched) {
+    <p class="order-form__error">Preço deve ser maior que zero.</p>
+  }
+  @if (submitError()) {
+    <p class="order-form__error">{{ submitError() }}</p>
+  }
+</form>

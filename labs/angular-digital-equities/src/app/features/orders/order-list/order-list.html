@@ -1,0 +1,36 @@
+@if (orders().length === 0) {
+  <p class="order-list__empty">Nenhuma ordem enviada ainda.</p>
+} @else {
+  <table class="order-list__table">
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>Lado</th>
+        <th>Qtd.</th>
+        <th>Preço</th>
+        <th>Total líquido</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (order of orders(); track order.id) {
+        <tr>
+          <td>{{ order.symbol }}</td>
+          <td>
+            <span class="order-list__side" [class.order-list__side--buy]="order.side === 'buy'" [class.order-list__side--sell]="order.side === 'sell'">
+              {{ order.side === 'buy' ? 'Compra' : 'Venda' }}
+            </span>
+          </td>
+          <td>{{ order.quantity }}</td>
+          <td>{{ order.price | number: '1.2-2' }}</td>
+          <td>{{ order.netTotal | number: '1.2-2' }}</td>
+          <td>
+            <span class="order-list__status" [class]="'order-list__status--' + order.status">
+              {{ order.status }}
+            </span>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

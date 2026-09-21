@@ -76,11 +76,18 @@ src/app/
 ├── app.config.ts
 ├── core/
 │   ├── models/asset.model.ts
+│   ├── models/order.model.ts      # Order abstrata + BuyOrder/SellOrder (POO)
 │   ├── mock/assets.mock.ts
-│   └── services/asset.service.ts  # signals: assets/loading/error
+│   ├── queue/queue.ts             # Queue<T> genérica (FIFO)
+│   └── services/
+│       ├── asset.service.ts       # signals: assets/loading/error
+│       └── order.service.ts       # fila de ordens + processamento FIFO simulado
 ├── features/
 │   ├── market/asset-list/         # listagem + busca + filtro por setor
-│   └── orders/orders-placeholder.ts
+│   └── orders/
+│       ├── order-form/            # Reactive Forms
+│       ├── order-list/            # blotter de ordens
+│       └── orders-page/           # container da rota /orders
 └── shared/layout/
     ├── header/
     └── sidebar/                   # navegação entre features
@@ -99,10 +106,10 @@ Cada nova feature entra como uma rota lazy (`loadComponent`) + um item em `share
 - [x] computed search/filter
 - [x] loading/error/empty
 - [ ] HttpClient abstraction (hoje é mock com latência simulada)
-- [ ] Order model
-- [ ] form
-- [ ] POO domain exercise
-- [ ] Queue<T>
+- [x] Order model (classe abstrata `Order` + `BuyOrder`/`SellOrder`, taxa via polimorfismo)
+- [x] form (Reactive Forms em `order-form`)
+- [x] POO domain exercise (abstração/herança/polimorfismo em `order.model.ts`)
+- [x] Queue<T> (FIFO genérica em `core/queue/queue.ts`, usada por `OrderService` para processar ordens uma a uma)
 - [ ] RxJS stream
 - [ ] simulated prices
 - [ ] WebSocket abstraction
