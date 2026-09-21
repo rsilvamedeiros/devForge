@@ -1,6 +1,7 @@
 # Manifest
 
 - `.gitignore`
+- `CLAUDE.md`
 - `CONTRIBUTING.md`
 - `README.md`
 - `ROADMAP.md`
