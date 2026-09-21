@@ -1,0 +1,34 @@
+{
+  "company": "BTG Pactual",
+  "role": "Engenheiro de Software Frontend (Angular) | Digital Equities",
+  "skills": [
+    {
+      "slug": "angular",
+      "importance": "required"
+    },
+    {
+      "slug": "typescript",
+      "importance": "required"
+    },
+    {
+      "slug": "arrays-lists",
+      "importance": "interview-focus"
+    },
+    {
+      "slug": "algorithms-big-o",
+      "importance": "interview-focus"
+    },
+    {
+      "slug": "oop",
+      "importance": "interview-focus"
+    },
+    {
+      "slug": "queues-messaging",
+      "importance": "interview-focus"
+    },
+    {
+      "slug": "architecture",
+      "importance": "interview-focus"
+    }
+  ]
+}
