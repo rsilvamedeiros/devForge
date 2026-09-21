@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { OrderForm } from '../order-form/order-form';
 import { OrderList } from '../order-list/order-list';
 
@@ -7,5 +7,6 @@ import { OrderList } from '../order-list/order-list';
   imports: [OrderForm, OrderList],
   templateUrl: './orders-page.html',
   styleUrl: './orders-page.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OrdersPage {}

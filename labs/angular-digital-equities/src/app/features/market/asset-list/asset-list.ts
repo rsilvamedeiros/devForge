@@ -1,5 +1,5 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, OnInit, signal } from '@angular/core';
 import { AssetService } from '../../../core/services/asset.service';
 import { changePercent } from '../../../core/models/asset.model';
 
@@ -8,6 +8,7 @@ import { changePercent } from '../../../core/models/asset.model';
   imports: [DecimalPipe],
   templateUrl: './asset-list.html',
   styleUrl: './asset-list.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AssetList implements OnInit {
   private readonly assetService = inject(AssetService);

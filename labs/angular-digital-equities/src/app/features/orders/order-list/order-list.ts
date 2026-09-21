@@ -1,5 +1,5 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { OrderService } from '../../../core/services/order.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { OrderService } from '../../../core/services/order.service';
   imports: [DecimalPipe],
   templateUrl: './order-list.html',
   styleUrl: './order-list.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OrderList {
   private readonly orderService = inject(OrderService);

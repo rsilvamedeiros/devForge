@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { OrderService } from '../../../core/services/order.service';
 
@@ -7,6 +7,7 @@ import { OrderService } from '../../../core/services/order.service';
   imports: [ReactiveFormsModule],
   templateUrl: './order-form.html',
   styleUrl: './order-form.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OrderForm {
   private readonly fb = inject(FormBuilder);

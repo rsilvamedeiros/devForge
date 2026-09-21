@@ -80,8 +80,9 @@ src/app/
 │   ├── mock/assets.mock.ts
 │   ├── queue/queue.ts             # Queue<T> genérica (FIFO)
 │   ├── realtime/
-│   │   ├── price-feed.ts          # interface PriceFeed + InjectionToken PRICE_FEED
-│   │   └── simulated-price-feed.ts# implementação atual (RxJS interval + jitter)
+│   │   ├── price-feed.ts          # interface PriceFeed + InjectionToken PRICE_FEED (default: SimulatedPriceFeed)
+│   │   ├── simulated-price-feed.ts# implementação atual (RxJS interval + jitter)
+│   │   └── websocket-price-feed.ts# implementação alternativa via WebSocket real (não é a default; exige servidor)
 │   └── services/
 │       ├── asset.service.ts       # signals: assets/loading/error + assina o PriceFeed
 │       └── order.service.ts       # fila de ordens + processamento FIFO simulado
@@ -115,6 +116,6 @@ Cada nova feature entra como uma rota lazy (`loadComponent`) + um item em `share
 - [x] Queue<T> (FIFO genérica em `core/queue/queue.ts`, usada por `OrderService` para processar ordens uma a uma)
 - [x] RxJS stream (`interval` + `map` em `SimulatedPriceFeed`)
 - [x] simulated prices (Market atualiza preços ao vivo a cada 1.5s, com jitter)
-- [ ] WebSocket abstraction (a interface `PriceFeed`/`PRICE_FEED` já existe; falta uma implementação real via WebSocket para trocar via DI)
-- [ ] performance review
-- [ ] tests
+- [x] WebSocket abstraction (`WebSocketPriceFeed` implementa `PriceFeed` com `rxjs/webSocket`; troca-se via `{ provide: PRICE_FEED, useClass: WebSocketPriceFeed }` em `app.config.ts` quando houver um servidor real — não é a implementação default)
+- [x] performance review (`ChangeDetectionStrategy.OnPush` em todos os componentes, coerente com o app ser 100% orientado a signals; rotas de feature já eram lazy via `loadComponent`)
+- [x] tests (30 specs cobrindo model, queue, services e price feeds — `ng test`)
