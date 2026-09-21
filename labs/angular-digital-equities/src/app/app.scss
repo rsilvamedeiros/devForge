@@ -1,0 +1,22 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+app-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.app-content {
+  flex: 1;
+  overflow: auto;
+  padding: 1.25rem;
+}

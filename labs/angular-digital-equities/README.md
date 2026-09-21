@@ -67,24 +67,38 @@ ng generate component features/market/asset-list
 
 ## Estrutura real
 
+O app é uma plataforma de estudos com shell fixo (header + sidebar + conteúdo roteado), não uma página única:
+
 ```text
 src/app/
-├── app.ts / app.html / app.scss / app.routes.ts / app.config.ts
-├── core/        # models, services, interceptors (a criar)
-├── features/    # market/, orders/ (a criar)
-└── shared/      # a criar
+├── app.ts / app.html / app.scss   # shell: header + sidebar + <router-outlet>
+├── app.routes.ts                  # '' -> market · market · orders
+├── app.config.ts
+├── core/
+│   ├── models/asset.model.ts
+│   ├── mock/assets.mock.ts
+│   └── services/asset.service.ts  # signals: assets/loading/error
+├── features/
+│   ├── market/asset-list/         # listagem + busca + filtro por setor
+│   └── orders/orders-placeholder.ts
+└── shared/layout/
+    ├── header/
+    └── sidebar/                   # navegação entre features
 ```
+
+Cada nova feature entra como uma rota lazy (`loadComponent`) + um item em `shared/layout/sidebar/sidebar.ts`.
 
 ## Roadmap
 
 - [x] bootstrap Angular
-- [ ] Asset model
-- [ ] mock data
-- [ ] `@for` + track
-- [ ] Signal
-- [ ] computed search/filter
-- [ ] HttpClient abstraction
-- [ ] loading/error/empty
+- [x] app shell (header + sidebar + content, navegação por rotas)
+- [x] Asset model
+- [x] mock data
+- [x] `@for` + track
+- [x] Signal
+- [x] computed search/filter
+- [x] loading/error/empty
+- [ ] HttpClient abstraction (hoje é mock com latência simulada)
 - [ ] Order model
 - [ ] form
 - [ ] POO domain exercise
