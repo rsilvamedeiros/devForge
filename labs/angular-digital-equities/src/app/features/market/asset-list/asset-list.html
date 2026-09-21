@@ -1,0 +1,56 @@
+<section class="market">
+  <header class="market__toolbar">
+    <input
+      type="search"
+      placeholder="Buscar por ticker ou nome..."
+      (input)="onSearchInput($event)"
+    />
+
+    <select (change)="onSectorChange($event)">
+      @for (sector of sectors(); track sector) {
+        <option [value]="sector">{{ sector === 'all' ? 'Todos os setores' : sector }}</option>
+      }
+    </select>
+
+    <button type="button" (click)="reload()">Recarregar</button>
+    <button type="button" (click)="simulateError()">Simular erro</button>
+  </header>
+
+  @if (loading()) {
+    <p class="market__state">Carregando ativos...</p>
+  } @else if (error()) {
+    <div class="market__state market__state--error">
+      <p>{{ error() }}</p>
+      <button type="button" (click)="reload()">Tentar novamente</button>
+    </div>
+  } @else if (filteredAssets().length === 0) {
+    <p class="market__state">Nenhum ativo encontrado para esse filtro.</p>
+  } @else {
+    <table class="market__table">
+      <thead>
+        <tr>
+          <th>Ticker</th>
+          <th>Nome</th>
+          <th>Setor</th>
+          <th>Preço</th>
+          <th>Variação</th>
+          <th>Volume</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (asset of filteredAssets(); track asset.id) {
+          <tr [class.market__row--inactive]="!asset.active">
+            <td>{{ asset.symbol }}</td>
+            <td>{{ asset.name }}</td>
+            <td>{{ asset.sector }}</td>
+            <td>{{ asset.price | number: '1.2-2' }}</td>
+            <td [class.market__change--up]="changePercent(asset) >= 0" [class.market__change--down]="changePercent(asset) < 0">
+              {{ changePercent(asset) | number: '1.2-2' }}%
+            </td>
+            <td>{{ asset.volume | number }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</section>

@@ -53,9 +53,31 @@ src/app/
 └── shared/
 ```
 
+## Rodando o projeto
+
+Gerado com Angular CLI 20.3.37 (standalone, sem SSR, SCSS).
+
+```bash
+npm install
+ng serve      # http://localhost:4200
+ng test       # Karma/Jasmine
+ng build      # dist/
+ng generate component features/market/asset-list
+```
+
+## Estrutura real
+
+```text
+src/app/
+├── app.ts / app.html / app.scss / app.routes.ts / app.config.ts
+├── core/        # models, services, interceptors (a criar)
+├── features/    # market/, orders/ (a criar)
+└── shared/      # a criar
+```
+
 ## Roadmap
 
-- [ ] bootstrap Angular
+- [x] bootstrap Angular
 - [ ] Asset model
 - [ ] mock data
 - [ ] `@for` + track

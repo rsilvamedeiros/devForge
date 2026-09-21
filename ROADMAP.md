@@ -6,7 +6,7 @@
 - [x] skills prioritárias
 - [x] desafios iniciais
 - [x] plano de 2 dias
-- [ ] Angular Lab executável
+- [x] Angular Lab executável
 
 ## v0.2 — tracking
 - [ ] schema de skills
