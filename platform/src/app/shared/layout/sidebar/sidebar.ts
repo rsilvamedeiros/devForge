@@ -20,10 +20,12 @@ export class Sidebar {
   readonly linkClick = output<void>();
 
   readonly navItems: NavItem[] = [
-    { label: 'Dashboard', path: '/dashboard', icon: 'dashboard' },
+    { label: 'Visão geral', path: '/dashboard', icon: 'grid_view' },
+    { label: 'Meu progresso', path: '/progress', icon: 'trending_up' },
+    { label: 'Jornada', path: '/journey', icon: 'route' },
     { label: 'Skills', path: '/skills', icon: 'school' },
     { label: 'Vagas', path: '/vacancies', icon: 'work' },
     { label: 'Challenges', path: '/challenges', icon: 'code' },
-    { label: 'Planos de estudo', path: '/study-plans', icon: 'event_note' },
+    { label: 'Planos de estudo', path: '/study-plans', icon: 'calendar_month' },
   ];
 }

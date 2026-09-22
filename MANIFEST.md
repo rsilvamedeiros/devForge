@@ -22,6 +22,12 @@
 - `docs/templates/vacancy.example.json`
 - `interviews/README.md`
 - `labs/angular-digital-equities/README.md`
+- `platform/src/app/features/journey/journey.html`
+- `platform/src/app/features/journey/journey.scss`
+- `platform/src/app/features/journey/journey.ts`
+- `platform/src/app/features/progress/progress.html`
+- `platform/src/app/features/progress/progress.scss`
+- `platform/src/app/features/progress/progress.ts`
 - `resources/RESOURCES.md`
 - `skills/computer-science/algorithms-big-o/README.md`
 - `skills/computer-science/arrays-lists/README.md`

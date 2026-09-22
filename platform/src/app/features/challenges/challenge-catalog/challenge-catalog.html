@@ -1,4 +1,5 @@
 <section class="challenge-catalog">
+  <span class="page-eyebrow">Prática deliberada</span>
   <h1>Challenges</h1>
   <p class="challenge-catalog__intro">Exercícios e live coding — resolva sem IA primeiro, revise depois.</p>
 
@@ -27,6 +28,7 @@
       @for (challenge of filteredChallenges(); track challenge.slug) {
         <a class="challenge-catalog__link" [routerLink]="['/challenges', challenge.slug]">
           <mat-card appearance="outlined" class="challenge-catalog__card">
+            <div class="challenge-catalog__number">0{{ $index + 1 }}</div>
             <mat-card-header>
               <mat-card-title>{{ challenge.title }}</mat-card-title>
             </mat-card-header>
@@ -34,6 +36,7 @@
               <mat-chip-set>
                 <mat-chip>{{ challenge.category }}</mat-chip>
               </mat-chip-set>
+              <span class="challenge-catalog__open">Resolver challenge →</span>
             </mat-card-content>
           </mat-card>
         </a>

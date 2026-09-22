@@ -1,0 +1,51 @@
+<section class="progress-page">
+  <header class="progress-page__header">
+    <div>
+      <span class="page-eyebrow"><mat-icon>insights</mat-icon> Performance</span>
+      <h1>Seu progresso</h1>
+      <p class="page-intro">Acompanhe sua consistência, feche os loops de prática e transforme estudo em evidência real.</p>
+    </div>
+    <a mat-flat-button routerLink="/challenges"><mat-icon>play_arrow</mat-icon> Iniciar prática</a>
+  </header>
+
+  <div class="progress-page__stats">
+    <article class="progress-page__stat"><span class="progress-page__stat-icon violet"><mat-icon>local_fire_department</mat-icon></span><div><strong>7 dias</strong><small>Sequência atual</small></div><em>+2 esta semana</em></article>
+    <article class="progress-page__stat"><span class="progress-page__stat-icon cyan"><mat-icon>schedule</mat-icon></span><div><strong>12h 40m</strong><small>Tempo de foco</small></div><em>+18% no mês</em></article>
+    <article class="progress-page__stat"><span class="progress-page__stat-icon green"><mat-icon>task_alt</mat-icon></span><div><strong>{{ completed().length }}/{{ challenges.length }}</strong><small>Challenges feitos</small></div><em>{{ completion() }}% completo</em></article>
+    <article class="progress-page__stat"><span class="progress-page__stat-icon amber"><mat-icon>workspace_premium</mat-icon></span><div><strong>{{ skills.length }}</strong><small>Skills mapeadas</small></div><em>3 em foco</em></article>
+  </div>
+
+  <div class="progress-page__layout">
+    <article class="surface-card progress-page__activity">
+      <div class="progress-page__card-head"><div><span>Atividade</span><h2>Ritmo da semana</h2></div><span class="progress-page__legend"><i></i> Minutos de foco</span></div>
+      <div class="progress-page__chart">
+        @for (value of weeklyActivity; track $index) {
+          <div class="progress-page__bar-column"><span class="progress-page__bar-value">{{ value }}m</span><div class="progress-page__bar-track"><div [style.height.%]="value"></div></div><small>{{ weekDays[$index] }}</small></div>
+        }
+      </div>
+    </article>
+
+    <article class="surface-card progress-page__level">
+      <span class="page-eyebrow">Nível atual</span>
+      <div class="progress-page__level-badge">04</div>
+      <h2>Builder</h2>
+      <p>Você já implementa com autonomia. O próximo passo é justificar decisões e trade-offs.</p>
+      <div class="progress-page__level-track"><span></span></div>
+      <small>680 / 900 XP para o nível 5</small>
+    </article>
+  </div>
+
+  <article class="surface-card progress-page__practice">
+    <div class="progress-page__card-head"><div><span>Prática deliberada</span><h2>Challenges em andamento</h2></div><a routerLink="/challenges">Ver todos <mat-icon>arrow_forward</mat-icon></a></div>
+    <div class="progress-page__challenge-list">
+      @for (challenge of challenges; track challenge.slug) {
+        <div class="progress-page__challenge" [class.is-done]="completed().includes(challenge.slug)">
+          <mat-checkbox [checked]="completed().includes(challenge.slug)" (change)="toggleChallenge(challenge.slug, $event.checked)" [aria-label]="'Marcar ' + challenge.title"></mat-checkbox>
+          <span class="progress-page__challenge-icon"><mat-icon>{{ challenge.category === 'arrays' ? 'data_array' : challenge.category === 'oop' ? 'account_tree' : 'terminal' }}</mat-icon></span>
+          <div><a [routerLink]="['/challenges', challenge.slug]">{{ challenge.title }}</a><small>{{ challenge.category }} · 25 min</small></div>
+          <span class="progress-page__challenge-status">{{ completed().includes(challenge.slug) ? 'Concluído' : 'Praticar' }}</span>
+        </div>
+      }
+    </div>
+  </article>
+</section>

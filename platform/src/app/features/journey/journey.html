@@ -1,0 +1,30 @@
+<section class="journey">
+  <header class="journey__hero">
+    <div>
+      <span class="page-eyebrow"><mat-icon>route</mat-icon> Método DevForge</span>
+      <h1>Da oportunidade à evolução.</h1>
+      <p class="page-intro">Uma jornada contínua que transforma processos seletivos em conhecimento permanente — sem estudar no escuro.</p>
+    </div>
+    <div class="journey__hero-orbit"><span>03</span><small>etapa atual</small></div>
+  </header>
+
+  <div class="journey__steps">
+    @for (step of steps; track step.title; let i = $index) {
+      <a [routerLink]="step.path" class="journey__step" [class.is-active]="step.status === 'active'" [class.is-done]="step.status === 'done'">
+        <span class="journey__number">0{{ i + 1 }}</span>
+        <span class="journey__icon"><mat-icon>{{ step.icon }}</mat-icon></span>
+        <div><h2>{{ step.title }}</h2><p>{{ step.copy }}</p></div>
+        <mat-icon class="journey__arrow">arrow_forward</mat-icon>
+      </a>
+    }
+  </div>
+
+  <div class="journey__bottom">
+    <article class="surface-card journey__now">
+      <span class="journey__tag">Agora</span>
+      <div class="journey__now-copy"><span class="journey__now-icon"><mat-icon>school</mat-icon></span><div><h2>Fortaleça as skills prioritárias</h2><p>Angular, RxJS e arquitetura são o caminho crítico para sua vaga em foco.</p></div></div>
+      <div class="journey__now-actions"><a routerLink="/skills/angular">Continuar Angular <mat-icon>arrow_forward</mat-icon></a><span>Próximo marco: fechar 3 challenges</span></div>
+    </article>
+    <aside class="surface-card journey__principle"><mat-icon>format_quote</mat-icon><blockquote>Conhecimento não pertence a uma vaga. Cada processo deixa o próximo você mais forte.</blockquote><span>Princípio DevForge</span></aside>
+  </div>
+</section>

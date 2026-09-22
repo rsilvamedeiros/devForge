@@ -1,4 +1,10 @@
-<div class="sidebar__section-label">Estudo</div>
+<div class="sidebar__workspace">
+  <span class="sidebar__workspace-icon">DF</span>
+  <span><strong>Meu workspace</strong><small>Engenharia de software</small></span>
+  <mat-icon>unfold_more</mat-icon>
+</div>
+
+<div class="sidebar__section-label">Workspace</div>
 
 <mat-nav-list>
   @for (item of navItems; track item.path) {
@@ -16,4 +22,10 @@
   }
 </mat-nav-list>
 
-<div class="sidebar__footer">DevForge — ciclo vaga → skills → gaps → estudo</div>
+<div class="sidebar__focus">
+  <div class="sidebar__focus-top"><span>Foco semanal</span><strong>72%</strong></div>
+  <div class="sidebar__focus-track"><span></span></div>
+  <small>3 de 5 sessões concluídas</small>
+</div>
+
+<div class="sidebar__footer"><span class="sidebar__status"></span> Conteúdo sincronizado</div>

@@ -1,4 +1,5 @@
 <section class="skills-catalog">
+  <span class="page-eyebrow">Biblioteca de conhecimento</span>
   <h1>Skills</h1>
   <p class="skills-catalog__intro">Conhecimento permanente, organizado por categoria. Uma skill não pertence a uma vaga — é reaproveitada entre processos.</p>
 
@@ -33,6 +34,7 @@
       @for (skill of group.skills; track skill.slug) {
         <a class="skills-catalog__link" [routerLink]="['/skills', skill.slug]">
           <mat-card appearance="outlined" class="skills-catalog__card">
+            <div class="skills-catalog__card-accent"></div>
             <mat-card-header>
               <mat-card-title>{{ skill.title }}</mat-card-title>
             </mat-card-header>
@@ -40,6 +42,7 @@
               <mat-chip-set>
                 <mat-chip>{{ categoryLabels[skill.category] }}</mat-chip>
               </mat-chip-set>
+              <span class="skills-catalog__open">Abrir skill →</span>
             </mat-card-content>
           </mat-card>
         </a>

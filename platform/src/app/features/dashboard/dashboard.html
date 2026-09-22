@@ -1,71 +1,37 @@
 <section class="dashboard">
-  <div class="dashboard__hero">
-    <h1>Visão geral</h1>
-    <p class="dashboard__intro">
-      DevForge transforma vagas e entrevistas reais em uma trilha contínua de estudo:
-      vaga → requisitos → skills → gaps → plano de estudos → prática → entrevista → feedback.
-    </p>
-  </div>
-
-  <div class="dashboard__grid">
+  <header class="dashboard__welcome">
+    <div><span class="page-eyebrow">Terça-feira, 22 de setembro</span><h1>Pronto para evoluir?</h1><p>Seu foco está claro. Continue de onde parou e mantenha o ritmo.</p></div>
+    <div class="dashboard__streak"><span><mat-icon>local_fire_department</mat-icon><strong>7 dias</strong></span><small>melhor sequência: 12 dias</small></div>
+  </header>
+  <div class="dashboard__stats">
     @for (stat of stats; track stat.label) {
-      <a class="dashboard__link" [routerLink]="stat.path">
-        <mat-card appearance="outlined" class="dashboard__card">
-          <mat-icon class="dashboard__icon">{{ stat.icon }}</mat-icon>
-          <div class="dashboard__value">{{ stat.value }}</div>
-          <div class="dashboard__label">{{ stat.label }}</div>
-        </mat-card>
-      </a>
+      <a class="dashboard__stat" [routerLink]="stat.path"><span class="dashboard__stat-icon {{ stat.tone }}"><mat-icon>{{ stat.icon }}</mat-icon></span><div><strong>{{ stat.value }}</strong><span>{{ stat.label }}</span></div><small>{{ stat.trend }}</small></a>
     }
   </div>
-
-  <div class="dashboard__columns">
+  <div class="dashboard__main-grid">
     @if (focusVacancy) {
-      <mat-card appearance="outlined" class="dashboard__focus">
-        <mat-card-header>
-          <mat-card-title>Vaga em foco</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <h3>{{ focusVacancy.company }}</h3>
-          <p>{{ focusVacancy.title }}</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <a mat-button color="primary" [routerLink]="['/vacancies', focusVacancy.slug]">
-            Ver detalhes
-          </a>
-        </mat-card-actions>
-      </mat-card>
+      <article class="dashboard__focus surface-card">
+        <div class="dashboard__card-header"><div><span>Vaga em foco</span><h2>{{ focusVacancy.company }}</h2></div><span class="dashboard__live"><i></i> Em preparação</span></div>
+        <p>{{ focusVacancy.title }}</p>
+        <div class="dashboard__focus-progress"><div><span>Preparação geral</span><strong>68%</strong></div><div class="dashboard__progress-track"><span></span></div></div>
+        <div class="dashboard__milestones"><div class="done"><mat-icon>check</mat-icon><span>Requisitos<small>Mapeados</small></span></div><div class="done"><mat-icon>check</mat-icon><span>Gap analysis<small>Concluído</small></span></div><div class="active"><mat-icon>school</mat-icon><span>Preparação<small>Em andamento</small></span></div><div><mat-icon>mic</mat-icon><span>Entrevista<small>Próxima etapa</small></span></div></div>
+        <a [routerLink]="['/vacancies', focusVacancy.slug]">Abrir preparação <mat-icon>arrow_forward</mat-icon></a>
+      </article>
     }
-
-    <mat-card appearance="outlined" class="dashboard__breakdown">
-      <mat-card-header>
-        <mat-card-title>Skills por categoria</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        @for (group of categoryBreakdown; track group.category) {
-          <div class="dashboard__bar-row">
-            <span class="dashboard__bar-label">{{ group.label }}</span>
-            <div class="dashboard__bar-track">
-              <div
-                class="dashboard__bar-fill"
-                [style.width.%]="(group.count / maxCategoryCount) * 100"
-              ></div>
-            </div>
-            <span class="dashboard__bar-count">{{ group.count }}</span>
-          </div>
-        }
-      </mat-card-content>
-    </mat-card>
+    <article class="dashboard__weekly surface-card">
+      <div class="dashboard__card-header"><div><span>Meta semanal</span><h2>4 de 5 sessões</h2></div><strong>80%</strong></div>
+      <div class="dashboard__week">@for (item of weekDays; track $index) { <div [class.done]="item.done"><span><mat-icon>{{ item.done ? 'check' : '' }}</mat-icon></span><small>{{ item.day }}</small></div> }</div>
+      <div class="dashboard__weekly-note"><mat-icon>bolt</mat-icon><span><strong>Mais uma sessão!</strong><small>Você está perto de fechar a meta.</small></span></div>
+      <a routerLink="/progress">Ver meu progresso <mat-icon>arrow_forward</mat-icon></a>
+    </article>
   </div>
-
-  <h2 class="dashboard__section-title">Continue estudando</h2>
-  <div class="dashboard__quick-grid">
-    @for (skill of recentSkills; track skill.slug) {
-      <a class="dashboard__link" [routerLink]="['/skills', skill.slug]">
-        <mat-card appearance="outlined" class="dashboard__quick-card">
-          <mat-icon>school</mat-icon>
-          <span>{{ skill.title }}</span>
-        </mat-card>
+  <div class="dashboard__section-head"><div><span>Continuar estudando</span><h2>Retome seu ritmo</h2></div><a routerLink="/skills">Explorar biblioteca <mat-icon>arrow_forward</mat-icon></a></div>
+  <div class="dashboard__continue">
+    @for (skill of recentSkills; track skill.slug; let i = $index) {
+      <a class="dashboard__study-card interactive-card" [routerLink]="['/skills', skill.slug]">
+        <div class="dashboard__study-top"><span class="dashboard__study-icon"><mat-icon>{{ i === 0 ? 'functions' : i === 1 ? 'data_array' : i === 2 ? 'account_tree' : 'code' }}</mat-icon></span><span class="dashboard__duration">{{ 20 + i * 5 }} min</span></div>
+        <span class="dashboard__study-kind">{{ categoryBreakdown[i % categoryBreakdown.length].label }}</span><h3>{{ skill.title }}</h3>
+        <div class="dashboard__study-progress"><span [style.width.%]="28 + i * 16"></span></div><small>{{ 28 + i * 16 }}% concluído</small>
       </a>
     }
   </div>

@@ -7,6 +7,14 @@ export const routes: Routes = [
     loadComponent: () => import('./features/dashboard/dashboard').then(m => m.Dashboard),
   },
   {
+    path: 'progress',
+    loadComponent: () => import('./features/progress/progress').then(m => m.Progress),
+  },
+  {
+    path: 'journey',
+    loadComponent: () => import('./features/journey/journey').then(m => m.Journey),
+  },
+  {
     path: 'skills',
     loadComponent: () =>
       import('./features/skills/skills-catalog/skills-catalog').then(m => m.SkillsCatalog),
@@ -54,4 +62,5 @@ export const routes: Routes = [
         m => m.StudyPlanDetail
       ),
   },
+  { path: '**', redirectTo: 'dashboard' },
 ];

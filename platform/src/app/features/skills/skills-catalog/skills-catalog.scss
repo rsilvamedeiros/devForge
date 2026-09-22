@@ -1,7 +1,8 @@
 .skills-catalog {
   &__intro {
     max-width: 640px;
-    color: var(--mat-sys-on-surface-variant);
+    color: var(--forge-muted);
+    line-height: 1.7;
   }
 
   &__toolbar {
@@ -9,7 +10,7 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
-    margin: 1rem 0 1.5rem;
+    margin: 1.5rem 0 2rem;
   }
 
   &__search {
@@ -21,8 +22,8 @@
   }
 
   &__category {
-    margin-top: 1.5rem;
-    font-size: 1.1rem;
+    margin-top: 2rem;
+    font-size: 1.15rem;
   }
 
   &__grid {
@@ -38,10 +39,9 @@
 
   &__card {
     height: 100%;
-    transition: box-shadow 0.15s ease;
-
-    &:hover {
-      box-shadow: var(--mat-sys-level2);
-    }
+    position: relative;
   }
+
+  &__card-accent { width: 42px; height: 4px; margin: 1.1rem 1rem .2rem; border-radius: 4px; background: linear-gradient(90deg, var(--forge-primary), var(--forge-cyan)); }
+  &__open { display: block; margin-top: 1rem; color: var(--forge-primary); font-size: .75rem; font-weight: 700; }
 }

@@ -1,8 +1,27 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="header">
   <button mat-icon-button type="button" (click)="menuToggle.emit()" aria-label="Abrir/fechar menu">
     <mat-icon>menu</mat-icon>
   </button>
 
-  <span class="header__title">DevForge</span>
-  <span class="header__subtitle">Engineering Study Platform</span>
+  <div class="header__brand">
+    <span class="header__mark">D</span>
+    <span class="header__title">DevForge</span>
+  </div>
+
+  <form class="header__search" role="search" (submit)="search($event)">
+    <mat-icon>search</mat-icon>
+    <input
+      type="search"
+      aria-label="Buscar em todo o DevForge"
+      placeholder="Buscar skills, challenges, vagas..."
+      [value]="searchTerm()"
+      (input)="searchTerm.set($any($event.target).value)"
+    />
+    <span class="header__shortcut">⌘ K</span>
+  </form>
+
+  <div class="header__actions">
+    <button mat-icon-button type="button" aria-label="Notificações"><mat-icon>notifications_none</mat-icon></button>
+    <div class="header__avatar" aria-label="Perfil do usuário">RS</div>
+  </div>
 </mat-toolbar>

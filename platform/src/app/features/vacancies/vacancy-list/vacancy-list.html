@@ -1,4 +1,5 @@
 <section class="vacancy-list">
+  <span class="page-eyebrow">Oportunidades reais</span>
   <h1>Vagas</h1>
   <p class="vacancy-list__intro">Cada vaga referencia skills existentes e gera um plano de preparação.</p>
 
@@ -6,10 +7,12 @@
     @for (vacancy of vacancies; track vacancy.slug) {
       <a class="vacancy-list__link" [routerLink]="['/vacancies', vacancy.slug]">
         <mat-card appearance="outlined" class="vacancy-list__card">
+          <div class="vacancy-list__status"><i></i> Processo ativo</div>
           <mat-card-header>
             <mat-card-title>{{ vacancy.company }}</mat-card-title>
             <mat-card-subtitle>{{ vacancy.title }}</mat-card-subtitle>
           </mat-card-header>
+          <mat-card-content><span>68% preparado</span><div class="vacancy-list__progress"><i></i></div><strong>Abrir preparação →</strong></mat-card-content>
         </mat-card>
       </a>
     }

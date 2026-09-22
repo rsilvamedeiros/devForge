@@ -1,7 +1,8 @@
 .challenge-catalog {
   &__intro {
     max-width: 640px;
-    color: var(--mat-sys-on-surface-variant);
+    color: var(--forge-muted);
+    line-height: 1.7;
   }
 
   &__toolbar {
@@ -9,7 +10,7 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 1rem;
-    margin: 1rem 0 1.5rem;
+    margin: 1.5rem 0 2rem;
   }
 
   &__search {
@@ -32,6 +33,7 @@
   }
 
   &__card {
+    position: relative;
     height: 100%;
     transition: box-shadow 0.15s ease;
 
@@ -39,4 +41,7 @@
       box-shadow: var(--mat-sys-level2);
     }
   }
+
+  &__number { position: absolute; top: .6rem; right: .9rem; color: #eeecf4; font: 700 2.4rem 'Space Grotesk'; }
+  &__open { display: block; margin-top: 1rem; color: var(--forge-primary); font-size: .75rem; font-weight: 700; }
 }

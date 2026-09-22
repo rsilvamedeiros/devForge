@@ -1,0 +1,28 @@
+.journey {
+  &__hero { position: relative; display: flex; justify-content: space-between; align-items: center; min-height: 260px; margin: -2.25rem -2.5rem 2rem; padding: 3.5rem 4rem; overflow: hidden; color: white; background: radial-gradient(circle at 78% 20%, rgba(109, 97, 239, .7), transparent 26%), linear-gradient(125deg, #17152b, #292653); }
+  &__hero::after { position: absolute; right: 10%; bottom: -110px; width: 260px; height: 260px; border: 1px solid rgba(255,255,255,.12); border-radius: 50%; content: ''; box-shadow: 0 0 0 42px rgba(255,255,255,.035), 0 0 0 84px rgba(255,255,255,.025); }
+  &__hero h1 { color: white; font-size: clamp(2.2rem, 5vw, 4rem); }
+  &__hero .page-intro { color: #c5c1dc; }
+  &__hero .page-eyebrow { color: #a9e9ee; } &__hero .page-eyebrow mat-icon { width: 1rem; height: 1rem; font-size: 1rem; }
+  &__hero-orbit { z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 130px; height: 130px; flex: 0 0 auto; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; background: rgba(23, 21, 43, .45); backdrop-filter: blur(10px); }
+  &__hero-orbit span { font: 700 2.3rem 'Space Grotesk'; } &__hero-orbit small { color: #aaa5c2; }
+  &__steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  &__step { position: relative; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; min-height: 135px; padding: 1.25rem; overflow: hidden; border: 1px solid var(--forge-border); border-radius: 18px; color: inherit; background: white; text-decoration: none; transition: 180ms ease; }
+  &__step:hover { transform: translateY(-3px); border-color: #c9c5fa; box-shadow: var(--forge-shadow); }
+  &__number { position: absolute; top: -.45rem; right: .5rem; color: #f1f0f6; font: 700 3.5rem 'Space Grotesk'; }
+  &__icon { z-index: 1; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 13px; color: #817c92; background: #f3f2f7; }
+  &__step h2 { margin: 0; font-size: 1.05rem; } &__step p { margin: .2rem 0 0; color: var(--forge-muted); font-size: .8rem; }
+  &__arrow { z-index: 1; color: #bbb7c8; font-size: 1.1rem; }
+  &__step.is-done &__icon { color: var(--forge-success); background: #e8f7f0; }
+  &__step.is-active { color: white; border-color: transparent; background: linear-gradient(135deg, #6558f5, #4e45cb); box-shadow: 0 15px 35px rgba(86, 73, 218, .25); }
+  &__step.is-active h2, &__step.is-active p { color: white; } &__step.is-active p { opacity: .7; } &__step.is-active &__icon { color: #fff; background: rgba(255,255,255,.15); } &__step.is-active &__number { color: rgba(255,255,255,.08); } &__step.is-active &__arrow { color: white; }
+  &__bottom { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1rem; margin-top: 1rem; }
+  &__now, &__principle { padding: 1.5rem; }
+  &__tag { display: inline-block; padding: .25rem .6rem; border-radius: 999px; color: var(--forge-primary); background: var(--forge-primary-soft); font-size: .68rem; font-weight: 700; text-transform: uppercase; }
+  &__now-copy { display: flex; gap: 1rem; margin: 1.25rem 0; } &__now-copy h2 { margin: 0; } &__now-copy p { margin: .3rem 0 0; color: var(--forge-muted); }
+  &__now-icon { display: grid; place-items: center; width: 52px; height: 52px; flex: 0 0 auto; border-radius: 14px; color: var(--forge-primary); background: var(--forge-primary-soft); }
+  &__now-actions { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid var(--forge-border); } &__now-actions a { display: flex; align-items: center; gap: .4rem; color: var(--forge-primary); text-decoration: none; font-weight: 700; } &__now-actions span { color: var(--forge-muted); font-size: .76rem; }
+  &__principle { display: flex; flex-direction: column; justify-content: center; color: white; background: var(--forge-ink) !important; } &__principle > mat-icon { color: #7770e9; font-size: 2rem; } &__principle blockquote { margin: .75rem 0; font: 500 1.15rem/1.55 'Space Grotesk'; } &__principle span { color: #88839e; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; }
+}
+@media(max-width: 900px) { .journey__steps { grid-template-columns: repeat(2, 1fr); } .journey__bottom { grid-template-columns: 1fr; } }
+@media(max-width: 640px) { .journey__hero { margin: -1.5rem -1rem 1.5rem; padding: 2.5rem 1.25rem; } .journey__hero-orbit { display: none; } .journey__steps { grid-template-columns: 1fr; } .journey__now-actions { align-items: flex-start; flex-direction: column; gap: .75rem; } }

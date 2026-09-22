@@ -12,7 +12,7 @@ html {
       primary: mat.$azure-palette,
       tertiary: mat.$blue-palette,
     ),
-    typography: Roboto,
+    typography: 'DM Sans',
     density: 0,
   ));
 }
@@ -26,20 +26,149 @@ body {
   // Set a default background, font and text colors for the application using
   // Angular Material's system-level CSS variables. Learn more about these
   // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
+  background-color: #f5f5fa;
   color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
+  font: 400 1rem/1.5 'DM Sans', sans-serif;
 
   // Reset the user agent margin.
   margin: 0;
 }
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --forge-ink: #17152b;
+  --forge-muted: #6e6a7f;
+  --forge-primary: #6558f5;
+  --forge-primary-dark: #4f46d8;
+  --forge-primary-soft: #eeecff;
+  --forge-cyan: #48c9d4;
+  --forge-success: #34a873;
+  --forge-warning: #f0a44b;
+  --forge-surface: #ffffff;
+  --forge-border: #e7e5ef;
+  --forge-shadow: 0 18px 48px rgba(37, 32, 75, 0.08);
+}
+
+* { box-sizing: border-box; }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'DM Sans', sans-serif; }
+
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--forge-ink);
+  letter-spacing: -0.025em;
+}
+
+h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.08; margin: 0; }
+h2 { font-size: 1.35rem; }
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid rgba(101, 88, 245, 0.35);
+  outline-offset: 3px;
+}
+
+.page-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.75rem;
+  color: var(--forge-primary);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-intro {
+  max-width: 680px;
+  margin: 0.85rem 0 0;
+  color: var(--forge-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.surface-card {
+  border: 1px solid var(--forge-border) !important;
+  border-radius: 20px !important;
+  background: var(--forge-surface) !important;
+  box-shadow: none !important;
+}
+
+.interactive-card {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease !important;
+}
+
+.interactive-card:hover {
+  transform: translateY(-3px);
+  border-color: #cdc9ff !important;
+  box-shadow: var(--forge-shadow) !important;
+}
+
+mat-card.mat-mdc-card {
+  overflow: hidden;
+  border-color: var(--forge-border);
+  border-radius: 18px;
+  background: white;
+}
+
+.skills-catalog__toolbar,
+.challenge-catalog__toolbar {
+  padding: 0.8rem;
+  border: 1px solid var(--forge-border);
+  border-radius: 16px;
+  background: white;
+}
+
+.skills-catalog__card,
+.challenge-catalog__card,
+.vacancy-list__card,
+.study-plan-list__card {
+  min-height: 140px;
+  border-radius: 18px !important;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease !important;
+}
+
+.skills-catalog__card:hover,
+.challenge-catalog__card:hover,
+.vacancy-list__card:hover,
+.study-plan-list__card:hover {
+  transform: translateY(-3px);
+  border-color: #cbc7fb !important;
+  box-shadow: var(--forge-shadow) !important;
+}
+
+.skill-detail__card,
+.challenge-detail__card,
+.study-plan-detail__card,
+.vacancy-detail__card {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: clamp(0.5rem, 3vw, 2rem) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 20px 60px rgba(37, 32, 75, 0.06) !important;
+}
+
+.skill-detail__back,
+.challenge-detail__back,
+.study-plan-detail__back,
+.vacancy-detail__back {
+  margin-bottom: 1.25rem !important;
+  color: var(--forge-primary) !important;
+  font-weight: 700;
+}
 
 markdown {
   display: block;
+
+  color: #38344b;
+  font-size: 0.98rem;
+  line-height: 1.75;
+
+  h1 { font-size: 2rem; }
+  h2 { margin-top: 2.25rem; font-size: 1.4rem; }
+  h3 { margin-top: 1.75rem; }
+
+  a { color: var(--forge-primary-dark); }
 
   table {
     border-collapse: collapse;
@@ -59,14 +188,14 @@ markdown {
   pre {
     background: var(--mat-sys-surface-container);
     padding: 1rem;
-    border-radius: 4px;
+    border-radius: 12px;
     overflow-x: auto;
   }
 
   blockquote {
-    border-left: 3px solid var(--mat-sys-primary);
+    border-left: 3px solid var(--forge-primary);
     margin: 0;
     padding-left: 1rem;
-    color: var(--mat-sys-on-surface-variant);
+    color: var(--forge-muted);
   }
 }

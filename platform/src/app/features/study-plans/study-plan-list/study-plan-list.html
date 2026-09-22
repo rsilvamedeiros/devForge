@@ -1,4 +1,5 @@
 <section class="study-plan-list">
+  <span class="page-eyebrow">Prioridade com intenção</span>
   <h1>Planos de estudo</h1>
   <p class="study-plan-list__intro">Priorização temporal — intensivo ou contínuo, sempre pelo maior gap primeiro.</p>
 
@@ -6,9 +7,11 @@
     @for (plan of studyPlans; track plan.slug) {
       <a class="study-plan-list__link" [routerLink]="['/study-plans', plan.slug]">
         <mat-card appearance="outlined" class="study-plan-list__card">
+          <div class="study-plan-list__calendar"><span>SET</span><strong>22</strong></div>
           <mat-card-header>
             <mat-card-title>{{ plan.title }}</mat-card-title>
           </mat-card-header>
+          <mat-card-content><span>2 dias · Intensivo</span><strong>Continuar plano →</strong></mat-card-content>
         </mat-card>
       </a>
     }

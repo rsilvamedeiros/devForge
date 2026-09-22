@@ -1,7 +1,7 @@
 .vacancy-list {
   &__intro {
     max-width: 640px;
-    color: var(--mat-sys-on-surface-variant);
+    color: var(--forge-muted);
   }
 
   &__grid {
@@ -24,4 +24,9 @@
       box-shadow: var(--mat-sys-level2);
     }
   }
+  &__status { align-self: flex-start; margin: 1rem 1rem 0; padding: .3rem .65rem; border-radius: 999px; color: #27835a; background: #e8f7f0; font-size: .7rem; font-weight: 700; }
+  &__status i { display: inline-block; width: 6px; height: 6px; margin-right: .3rem; border-radius: 50%; background: #34a873; }
+  mat-card-content { padding-top: 1rem; color: var(--forge-muted); font-size: .75rem; }
+  mat-card-content strong { display: block; margin-top: 1rem; color: var(--forge-primary); }
+  &__progress { height: 6px; margin-top: .4rem; overflow: hidden; border-radius: 6px; background: #efedf5; } &__progress i { display: block; width: 68%; height: 100%; background: var(--forge-primary); }
 }

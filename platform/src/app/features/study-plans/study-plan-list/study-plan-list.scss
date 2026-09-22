@@ -1,7 +1,7 @@
 .study-plan-list {
   &__intro {
     max-width: 640px;
-    color: var(--mat-sys-on-surface-variant);
+    color: var(--forge-muted);
   }
 
   &__grid {
@@ -17,6 +17,7 @@
   }
 
   &__card {
+    position: relative;
     height: 100%;
     transition: box-shadow 0.15s ease;
 
@@ -24,4 +25,6 @@
       box-shadow: var(--mat-sys-level2);
     }
   }
+  &__calendar { display: flex; width: 48px; height: 52px; margin: 1rem 1rem .3rem; flex-direction: column; align-items: center; justify-content: center; border-radius: 10px; color: white; background: var(--forge-primary); } &__calendar span { font-size: .55rem; letter-spacing: .08em; } &__calendar strong { font: 700 1.1rem 'Space Grotesk'; }
+  mat-card-content { display: flex; justify-content: space-between; color: var(--forge-muted); font-size: .75rem; } mat-card-content strong { color: var(--forge-primary); }
 }
