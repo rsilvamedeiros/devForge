@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ThemeService } from '../../../core/services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -10,4 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   styleUrl: './header.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Header { readonly menuToggle = output<void>(); }
+export class Header {
+  readonly theme = inject(ThemeService);
+  readonly menuToggle = output<void>();
+}

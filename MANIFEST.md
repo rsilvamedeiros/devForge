@@ -22,6 +22,7 @@
 - `docs/templates/vacancy.example.json`
 - `interviews/README.md`
 - `labs/angular-digital-equities/README.md`
+- `labs/angular-digital-equities/src/app/core/services/theme.service.ts`
 - `labs/angular-digital-equities/src/app/features/analytics/analytics.html`
 - `labs/angular-digital-equities/src/app/features/analytics/analytics.scss`
 - `labs/angular-digital-equities/src/app/features/analytics/analytics.ts`

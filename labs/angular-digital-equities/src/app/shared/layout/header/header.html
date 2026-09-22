@@ -4,6 +4,17 @@
   <div class="header__market"><i></i><span><strong>Mercado aberto</strong><small>B3 · Tempo real simulado</small></span></div>
   <div class="header__spacer"></div>
   <button mat-icon-button type="button" aria-label="Pesquisar"><mat-icon>search</mat-icon></button>
+  <button
+    mat-icon-button
+    type="button"
+    class="header__theme"
+    (click)="theme.toggle()"
+    [class.is-active]="theme.isDark()"
+    [attr.aria-label]="theme.isDark() ? 'Ativar tema claro' : 'Ativar tema escuro'"
+    [attr.title]="theme.isDark() ? 'Ativar tema claro' : 'Ativar tema escuro'"
+  >
+    <mat-icon>{{ theme.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+  </button>
   <button mat-icon-button type="button" aria-label="Notificações" class="header__notification"><mat-icon>notifications_none</mat-icon><i></i></button>
   <div class="header__profile"><span>DE</span><div><strong>Conta demo</strong><small>Trader lab</small></div><mat-icon>expand_more</mat-icon></div>
 </mat-toolbar>
