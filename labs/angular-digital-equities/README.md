@@ -39,6 +39,12 @@ Um laboratório para praticar:
 - atualização simulada;
 - depois abstração WebSocket.
 
+### Overview, Portfolio e Analytics
+- dashboard com KPIs e curva patrimonial;
+- posições consolidadas e alocação por setor;
+- métricas de performance, risco e frequência operacional;
+- gráficos SVG responsivos, sem biblioteca adicional.
+
 ## Estrutura sugerida
 
 ```text
@@ -55,7 +61,7 @@ src/app/
 
 ## UI
 
-[Angular Material](https://material.angular.dev) (tema Material 3 `azure-blue`, densidade 0, tipografia Roboto). Escolhido por ser a lib oficial do time Angular — acessibilidade forte por padrão e é o que mais cai em entrevista Angular, cobrindo o "UX/acessibilidade" citado como diferencial na vaga BTG. `provideAnimationsAsync()` está registrado em `app.config.ts`.
+[Angular Material](https://material.angular.dev) com tema Material 3 customizado, densidade compacta e identidade visual de terminal financeiro. Tipografia: Manrope para interface e DM Mono para valores. `provideAnimationsAsync()` está registrado em `app.config.ts`.
 
 Componentes já em uso: `MatToolbar` (header), `MatSidenav` + `MatNavList` (sidebar), `MatFormField`/`MatInput`/`MatSelect` (busca e filtro), `MatTable` (listagens), `MatButton`/`MatButtonToggle` (ações e escolha compra/venda), `MatCard` (agrupamento do formulário de ordem), `MatProgressSpinner` (loading). Evoluir tela nova = puxar o módulo do componente Material equivalente antes de estilizar à mão.
 
@@ -78,7 +84,7 @@ O app é uma plataforma de estudos com shell fixo (header + sidebar + conteúdo 
 ```text
 src/app/
 ├── app.ts / app.html / app.scss   # shell: header + sidebar + <router-outlet>
-├── app.routes.ts                  # '' -> market · market · orders
+├── app.routes.ts                  # overview · market · orders · portfolio · analytics
 ├── app.config.ts
 ├── core/
 │   ├── models/asset.model.ts
@@ -93,6 +99,9 @@ src/app/
 │       ├── asset.service.ts       # signals: assets/loading/error + assina o PriceFeed
 │       └── order.service.ts       # fila de ordens + processamento FIFO simulado
 ├── features/
+│   ├── overview/                  # dashboard, KPIs, movers e curva patrimonial
+│   ├── portfolio/                 # posições, resultado e alocação
+│   ├── analytics/                 # performance, risco e frequência
 │   ├── market/asset-list/         # listagem + busca + filtro por setor
 │   └── orders/
 │       ├── order-form/            # Reactive Forms

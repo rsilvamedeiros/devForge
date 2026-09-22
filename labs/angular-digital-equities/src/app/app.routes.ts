@@ -1,7 +1,11 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'market', pathMatch: 'full' },
+  { path: '', redirectTo: 'overview', pathMatch: 'full' },
+  {
+    path: 'overview',
+    loadComponent: () => import('./features/overview/overview').then(m => m.Overview),
+  },
   {
     path: 'market',
     loadComponent: () =>
@@ -12,4 +16,13 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/orders/orders-page/orders-page').then(m => m.OrdersPage),
   },
+  {
+    path: 'portfolio',
+    loadComponent: () => import('./features/portfolio/portfolio').then(m => m.Portfolio),
+  },
+  {
+    path: 'analytics',
+    loadComponent: () => import('./features/analytics/analytics').then(m => m.Analytics),
+  },
+  { path: '**', redirectTo: 'overview' },
 ];

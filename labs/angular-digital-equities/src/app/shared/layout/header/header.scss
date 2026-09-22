@@ -1,10 +1,14 @@
-.header__title {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.header__subtitle {
-  margin-left: 0.75rem;
-  opacity: 0.8;
-  font-size: 0.85rem;
-}
+.header { position: relative; z-index: 5; min-height: 68px; gap: .75rem; padding: 0 1rem; color: var(--trade-text); border-bottom: 1px solid var(--trade-border); background: rgba(13, 18, 29, .94); backdrop-filter: blur(14px); }
+.header__brand { display: flex; min-width: 210px; align-items: center; gap: .65rem; }
+.header__brand > span:last-child { display: flex; flex-direction: column; }
+.header__logo { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 10px; color: #07100f; background: linear-gradient(145deg, #70ead1, #3ebca5); box-shadow: 0 8px 20px rgba(85,214,190,.16); }
+.header__title { font-size: .9rem; letter-spacing: -.02em; }
+.header__brand small, .header__profile small { color: var(--trade-muted); font-size: .6rem; }
+.header__market { display: flex; align-items: center; gap: .55rem; padding-left: 1rem; border-left: 1px solid var(--trade-border); }
+.header__market > i { width: 7px; height: 7px; border-radius: 50%; background: var(--trade-positive); box-shadow: 0 0 0 4px rgba(83,211,154,.1); }
+.header__market > span { display: flex; flex-direction: column; } .header__market strong { font-size: .68rem; } .header__market small { color: var(--trade-muted); font-size: .58rem; }
+.header__spacer { flex: 1; }
+.header__notification { position: relative; } .header__notification > i { position: absolute; top: 8px; right: 8px; width: 6px; height: 6px; border: 1px solid var(--trade-sidebar); border-radius: 50%; background: var(--trade-negative); }
+.header__profile { display: flex; align-items: center; gap: .55rem; margin-left: .35rem; padding-left: .8rem; border-left: 1px solid var(--trade-border); }
+.header__profile > span { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 10px; color: var(--trade-primary); background: var(--trade-primary-soft); font-size: .68rem; font-weight: 700; } .header__profile > div { display: flex; flex-direction: column; } .header__profile strong { font-size: .68rem; } .header__profile > mat-icon { color: var(--trade-muted); font-size: 1rem; }
+@media(max-width: 760px) { .header { padding: 0 .5rem; } .header__brand { min-width: 0; } .header__market, .header__profile > div, .header__profile > mat-icon { display: none; } .header__profile { padding-left: .45rem; } }

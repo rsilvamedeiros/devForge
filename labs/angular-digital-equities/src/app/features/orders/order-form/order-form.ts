@@ -1,3 +1,4 @@
+import { DecimalPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -8,7 +9,7 @@ import { OrderService } from '../../../core/services/order.service';
 
 @Component({
   selector: 'app-order-form',
-  imports: [ReactiveFormsModule, MatButtonModule, MatButtonToggleModule, MatFormFieldModule, MatInputModule],
+  imports: [DecimalPipe, ReactiveFormsModule, MatButtonModule, MatButtonToggleModule, MatFormFieldModule, MatInputModule],
   templateUrl: './order-form.html',
   styleUrl: './order-form.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,6 +26,8 @@ export class OrderForm {
     quantity: [1, [Validators.required, Validators.min(1)]],
     price: [0, [Validators.required, Validators.min(0.01)]],
   });
+
+  estimatedTotal(): number { return this.form.controls.quantity.value * this.form.controls.price.value; }
 
   submit(): void {
     if (this.form.invalid) {

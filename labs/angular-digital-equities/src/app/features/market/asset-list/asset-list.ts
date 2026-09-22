@@ -3,11 +3,13 @@ import { ChangeDetectionStrategy, Component, computed, inject, OnInit, signal } 
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { AssetService } from '../../../core/services/asset.service';
 import { changePercent } from '../../../core/models/asset.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-asset-list',
@@ -16,9 +18,11 @@ import { changePercent } from '../../../core/models/asset.model';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     MatProgressSpinnerModule,
     MatSelectModule,
     MatTableModule,
+    RouterLink,
   ],
   templateUrl: './asset-list.html',
   styleUrl: './asset-list.scss',
@@ -57,6 +61,9 @@ export class AssetList implements OnInit {
   });
 
   readonly changePercent = changePercent;
+  readonly advancers = computed(() => this.assets().filter(asset => changePercent(asset) >= 0).length);
+  readonly decliners = computed(() => this.assets().filter(asset => changePercent(asset) < 0).length);
+  readonly totalVolume = computed(() => this.assets().reduce((sum, asset) => sum + asset.volume, 0));
 
   ngOnInit(): void {
     this.assetService.load();

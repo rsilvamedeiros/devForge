@@ -1,76 +1,22 @@
-<section class="market">
-  <div class="market__toolbar">
-    <mat-form-field appearance="outline" subscriptSizing="dynamic" class="market__search">
-      <mat-label>Buscar</mat-label>
-      <input matInput placeholder="Ticker ou nome" (input)="onSearchInput($event)" />
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" subscriptSizing="dynamic" class="market__sector">
-      <mat-label>Setor</mat-label>
-      <mat-select [value]="sectorFilter()" (selectionChange)="onSectorChange($event.value)">
-        @for (sector of sectors(); track sector) {
-          <mat-option [value]="sector">{{ sector === 'all' ? 'Todos os setores' : sector }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-
-    <button mat-stroked-button type="button" (click)="reload()">Recarregar</button>
-    <button mat-stroked-button color="warn" type="button" (click)="simulateError()">Simular erro</button>
-  </div>
-
-  @if (loading()) {
-    <div class="market__state">
-      <mat-spinner diameter="28" />
-      <span>Carregando ativos...</span>
-    </div>
-  } @else if (error()) {
-    <div class="market__state market__state--error">
-      <p>{{ error() }}</p>
-      <button mat-flat-button color="primary" type="button" (click)="reload()">Tentar novamente</button>
-    </div>
-  } @else if (filteredAssets().length === 0) {
-    <p class="market__state">Nenhum ativo encontrado para esse filtro.</p>
-  } @else {
-    <table mat-table [dataSource]="filteredAssets()" class="market__table">
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef>Ticker</th>
-        <td mat-cell *matCellDef="let asset">{{ asset.symbol }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Nome</th>
-        <td mat-cell *matCellDef="let asset">{{ asset.name }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="sector">
-        <th mat-header-cell *matHeaderCellDef>Setor</th>
-        <td mat-cell *matCellDef="let asset">{{ asset.sector }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef>Preço</th>
-        <td mat-cell *matCellDef="let asset">{{ asset.price | number: '1.2-2' }}</td>
-      </ng-container>
-
-      <ng-container matColumnDef="change">
-        <th mat-header-cell *matHeaderCellDef>Variação</th>
-        <td
-          mat-cell
-          *matCellDef="let asset"
-          [class.market__change--up]="changePercent(asset) >= 0"
-          [class.market__change--down]="changePercent(asset) < 0"
-        >
-          {{ changePercent(asset) | number: '1.2-2' }}%
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="volume">
-        <th mat-header-cell *matHeaderCellDef>Volume</th>
-        <td mat-cell *matCellDef="let asset">{{ asset.volume | number }}</td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns" [class.market__row--inactive]="!row.active"></tr>
-    </table>
-  }
+<section class="market trade-page">
+  <header class="market__header"><div><span class="trade-eyebrow">Market data</span><h1>Mercado</h1><p class="trade-intro">Cotações simuladas atualizadas a cada 1,5 segundo.</p></div><a routerLink="/orders"><mat-icon>add</mat-icon>Nova ordem</a></header>
+  <div class="market__pulse"><article class="trade-panel"><span>Ativos monitorados</span><strong>{{ assets().length }}</strong><small>11 ativos negociáveis</small></article><article class="trade-panel"><span>Em alta</span><strong class="up">{{ advancers() }}</strong><small class="up">Amplitude positiva</small></article><article class="trade-panel"><span>Em baixa</span><strong class="down">{{ decliners() }}</strong><small>Atenção às quedas</small></article><article class="trade-panel"><span>Volume total</span><strong>{{ totalVolume() / 1000000 | number:'1.0-0' }}M</strong><small>Negócios no pregão</small></article></div>
+  <article class="market__panel trade-panel">
+    <div class="market__panel-head"><div><span>Lista de ativos</span><h2>Cotações em tempo real</h2></div><span class="market__feed"><i></i>Feed conectado</span></div>
+    <div class="market__toolbar"><mat-form-field appearance="outline" subscriptSizing="dynamic" class="market__search"><mat-label>Buscar ativo</mat-label><mat-icon matPrefix>search</mat-icon><input matInput placeholder="Ticker ou nome" (input)="onSearchInput($event)" /></mat-form-field><mat-form-field appearance="outline" subscriptSizing="dynamic" class="market__sector"><mat-label>Setor</mat-label><mat-select [value]="sectorFilter()" (selectionChange)="onSectorChange($event.value)">@for (sector of sectors(); track sector) {<mat-option [value]="sector">{{ sector === 'all' ? 'Todos os setores' : sector }}</mat-option>}</mat-select></mat-form-field><button mat-stroked-button type="button" (click)="reload()"><mat-icon>refresh</mat-icon>Atualizar</button><button class="market__debug" mat-button type="button" (click)="simulateError()">Testar erro</button></div>
+    @if (loading()) { <div class="market__state"><mat-spinner diameter="28" /><span>Sincronizando cotações...</span></div> }
+    @else if (error()) { <div class="market__state market__state--error"><span class="market__error-icon"><mat-icon>cloud_off</mat-icon></span><div><strong>Não foi possível carregar o mercado</strong><p>{{ error() }}</p><button mat-flat-button type="button" (click)="reload()">Reconectar</button></div></div> }
+    @else if (filteredAssets().length === 0) { <div class="market__state"><mat-icon>search_off</mat-icon><span>Nenhum ativo encontrado para esse filtro.</span></div> }
+    @else {
+      <div class="market__table-wrap"><table mat-table [dataSource]="filteredAssets()" class="market__table">
+        <ng-container matColumnDef="symbol"><th mat-header-cell *matHeaderCellDef>Ativo</th><td mat-cell *matCellDef="let asset"><span class="market__asset"><i>{{ asset.symbol.slice(0,2) }}</i><span><strong>{{ asset.symbol }}</strong><small>{{ asset.name }}</small></span></span></td></ng-container>
+        <ng-container matColumnDef="name"><th mat-header-cell *matHeaderCellDef>Empresa</th><td mat-cell *matCellDef="let asset">{{ asset.name }}</td></ng-container>
+        <ng-container matColumnDef="sector"><th mat-header-cell *matHeaderCellDef>Setor</th><td mat-cell *matCellDef="let asset"><span class="market__sector-tag">{{ asset.sector }}</span></td></ng-container>
+        <ng-container matColumnDef="price"><th mat-header-cell *matHeaderCellDef>Último preço</th><td mat-cell *matCellDef="let asset" class="trade-mono"><strong>R$ {{ asset.price | number:'1.2-2' }}</strong></td></ng-container>
+        <ng-container matColumnDef="change"><th mat-header-cell *matHeaderCellDef>Variação</th><td mat-cell *matCellDef="let asset"><span class="market__change" [class.market__change--up]="changePercent(asset) >= 0" [class.market__change--down]="changePercent(asset) < 0"><mat-icon>{{ changePercent(asset) >= 0 ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>{{ changePercent(asset) | number:'1.2-2' }}%</span></td></ng-container>
+        <ng-container matColumnDef="volume"><th mat-header-cell *matHeaderCellDef>Volume</th><td mat-cell *matCellDef="let asset" class="trade-mono">{{ asset.volume / 1000000 | number:'1.1-1' }}M</td></ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr><tr mat-row *matRowDef="let row; columns: displayedColumns" [class.market__row--inactive]="!row.active"></tr>
+      </table></div>
+    }
+  </article>
 </section>

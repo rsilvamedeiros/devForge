@@ -1,8 +1,8 @@
-<app-header />
+<app-header (menuToggle)="toggleMenu()" />
 
 <mat-sidenav-container class="app-shell">
-  <mat-sidenav mode="side" opened class="app-sidenav">
-    <app-sidebar />
+  <mat-sidenav [mode]="isHandset() ? 'over' : 'side'" [opened]="sidenavOpened()" class="app-sidenav">
+    <app-sidebar (linkClick)="closeOnNavigate()" />
   </mat-sidenav>
 
   <mat-sidenav-content>

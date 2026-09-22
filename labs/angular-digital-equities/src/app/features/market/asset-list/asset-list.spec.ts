@@ -1,11 +1,13 @@
 import { fakeAsync, tick } from '@angular/core/testing';
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { AssetList } from './asset-list';
 
 describe('AssetList', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AssetList],
+      providers: [provideRouter([])],
     }).compileComponents();
   });
 

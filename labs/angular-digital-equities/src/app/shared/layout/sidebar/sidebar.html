@@ -1,7 +1,12 @@
-<mat-nav-list>
+<div class="sidebar__account"><span>Patrimônio simulado</span><strong>R$ 127.842,50</strong><small><i>+2,84%</i> este mês</small></div>
+<div class="sidebar__label">Terminal</div>
+<mat-nav-list class="sidebar__nav">
   @for (item of navItems; track item.path) {
-    <a mat-list-item [routerLink]="item.path" routerLinkActive #rla="routerLinkActive" [activated]="rla.isActive">
-      {{ item.label }}
+    <a mat-list-item [routerLink]="item.path" routerLinkActive #rla="routerLinkActive" [activated]="rla.isActive" (click)="linkClick.emit()">
+      <mat-icon matListItemIcon>{{ item.icon }}</mat-icon><span matListItemTitle>{{ item.label }}</span>
+      @if (item.badge) { <span class="sidebar__badge">{{ item.badge }}</span> }
     </a>
   }
 </mat-nav-list>
+<div class="sidebar__watchlist"><div><span>Watchlist</span><button type="button" aria-label="Adicionar ativo">+</button></div><a routerLink="/market"><strong>PETR4</strong><span class="up">+1,37%</span></a><a routerLink="/market"><strong>VALE3</strong><span class="down">−1,05%</span></a><a routerLink="/market"><strong>ITUB4</strong><span class="up">+0,92%</span></a></div>
+<div class="sidebar__footer"><span><i></i> Feed conectado</span><small>LAT 24ms</small></div>

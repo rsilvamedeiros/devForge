@@ -22,6 +22,15 @@
 - `docs/templates/vacancy.example.json`
 - `interviews/README.md`
 - `labs/angular-digital-equities/README.md`
+- `labs/angular-digital-equities/src/app/features/analytics/analytics.html`
+- `labs/angular-digital-equities/src/app/features/analytics/analytics.scss`
+- `labs/angular-digital-equities/src/app/features/analytics/analytics.ts`
+- `labs/angular-digital-equities/src/app/features/overview/overview.html`
+- `labs/angular-digital-equities/src/app/features/overview/overview.scss`
+- `labs/angular-digital-equities/src/app/features/overview/overview.ts`
+- `labs/angular-digital-equities/src/app/features/portfolio/portfolio.html`
+- `labs/angular-digital-equities/src/app/features/portfolio/portfolio.scss`
+- `labs/angular-digital-equities/src/app/features/portfolio/portfolio.ts`
 - `platform/src/app/core/services/theme.service.ts`
 - `platform/src/app/features/journey/journey.html`
 - `platform/src/app/features/journey/journey.scss`

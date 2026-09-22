@@ -1,39 +1,44 @@
-
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 
 html {
   @include mat.theme((
-    color: (
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
-    ),
-    typography: Roboto,
-    density: 0,
+    color: (primary: mat.$cyan-palette, tertiary: mat.$green-palette),
+    typography: 'Manrope',
+    density: -1,
   ));
 }
 
-body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
-
-  // Reset the user agent margin.
-  margin: 0;
+:root {
+  --trade-bg: #0a0e17;
+  --trade-sidebar: #0d121d;
+  --trade-surface: #111825;
+  --trade-surface-2: #172131;
+  --trade-border: #253044;
+  --trade-text: #edf3fa;
+  --trade-muted: #8390a5;
+  --trade-primary: #55d6be;
+  --trade-primary-soft: rgba(85, 214, 190, .12);
+  --trade-blue: #6fa8ff;
+  --trade-positive: #53d39a;
+  --trade-negative: #ff6f7d;
+  --trade-warning: #f4b95f;
+  --trade-shadow: 0 18px 50px rgba(0, 0, 0, .22);
 }
-/* You can add global styles to this file, and also import other style files */
 
+* { box-sizing: border-box; }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; color-scheme: dark; color: var(--trade-text); background: var(--trade-bg); font: 400 .875rem/1.5 'Manrope', sans-serif; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { margin-bottom: .45rem; font-size: clamp(1.65rem, 3vw, 2.25rem); line-height: 1.15; letter-spacing: -.035em; }
+h2 { font-size: 1rem; letter-spacing: -.015em; }
+button, input { font-family: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--trade-primary); outline-offset: 2px; }
+.trade-page { max-width: 1480px; margin: 0 auto; }
+.trade-eyebrow { color: var(--trade-primary); font-size: .65rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.trade-intro { margin-bottom: 0; color: var(--trade-muted); }
+.trade-panel { border: 1px solid var(--trade-border); border-radius: 16px; background: var(--trade-surface); box-shadow: 0 1px 0 rgba(255,255,255,.025) inset; }
+.trade-mono { font-family: 'DM Mono', monospace; }
+.mat-mdc-form-field { --mat-form-field-outlined-input-text-color: var(--trade-text); --mat-form-field-outlined-label-text-color: var(--trade-muted); --mat-form-field-outlined-outline-color: var(--trade-border); --mat-form-field-outlined-hover-outline-color: #3b4a62; --mat-form-field-outlined-focus-outline-color: var(--trade-primary); --mat-form-field-container-text-font: 'Manrope'; }
+.mat-mdc-table { --mat-table-background-color: transparent; --mat-table-header-headline-color: var(--trade-muted); --mat-table-row-item-label-text-color: var(--trade-text); --mat-table-row-item-outline-color: var(--trade-border); }
+.mat-mdc-card { --mat-card-outlined-outline-color: var(--trade-border); --mat-card-outlined-container-color: var(--trade-surface); --mat-card-subtitle-text-color: var(--trade-muted); }
+.mat-mdc-select { --mat-select-enabled-trigger-text-color: var(--trade-text); --mat-select-enabled-arrow-color: var(--trade-muted); }

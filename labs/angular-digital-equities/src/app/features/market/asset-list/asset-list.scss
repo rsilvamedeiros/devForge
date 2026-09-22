@@ -1,46 +1,7 @@
-.market {
-  &__toolbar {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  &__search {
-    min-width: 220px;
-  }
-
-  &__sector {
-    min-width: 180px;
-  }
-
-  &__state {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1.5rem 0;
-
-    &--error {
-      flex-direction: column;
-      align-items: flex-start;
-      color: var(--mat-sys-error);
-    }
-  }
-
-  &__table {
-    width: 100%;
-  }
-
-  &__row--inactive {
-    opacity: 0.5;
-  }
-
-  &__change--up {
-    color: #0a7a2f;
-  }
-
-  &__change--down {
-    color: #b00020;
-  }
-}
+.market { &__header { display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:1.3rem } &__header>a{display:flex;align-items:center;gap:.35rem;padding:.65rem .85rem;border-radius:9px;color:#07100f;background:var(--trade-primary);font-size:.7rem;font-weight:700;text-decoration:none}&__header mat-icon{width:1rem;height:1rem;font-size:1rem}
+&__pulse{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin-bottom:.8rem}&__pulse article{display:flex;padding:.9rem 1rem;flex-direction:column}&__pulse span,&__pulse small{color:var(--trade-muted);font-size:.6rem}&__pulse strong{margin:.25rem 0;color:var(--trade-text);font:500 1.05rem 'DM Mono'}.up{color:var(--trade-positive)!important}.down{color:var(--trade-negative)!important}
+&__panel{padding:1.1rem}&__panel-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.8rem}&__panel-head>div>span{color:var(--trade-muted);font-size:.58rem;text-transform:uppercase;letter-spacing:.1em}&__panel-head h2{margin:.2rem 0 0}&__feed{display:flex;align-items:center;gap:.4rem;color:var(--trade-muted);font-size:.58rem}&__feed i{width:6px;height:6px;border-radius:50%;background:var(--trade-positive);box-shadow:0 0 0 3px rgba(83,211,154,.1)}
+&__toolbar{display:flex;align-items:flex-start;flex-wrap:wrap;gap:.65rem;margin-bottom:.8rem;padding:.7rem;border:1px solid var(--trade-border);border-radius:12px;background:var(--trade-sidebar)}&__search{min-width:240px;flex:1}&__sector{width:190px}&__toolbar>button{height:40px}.market__debug{margin-left:auto;color:var(--trade-muted)}
+&__state{display:flex;min-height:180px;align-items:center;justify-content:center;gap:.75rem;color:var(--trade-muted)}&__state--error{align-items:center;text-align:left}&__state--error p{margin:.25rem 0 .7rem;color:var(--trade-muted)}&__error-icon{display:grid;width:46px;height:46px;place-items:center;border-radius:12px;color:var(--trade-negative);background:rgba(255,111,125,.1)}
+&__table-wrap{overflow-x:auto}&__table{width:100%;min-width:780px}&__table th{font-size:.57rem;text-transform:uppercase;letter-spacing:.07em}&__table td{height:57px;font-size:.67rem}&__table tr.mat-mdc-row{transition:background 140ms}&__table tr.mat-mdc-row:hover{background:rgba(255,255,255,.018)}&__asset{display:flex;align-items:center;gap:.55rem}&__asset>i{display:grid;width:31px;height:31px;place-items:center;border-radius:8px;color:var(--trade-primary);background:var(--trade-primary-soft);font:500 .58rem 'DM Mono';font-style:normal}&__asset>span{display:flex;flex-direction:column}&__asset strong{font:500 .7rem 'DM Mono'}&__asset small{color:var(--trade-muted);font-size:.56rem}&__sector-tag{padding:.22rem .45rem;border:1px solid var(--trade-border);border-radius:6px;color:var(--trade-muted);font-size:.58rem}&__change{display:inline-flex;align-items:center;gap:.2rem;padding:.22rem .4rem;border-radius:6px;font:500 .62rem 'DM Mono'}&__change mat-icon{width:.75rem;height:.75rem;font-size:.75rem}&__change--up{color:var(--trade-positive);background:rgba(83,211,154,.09)}&__change--down{color:var(--trade-negative);background:rgba(255,111,125,.09)}&__row--inactive{opacity:.42}}
+@media(max-width:800px){.market__pulse{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.market__header{align-items:flex-start;flex-direction:column;gap:1rem}.market__pulse{grid-template-columns:1fr 1fr}.market__search,.market__sector{width:100%;min-width:0}.market__debug{display:none}}

@@ -1,4 +1,9 @@
-<mat-toolbar color="primary">
-  <span class="header__title">Digital Equities Lab</span>
-  <span class="header__subtitle">DevForge — laboratório de estudos</span>
+<mat-toolbar class="header">
+  <button mat-icon-button type="button" (click)="menuToggle.emit()" aria-label="Abrir ou fechar navegação"><mat-icon>menu</mat-icon></button>
+  <div class="header__brand"><span class="header__logo"><mat-icon>candlestick_chart</mat-icon></span><span><strong class="header__title">Atlas Trade</strong><small>Digital Equities</small></span></div>
+  <div class="header__market"><i></i><span><strong>Mercado aberto</strong><small>B3 · Tempo real simulado</small></span></div>
+  <div class="header__spacer"></div>
+  <button mat-icon-button type="button" aria-label="Pesquisar"><mat-icon>search</mat-icon></button>
+  <button mat-icon-button type="button" aria-label="Notificações" class="header__notification"><mat-icon>notifications_none</mat-icon><i></i></button>
+  <div class="header__profile"><span>DE</span><div><strong>Conta demo</strong><small>Trader lab</small></div><mat-icon>expand_more</mat-icon></div>
 </mat-toolbar>
