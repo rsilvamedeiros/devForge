@@ -1,0 +1,27 @@
+.challenge-catalog {
+  &__intro {
+    max-width: 640px;
+    color: var(--mat-sys-on-surface-variant);
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__card {
+    height: 100%;
+    transition: box-shadow 0.15s ease;
+
+    &:hover {
+      box-shadow: var(--mat-sys-level2);
+    }
+  }
+}

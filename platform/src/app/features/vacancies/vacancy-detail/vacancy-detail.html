@@ -1,0 +1,19 @@
+@if (vacancy(); as item) {
+  <a mat-button routerLink="/vacancies" class="vacancy-detail__back">← Vagas</a>
+
+  <mat-card appearance="outlined" class="vacancy-detail__card">
+    <mat-tab-group>
+      <mat-tab label="Visão geral">
+        <markdown [src]="item.contentPath" class="vacancy-detail__markdown" />
+      </mat-tab>
+      <mat-tab label="Requisitos">
+        <markdown [src]="item.requirementsPath" class="vacancy-detail__markdown" />
+      </mat-tab>
+      <mat-tab label="Preparação">
+        <markdown [src]="item.interviewPrepPath" class="vacancy-detail__markdown" />
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+} @else {
+  <p>Vaga não encontrada.</p>
+}

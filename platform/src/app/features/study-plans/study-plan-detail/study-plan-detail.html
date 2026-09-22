@@ -1,0 +1,11 @@
+@if (plan(); as item) {
+  <a mat-button routerLink="/study-plans" class="study-plan-detail__back">← Planos de estudo</a>
+
+  <mat-card appearance="outlined" class="study-plan-detail__card">
+    <mat-card-content>
+      <markdown [src]="item.contentPath" />
+    </mat-card-content>
+  </mat-card>
+} @else {
+  <p>Plano não encontrado.</p>
+}

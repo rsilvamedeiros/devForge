@@ -1,0 +1,17 @@
+<section class="vacancy-list">
+  <h1>Vagas</h1>
+  <p class="vacancy-list__intro">Cada vaga referencia skills existentes e gera um plano de preparação.</p>
+
+  <div class="vacancy-list__grid">
+    @for (vacancy of vacancies; track vacancy.slug) {
+      <a class="vacancy-list__link" [routerLink]="['/vacancies', vacancy.slug]">
+        <mat-card appearance="outlined" class="vacancy-list__card">
+          <mat-card-header>
+            <mat-card-title>{{ vacancy.company }}</mat-card-title>
+            <mat-card-subtitle>{{ vacancy.title }}</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </a>
+    }
+  </div>
+</section>

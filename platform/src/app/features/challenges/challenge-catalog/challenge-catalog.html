@@ -1,0 +1,21 @@
+<section class="challenge-catalog">
+  <h1>Challenges</h1>
+  <p class="challenge-catalog__intro">Exercícios e live coding — resolva sem IA primeiro, revise depois.</p>
+
+  <div class="challenge-catalog__grid">
+    @for (challenge of challenges; track challenge.slug) {
+      <a class="challenge-catalog__link" [routerLink]="['/challenges', challenge.slug]">
+        <mat-card appearance="outlined" class="challenge-catalog__card">
+          <mat-card-header>
+            <mat-card-title>{{ challenge.title }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-chip-set>
+              <mat-chip>{{ challenge.category }}</mat-chip>
+            </mat-chip-set>
+          </mat-card-content>
+        </mat-card>
+      </a>
+    }
+  </div>
+</section>

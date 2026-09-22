@@ -1,0 +1,11 @@
+@if (challenge(); as item) {
+  <a mat-button routerLink="/challenges" class="challenge-detail__back">← Challenges</a>
+
+  <mat-card appearance="outlined" class="challenge-detail__card">
+    <mat-card-content>
+      <markdown [src]="item.contentPath" />
+    </mat-card-content>
+  </mat-card>
+} @else {
+  <p>Challenge não encontrado.</p>
+}

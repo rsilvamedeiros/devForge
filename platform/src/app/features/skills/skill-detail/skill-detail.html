@@ -1,0 +1,11 @@
+@if (skill(); as item) {
+  <a mat-button routerLink="/skills" class="skill-detail__back">← Skills</a>
+
+  <mat-card appearance="outlined" class="skill-detail__card">
+    <mat-card-content>
+      <markdown [src]="item.contentPath" />
+    </mat-card-content>
+  </mat-card>
+} @else {
+  <p>Skill não encontrada.</p>
+}

@@ -1,0 +1,19 @@
+<section class="dashboard">
+  <h1>Visão geral</h1>
+  <p class="dashboard__intro">
+    DevForge transforma vagas e entrevistas reais em uma trilha contínua de estudo:
+    vaga → requisitos → skills → gaps → plano de estudos → prática → entrevista → feedback.
+  </p>
+
+  <div class="dashboard__grid">
+    @for (stat of stats; track stat.label) {
+      <a class="dashboard__link" [routerLink]="stat.path">
+        <mat-card appearance="outlined" class="dashboard__card">
+          <mat-icon class="dashboard__icon">{{ stat.icon }}</mat-icon>
+          <div class="dashboard__value">{{ stat.value }}</div>
+          <div class="dashboard__label">{{ stat.label }}</div>
+        </mat-card>
+      </a>
+    }
+  </div>
+</section>

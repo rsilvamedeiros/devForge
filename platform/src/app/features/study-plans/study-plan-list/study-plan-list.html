@@ -1,0 +1,16 @@
+<section class="study-plan-list">
+  <h1>Planos de estudo</h1>
+  <p class="study-plan-list__intro">Priorização temporal — intensivo ou contínuo, sempre pelo maior gap primeiro.</p>
+
+  <div class="study-plan-list__grid">
+    @for (plan of studyPlans; track plan.slug) {
+      <a class="study-plan-list__link" [routerLink]="['/study-plans', plan.slug]">
+        <mat-card appearance="outlined" class="study-plan-list__card">
+          <mat-card-header>
+            <mat-card-title>{{ plan.title }}</mat-card-title>
+          </mat-card-header>
+        </mat-card>
+      </a>
+    }
+  </div>
+</section>

@@ -18,10 +18,13 @@ A vaga referencia skills; a skill não pertence à vaga. Conhecimento é permane
 | `vacancies/` | um processo seletivo por subpasta |
 | `skills/<categoria>/<skill>/README.md` | conhecimento permanente por skill |
 | `challenges/<categoria>/` | exercícios e live coding |
-| `labs/` | projetos práticos de integração |
+| `labs/` | projetos práticos de integração (exercícios ligados a uma vaga) |
+| `platform/` | a app real do DevForge (v0.3 do roadmap) — lê o conteúdo real de `skills/`, `vacancies/`, `challenges/`, `study-plans/`, não é um exercício |
 | `interviews/` | retrospectivas reais |
 | `study-plans/` | planos intensivos ou por vaga |
 | `resources/` | referências externas |
+
+**`labs/` vs. `platform/`:** um lab é prática isolada para uma vaga específica (ex.: `angular-digital-equities` simula um mercado/ordens pra treinar a etapa técnica da BTG). `platform/` é a plataforma de estudo em si — a "Udemy pessoal" que navega o conteúdo real do repositório. Não confundir os dois nem misturar código de um no outro.
 
 Categorias de skill atuais: `computer-science`, `frontend`, `software-engineering` (ver [`docs/architecture/INFORMATION-ARCHITECTURE.md`](docs/architecture/INFORMATION-ARCHITECTURE.md) para a taxonomia completa, que também prevê `backend`, `infrastructure`, `databases`, `testing`, `security`).
 
@@ -31,7 +34,7 @@ Categorias de skill atuais: `computer-science`, `frontend`, `software-engineerin
 2. **Nível de skill nunca sobe sem evidência.** Evidência = exercício resolvido, implementação sem consulta, explicação oral, aplicação em projeto, ou desempenho em entrevista/simulação (checklist em [`docs/guides/STUDY-METHODOLOGY.md`](docs/guides/STUDY-METHODOLOGY.md)). Ao atualizar `Nível atual` de uma skill, registre a evidência em "Evidências de domínio".
 3. **Antes de criar uma skill nova, procurar se já existe** em `skills/` (mesmo em outra categoria). Vaga referencia skill existente; não duplicar (`CONTRIBUTING.md`).
 4. **Preservar conteúdo de estudo.** Nunca apagar ou reescrever material de vacancy/skill/challenge/interview já preenchido — apenas complementar, a menos que o usuário peça explicitamente para remover.
-5. **Evitar overengineering.** Este repo não é uma aplicação (ainda) — v0.3/v1 do [`ROADMAP.md`](ROADMAP.md) preveem uma app real. Até lá, não criar scripts, build systems ou automações fora do escopo pedido. A única exceção é o laboratório em `labs/angular-digital-equities`.
+5. **Evitar overengineering.** Fora de `labs/` e `platform/`, este repo é conteúdo em Markdown — não criar scripts, build systems ou automações fora do escopo pedido.
 6. **Idioma:** conteúdo do repositório (docs, skills, vacancies, challenges) é em **pt-BR**, no mesmo tom direto e telegráfico já usado nos arquivos existentes (frases curtas, listas, sem enrolação).
 7. **Manter `MANIFEST.md` atualizado** — é a lista plana de todos os arquivos do repo. Ao criar/remover arquivo, atualizar a entrada correspondente (ordem alfabética por pasta).
 8. **Commits pequenos por tópico de estudo**, conforme `docs/guides/CLAUDE-CODE-HANDOFF.md` — não misturar criação de vacancy, skill e challenge não relacionados no mesmo commit.
@@ -66,6 +69,13 @@ Convenções específicas para `labs/angular-digital-equities` (de `docs/guides/
 - Testes onde agregarem ao aprendizado, não por obrigação.
 - UI usa **Angular Material** (`ng add @angular/material` já feito, tema `azure-blue`) — evoluir uma tela significa trocar HTML cru por componentes Material (`MatFormField`, `MatTable`, `MatButton`, etc.), não escrever CSS do zero.
 
-## Cada lab é autocontido — sem package.json na raiz do repo
+## Plataforma DevForge (`platform/`)
 
-Não criar um `package.json`/npm workspace na raiz do DevForge para orquestrar os labs, mesmo que isso pareça conveniente. Cada lab em `labs/` carrega seu próprio tooling (`package.json`, `requirements.txt`, etc.) e roda de dentro da própria pasta (`cd labs/<nome> && npm start`, por exemplo). Motivo: este repo é propositalmente poliglota — `docs/architecture/INFORMATION-ARCHITECTURE.md` já prevê categorias como `backend`, `infrastructure`, `databases`, e vagas futuras podem exigir labs em Python, Java, Go etc. Um `package.json` na raiz sinalizaria "isto é um projeto npm" e não escala para isso. Reavaliar só quando existirem 2+ labs em Node/TS que genuinamente se beneficiem de tooling compartilhado (ex.: config de lint/tsconfig comum) — e mesmo assim, workspaces (não um app único), nunca um build compartilhado entre labs.
+- App Angular real (não exercício) que **lê o conteúdo real** dos `.md` de `skills/`, `vacancies/`, `challenges/`, `study-plans/` via assets copiados no build (`angular.json`) + `ngx-markdown` (`<markdown [src]="...">`), renderizado em runtime. **Nunca duplicar conteúdo** transcrevendo `.md` para TypeScript — se um dado precisa ser estruturado (slug, categoria, caminho), ele entra no índice leve em `core/data/content-index.ts`, nunca o conteúdo em si.
+- Ao criar/mover/renomear uma vacancy, skill, challenge ou study-plan, **atualizar `content-index.ts`** no `platform/` (slug, título, categoria, caminho) — senão o item não aparece na plataforma.
+- Mesma stack visual do lab Angular: Angular Material, tema `azure-blue`, `ChangeDetectionStrategy.OnPush`.
+- Roadmap restante (matriz vaga×skill, dashboard de gaps, cadastro pela UI) depende de skills reais terem `Nível atual` estruturado — hoje a maioria não tem (ver regra 2). Adicionar isso aos `.md` de skill é pré-requisito antes de expandir a plataforma nessa direção.
+
+## Cada projeto Angular é autocontido — sem package.json na raiz do repo
+
+Não criar um `package.json`/npm workspace na raiz do DevForge para orquestrar `labs/` ou `platform/`, mesmo que isso pareça conveniente. Cada projeto carrega seu próprio tooling (`package.json`, `requirements.txt`, etc.) e roda de dentro da própria pasta (`cd labs/<nome> && npm start`, `cd platform && npm start`). Motivo: este repo é propositalmente poliglota — `docs/architecture/INFORMATION-ARCHITECTURE.md` já prevê categorias como `backend`, `infrastructure`, `databases`, e vagas futuras podem exigir labs em Python, Java, Go etc. Um `package.json` na raiz sinalizaria "isto é um projeto npm" e não escala para isso. Reavaliar só quando existirem 2+ projetos em Node/TS que genuinamente se beneficiem de tooling compartilhado (ex.: config de lint/tsconfig comum) — e mesmo assim, workspaces (não um app único), nunca um build compartilhado entre eles.
