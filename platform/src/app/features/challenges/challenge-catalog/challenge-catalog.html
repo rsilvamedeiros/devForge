@@ -2,20 +2,42 @@
   <h1>Challenges</h1>
   <p class="challenge-catalog__intro">Exercícios e live coding — resolva sem IA primeiro, revise depois.</p>
 
-  <div class="challenge-catalog__grid">
-    @for (challenge of challenges; track challenge.slug) {
-      <a class="challenge-catalog__link" [routerLink]="['/challenges', challenge.slug]">
-        <mat-card appearance="outlined" class="challenge-catalog__card">
-          <mat-card-header>
-            <mat-card-title>{{ challenge.title }}</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <mat-chip-set>
-              <mat-chip>{{ challenge.category }}</mat-chip>
-            </mat-chip-set>
-          </mat-card-content>
-        </mat-card>
-      </a>
-    }
+  <div class="challenge-catalog__toolbar">
+    <mat-form-field appearance="outline" subscriptSizing="dynamic" class="challenge-catalog__search">
+      <mat-label>Buscar challenge</mat-label>
+      <input matInput placeholder="Ex: Two Sum" (input)="onSearchInput($event)" />
+    </mat-form-field>
+
+    <mat-chip-listbox aria-label="Filtrar por categoria">
+      @for (category of categories; track category) {
+        <mat-chip-option
+          [selected]="selectedCategory() === category"
+          (click)="selectCategory(category)"
+        >
+          {{ category === 'all' ? 'Todas' : category }}
+        </mat-chip-option>
+      }
+    </mat-chip-listbox>
   </div>
+
+  @if (filteredChallenges().length === 0) {
+    <p class="challenge-catalog__empty">Nenhum challenge encontrado para esse filtro.</p>
+  } @else {
+    <div class="challenge-catalog__grid">
+      @for (challenge of filteredChallenges(); track challenge.slug) {
+        <a class="challenge-catalog__link" [routerLink]="['/challenges', challenge.slug]">
+          <mat-card appearance="outlined" class="challenge-catalog__card">
+            <mat-card-header>
+              <mat-card-title>{{ challenge.title }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-chip-set>
+                <mat-chip>{{ challenge.category }}</mat-chip>
+              </mat-chip-set>
+            </mat-card-content>
+          </mat-card>
+        </a>
+      }
+    </div>
+  }
 </section>

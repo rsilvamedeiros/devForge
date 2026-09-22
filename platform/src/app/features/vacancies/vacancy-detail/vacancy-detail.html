@@ -4,13 +4,37 @@
   <mat-card appearance="outlined" class="vacancy-detail__card">
     <mat-tab-group>
       <mat-tab label="Visão geral">
-        <markdown [src]="item.contentPath" class="vacancy-detail__markdown" />
+        @if (!overviewLoaded()) {
+          <mat-progress-bar mode="indeterminate" />
+        }
+        <markdown
+          [src]="item.contentPath"
+          class="vacancy-detail__markdown"
+          (ready)="overviewLoaded.set(true)"
+          (error)="overviewLoaded.set(true)"
+        />
       </mat-tab>
       <mat-tab label="Requisitos">
-        <markdown [src]="item.requirementsPath" class="vacancy-detail__markdown" />
+        @if (!requirementsLoaded()) {
+          <mat-progress-bar mode="indeterminate" />
+        }
+        <markdown
+          [src]="item.requirementsPath"
+          class="vacancy-detail__markdown"
+          (ready)="requirementsLoaded.set(true)"
+          (error)="requirementsLoaded.set(true)"
+        />
       </mat-tab>
       <mat-tab label="Preparação">
-        <markdown [src]="item.interviewPrepPath" class="vacancy-detail__markdown" />
+        @if (!prepLoaded()) {
+          <mat-progress-bar mode="indeterminate" />
+        }
+        <markdown
+          [src]="item.interviewPrepPath"
+          class="vacancy-detail__markdown"
+          (ready)="prepLoaded.set(true)"
+          (error)="prepLoaded.set(true)"
+        />
       </mat-tab>
     </mat-tab-group>
   </mat-card>

@@ -1,3 +1,5 @@
+<div class="sidebar__section-label">Estudo</div>
+
 <mat-nav-list>
   @for (item of navItems; track item.path) {
     <a
@@ -6,9 +8,12 @@
       routerLinkActive
       #rla="routerLinkActive"
       [activated]="rla.isActive"
+      (click)="linkClick.emit()"
     >
       <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
       <span matListItemTitle>{{ item.label }}</span>
     </a>
   }
 </mat-nav-list>
+
+<div class="sidebar__footer">DevForge — ciclo vaga → skills → gaps → estudo</div>

@@ -4,6 +4,22 @@
     color: var(--mat-sys-on-surface-variant);
   }
 
+  &__toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0 1.5rem;
+  }
+
+  &__search {
+    min-width: 220px;
+  }
+
+  &__empty {
+    color: var(--mat-sys-on-surface-variant);
+  }
+
   &__category {
     margin-top: 1.5rem;
     font-size: 1.1rem;

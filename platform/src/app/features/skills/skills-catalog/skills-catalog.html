@@ -2,7 +2,32 @@
   <h1>Skills</h1>
   <p class="skills-catalog__intro">Conhecimento permanente, organizado por categoria. Uma skill não pertence a uma vaga — é reaproveitada entre processos.</p>
 
-  @for (group of skillsByCategory; track group.category) {
+  <div class="skills-catalog__toolbar">
+    <mat-form-field appearance="outline" subscriptSizing="dynamic" class="skills-catalog__search">
+      <mat-label>Buscar skill</mat-label>
+      <input matInput placeholder="Ex: RxJS" (input)="onSearchInput($event)" />
+    </mat-form-field>
+
+    <mat-chip-listbox aria-label="Filtrar por categoria">
+      <mat-chip-option [selected]="selectedCategory() === 'all'" (click)="selectCategory('all')">
+        Todas
+      </mat-chip-option>
+      @for (category of categories; track category) {
+        <mat-chip-option
+          [selected]="selectedCategory() === category"
+          (click)="selectCategory(category)"
+        >
+          {{ categoryLabels[category] }}
+        </mat-chip-option>
+      }
+    </mat-chip-listbox>
+  </div>
+
+  @if (skillsByCategory().length === 0) {
+    <p class="skills-catalog__empty">Nenhuma skill encontrada para esse filtro.</p>
+  }
+
+  @for (group of skillsByCategory(); track group.category) {
     <h2 class="skills-catalog__category">{{ group.label }}</h2>
     <div class="skills-catalog__grid">
       @for (skill of group.skills; track skill.slug) {

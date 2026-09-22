@@ -1,4 +1,5 @@
 .header__title {
+  margin-left: 0.25rem;
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -8,4 +9,8 @@
   margin-left: 0.75rem;
   opacity: 0.8;
   font-size: 0.85rem;
+
+  @media (max-width: 640px) {
+    display: none;
+  }
 }

@@ -12,10 +12,11 @@ Um índice leve em `src/app/core/data/content-index.ts` mapeia slug → categori
 
 Angular Material (tema `azure-blue`, mesma paleta do `labs/angular-digital-equities` para consistência visual entre os dois projetos Angular do repo).
 
-- `MatToolbar` + `MatSidenav`/`MatNavList` — shell com navegação por seção (Dashboard, Skills, Vagas, Challenges, Planos de estudo).
-- `MatCard` em grid — catálogo estilo curso (Skills, Challenges, Planos de estudo).
+- `MatToolbar` + `MatSidenav`/`MatNavList` — shell com navegação por seção (Dashboard, Skills, Vagas, Challenges, Planos de estudo). Sidebar colapsável (botão de menu no header) e responsiva: vira `mode="over"` (overlay, fecha ao navegar) abaixo do breakpoint `Handset` do `@angular/cdk/layout`, `mode="side"` (fixa, colapsável) acima dele.
+- `MatCard` em grid — catálogo estilo curso (Skills, Challenges, Planos de estudo), com busca (`MatFormField`/`MatInput`) e filtro por categoria (`MatChipListbox`) em Skills e Challenges.
+- Dashboard com card de "vaga em foco", barras de distribuição de skills por categoria e atalhos "continue estudando" — não só contadores.
 - `MatTabGroup` — página de vaga, alternando entre Visão geral / Requisitos / Preparação.
-- `ngx-markdown` — renderização do conteúdo real, com CSS global em `src/styles.scss` para tabelas, blocos de código e citações dentro do `<markdown>`.
+- `ngx-markdown` — renderização do conteúdo real, com `MatProgressBar` indeterminado enquanto o `.md` carrega (eventos `(ready)`/`(error)` do `<markdown>`) e CSS global em `src/styles.scss` para tabelas, blocos de código e citações.
 
 ## Estrutura
 

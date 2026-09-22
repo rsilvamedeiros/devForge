@@ -2,8 +2,11 @@
   <a mat-button routerLink="/study-plans" class="study-plan-detail__back">← Planos de estudo</a>
 
   <mat-card appearance="outlined" class="study-plan-detail__card">
+    @if (!loaded()) {
+      <mat-progress-bar mode="indeterminate" />
+    }
     <mat-card-content>
-      <markdown [src]="item.contentPath" />
+      <markdown [src]="item.contentPath" (ready)="loaded.set(true)" (error)="loaded.set(true)" />
     </mat-card-content>
   </mat-card>
 } @else {
