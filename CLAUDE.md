@@ -64,3 +64,8 @@ Convenções específicas para `labs/angular-digital-equities` (de `docs/guides/
 - Código didático, mas próximo de produção; evitar abstrações prematuras.
 - Cada feature deve declarar quais skills exercita (comentário curto ou seção no README do lab).
 - Testes onde agregarem ao aprendizado, não por obrigação.
+- UI usa **Angular Material** (`ng add @angular/material` já feito, tema `azure-blue`) — evoluir uma tela significa trocar HTML cru por componentes Material (`MatFormField`, `MatTable`, `MatButton`, etc.), não escrever CSS do zero.
+
+## Cada lab é autocontido — sem package.json na raiz do repo
+
+Não criar um `package.json`/npm workspace na raiz do DevForge para orquestrar os labs, mesmo que isso pareça conveniente. Cada lab em `labs/` carrega seu próprio tooling (`package.json`, `requirements.txt`, etc.) e roda de dentro da própria pasta (`cd labs/<nome> && npm start`, por exemplo). Motivo: este repo é propositalmente poliglota — `docs/architecture/INFORMATION-ARCHITECTURE.md` já prevê categorias como `backend`, `infrastructure`, `databases`, e vagas futuras podem exigir labs em Python, Java, Go etc. Um `package.json` na raiz sinalizaria "isto é um projeto npm" e não escala para isso. Reavaliar só quando existirem 2+ labs em Node/TS que genuinamente se beneficiem de tooling compartilhado (ex.: config de lint/tsconfig comum) — e mesmo assim, workspaces (não um app único), nunca um build compartilhado entre labs.

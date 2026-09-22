@@ -1,3 +1,7 @@
 .orders-page {
   display: block;
+
+  &__form {
+    margin-bottom: 1.25rem;
+  }
 }

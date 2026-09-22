@@ -53,6 +53,12 @@ src/app/
 └── shared/
 ```
 
+## UI
+
+[Angular Material](https://material.angular.dev) (tema Material 3 `azure-blue`, densidade 0, tipografia Roboto). Escolhido por ser a lib oficial do time Angular — acessibilidade forte por padrão e é o que mais cai em entrevista Angular, cobrindo o "UX/acessibilidade" citado como diferencial na vaga BTG. `provideAnimationsAsync()` está registrado em `app.config.ts`.
+
+Componentes já em uso: `MatToolbar` (header), `MatSidenav` + `MatNavList` (sidebar), `MatFormField`/`MatInput`/`MatSelect` (busca e filtro), `MatTable` (listagens), `MatButton`/`MatButtonToggle` (ações e escolha compra/venda), `MatCard` (agrupamento do formulário de ordem), `MatProgressSpinner` (loading). Evoluir tela nova = puxar o módulo do componente Material equivalente antes de estilizar à mão.
+
 ## Rodando o projeto
 
 Gerado com Angular CLI 20.3.37 (standalone, sem SSR, SCSS).

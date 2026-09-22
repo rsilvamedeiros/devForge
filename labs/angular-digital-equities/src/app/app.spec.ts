@@ -20,6 +20,6 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Digital Equities Lab');
+    expect(compiled.querySelector('.header__title')?.textContent).toContain('Digital Equities Lab');
   });
 });

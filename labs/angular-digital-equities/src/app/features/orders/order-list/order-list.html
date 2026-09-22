@@ -1,36 +1,50 @@
 @if (orders().length === 0) {
   <p class="order-list__empty">Nenhuma ordem enviada ainda.</p>
 } @else {
-  <table class="order-list__table">
-    <thead>
-      <tr>
-        <th>Ticker</th>
-        <th>Lado</th>
-        <th>Qtd.</th>
-        <th>Preço</th>
-        <th>Total líquido</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (order of orders(); track order.id) {
-        <tr>
-          <td>{{ order.symbol }}</td>
-          <td>
-            <span class="order-list__side" [class.order-list__side--buy]="order.side === 'buy'" [class.order-list__side--sell]="order.side === 'sell'">
-              {{ order.side === 'buy' ? 'Compra' : 'Venda' }}
-            </span>
-          </td>
-          <td>{{ order.quantity }}</td>
-          <td>{{ order.price | number: '1.2-2' }}</td>
-          <td>{{ order.netTotal | number: '1.2-2' }}</td>
-          <td>
-            <span class="order-list__status" [class]="'order-list__status--' + order.status">
-              {{ order.status }}
-            </span>
-          </td>
-        </tr>
-      }
-    </tbody>
+  <table mat-table [dataSource]="orders()" class="order-list__table">
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef>Ticker</th>
+      <td mat-cell *matCellDef="let order">{{ order.symbol }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="side">
+      <th mat-header-cell *matHeaderCellDef>Lado</th>
+      <td mat-cell *matCellDef="let order">
+        <span
+          class="order-list__side"
+          [class.order-list__side--buy]="order.side === 'buy'"
+          [class.order-list__side--sell]="order.side === 'sell'"
+        >
+          {{ order.side === 'buy' ? 'Compra' : 'Venda' }}
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="quantity">
+      <th mat-header-cell *matHeaderCellDef>Qtd.</th>
+      <td mat-cell *matCellDef="let order">{{ order.quantity }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Preço</th>
+      <td mat-cell *matCellDef="let order">{{ order.price | number: '1.2-2' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="netTotal">
+      <th mat-header-cell *matHeaderCellDef>Total líquido</th>
+      <td mat-cell *matCellDef="let order">{{ order.netTotal | number: '1.2-2' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let order">
+        <span class="order-list__status" [class]="'order-list__status--' + order.status">
+          {{ order.status }}
+        </span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 }

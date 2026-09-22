@@ -1,11 +1,25 @@
 import { DecimalPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject, OnInit, signal } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 import { AssetService } from '../../../core/services/asset.service';
 import { changePercent } from '../../../core/models/asset.model';
 
 @Component({
   selector: 'app-asset-list',
-  imports: [DecimalPipe],
+  imports: [
+    DecimalPipe,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    MatTableModule,
+  ],
   templateUrl: './asset-list.html',
   styleUrl: './asset-list.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,6 +33,8 @@ export class AssetList implements OnInit {
 
   readonly searchTerm = signal('');
   readonly sectorFilter = signal<string>('all');
+
+  readonly displayedColumns = ['symbol', 'name', 'sector', 'price', 'change', 'volume'];
 
   readonly sectors = computed(() => {
     const unique = new Set(this.assets().map(asset => asset.sector));
@@ -50,8 +66,8 @@ export class AssetList implements OnInit {
     this.searchTerm.set((event.target as HTMLInputElement).value);
   }
 
-  onSectorChange(event: Event): void {
-    this.sectorFilter.set((event.target as HTMLSelectElement).value);
+  onSectorChange(value: string): void {
+    this.sectorFilter.set(value);
   }
 
   reload(): void {

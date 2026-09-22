@@ -1,9 +1,13 @@
 <app-header />
 
-<div class="app-body">
-  <app-sidebar />
+<mat-sidenav-container class="app-shell">
+  <mat-sidenav mode="side" opened class="app-sidenav">
+    <app-sidebar />
+  </mat-sidenav>
 
-  <main class="app-content">
-    <router-outlet />
-  </main>
-</div>
+  <mat-sidenav-content>
+    <main class="app-content">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

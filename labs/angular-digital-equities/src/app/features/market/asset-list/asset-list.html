@@ -1,56 +1,76 @@
 <section class="market">
-  <header class="market__toolbar">
-    <input
-      type="search"
-      placeholder="Buscar por ticker ou nome..."
-      (input)="onSearchInput($event)"
-    />
+  <div class="market__toolbar">
+    <mat-form-field appearance="outline" subscriptSizing="dynamic" class="market__search">
+      <mat-label>Buscar</mat-label>
+      <input matInput placeholder="Ticker ou nome" (input)="onSearchInput($event)" />
+    </mat-form-field>
 
-    <select (change)="onSectorChange($event)">
-      @for (sector of sectors(); track sector) {
-        <option [value]="sector">{{ sector === 'all' ? 'Todos os setores' : sector }}</option>
-      }
-    </select>
+    <mat-form-field appearance="outline" subscriptSizing="dynamic" class="market__sector">
+      <mat-label>Setor</mat-label>
+      <mat-select [value]="sectorFilter()" (selectionChange)="onSectorChange($event.value)">
+        @for (sector of sectors(); track sector) {
+          <mat-option [value]="sector">{{ sector === 'all' ? 'Todos os setores' : sector }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
 
-    <button type="button" (click)="reload()">Recarregar</button>
-    <button type="button" (click)="simulateError()">Simular erro</button>
-  </header>
+    <button mat-stroked-button type="button" (click)="reload()">Recarregar</button>
+    <button mat-stroked-button color="warn" type="button" (click)="simulateError()">Simular erro</button>
+  </div>
 
   @if (loading()) {
-    <p class="market__state">Carregando ativos...</p>
+    <div class="market__state">
+      <mat-spinner diameter="28" />
+      <span>Carregando ativos...</span>
+    </div>
   } @else if (error()) {
     <div class="market__state market__state--error">
       <p>{{ error() }}</p>
-      <button type="button" (click)="reload()">Tentar novamente</button>
+      <button mat-flat-button color="primary" type="button" (click)="reload()">Tentar novamente</button>
     </div>
   } @else if (filteredAssets().length === 0) {
     <p class="market__state">Nenhum ativo encontrado para esse filtro.</p>
   } @else {
-    <table class="market__table">
-      <thead>
-        <tr>
-          <th>Ticker</th>
-          <th>Nome</th>
-          <th>Setor</th>
-          <th>Preço</th>
-          <th>Variação</th>
-          <th>Volume</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (asset of filteredAssets(); track asset.id) {
-          <tr [class.market__row--inactive]="!asset.active">
-            <td>{{ asset.symbol }}</td>
-            <td>{{ asset.name }}</td>
-            <td>{{ asset.sector }}</td>
-            <td>{{ asset.price | number: '1.2-2' }}</td>
-            <td [class.market__change--up]="changePercent(asset) >= 0" [class.market__change--down]="changePercent(asset) < 0">
-              {{ changePercent(asset) | number: '1.2-2' }}%
-            </td>
-            <td>{{ asset.volume | number }}</td>
-          </tr>
-        }
-      </tbody>
+    <table mat-table [dataSource]="filteredAssets()" class="market__table">
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef>Ticker</th>
+        <td mat-cell *matCellDef="let asset">{{ asset.symbol }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let asset">{{ asset.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="sector">
+        <th mat-header-cell *matHeaderCellDef>Setor</th>
+        <td mat-cell *matCellDef="let asset">{{ asset.sector }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Preço</th>
+        <td mat-cell *matCellDef="let asset">{{ asset.price | number: '1.2-2' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="change">
+        <th mat-header-cell *matHeaderCellDef>Variação</th>
+        <td
+          mat-cell
+          *matCellDef="let asset"
+          [class.market__change--up]="changePercent(asset) >= 0"
+          [class.market__change--down]="changePercent(asset) < 0"
+        >
+          {{ changePercent(asset) | number: '1.2-2' }}%
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="volume">
+        <th mat-header-cell *matHeaderCellDef>Volume</th>
+        <td mat-cell *matCellDef="let asset">{{ asset.volume | number }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" [class.market__row--inactive]="!row.active"></tr>
     </table>
   }
 </section>
