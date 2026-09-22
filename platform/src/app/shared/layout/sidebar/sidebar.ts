@@ -39,7 +39,7 @@ export class Sidebar {
     {
       label: 'Aprendizado',
       items: [
-        { label: 'Trilhas', path: '/tracks', icon: 'conversion_path', badge: '3', badgeTone: 'neutral' },
+        { label: 'Trilhas', path: '/tracks', icon: 'timeline', badge: '3', badgeTone: 'neutral' },
         { label: 'Skills', path: '/skills', icon: 'school', badge: '13', badgeTone: 'neutral' },
         { label: 'Challenges', path: '/challenges', icon: 'terminal', badge: '2/6', badgeTone: 'progress' },
         { label: 'Planos de estudo', path: '/study-plans', icon: 'calendar_month' },

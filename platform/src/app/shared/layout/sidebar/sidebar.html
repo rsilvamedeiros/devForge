@@ -19,7 +19,12 @@
         <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
         <span matListItemTitle>{{ item.label }}</span>
         @if (item.badge) {
-          <span class="sidebar__badge" [class]="'sidebar__badge sidebar__badge--' + (item.badgeTone ?? 'neutral')">
+          <span
+            class="sidebar__badge"
+            [class.sidebar__badge--neutral]="!item.badgeTone || item.badgeTone === 'neutral'"
+            [class.sidebar__badge--progress]="item.badgeTone === 'progress'"
+            [class.sidebar__badge--live]="item.badgeTone === 'live'"
+          >
             @if (item.badgeTone === 'live') { <i></i> }
             {{ item.badge }}
           </span>
@@ -28,13 +33,6 @@
     }
   }
 </mat-nav-list>
-
-<div class="sidebar__focus">
-  <div class="sidebar__focus-icon"><mat-icon>track_changes</mat-icon></div>
-  <div class="sidebar__focus-copy"><div class="sidebar__focus-top"><span>Foco semanal</span><strong>72%</strong></div>
-  <div class="sidebar__focus-track"><span></span></div>
-  <small>3 de 5 sessões concluídas</small></div>
-</div>
 
 <div class="sidebar__preferences">
   <div class="sidebar__footer"><span class="sidebar__status"></span><span>Base sincronizada</span><span>v0.4</span></div>
