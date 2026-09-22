@@ -196,6 +196,20 @@ A evolução dos labs também pode cobrir uma tecnologia principal por projeto, 
 - `react-service-operations` — React em atendimento e SLA;
 - próximos: Next.js, Vue e Svelte, conforme prioridade de estudo.
 
+### Execução centralizada
+
+Os projetos Node/TypeScript participam de um workspace npm na raiz. Isso reduz a fricção para instalar dependências e executar a plataforma ou qualquer lab sem navegar entre pastas:
+
+```bash
+npm install
+npm start
+npm run dev:angular
+npm run dev:react
+npm run dev:typescript
+```
+
+O workspace é apenas uma camada de orquestração. Cada projeto preserva dependências, scripts e build próprios; futuros labs em outras linguagens continuam independentes do npm.
+
 ## 11. Evolução futura
 
 Possível aplicação:

@@ -137,6 +137,8 @@
 - `labs/typescript-order-processing/tests/order-processor.spec.ts`
 - `labs/typescript-order-processing/tsconfig.json`
 - `MANIFEST.md`
+- `package.json`
+- `package-lock.json`
 - `platform/.editorconfig`
 - `platform/.gitignore`
 - `platform/angular.json`

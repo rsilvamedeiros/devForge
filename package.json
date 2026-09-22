@@ -1,0 +1,29 @@
+{
+  "name": "devforge-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "platform",
+    "labs/angular-digital-equities",
+    "labs/react-service-operations",
+    "labs/typescript-order-processing"
+  ],
+  "scripts": {
+    "start": "npm run dev:platform",
+    "dev": "npm run dev:platform",
+    "dev:platform": "npm run start --workspace=devforge-platform",
+    "dev:angular": "npm run start --workspace=digital-equities",
+    "dev:react": "npm run dev --workspace=react-service-operations",
+    "dev:typescript": "npm run start --workspace=typescript-order-processing",
+    "build": "npm run build --workspaces --if-present",
+    "build:platform": "npm run build --workspace=devforge-platform",
+    "build:angular": "npm run build --workspace=digital-equities",
+    "build:react": "npm run build --workspace=react-service-operations",
+    "build:typescript": "npm run build --workspace=typescript-order-processing",
+    "test": "npm run test:platform && npm run test:angular && npm run test:react && npm run test:typescript",
+    "test:platform": "npm run test --workspace=devforge-platform -- --watch=false --browsers=ChromeHeadless",
+    "test:angular": "npm run test --workspace=digital-equities -- --watch=false --browsers=ChromeHeadless",
+    "test:react": "npm run test --workspace=react-service-operations",
+    "test:typescript": "npm run test --workspace=typescript-order-processing"
+  }
+}

@@ -59,7 +59,9 @@ Veja [`vacancies/btg-digital-equities/README.md`](vacancies/btg-digital-equities
 
 ```text
 devforge/
+├── package.json      # comandos centralizados dos projetos Node/TypeScript
 ├── docs/             # visão, arquitetura, metodologia e templates
+├── platform/         # aplicação do DevForge
 ├── vacancies/        # processos seletivos
 ├── skills/           # conhecimento permanente
 ├── challenges/       # exercícios e live coding
@@ -68,6 +70,19 @@ devforge/
 ├── study-plans/      # planos intensivos ou por vaga
 └── resources/        # referências de estudo
 ```
+
+## Executar os projetos
+
+A raiz funciona como um workspace npm. Depois de `npm install`, os projetos podem ser executados sem trocar de pasta:
+
+```bash
+npm start             # plataforma DevForge
+npm run dev:angular   # lab Angular Digital Equities
+npm run dev:react     # lab React Service Operations
+npm run dev:typescript # lab TypeScript Order Processing
+```
+
+Também existem comandos `build`, `build:<projeto>`, `test` e `test:<projeto>`. Cada projeto continua com seu próprio `package.json` e pode ser executado isoladamente.
 
 ## Escala de domínio
 
