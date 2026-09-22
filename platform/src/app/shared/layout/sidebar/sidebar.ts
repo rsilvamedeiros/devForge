@@ -7,6 +7,12 @@ interface NavItem {
   label: string;
   path: string;
   icon: string;
+  badge?: string;
+}
+
+interface NavGroup {
+  label: string;
+  items: NavItem[];
 }
 
 @Component({
@@ -19,13 +25,26 @@ interface NavItem {
 export class Sidebar {
   readonly linkClick = output<void>();
 
-  readonly navItems: NavItem[] = [
-    { label: 'Visão geral', path: '/dashboard', icon: 'grid_view' },
-    { label: 'Meu progresso', path: '/progress', icon: 'trending_up' },
-    { label: 'Jornada', path: '/journey', icon: 'route' },
-    { label: 'Skills', path: '/skills', icon: 'school' },
-    { label: 'Vagas', path: '/vacancies', icon: 'work' },
-    { label: 'Challenges', path: '/challenges', icon: 'code' },
-    { label: 'Planos de estudo', path: '/study-plans', icon: 'calendar_month' },
+  readonly navGroups: NavGroup[] = [
+    {
+      label: 'Visão',
+      items: [
+        { label: 'Visão geral', path: '/dashboard', icon: 'grid_view' },
+        { label: 'Meu progresso', path: '/progress', icon: 'trending_up', badge: '72%' },
+        { label: 'Jornada', path: '/journey', icon: 'route' },
+      ],
+    },
+    {
+      label: 'Aprendizado',
+      items: [
+        { label: 'Skills', path: '/skills', icon: 'school', badge: '13' },
+        { label: 'Challenges', path: '/challenges', icon: 'terminal', badge: '6' },
+        { label: 'Planos de estudo', path: '/study-plans', icon: 'calendar_month' },
+      ],
+    },
+    {
+      label: 'Carreira',
+      items: [{ label: 'Vagas', path: '/vacancies', icon: 'work_outline', badge: '1' }],
+    },
   ];
 }

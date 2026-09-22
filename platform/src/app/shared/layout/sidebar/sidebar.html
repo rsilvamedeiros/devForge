@@ -4,28 +4,27 @@
   <mat-icon>unfold_more</mat-icon>
 </div>
 
-<div class="sidebar__section-label">Workspace</div>
-
-<mat-nav-list>
-  @for (item of navItems; track item.path) {
-    <a
-      mat-list-item
-      [routerLink]="item.path"
-      routerLinkActive
-      #rla="routerLinkActive"
-      [activated]="rla.isActive"
-      (click)="linkClick.emit()"
-    >
-      <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
-      <span matListItemTitle>{{ item.label }}</span>
-    </a>
+<mat-nav-list class="sidebar__nav">
+  @for (group of navGroups; track group.label) {
+    <div class="sidebar__section-label">{{ group.label }}</div>
+    @for (item of group.items; track item.path) {
+      <a mat-list-item [routerLink]="item.path" routerLinkActive #rla="routerLinkActive" [activated]="rla.isActive" (click)="linkClick.emit()">
+        <span class="sidebar__active-mark"></span>
+        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+        <span matListItemTitle>{{ item.label }}</span>
+        @if (item.badge) { <span class="sidebar__badge">{{ item.badge }}</span> }
+      </a>
+    }
   }
 </mat-nav-list>
 
 <div class="sidebar__focus">
-  <div class="sidebar__focus-top"><span>Foco semanal</span><strong>72%</strong></div>
+  <div class="sidebar__focus-icon"><mat-icon>track_changes</mat-icon></div>
+  <div class="sidebar__focus-copy"><div class="sidebar__focus-top"><span>Foco semanal</span><strong>72%</strong></div>
   <div class="sidebar__focus-track"><span></span></div>
-  <small>3 de 5 sessões concluídas</small>
+  <small>3 de 5 sessões concluídas</small></div>
 </div>
 
-<div class="sidebar__footer"><span class="sidebar__status"></span> Conteúdo sincronizado</div>
+<div class="sidebar__preferences">
+  <div class="sidebar__footer"><span class="sidebar__status"></span> Conteúdo sincronizado <span>v0.4</span></div>
+</div>

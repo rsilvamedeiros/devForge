@@ -5,6 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { CHALLENGES, SKILLS, STUDY_PLANS, VACANCIES } from '../../../core/data/content-index';
+import { ThemeService } from '../../../core/services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +16,7 @@ import { CHALLENGES, SKILLS, STUDY_PLANS, VACANCIES } from '../../../core/data/c
 })
 export class Header {
   private readonly router = inject(Router);
+  readonly theme = inject(ThemeService);
   readonly menuToggle = output<void>();
   readonly searchTerm = signal('');
 

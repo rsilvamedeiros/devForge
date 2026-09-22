@@ -1,7 +1,7 @@
 <section class="dashboard">
   <header class="dashboard__welcome">
-    <div><span class="page-eyebrow">Terça-feira, 22 de setembro</span><h1>Pronto para evoluir?</h1><p>Seu foco está claro. Continue de onde parou e mantenha o ritmo.</p></div>
-    <div class="dashboard__streak"><span><mat-icon>local_fire_department</mat-icon><strong>7 dias</strong></span><small>melhor sequência: 12 dias</small></div>
+    <div><span class="page-eyebrow">{{ currentDate }}</span><h1>Pronto para evoluir?</h1><p>Seu foco está claro. Continue de onde parou e mantenha o ritmo.</p></div>
+    <div class="dashboard__welcome-actions"><a mat-flat-button routerLink="/skills/angular"><mat-icon>play_arrow</mat-icon> Sessão de foco</a><div class="dashboard__streak"><span><mat-icon>local_fire_department</mat-icon><strong>7 dias</strong></span><small>melhor sequência: 12 dias</small></div></div>
   </header>
   <div class="dashboard__stats">
     @for (stat of stats; track stat.label) {
@@ -34,5 +34,34 @@
         <div class="dashboard__study-progress"><span [style.width.%]="28 + i * 16"></span></div><small>{{ 28 + i * 16 }}% concluído</small>
       </a>
     }
+  </div>
+
+  <div class="dashboard__insights">
+    <article class="dashboard__priorities surface-card">
+      <div class="dashboard__section-head dashboard__section-head--inside"><div><span>Fila inteligente</span><h2>Prioridades recomendadas</h2></div><a routerLink="/journey">Ver jornada <mat-icon>arrow_forward</mat-icon></a></div>
+      <div class="dashboard__priority-list">
+        @for (item of prioritySkills; track item.skill.slug; let i = $index) {
+          <a [routerLink]="['/skills', item.skill.slug]" class="dashboard__priority">
+            <span class="dashboard__priority-rank">0{{ i + 1 }}</span>
+            <span class="dashboard__priority-icon"><mat-icon>{{ i === 0 ? 'code' : i === 1 ? 'sync_alt' : 'account_tree' }}</mat-icon></span>
+            <span class="dashboard__priority-copy"><strong>{{ item.skill.title }}</strong><small>{{ item.reason }}</small></span>
+            <span class="dashboard__priority-progress"><i><b [style.width.%]="item.progress"></b></i><small>{{ item.progress }}%</small></span>
+            <span class="dashboard__priority-level">{{ item.level }}</span>
+            <mat-icon class="dashboard__priority-arrow">chevron_right</mat-icon>
+          </a>
+        }
+      </div>
+    </article>
+
+    <article class="dashboard__coverage surface-card">
+      <div class="dashboard__card-header"><div><span>Biblioteca</span><h2>Cobertura de skills</h2></div><a routerLink="/skills" aria-label="Abrir skills"><mat-icon>north_east</mat-icon></a></div>
+      <div class="dashboard__donut" [style.background]="coverageGradient"><span><strong>{{ recentSkills.length + 9 }}</strong><small>skills</small></span></div>
+      <div class="dashboard__coverage-list">
+        @for (group of categoryBreakdown; track group.category; let i = $index) {
+          <div><i [style.background]="categoryColors[i]"></i><span>{{ group.label }}</span><strong>{{ group.count }}</strong></div>
+        }
+      </div>
+      <p><mat-icon>lightbulb</mat-icon><span>Sua maior cobertura está em <strong>Frontend</strong>. Architecture é a próxima fronteira.</span></p>
+    </article>
   </div>
 </section>

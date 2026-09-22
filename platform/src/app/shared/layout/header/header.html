@@ -21,6 +21,17 @@
   </form>
 
   <div class="header__actions">
+    <button
+      class="header__theme"
+      type="button"
+      (click)="theme.toggle()"
+      [attr.aria-label]="theme.isDark() ? 'Ativar tema claro' : 'Ativar tema escuro'"
+      [attr.title]="theme.isDark() ? 'Ativar tema claro' : 'Ativar tema escuro'"
+    >
+      <mat-icon>{{ theme.isDark() ? 'dark_mode' : 'light_mode' }}</mat-icon>
+      <span>{{ theme.isDark() ? 'Escuro' : 'Claro' }}</span>
+      <i class="header__theme-switch" [class.is-on]="theme.isDark()"><b></b></i>
+    </button>
     <button mat-icon-button type="button" aria-label="Notificações"><mat-icon>notifications_none</mat-icon></button>
     <div class="header__avatar" aria-label="Perfil do usuário">RS</div>
   </div>

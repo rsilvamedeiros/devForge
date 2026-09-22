@@ -5,7 +5,7 @@
   padding: 0 1.5rem;
   gap: 1rem;
   color: var(--forge-ink);
-  background: rgba(255, 255, 255, 0.94);
+  background: color-mix(in srgb, var(--forge-surface) 94%, transparent);
   border-bottom: 1px solid var(--forge-border);
   backdrop-filter: blur(16px);
 }
@@ -33,18 +33,27 @@
   gap: 0.6rem;
   border: 1px solid var(--forge-border);
   border-radius: 12px;
-  background: #f7f7fb;
+  background: var(--forge-canvas);
 
   mat-icon { color: #8b879a; }
   input { width: 100%; border: 0; outline: 0; background: transparent; font: inherit; color: var(--forge-ink); }
 }
 .header__shortcut { padding: 0.15rem 0.45rem; border: 1px solid #ddd9e8; border-radius: 6px; color: #8b879a; font-size: 0.72rem; white-space: nowrap; }
 .header__actions { display: flex; align-items: center; gap: 0.5rem; }
-.header__avatar { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; color: #fff; background: var(--forge-ink); font-size: 0.72rem; font-weight: 700; }
+.header__theme { display: flex; height: 38px; align-items: center; gap: .45rem; padding: 0 .55rem; border: 1px solid var(--forge-border); border-radius: 11px; color: var(--forge-muted); background: var(--forge-canvas); font: 600 .72rem 'DM Sans'; cursor: pointer; transition: border-color 180ms, background 180ms; }
+.header__theme:hover { border-color: var(--forge-primary); color: var(--forge-ink); }
+.header__theme > mat-icon { width: 1rem; height: 1rem; color: var(--forge-primary); font-size: 1rem; }
+.header__theme-switch { position: relative; width: 29px; height: 17px; margin-left: .15rem; border-radius: 18px; background: #d7d4df; transition: background 180ms; }
+.header__theme-switch b { position: absolute; top: 3px; left: 3px; width: 11px; height: 11px; border-radius: 50%; background: white; box-shadow: 0 1px 3px rgba(0,0,0,.18); transition: transform 180ms; }
+.header__theme-switch.is-on { background: var(--forge-primary); }
+.header__theme-switch.is-on b { transform: translateX(12px); }
+.header__avatar { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; color: #fff; background: var(--forge-primary); font-size: 0.72rem; font-weight: 700; }
 
 @media (max-width: 760px) {
   .header { padding: 0 0.75rem; }
   .header__brand { min-width: 0; }
-  .header__title, .header__shortcut, .header__actions button { display: none; }
+  .header__title, .header__shortcut, .header__actions > button:not(.header__theme) { display: none; }
+  .header__theme > span, .header__theme-switch { display: none; }
+  .header__theme { width: 36px; padding: 0; justify-content: center; }
   .header__search { width: 100%; }
 }

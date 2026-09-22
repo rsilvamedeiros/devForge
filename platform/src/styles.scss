@@ -21,7 +21,7 @@ body {
   // Default the application to a light color theme. This can be changed to
   // `dark` to enable the dark color theme, or to `light dark` to defer to the
   // user's system settings.
-  color-scheme: light;
+  color-scheme: inherit;
 
   // Set a default background, font and text colors for the application using
   // Angular Material's system-level CSS variables. Learn more about these
@@ -45,13 +45,45 @@ body {
   --forge-success: #34a873;
   --forge-warning: #f0a44b;
   --forge-surface: #ffffff;
+  --forge-canvas: #f7f7fb;
+  --forge-subtle: #f1f0f6;
   --forge-border: #e7e5ef;
   --forge-shadow: 0 18px 48px rgba(37, 32, 75, 0.08);
+  --sidebar-bg: #17152b;
+  --sidebar-surface: #211f38;
+  --sidebar-border: #34314c;
+  --sidebar-text: #aaa7bb;
+  --sidebar-muted: #77738e;
+  --sidebar-active: #2b2848;
+  --sidebar-track: #37334d;
+}
+
+html[data-theme='dark'] {
+  --forge-ink: #f4f6fb;
+  --forge-muted: #a7adbd;
+  --forge-primary: #9c8cff;
+  --forge-primary-dark: #b1a6ff;
+  --forge-primary-soft: #292640;
+  --forge-cyan: #5bd4df;
+  --forge-success: #55c991;
+  --forge-warning: #f2b35f;
+  --forge-surface: #181b27;
+  --forge-canvas: #0f111a;
+  --forge-subtle: #222635;
+  --forge-border: #2c3142;
+  --forge-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  --sidebar-bg: #080a12;
+  --sidebar-surface: #131724;
+  --sidebar-border: #252b3a;
+  --sidebar-text: #c5cad8;
+  --sidebar-muted: #7f879a;
+  --sidebar-active: #202641;
+  --sidebar-track: #292f40;
 }
 
 * { box-sizing: border-box; }
 html, body { height: 100%; }
-body { margin: 0; font-family: 'DM Sans', sans-serif; }
+body { margin: 0; font-family: 'DM Sans', sans-serif; transition: color 180ms ease, background-color 180ms ease; }
 
 h1, h2, h3, h4 {
   font-family: 'Space Grotesk', sans-serif;
@@ -109,6 +141,49 @@ mat-card.mat-mdc-card {
   border-color: var(--forge-border);
   border-radius: 18px;
   background: white;
+}
+
+html[data-theme='dark'] {
+  body,
+  .mat-drawer-content { color: var(--forge-ink); background: var(--forge-canvas); }
+
+  .skills-catalog__toolbar,
+  .challenge-catalog__toolbar,
+  .dashboard__stat,
+  .dashboard__study-card,
+  .journey__step,
+  mat-card.mat-mdc-card {
+    color: var(--forge-ink);
+    background: var(--forge-surface) !important;
+  }
+
+  .mat-mdc-form-field,
+  .mat-mdc-chip {
+    --mat-form-field-outlined-input-text-color: var(--forge-ink);
+    --mat-form-field-outlined-label-text-color: var(--forge-muted);
+    --mat-chip-label-text-color: var(--forge-muted);
+    --mat-chip-outline-color: var(--forge-border);
+  }
+
+  markdown { color: #d3d0df; }
+  markdown pre { background: #0c0e16; }
+
+  .dashboard__streak,
+  .dashboard__weekly-note,
+  .progress-page__stat {
+    border-color: var(--forge-border);
+    background: var(--forge-surface);
+  }
+
+  .dashboard__progress-track,
+  .dashboard__study-progress,
+  .progress-page__bar-track {
+    background: var(--forge-subtle);
+  }
+
+  .journey__step.is-active {
+    background: linear-gradient(135deg, #6558f5, #4e45cb) !important;
+  }
 }
 
 .skills-catalog__toolbar,

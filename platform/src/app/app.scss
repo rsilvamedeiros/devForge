@@ -13,7 +13,8 @@
   width: 264px;
   border: 0;
   border-radius: 0;
-  background: var(--forge-ink);
+  background: var(--sidebar-bg);
+  transition: background 180ms ease;
 }
 
 .app-content {
@@ -26,4 +27,4 @@
   }
 }
 
-mat-sidenav-content { background: #f7f7fb; }
+mat-sidenav-content { background: var(--forge-canvas); transition: background 180ms ease; }
