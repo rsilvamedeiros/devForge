@@ -18,13 +18,15 @@ import { LABS, SKILLS } from '../../../core/data/content-index';
 export class LabDetail {
   private readonly route = inject(ActivatedRoute);
   readonly loaded = signal(false);
-  readonly activeDocument = signal<'overview' | 'path' | 'exercises'>('overview');
+  readonly activeDocument = signal<'overview' | 'path' | 'exercises' | 'documentation'>('overview');
+  readonly selectedDocumentation = signal('');
   readonly lab = toSignal(this.route.paramMap.pipe(map(params => LABS.find(lab => lab.slug === params.get('slug')))));
   readonly documentPath = computed(() => {
     const item = this.lab();
     if (!item) return '';
     if (this.activeDocument() === 'path') return item.learningPath;
     if (this.activeDocument() === 'exercises') return item.exercisesPath;
+    if (this.activeDocument() === 'documentation') return this.selectedDocumentation() || item.documentation[0]?.contentPath || item.contentPath;
     return item.contentPath;
   });
   readonly skills = SKILLS;
@@ -33,9 +35,14 @@ export class LabDetail {
     return SKILLS.find(skill => skill.slug === slug)?.title ?? slug;
   }
 
-  selectDocument(document: 'overview' | 'path' | 'exercises'): void {
+  selectDocument(document: 'overview' | 'path' | 'exercises' | 'documentation'): void {
     this.loaded.set(false);
     this.activeDocument.set(document);
+  }
+
+  selectDocumentation(contentPath: string): void {
+    this.loaded.set(false);
+    this.selectedDocumentation.set(contentPath);
   }
 
   implementationProgress(): number {

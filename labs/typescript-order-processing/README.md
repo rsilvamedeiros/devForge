@@ -38,6 +38,7 @@ Producer → Main Queue → Order Processor
 
 - [`docs/LEARNING-PATH.md`](docs/LEARNING-PATH.md) evolui contratos até arquitetura distribuída;
 - [`docs/EXERCISES.md`](docs/EXERCISES.md) cobre erros tipados, backoff, replay e inbox/outbox;
+- [`docs/HANDBOOK.md`](docs/HANDBOOK.md) indexa a documentação completa de TypeScript;
 - a control room representa filas, métricas e resultados em tempo real;
 - a documentação permanente está nas skills de [TypeScript](../../skills/frontend/typescript/README.md), [filas](../../skills/software-engineering/queues-messaging/README.md) e [arquitetura](../../skills/software-engineering/architecture/README.md).
 

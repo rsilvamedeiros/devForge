@@ -10,10 +10,11 @@
       <button [class.active]="activeDocument() === 'overview'" (click)="selectDocument('overview')"><mat-icon>dashboard</mat-icon>Visão geral</button>
       <button [class.active]="activeDocument() === 'path'" (click)="selectDocument('path')"><mat-icon>route</mat-icon>Trilha</button>
       <button [class.active]="activeDocument() === 'exercises'" (click)="selectDocument('exercises')"><mat-icon>exercise</mat-icon>Exercícios</button>
+      <button [class.active]="activeDocument() === 'documentation'" (click)="selectDocument('documentation')"><mat-icon>menu_book</mat-icon>Documentação</button>
     </nav>
 
     <div class="lab-detail__layout">
-      <main class="lab-detail__content surface-card">@if (!loaded()) {<mat-progress-bar mode="indeterminate"/>}<markdown [src]="documentPath()" (ready)="loaded.set(true)" (error)="loaded.set(true)"/></main>
+      <main class="lab-detail__content surface-card">@if (activeDocument() === 'documentation') {<div class="lab-detail__library"><span>Biblioteca técnica · {{ item.documentation.length }} capítulos</span><div>@for (document of item.documentation; track document.contentPath) {<button [class.active]="documentPath() === document.contentPath" (click)="selectDocumentation(document.contentPath)"><mat-icon>description</mat-icon><span><strong>{{ document.title }}</strong><small>{{ document.description }}</small></span></button>}</div></div>}@if (!loaded()) {<mat-progress-bar mode="indeterminate"/>}<markdown [src]="documentPath()" (ready)="loaded.set(true)" (error)="loaded.set(true)"/></main>
       <aside>
         <article class="surface-card lab-detail__modules"><span>Mapa do laboratório</span><div>@for (module of item.modules; track module.title; let index = $index) {<section [class.next]="module.status === 'next'"><b>@if (module.status === 'implemented') {<mat-icon>check</mat-icon>} @else { {{ index + 1 }} }</b><div><strong>{{ module.title }}</strong><small>{{ module.focus }}</small></div></section>}</div></article>
         <article class="surface-card"><span>Skills exercitadas</span><div>@for (skill of item.skills; track skill) {<a [routerLink]="['/skills', skill]">{{ skillTitle(skill) }}<mat-icon>north_east</mat-icon></a>}</div></article>

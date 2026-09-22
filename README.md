@@ -86,6 +86,8 @@ Também existem comandos `build`, `build:<projeto>`, `test` e `test:<projeto>`. 
 
 Cada lab segue o [`padrão de laboratório completo`](docs/guides/LAB-STANDARD.md): produto visual, trilha, documentação de skills, exercícios progressivos, testes e evidências.
 
+Angular, React e TypeScript possuem handbooks próprios, divididos em capítulos e acessíveis na área de documentação de cada lab na plataforma.
+
 ## Escala de domínio
 
 | Nível | Critério |

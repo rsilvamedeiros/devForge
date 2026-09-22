@@ -214,6 +214,8 @@ O workspace é apenas uma camada de orquestração. Cada projeto preserva depend
 
 Antes de adicionar uma nova tecnologia, os labs ativos devem atender ao [`padrão de laboratório completo`](guides/LAB-STANDARD.md). Cada projeto precisa combinar experiência visual, funcionalidades, trilha de módulos, documentação das skills, exercícios progressivos, testes e critérios de evidência.
 
+Cada tecnologia principal mantém um handbook versionado dentro do lab. A skill registra o mapa permanente e as evidências; o handbook aprofunda conceitos, APIs, decisões e exemplos aplicados ao projeto.
+
 ## 11. Evolução futura
 
 Possível aplicação:

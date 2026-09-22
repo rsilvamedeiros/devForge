@@ -4,7 +4,11 @@
 
 Construir um terminal financeiro modular enquanto pratica Angular moderno, reatividade, streams e desenho de domínio.
 
+Referência completa: [`HANDBOOK.md`](HANDBOOK.md).
+
 ## Módulo 1 — Componentes e navegação
+
+**Leitura:** [`01-FUNDAMENTALS.md`](01-FUNDAMENTALS.md) e [`02-COMPONENTS-TEMPLATES.md`](02-COMPONENTS-TEMPLATES.md).
 
 **Entrega:** shell responsivo e features carregadas por rota.
 
@@ -15,6 +19,8 @@ Construir um terminal financeiro modular enquanto pratica Angular moderno, reati
 
 ## Módulo 2 — Signals e estado derivado
 
+**Leitura:** [`04-SIGNALS-RXJS-STATE.md`](04-SIGNALS-RXJS-STATE.md).
+
 **Entrega:** mercado pesquisável, watchlist e indicadores.
 
 - `signal` e `computed`;
@@ -23,6 +29,8 @@ Construir um terminal financeiro modular enquanto pratica Angular moderno, reati
 - `OnPush` e identidade de listas.
 
 ## Módulo 3 — Formulários e domínio
+
+**Leitura:** [`03-DI-DATA-NAVIGATION.md`](03-DI-DATA-NAVIGATION.md).
 
 **Entrega:** criação e validação de ordens.
 
@@ -33,6 +41,8 @@ Construir um terminal financeiro modular enquanto pratica Angular moderno, reati
 
 ## Módulo 4 — HTTP e tempo real
 
+**Leitura:** [`03-DI-DATA-NAVIGATION.md`](03-DI-DATA-NAVIGATION.md) e [`04-SIGNALS-RXJS-STATE.md`](04-SIGNALS-RXJS-STATE.md).
+
 **Entrega:** API simulada e preços atualizados continuamente.
 
 - HttpClient e interceptor;
@@ -41,6 +51,8 @@ Construir um terminal financeiro modular enquanto pratica Angular moderno, reati
 - abstração intercambiável de WebSocket.
 
 ## Módulo 5 — Risco, performance e testes
+
+**Leitura:** [`05-QUALITY-ARCHITECTURE.md`](05-QUALITY-ARCHITECTURE.md).
 
 **Entrega:** central de risco, analytics e suíte automatizada.
 

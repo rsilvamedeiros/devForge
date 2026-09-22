@@ -68,6 +68,7 @@ Um laboratório para praticar:
 
 - [`docs/LEARNING-PATH.md`](docs/LEARNING-PATH.md) descreve a sequência dos módulos;
 - [`docs/EXERCISES.md`](docs/EXERCISES.md) contém exercícios contextualizados no domínio financeiro;
+- [`docs/HANDBOOK.md`](docs/HANDBOOK.md) indexa a documentação completa de Angular;
 - a rota `/learning` conecta a trilha ao produto;
 - a documentação permanente da tecnologia fica em [`skills/frontend/angular`](../../skills/frontend/angular/README.md).
 

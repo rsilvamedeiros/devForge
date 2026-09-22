@@ -4,7 +4,11 @@
 
 Evoluir de uma fila em memória para um pipeline observável e resiliente, mantendo contratos explícitos e decisões justificáveis.
 
+Referência completa: [`HANDBOOK.md`](HANDBOOK.md).
+
 ## Módulo 1 — Modelagem e contratos
+
+**Leitura:** [`01-TYPE-SYSTEM-NARROWING.md`](01-TYPE-SYSTEM-NARROWING.md) e [`02-FUNCTIONS-GENERICS-UTILITIES.md`](02-FUNCTIONS-GENERICS-UTILITIES.md).
 
 **Entrega:** ordem, mensagem, fila genérica e validação.
 
@@ -15,6 +19,8 @@ Evoluir de uma fila em memória para um pipeline observável e resiliente, mante
 
 ## Módulo 2 — Processamento e idempotência
 
+**Leitura:** [`03-OBJECTS-CLASSES-MODULES.md`](03-OBJECTS-CLASSES-MODULES.md).
+
 **Entrega:** consumer que evita efeito duplicado.
 
 - composição e injeção de dependência;
@@ -23,6 +29,8 @@ Evoluir de uma fila em memória para um pipeline observável e resiliente, mante
 - semânticas at-least-once.
 
 ## Módulo 3 — Retry e DLQ
+
+**Leitura:** [`04-ASYNC-ERRORS-RUNTIME.md`](04-ASYNC-ERRORS-RUNTIME.md).
 
 **Entrega:** falhas transitórias retornam e poison messages são isoladas.
 
@@ -33,6 +41,8 @@ Evoluir de uma fila em memória para um pipeline observável e resiliente, mante
 
 ## Módulo 4 — Observabilidade visual
 
+**Leitura:** [`05-CONFIG-QUALITY-ARCHITECTURE.md`](05-CONFIG-QUALITY-ARCHITECTURE.md).
+
 **Entrega:** control room com filas, resultados e event log em tempo real.
 
 - métricas derivadas;
@@ -41,6 +51,8 @@ Evoluir de uma fila em memória para um pipeline observável e resiliente, mante
 - estado da UI sem framework.
 
 ## Módulo 5 — Evolução distribuída
+
+**Leitura:** [`04-ASYNC-ERRORS-RUNTIME.md`](04-ASYNC-ERRORS-RUNTIME.md) e [`05-CONFIG-QUALITY-ARCHITECTURE.md`](05-CONFIG-QUALITY-ARCHITECTURE.md).
 
 **Entrega:** desenho de inbox/outbox, persistência e particionamento.
 

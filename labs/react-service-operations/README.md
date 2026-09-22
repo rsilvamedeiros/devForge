@@ -18,6 +18,7 @@ O **Nexa Ops** organiza tickets, SLAs, responsáveis e performance operacional.
 
 - [`docs/LEARNING-PATH.md`](docs/LEARNING-PATH.md) organiza o projeto em cinco módulos;
 - [`docs/EXERCISES.md`](docs/EXERCISES.md) propõe desafios de fundamento, aplicação e arquitetura;
+- [`docs/HANDBOOK.md`](docs/HANDBOOK.md) indexa a documentação completa de React;
 - a rota `/learning` acompanha módulos sem confundir conclusão com nível de domínio;
 - a documentação permanente da tecnologia fica em [`skills/frontend/react`](../../skills/frontend/react/README.md).
 

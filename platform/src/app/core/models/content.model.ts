@@ -44,7 +44,14 @@ export interface LabItem {
   contentPath: string;
   learningPath: string;
   exercisesPath: string;
+  documentation: LabDocument[];
   modules: LabModule[];
+}
+
+export interface LabDocument {
+  title: string;
+  description: string;
+  contentPath: string;
 }
 
 export interface LabModule {

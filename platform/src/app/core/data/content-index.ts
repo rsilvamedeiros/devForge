@@ -179,6 +179,14 @@ export const LABS: LabItem[] = [
     contentPath: 'content/labs/angular-digital-equities/README.md',
     learningPath: 'content/labs/angular-digital-equities/docs/LEARNING-PATH.md',
     exercisesPath: 'content/labs/angular-digital-equities/docs/EXERCISES.md',
+    documentation: [
+      { title: 'Handbook Angular', description: 'Mapa completo da tecnologia e competências esperadas.', contentPath: 'content/labs/angular-digital-equities/docs/HANDBOOK.md' },
+      { title: 'Fundamentos e plataforma', description: 'Bootstrap, workspace, estrutura e renderização.', contentPath: 'content/labs/angular-digital-equities/docs/01-FUNDAMENTALS.md' },
+      { title: 'Componentes e templates', description: 'Bindings, control flow, lifecycle e acessibilidade.', contentPath: 'content/labs/angular-digital-equities/docs/02-COMPONENTS-TEMPLATES.md' },
+      { title: 'DI, dados e navegação', description: 'Providers, forms, Router, HttpClient e segurança.', contentPath: 'content/labs/angular-digital-equities/docs/03-DI-DATA-NAVIGATION.md' },
+      { title: 'Signals, RxJS e estado', description: 'Reatividade, streams, cleanup e ownership.', contentPath: 'content/labs/angular-digital-equities/docs/04-SIGNALS-RXJS-STATE.md' },
+      { title: 'Qualidade e arquitetura', description: 'Testes, performance, boundaries e observabilidade.', contentPath: 'content/labs/angular-digital-equities/docs/05-QUALITY-ARCHITECTURE.md' },
+    ],
     modules: [
       { title: 'Componentes e navegação', focus: 'Standalone · Material · Router', status: 'implemented' },
       { title: 'Signals e estado derivado', focus: 'Signals · computed · OnPush', status: 'implemented' },
@@ -197,6 +205,14 @@ export const LABS: LabItem[] = [
     contentPath: 'content/labs/react-service-operations/README.md',
     learningPath: 'content/labs/react-service-operations/docs/LEARNING-PATH.md',
     exercisesPath: 'content/labs/react-service-operations/docs/EXERCISES.md',
+    documentation: [
+      { title: 'Handbook React', description: 'Mapa completo da tecnologia e competências esperadas.', contentPath: 'content/labs/react-service-operations/docs/HANDBOOK.md' },
+      { title: 'Fundamentos e composição', description: 'JSX, components, props, identidade e renderização.', contentPath: 'content/labs/react-service-operations/docs/01-FUNDAMENTALS-COMPOSITION.md' },
+      { title: 'Estado, hooks e formulários', description: 'Ownership, effects, refs, context e entrada.', contentPath: 'content/labs/react-service-operations/docs/02-STATE-HOOKS-FORMS.md' },
+      { title: 'Rotas e estado remoto', description: 'URL, cache, mutations, rollback e boundaries.', contentPath: 'content/labs/react-service-operations/docs/03-ROUTING-SERVER-STATE.md' },
+      { title: 'Arquitetura e experiência', description: 'Features, acessibilidade, styling e design system.', contentPath: 'content/labs/react-service-operations/docs/04-ARCHITECTURE-UX.md' },
+      { title: 'Qualidade e performance', description: 'Testes, profiling, concorrência e segurança.', contentPath: 'content/labs/react-service-operations/docs/05-QUALITY-PERFORMANCE.md' },
+    ],
     modules: [
       { title: 'Composição da interface', focus: 'Components · Props · Router', status: 'implemented' },
       { title: 'Estado e filtros', focus: 'useState · useMemo · URL', status: 'implemented' },
@@ -216,6 +232,14 @@ export const LABS: LabItem[] = [
     contentPath: 'content/labs/typescript-order-processing/README.md',
     learningPath: 'content/labs/typescript-order-processing/docs/LEARNING-PATH.md',
     exercisesPath: 'content/labs/typescript-order-processing/docs/EXERCISES.md',
+    documentation: [
+      { title: 'Handbook TypeScript', description: 'Mapa completo da linguagem e competências esperadas.', contentPath: 'content/labs/typescript-order-processing/docs/HANDBOOK.md' },
+      { title: 'Sistema de tipos e narrowing', description: 'Inferência, unions, guards, nullability e never.', contentPath: 'content/labs/typescript-order-processing/docs/01-TYPE-SYSTEM-NARROWING.md' },
+      { title: 'Funções, generics e utilities', description: 'Constraints, keyof, mapped e conditional types.', contentPath: 'content/labs/typescript-order-processing/docs/02-FUNCTIONS-GENERICS-UTILITIES.md' },
+      { title: 'Objetos, classes e módulos', description: 'Structural typing, composição, ESM e APIs públicas.', contentPath: 'content/labs/typescript-order-processing/docs/03-OBJECTS-CLASSES-MODULES.md' },
+      { title: 'Async, erros e runtime', description: 'Promise, unknown, validação, cancelamento e concorrência.', contentPath: 'content/labs/typescript-order-processing/docs/04-ASYNC-ERRORS-RUNTIME.md' },
+      { title: 'Configuração e arquitetura', description: 'tsconfig, build, testes, performance e boundaries.', contentPath: 'content/labs/typescript-order-processing/docs/05-CONFIG-QUALITY-ARCHITECTURE.md' },
+    ],
     modules: [
       { title: 'Modelagem e contratos', focus: 'Unions · Interfaces · Generics', status: 'implemented' },
       { title: 'Processamento e idempotência', focus: 'DI · At-least-once', status: 'implemented' },

@@ -25,6 +25,47 @@ Nenhum nível atribuído sem evidência registrada.
 - acessibilidade;
 - testes de comportamento.
 
+## Mapa completo de domínio
+
+### Renderização
+
+- JSX, elements, components e purity;
+- reconciliation, identidade, keys e preservação de estado;
+- composição, children, controlled/uncontrolled e events;
+- conditional rendering, lists, portals e error boundaries.
+
+### Estado e hooks
+
+- `useState`, `useReducer`, `useRef`, `useContext` e custom hooks;
+- state ownership, derivação e imutabilidade;
+- effects, dependências, cleanup e sincronização externa;
+- transitions, deferred values e APIs modernas do React.
+
+### Aplicação
+
+- Router, params, URL state e code splitting;
+- forms, validação, foco e acessibilidade;
+- data fetching, cache, server state e mutations;
+- optimistic update, rollback e consistência;
+- styling, tokens, tema e design system.
+
+### Produção
+
+- Testing Library, integração e E2E;
+- Profiler, memoização e virtualização;
+- boundaries por feature e adapters;
+- SSR, streaming, hydration e limites de uma SPA;
+- segurança, observabilidade e tratamento de falhas.
+
+## Handbook do laboratório
+
+- [Visão geral](../../../labs/react-service-operations/docs/HANDBOOK.md)
+- [Fundamentos e composição](../../../labs/react-service-operations/docs/01-FUNDAMENTALS-COMPOSITION.md)
+- [Estado, hooks e formulários](../../../labs/react-service-operations/docs/02-STATE-HOOKS-FORMS.md)
+- [Rotas e estado remoto](../../../labs/react-service-operations/docs/03-ROUTING-SERVER-STATE.md)
+- [Arquitetura e experiência](../../../labs/react-service-operations/docs/04-ARCHITECTURE-UX.md)
+- [Qualidade e performance](../../../labs/react-service-operations/docs/05-QUALITY-PERFORMANCE.md)
+
 ## Quando usar
 
 - interfaces com composição flexível;
@@ -84,6 +125,9 @@ O lab `react-service-operations` aplica React em uma central de atendimento com 
 ## Gaps conhecidos
 
 - avaliação de domínio pendente.
+- SSR, streaming e hydration ainda não aplicados no lab;
+- exercício de lista massiva ainda sem medição;
+- exercícios avançados ainda aguardam solução e retrospectiva.
 
 ## Evidências de domínio
 

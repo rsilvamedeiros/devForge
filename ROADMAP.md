@@ -33,6 +33,8 @@
 ## Labs
 - [x] padrão de laboratório completo documentado
 - [x] trilhas e exercícios integrados aos labs ativos
+- [x] handbooks completos de Angular, React e TypeScript
+- [x] biblioteca técnica navegável no detalhe dos labs
 - [x] control room visual para o pipeline TypeScript
 - [x] Angular Digital Equities — terminal financeiro e integração frontend
 - [x] React Service Operations — tickets, SLA e estado remoto
