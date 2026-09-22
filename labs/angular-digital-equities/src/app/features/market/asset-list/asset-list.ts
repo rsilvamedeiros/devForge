@@ -8,6 +8,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { AssetService } from '../../../core/services/asset.service';
+import { WatchlistService } from '../../../core/services/watchlist.service';
 import { changePercent } from '../../../core/models/asset.model';
 import { RouterLink } from '@angular/router';
 
@@ -30,6 +31,7 @@ import { RouterLink } from '@angular/router';
 })
 export class AssetList implements OnInit {
   private readonly assetService = inject(AssetService);
+  readonly watchlist = inject(WatchlistService);
 
   readonly assets = this.assetService.assets;
   readonly loading = this.assetService.loading;
@@ -38,7 +40,7 @@ export class AssetList implements OnInit {
   readonly searchTerm = signal('');
   readonly sectorFilter = signal<string>('all');
 
-  readonly displayedColumns = ['symbol', 'name', 'sector', 'price', 'change', 'volume'];
+  readonly displayedColumns = ['favorite', 'symbol', 'name', 'sector', 'price', 'change', 'volume', 'action'];
 
   readonly sectors = computed(() => {
     const unique = new Set(this.assets().map(asset => asset.sector));

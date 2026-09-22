@@ -3,7 +3,7 @@
   <div class="header__brand"><span class="header__logo"><mat-icon>candlestick_chart</mat-icon></span><span><strong class="header__title">Atlas Trade</strong><small>Digital Equities</small></span></div>
   <div class="header__market"><i></i><span><strong>Mercado aberto</strong><small>B3 · Tempo real simulado</small></span></div>
   <div class="header__spacer"></div>
-  <button mat-icon-button type="button" aria-label="Pesquisar"><mat-icon>search</mat-icon></button>
+  <form class="header__search" role="search" (submit)="search($event)"><mat-icon>search</mat-icon><input type="search" aria-label="Buscar ativo por ticker" placeholder="Buscar ticker" [value]="searchTerm()" (input)="searchTerm.set($any($event.target).value)" /><span>Enter</span></form>
   <button
     mat-icon-button
     type="button"

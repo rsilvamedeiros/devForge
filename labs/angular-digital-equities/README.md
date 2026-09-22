@@ -45,6 +45,18 @@ Um laboratório para praticar:
 - métricas de performance, risco e frequência operacional;
 - gráficos SVG responsivos, sem biblioteca adicional.
 
+### Watchlist e detalhe do ativo
+- favoritos persistidos no navegador;
+- cards com preço, variação e volume em tempo real;
+- busca global por ticker no header;
+- rota dinâmica por ativo com gráfico, livro de ofertas e indicadores simulados.
+
+### Central de risco
+- score derivado da exposição e das ordens em trânsito;
+- uso de limites operacionais;
+- concentração por setor;
+- checklist pré-trade.
+
 ## Estrutura sugerida
 
 ```text
@@ -84,7 +96,7 @@ O app é uma plataforma de estudos com shell fixo (header + sidebar + conteúdo 
 ```text
 src/app/
 ├── app.ts / app.html / app.scss   # shell: header + sidebar + <router-outlet>
-├── app.routes.ts                  # overview · market · orders · portfolio · analytics
+├── app.routes.ts                  # overview · market · watchlist · orders · portfolio · analytics · risk
 ├── app.config.ts
 ├── core/
 │   ├── models/asset.model.ts
@@ -97,12 +109,18 @@ src/app/
 │   │   └── websocket-price-feed.ts# implementação alternativa via WebSocket real (não é a default; exige servidor)
 │   └── services/
 │       ├── asset.service.ts       # signals: assets/loading/error + assina o PriceFeed
-│       └── order.service.ts       # fila de ordens + processamento FIFO simulado
+│       ├── order.service.ts       # fila de ordens + processamento FIFO simulado
+│       ├── theme.service.ts       # tema claro/escuro persistido
+│       └── watchlist.service.ts   # favoritos persistidos + estado compartilhado
 ├── features/
 │   ├── overview/                  # dashboard, KPIs, movers e curva patrimonial
 │   ├── portfolio/                 # posições, resultado e alocação
 │   ├── analytics/                 # performance, risco e frequência
-│   ├── market/asset-list/         # listagem + busca + filtro por setor
+│   ├── risk/                      # limites, exposição e checklist pré-trade
+│   ├── watchlist/                 # favoritos e monitoramento em tempo real
+│   ├── market/
+│   │   ├── asset-list/            # listagem + busca + filtro por setor
+│   │   └── asset-detail/          # rota por ticker, gráfico e livro de ofertas
 │   └── orders/
 │       ├── order-form/            # Reactive Forms
 │       ├── order-list/            # blotter de ordens
@@ -133,4 +151,8 @@ Cada nova feature entra como uma rota lazy (`loadComponent`) + um item em `share
 - [x] simulated prices (Market atualiza preços ao vivo a cada 1.5s, com jitter)
 - [x] WebSocket abstraction (`WebSocketPriceFeed` implementa `PriceFeed` com `rxjs/webSocket`; troca-se via `{ provide: PRICE_FEED, useClass: WebSocketPriceFeed }` em `app.config.ts` quando houver um servidor real — não é a implementação default)
 - [x] performance review (`ChangeDetectionStrategy.OnPush` em todos os componentes, coerente com o app ser 100% orientado a signals; rotas de feature já eram lazy via `loadComponent`)
-- [x] tests (30 specs cobrindo model, queue, services e price feeds — `ng test`)
+- [x] tests (32 specs cobrindo model, queue, services e price feeds — `ng test`)
+- [x] watchlist persistente (service com signals + `localStorage`)
+- [x] detalhe do ativo (rota dinâmica `/market/:symbol`)
+- [x] central de risco (exposição e limites derivados)
+- [x] tema claro/escuro e busca global por ticker

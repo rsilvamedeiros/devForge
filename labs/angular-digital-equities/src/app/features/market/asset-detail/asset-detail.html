@@ -1,0 +1,36 @@
+<section class="asset-detail trade-page">
+  <a class="asset-detail__back" routerLink="/market"><mat-icon>arrow_back</mat-icon>Voltar ao mercado</a>
+  @if (asset(); as current) {
+    <header class="asset-detail__header">
+      <div class="asset-detail__identity"><span>{{ current.symbol.slice(0, 2) }}</span><div><span class="trade-eyebrow">{{ current.sector }}</span><h1>{{ current.symbol }} <small>{{ current.name }}</small></h1><p class="trade-intro">B3 · Ação {{ current.active ? 'negociável' : 'indisponível' }} · Dados simulados</p></div></div>
+      <div class="asset-detail__header-actions"><button mat-stroked-button type="button" (click)="watchlist.toggle(current.symbol)"><mat-icon>{{ watchlist.has(current.symbol) ? 'star' : 'star_outline' }}</mat-icon>{{ watchlist.has(current.symbol) ? 'Na watchlist' : 'Acompanhar' }}</button><a mat-flat-button routerLink="/orders"><mat-icon>swap_vert</mat-icon>Negociar</a></div>
+    </header>
+
+    <div class="asset-detail__quote trade-panel">
+      <div><span>Último preço</span><strong>R$ {{ current.price | number:'1.2-2' }}</strong><small [class.up]="changePercent(current) >= 0" [class.down]="changePercent(current) < 0">{{ changePercent(current) >= 0 ? '+' : '' }}{{ changePercent(current) | number:'1.2-2' }}% hoje</small></div>
+      <div><span>Abertura</span><strong>R$ {{ current.previousClose * .997 | number:'1.2-2' }}</strong><small>Referência simulada</small></div>
+      <div><span>Mínima</span><strong>R$ {{ dayRange().low | number:'1.2-2' }}</strong><small>Faixa do dia</small></div>
+      <div><span>Máxima</span><strong>R$ {{ dayRange().high | number:'1.2-2' }}</strong><small>Faixa do dia</small></div>
+      <div><span>Volume</span><strong>{{ current.volume / 1000000 | number:'1.1-1' }}M</strong><small>Negócios</small></div>
+    </div>
+
+    <div class="asset-detail__grid">
+      <article class="asset-detail__chart trade-panel">
+        <div class="asset-detail__panel-head"><div><span>Intraday</span><h2>Movimento do preço</h2></div><div><button>1D</button><button class="active">5D</button><button>1M</button><button>1A</button></div></div>
+        <svg viewBox="0 0 820 330" preserveAspectRatio="none" role="img" [attr.aria-label]="'Gráfico simulado de ' + current.symbol"><defs><linearGradient id="assetArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".22"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><g><line x1="0" y1="35" x2="820" y2="35"/><line x1="0" y1="115" x2="820" y2="115"/><line x1="0" y1="195" x2="820" y2="195"/><line x1="0" y1="275" x2="820" y2="275"/></g><path class="area" d="M0,245 C45,230 72,250 110,216 S185,204 224,221 S300,166 345,178 S420,128 470,154 S555,105 610,116 S705,68 820,75 L820,300 L0,300Z"/><path class="line" d="M0,245 C45,230 72,250 110,216 S185,204 224,221 S300,166 345,178 S420,128 470,154 S555,105 610,116 S705,68 820,75"/><circle cx="820" cy="75" r="5"/></svg>
+        <div class="asset-detail__dates"><span>10:00</span><span>11:30</span><span>13:00</span><span>14:30</span><span>16:00</span></div>
+      </article>
+
+      <aside class="asset-detail__book trade-panel"><div class="asset-detail__panel-head"><div><span>Profundidade</span><h2>Livro de ofertas</h2></div><i></i></div><div class="asset-detail__book-head"><span>Qtd.</span><span>Compra</span><span>Venda</span><span>Qtd.</span></div>@for (row of book; track $index) {<div class="asset-detail__book-row"><span>{{ row.quantity }}</span><strong class="up">{{ current.price + row.bid | number:'1.2-2' }}</strong><strong class="down">{{ current.price + row.ask | number:'1.2-2' }}</strong><span>{{ row.askQuantity }}</span></div>}<div class="asset-detail__spread"><span>Spread estimado</span><strong>R$ 0,03</strong></div></aside>
+    </div>
+
+    <div class="asset-detail__bottom">
+      <article class="asset-detail__fundamentals trade-panel"><div class="asset-detail__panel-head"><div><span>Indicadores</span><h2>Visão fundamentalista</h2></div><small>Dados demonstrativos</small></div><div><span>P/L<strong>8,42</strong><small>Preço / lucro</small></span><span>DY<strong>7,18%</strong><small>Dividend yield</small></span><span>ROE<strong>18,6%</strong><small>Retorno sobre patrimônio</small></span><span>Beta<strong>1,12</strong><small>Volatilidade relativa</small></span></div></article>
+      <article class="asset-detail__signal trade-panel"><mat-icon>insights</mat-icon><div><span class="trade-eyebrow">Leitura técnica</span><h2>Momentum positivo no curto prazo</h2><p>Preço acima da média móvel simulada, com volume consistente. Conteúdo educacional, não é recomendação.</p></div></article>
+    </div>
+  } @else if (loading()) {
+    <article class="asset-detail__loading trade-panel"><mat-icon>query_stats</mat-icon><h2>Carregando ativo...</h2><p>Sincronizando a cotação de {{ symbol() }}.</p></article>
+  } @else {
+    <article class="asset-detail__loading trade-panel"><mat-icon>search_off</mat-icon><h2>Ativo não encontrado</h2><p>Não encontramos o ticker {{ symbol() }} neste ambiente simulado.</p><a mat-flat-button routerLink="/market">Voltar ao mercado</a></article>
+  }
+</section>

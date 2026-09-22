@@ -4,9 +4,9 @@
   @for (item of navItems; track item.path) {
     <a mat-list-item [routerLink]="item.path" routerLinkActive #rla="routerLinkActive" [activated]="rla.isActive" (click)="linkClick.emit()">
       <mat-icon matListItemIcon>{{ item.icon }}</mat-icon><span matListItemTitle>{{ item.label }}</span>
-      @if (item.badge) { <span class="sidebar__badge">{{ item.badge }}</span> }
+      @if (item.badge) { <span class="sidebar__badge">{{ item.badge() }}</span> }
     </a>
   }
 </mat-nav-list>
-<div class="sidebar__watchlist"><div><span>Watchlist</span><button type="button" aria-label="Adicionar ativo">+</button></div><a routerLink="/market"><strong>PETR4</strong><span class="up">+1,37%</span></a><a routerLink="/market"><strong>VALE3</strong><span class="down">−1,05%</span></a><a routerLink="/market"><strong>ITUB4</strong><span class="up">+0,92%</span></a></div>
+<div class="sidebar__watchlist"><div><a routerLink="/watchlist">Watchlist</a><a routerLink="/market" aria-label="Adicionar ativo">+</a></div><a routerLink="/market/PETR4"><strong>PETR4</strong><span class="up">+1,37%</span></a><a routerLink="/market/ITUB4"><strong>ITUB4</strong><span class="up">+0,92%</span></a><a routerLink="/market/WEGE3"><strong>WEGE3</strong><span class="up">+1,08%</span></a></div>
 <div class="sidebar__footer"><span><i></i> Feed conectado</span><small>LAT 24ms</small></div>
