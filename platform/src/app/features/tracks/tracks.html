@@ -1,14 +1,14 @@
 <section class="tracks">
   <header class="tracks__header">
-    <div><span class="page-eyebrow"><mat-icon>timeline</mat-icon> Aprendizado guiado</span><h1>Trilhas de evolução</h1><p class="page-intro">Conecte skills em uma sequência intencional. Cada etapa concluída fortalece a próxima.</p></div>
-    <a class="tracks__continue" routerLink="/skills/rxjs"><mat-icon>play_arrow</mat-icon><span><small>Continuar de onde parou</small><strong>RxJS · Operadores</strong></span><mat-icon>arrow_forward</mat-icon></a>
+    <div><span class="page-eyebrow"><mat-icon>timeline</mat-icon> Aprendizado guiado</span><h1>Trilhas de evolução</h1><p class="page-intro">As sequências estão mapeadas. O progresso será liberado após avaliação e evidências reais.</p></div>
+    <a class="tracks__continue" routerLink="/progress"><mat-icon>fact_check</mat-icon><span><small>Próxima etapa</small><strong>Avaliar níveis atuais</strong></span><mat-icon>arrow_forward</mat-icon></a>
   </header>
 
   <div class="tracks__summary">
     <div><span class="tracks__summary-icon"><mat-icon>route</mat-icon></span><span><strong>3</strong><small>trilhas ativas</small></span></div>
     <div><span class="tracks__summary-icon cyan"><mat-icon>school</mat-icon></span><span><strong>13</strong><small>skills conectadas</small></span></div>
-    <div><span class="tracks__summary-icon amber"><mat-icon>schedule</mat-icon></span><span><strong>46h</strong><small>conteúdo estimado</small></span></div>
-    <div><span class="tracks__summary-icon green"><mat-icon>task_alt</mat-icon></span><span><strong>52%</strong><small>progresso geral</small></span></div>
+    <div><span class="tracks__summary-icon amber"><mat-icon>schedule</mat-icon></span><span><strong>46h</strong><small>estimativa de conteúdo</small></span></div>
+    <div><span class="tracks__summary-icon green"><mat-icon>task_alt</mat-icon></span><span><strong>—</strong><small>progresso não avaliado</small></span></div>
   </div>
 
   <div class="tracks__grid">
@@ -16,7 +16,7 @@
       <article class="tracks__card surface-card" [style.--track-color]="track.color">
         <div class="tracks__card-top">
           <span class="tracks__track-icon"><mat-icon>{{ track.icon }}</mat-icon></span>
-          <div class="tracks__ring" [style.--progress]="track.progress"><span><strong>{{ track.progress }}</strong><small>%</small></span></div>
+          <div class="tracks__ring" [style.--progress]="track.progress ?? 0"><span><strong>—</strong><small>nível</small></span></div>
         </div>
         <span class="tracks__index">TRILHA 0{{ trackIndex + 1 }}</span>
         <h2>{{ track.title }}</h2>
@@ -25,14 +25,13 @@
 
         <div class="tracks__path">
           @for (skillSlug of track.skills; track skillSlug; let i = $index) {
-            <a [routerLink]="['/skills', skillSlug]" [class.is-done]="i < Math.round(track.skills.length * track.progress / 100)" [class.is-current]="skillSlug === track.nextSkill">
-              <span class="tracks__node">@if (i < Math.round(track.skills.length * track.progress / 100)) { <mat-icon>check</mat-icon> } @else { {{ i + 1 }} }</span>
-              <span><strong>{{ skill(skillSlug).title }}</strong><small>{{ skillSlug === track.nextSkill ? 'Próxima sessão' : i < Math.round(track.skills.length * track.progress / 100) ? 'Concluída' : 'A fazer' }}</small></span>
-              @if (skillSlug === track.nextSkill) { <span class="tracks__current">AGORA</span> }
+            <a [routerLink]="['/skills', skillSlug]">
+              <span class="tracks__node">{{ i + 1 }}</span>
+              <span><strong>{{ skill(skillSlug).title }}</strong><small>Não avaliada</small></span>
             </a>
           }
         </div>
-        <a class="tracks__action" [routerLink]="['/skills', track.nextSkill]">Continuar trilha <mat-icon>arrow_forward</mat-icon></a>
+        <a class="tracks__action" [routerLink]="['/skills', track.skills[0]]">Abrir primeira skill <mat-icon>arrow_forward</mat-icon></a>
       </article>
     }
   </div>

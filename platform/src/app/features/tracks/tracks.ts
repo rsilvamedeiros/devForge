@@ -9,7 +9,7 @@ interface LearningTrack {
   description: string;
   icon: string;
   color: string;
-  progress: number;
+  progress: number | null;
   totalHours: number;
   skills: string[];
   nextSkill: string;
@@ -31,7 +31,7 @@ export class Tracks {
       description: 'Interfaces robustas, reativas e prontas para escala.',
       icon: 'web',
       color: '#6558f5',
-      progress: 68,
+      progress: null,
       totalHours: 18,
       skills: ['angular', 'typescript', 'rxjs', 'performance', 'websockets'],
       nextSkill: 'rxjs',
@@ -42,7 +42,7 @@ export class Tracks {
       description: 'Fundamentos para resolver problemas com clareza e eficiência.',
       icon: 'data_object',
       color: '#36aeb9',
-      progress: 44,
+      progress: null,
       totalHours: 12,
       skills: ['algorithms-big-o', 'arrays-lists', 'data-structures'],
       nextSkill: 'data-structures',
@@ -53,7 +53,7 @@ export class Tracks {
       description: 'Decisões, arquitetura e código sustentável em produção.',
       icon: 'account_tree',
       color: '#e29a43',
-      progress: 36,
+      progress: null,
       totalHours: 16,
       skills: ['architecture', 'oop', 'solid', 'queues-messaging'],
       nextSkill: 'architecture',

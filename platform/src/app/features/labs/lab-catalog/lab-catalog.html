@@ -1,0 +1,16 @@
+<section class="lab-catalog">
+  <header class="lab-catalog__header"><div><span class="page-eyebrow"><mat-icon>science</mat-icon> Prática integrada</span><h1>Labs</h1><p class="page-intro">Projetos executáveis que conectam skills, desafios e contexto profissional em evidência concreta.</p></div><a mat-flat-button routerLink="/journey"><mat-icon>route</mat-icon>Ver jornada</a></header>
+
+  <div class="lab-catalog__summary"><article><strong>{{ labs.length }}</strong><span>labs mapeados</span></article><article><strong>{{ activeCount }}</strong><span>em evolução</span></article><article><strong>{{ skillCount }}</strong><span>skills conectadas</span></article></div>
+
+  <div class="lab-catalog__grid">
+    @for (lab of labs; track lab.slug; let i = $index) {
+      <a class="lab-catalog__link" [routerLink]="['/labs', lab.slug]">
+        <mat-card appearance="outlined" class="lab-catalog__card interactive-card">
+          <div class="lab-catalog__visual" [class.secondary]="i > 0"><span><mat-icon>{{ i === 0 ? 'candlestick_chart' : 'account_tree' }}</mat-icon></span><div><i></i><i></i><i></i><i></i><i></i></div></div>
+          <mat-card-content><div class="lab-catalog__meta"><span class="lab-catalog__status" [class.foundation]="lab.status === 'foundation'"><i></i>{{ lab.status === 'active' ? 'Em evolução' : 'Fundação pronta' }}</span><span>{{ lab.stack }}</span></div><h2>{{ lab.title }}</h2><p>{{ lab.description }}</p><div class="lab-catalog__skills">@for (skill of lab.skills.slice(0, 4); track skill) {<span>{{ skill }}</span>}@if (lab.skills.length > 4) {<span>+{{ lab.skills.length - 4 }}</span>}</div><strong class="lab-catalog__action">Abrir laboratório <mat-icon>arrow_forward</mat-icon></strong></mat-card-content>
+        </mat-card>
+      </a>
+    }
+  </div>
+</section>

@@ -1,5 +1,13 @@
 # Architecture / System Design
 
+## Nível atual
+`Não avaliado`
+
+Nenhum nível atribuído sem evidência registrada.
+
+## Nível alvo
+`A definir por vaga`
+
 ## Método
 
 Antes de escolher tecnologia:
@@ -43,3 +51,9 @@ Market Data → WebSocket → Angular
 - como escalar?
 - como monitorar?
 - como devolver status ao frontend?
+
+## Gaps conhecidos
+- avaliação de domínio pendente.
+
+## Evidências de domínio
+- nenhuma evidência registrada.

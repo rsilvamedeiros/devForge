@@ -1,5 +1,13 @@
 # Angular
 
+## Nível atual
+`Não avaliado`
+
+Nenhum nível atribuído sem evidência registrada.
+
+## Nível alvo
+`A definir por vaga`
+
 ## Foco da preparação
 
 - standalone components
@@ -48,3 +56,9 @@ updatePrice(id: string, price: number) {
   );
 }
 ```
+
+## Gaps conhecidos
+- avaliação de domínio pendente.
+
+## Evidências de domínio
+- nenhuma evidência registrada.

@@ -1,40 +1,15 @@
 <section class="insights">
-  <header class="insights__header"><div><span class="page-eyebrow"><mat-icon>monitoring</mat-icon> Learning analytics</span><h1>Insights de evolução</h1><p class="page-intro">Entenda seu ritmo, identifique padrões e ajuste o próximo ciclo de estudo.</p></div><div class="insights__period"><button class="is-active">30 dias</button><button>90 dias</button><button>Todo período</button></div></header>
+  <header class="insights__header"><div><span class="page-eyebrow"><mat-icon>monitoring</mat-icon> Learning analytics</span><h1>Insights aguardando dados</h1><p class="page-intro">Métricas de evolução serão calculadas apenas a partir de sessões, níveis e evidências realmente registrados.</p></div></header>
 
   <div class="insights__stats">
-    <article><span class="insights__stat-icon"><mat-icon>schedule</mat-icon></span><div><small>Tempo de estudo</small><strong>24h 18m</strong><em><mat-icon>north_east</mat-icon>18% vs. período anterior</em></div></article>
-    <article><span class="insights__stat-icon cyan"><mat-icon>bolt</mat-icon></span><div><small>Sessões concluídas</small><strong>18</strong><em><mat-icon>north_east</mat-icon>4 novas sessões</em></div></article>
-    <article><span class="insights__stat-icon amber"><mat-icon>workspace_premium</mat-icon></span><div><small>Evidências geradas</small><strong>9</strong><em><mat-icon>north_east</mat-icon>3 neste mês</em></div></article>
-    <article><span class="insights__stat-icon green"><mat-icon>timer</mat-icon></span><div><small>Média por sessão</small><strong>42 min</strong><em><mat-icon>north_east</mat-icon>6 min a mais</em></div></article>
+    <article><span class="insights__stat-icon"><mat-icon>school</mat-icon></span><div><small>Skills avaliadas</small><strong>{{ assessedSkills }}/{{ skillsCount }}</strong><em>Avaliação pendente</em></div></article>
+    <article><span class="insights__stat-icon cyan"><mat-icon>verified</mat-icon></span><div><small>Evidências</small><strong>{{ evidenceCount }}</strong><em>Nenhuma presumida</em></div></article>
+    <article><span class="insights__stat-icon amber"><mat-icon>terminal</mat-icon></span><div><small>Challenges disponíveis</small><strong>{{ challengesCount }}</strong><em>Conteúdo real</em></div></article>
+    <article><span class="insights__stat-icon green"><mat-icon>science</mat-icon></span><div><small>Labs disponíveis</small><strong>{{ labsCount }}</strong><em>{{ vacanciesCount }} vaga relacionada</em></div></article>
   </div>
 
   <div class="insights__main-grid">
-    <article class="insights__evolution surface-card">
-      <div class="insights__card-head"><div><span>Consistência</span><h2>Horas de foco</h2></div><div class="insights__legend"><span><i></i>Este período</span><span><i></i>Anterior</span></div></div>
-      <div class="insights__chart">
-        <div class="insights__axis"><span>8h</span><span>6h</span><span>4h</span><span>2h</span><span>0h</span></div>
-        <svg viewBox="0 0 720 250" preserveAspectRatio="none" role="img" aria-label="Horas de estudo nas últimas cinco semanas">
-          <defs><linearGradient id="focusArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6558f5" stop-opacity=".28"/><stop offset="1" stop-color="#6558f5" stop-opacity="0"/></linearGradient></defs>
-          <g class="insights__grid-lines"><line x1="0" y1="20" x2="720" y2="20"/><line x1="0" y1="70" x2="720" y2="70"/><line x1="0" y1="120" x2="720" y2="120"/><line x1="0" y1="170" x2="720" y2="170"/><line x1="0" y1="220" x2="720" y2="220"/></g>
-          <path class="insights__area" d="M0,190 C70,175 90,150 145,158 S240,112 290,125 S385,70 435,88 S530,42 580,61 S670,38 720,26 L720,220 L0,220 Z"/>
-          <path class="insights__previous" d="M0,205 C80,180 95,188 145,180 S240,160 290,166 S385,135 435,145 S530,120 580,132 S670,90 720,105"/>
-          <path class="insights__current" d="M0,190 C70,175 90,150 145,158 S240,112 290,125 S385,70 435,88 S530,42 580,61 S670,38 720,26"/>
-          <g class="insights__points"><circle cx="0" cy="190" r="5"/><circle cx="145" cy="158" r="5"/><circle cx="290" cy="125" r="5"/><circle cx="435" cy="88" r="5"/><circle cx="580" cy="61" r="5"/><circle cx="720" cy="26" r="5"/></g>
-        </svg>
-        <div class="insights__x-axis"><span>Sem 1</span><span>Sem 2</span><span>Sem 3</span><span>Sem 4</span><span>Sem 5</span></div>
-      </div>
-    </article>
-
-    <article class="insights__heatmap surface-card">
-      <div class="insights__card-head"><div><span>Frequência</span><h2>Mapa de atividade</h2></div><strong>21 dias ativos</strong></div>
-      <div class="insights__heat-grid">@for (level of heatmap; track $index) { <span [attr.data-level]="level" [attr.aria-label]="'Dia ' + ($index + 1) + ', intensidade ' + level"></span> }</div>
-      <div class="insights__heat-legend"><span>Menos</span><i data-level="0"></i><i data-level="1"></i><i data-level="2"></i><i data-level="3"></i><i data-level="4"></i><span>Mais</span></div>
-      <div class="insights__streak-message"><mat-icon>local_fire_department</mat-icon><div><strong>Seu melhor ritmo até agora</strong><small>Você estudou em 5 dos últimos 7 dias.</small></div></div>
-    </article>
-  </div>
-
-  <div class="insights__bottom-grid">
-    <article class="insights__performance surface-card"><div class="insights__card-head"><div><span>Trilhas</span><h2>Performance por trilha</h2></div><a routerLink="/tracks">Abrir trilhas <mat-icon>arrow_forward</mat-icon></a></div><div class="insights__track-list">@for (track of trackPerformance; track track.name) { <div><div><i [style.background]="track.color"></i><strong>{{ track.name }}</strong><em>{{ track.delta }}</em></div><div class="insights__track-bar"><span [style.width.%]="track.value" [style.background]="track.color"></span></div><small>{{ track.value }}% concluído</small></div> }</div></article>
-    <article class="insights__recommendation surface-card"><span class="insights__recommendation-icon"><mat-icon>auto_awesome</mat-icon></span><span class="page-eyebrow">Insight da semana</span><h2>Seu melhor horário é entre 19h e 21h</h2><p>Sessões nesse período duram 23% mais e têm maior taxa de conclusão.</p><a routerLink="/study-plans">Ajustar meu plano <mat-icon>arrow_forward</mat-icon></a></article>
+    <article class="insights__evolution surface-card"><div class="insights__empty"><mat-icon>query_stats</mat-icon><span class="page-eyebrow">Sem série histórica</span><h2>Registre estudo antes de medir evolução</h2><p>Horas, frequência e tendência não podem ser inferidas do número de arquivos. Comece avaliando as skills e concluindo práticas.</p><a routerLink="/progress">Abrir avaliação <mat-icon>arrow_forward</mat-icon></a></div></article>
+    <article class="insights__recommendation surface-card"><span class="insights__recommendation-icon"><mat-icon>rule</mat-icon></span><span class="page-eyebrow">Próxima decisão</span><h2>Fechar a camada de evidência</h2><p>Depois da primeira avaliação, a plataforma poderá calcular gaps, priorizar trilhas e gerar insights sem dados demonstrativos.</p><a routerLink="/journey">Ver jornada <mat-icon>arrow_forward</mat-icon></a></article>
   </div>
 </section>

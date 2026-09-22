@@ -1,10 +1,14 @@
 export type SkillCategory = 'computer-science' | 'frontend' | 'software-engineering';
+export type SkillLevel = 0 | 1 | 2 | 3 | 4 | 5 | 6;
 
 export interface SkillItem {
   slug: string;
   title: string;
   category: SkillCategory;
   contentPath: string;
+  currentLevel: SkillLevel | null;
+  targetLevel: SkillLevel | null;
+  evidenceCount: number;
 }
 
 export interface ChallengeItem {
@@ -26,5 +30,16 @@ export interface VacancyItem {
 export interface StudyPlanItem {
   slug: string;
   title: string;
+  contentPath: string;
+}
+
+export interface LabItem {
+  slug: string;
+  title: string;
+  description: string;
+  stack: string;
+  status: 'active' | 'foundation';
+  vacancySlug?: string;
+  skills: string[];
   contentPath: string;
 }

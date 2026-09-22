@@ -26,6 +26,7 @@ Um laboratório para praticar:
 - ordenar;
 - estado derivado;
 - atualização de preço.
+- carregamento via `HttpClient`, interceptor mock e mapping DTO → domínio.
 
 ### Orders
 - criar ordem;
@@ -102,6 +103,8 @@ src/app/
 │   ├── models/asset.model.ts
 │   ├── models/order.model.ts      # Order abstrata + BuyOrder/SellOrder (POO)
 │   ├── mock/assets.mock.ts
+│   ├── api/asset-api.service.ts   # contrato HTTP e mapping DTO → domínio
+│   ├── http/mock-api.interceptor.ts # backend simulado com latência/erro
 │   ├── queue/queue.ts             # Queue<T> genérica (FIFO)
 │   ├── realtime/
 │   │   ├── price-feed.ts          # interface PriceFeed + InjectionToken PRICE_FEED (default: SimulatedPriceFeed)
@@ -142,7 +145,7 @@ Cada nova feature entra como uma rota lazy (`loadComponent`) + um item em `share
 - [x] Signal
 - [x] computed search/filter
 - [x] loading/error/empty
-- [ ] HttpClient abstraction (hoje é mock com latência simulada)
+- [x] HttpClient abstraction (`AssetApi` + interceptor mock + DTO mapping)
 - [x] Order model (classe abstrata `Order` + `BuyOrder`/`SellOrder`, taxa via polimorfismo)
 - [x] form (Reactive Forms em `order-form`)
 - [x] POO domain exercise (abstração/herança/polimorfismo em `order.model.ts`)
@@ -151,7 +154,7 @@ Cada nova feature entra como uma rota lazy (`loadComponent`) + um item em `share
 - [x] simulated prices (Market atualiza preços ao vivo a cada 1.5s, com jitter)
 - [x] WebSocket abstraction (`WebSocketPriceFeed` implementa `PriceFeed` com `rxjs/webSocket`; troca-se via `{ provide: PRICE_FEED, useClass: WebSocketPriceFeed }` em `app.config.ts` quando houver um servidor real — não é a implementação default)
 - [x] performance review (`ChangeDetectionStrategy.OnPush` em todos os componentes, coerente com o app ser 100% orientado a signals; rotas de feature já eram lazy via `loadComponent`)
-- [x] tests (32 specs cobrindo model, queue, services e price feeds — `ng test`)
+- [x] tests (34 specs cobrindo API, model, queue, services e price feeds — `ng test`)
 - [x] watchlist persistente (service com signals + `localStorage`)
 - [x] detalhe do ativo (rota dinâmica `/market/:symbol`)
 - [x] central de risco (exposição e limites derivados)

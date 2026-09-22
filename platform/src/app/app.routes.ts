@@ -70,5 +70,13 @@ export const routes: Routes = [
         m => m.StudyPlanDetail
       ),
   },
+  {
+    path: 'labs',
+    loadComponent: () => import('./features/labs/lab-catalog/lab-catalog').then(m => m.LabCatalog),
+  },
+  {
+    path: 'labs/:slug',
+    loadComponent: () => import('./features/labs/lab-detail/lab-detail').then(m => m.LabDetail),
+  },
   { path: '**', redirectTo: 'dashboard' },
 ];

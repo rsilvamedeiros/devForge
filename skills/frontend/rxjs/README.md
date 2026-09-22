@@ -1,5 +1,13 @@
 # RxJS
 
+## Nível atual
+`Não avaliado`
+
+Nenhum nível atribuído sem evidência registrada.
+
+## Nível alvo
+`A definir por vaga`
+
 ## Conceitos
 
 - Observable
@@ -32,3 +40,9 @@
 ## Pergunta crítica
 
 Explicar diferença de cancelamento/concorrência entre switchMap, mergeMap, concatMap e exhaustMap com um caso real.
+
+## Gaps conhecidos
+- avaliação de domínio pendente.
+
+## Evidências de domínio
+- nenhuma evidência registrada.

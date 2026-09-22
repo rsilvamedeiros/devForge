@@ -186,6 +186,8 @@ O primeiro laboratório será um Digital Equities Dashboard em Angular. Ele exis
 - performance;
 - arquitetura.
 
+O segundo laboratório, `typescript-order-processing`, separa o processamento orientado a eventos da interface Angular. Ele aprofunda fila, retry, DLQ, idempotência, POO e testes sem transformar o primeiro lab em um monólito didático.
+
 ## 11. Evolução futura
 
 Possível aplicação:

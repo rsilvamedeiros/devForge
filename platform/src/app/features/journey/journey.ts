@@ -13,9 +13,10 @@ export class Journey {
   readonly steps = [
     { icon: 'work_outline', title: 'Vaga', copy: 'Defina um alvo real', path: '/vacancies', status: 'done' },
     { icon: 'fact_check', title: 'Requisitos', copy: 'Traduza o que importa', path: '/vacancies', status: 'done' },
-    { icon: 'school', title: 'Skills', copy: 'Mapeie conhecimento', path: '/skills', status: 'active' },
+    { icon: 'school', title: 'Skills', copy: 'Mapeie conhecimento', path: '/skills', status: 'done' },
+    { icon: 'fact_check', title: 'Avaliação', copy: 'Registre evidências', path: '/progress', status: 'active' },
     { icon: 'troubleshoot', title: 'Gaps', copy: 'Encontre a distância', path: '/progress', status: 'next' },
     { icon: 'calendar_month', title: 'Plano', copy: 'Priorize seu tempo', path: '/study-plans', status: 'next' },
-    { icon: 'terminal', title: 'Prática', copy: 'Gere evidências', path: '/challenges', status: 'next' },
+    { icon: 'science', title: 'Prática', copy: 'Gere evidências', path: '/labs', status: 'next' },
   ];
 }

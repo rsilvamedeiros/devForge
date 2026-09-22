@@ -1,15 +1,15 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Asset } from '../models/asset.model';
-import { MOCK_ASSETS } from '../mock/assets.mock';
+import { AssetApi } from '../api/asset-api.service';
 import { PRICE_FEED } from '../realtime/price-feed';
-
-const SIMULATED_LATENCY_MS = 400;
 
 @Injectable({ providedIn: 'root' })
 export class AssetService {
   private readonly priceFeed = inject(PRICE_FEED);
+  private readonly assetApi = inject(AssetApi);
   private priceSubscription?: Subscription;
+  private loadSubscription?: Subscription;
 
   private readonly _assets = signal<Asset[]>([]);
   private readonly _loading = signal(false);
@@ -22,19 +22,20 @@ export class AssetService {
   load(options: { simulateError?: boolean } = {}): void {
     this._loading.set(true);
     this._error.set(null);
+    this.loadSubscription?.unsubscribe();
     this.priceSubscription?.unsubscribe();
 
-    setTimeout(() => {
-      if (options.simulateError) {
+    this.loadSubscription = this.assetApi.getAssets(options).subscribe({
+      next: assets => {
+        this._assets.set(assets);
+        this._loading.set(false);
+        this.streamPrices();
+      },
+      error: () => {
         this._error.set('Falha ao carregar ativos. Tente novamente.');
         this._loading.set(false);
-        return;
-      }
-
-      this._assets.set(MOCK_ASSETS);
-      this._loading.set(false);
-      this.streamPrices();
-    }, SIMULATED_LATENCY_MS);
+      },
+    });
   }
 
   private streamPrices(): void {

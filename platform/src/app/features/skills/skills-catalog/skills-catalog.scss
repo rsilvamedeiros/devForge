@@ -43,5 +43,6 @@
   }
 
   &__card-accent { width: 42px; height: 4px; margin: 1.1rem 1rem .2rem; border-radius: 4px; background: linear-gradient(90deg, var(--forge-primary), var(--forge-cyan)); }
+  &__level { display:block;margin-top:.8rem;color:var(--forge-muted);font-size:.7rem }
   &__open { display: block; margin-top: 1rem; color: var(--forge-primary); font-size: .75rem; font-weight: 700; }
 }

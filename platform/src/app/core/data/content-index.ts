@@ -1,10 +1,13 @@
 import {
   ChallengeItem,
+  LabItem,
   SkillCategory,
   SkillItem,
   StudyPlanItem,
   VacancyItem,
 } from '../models/content.model';
+
+type SkillDefinition = Omit<SkillItem, 'currentLevel' | 'targetLevel' | 'evidenceCount'>;
 
 export const SKILL_CATEGORY_LABELS: Record<SkillCategory, string> = {
   'computer-science': 'Ciência da Computação',
@@ -12,7 +15,7 @@ export const SKILL_CATEGORY_LABELS: Record<SkillCategory, string> = {
   'software-engineering': 'Engenharia de Software',
 };
 
-export const SKILLS: SkillItem[] = [
+const SKILL_DEFINITIONS: SkillDefinition[] = [
   {
     slug: 'algorithms-big-o',
     title: 'Algorithms & Big O',
@@ -93,6 +96,13 @@ export const SKILLS: SkillItem[] = [
   },
 ];
 
+export const SKILLS: SkillItem[] = SKILL_DEFINITIONS.map(skill => ({
+  ...skill,
+  currentLevel: null,
+  targetLevel: null,
+  evidenceCount: 0,
+}));
+
 export const CHALLENGES: ChallengeItem[] = [
   {
     slug: 'frequency-counter',
@@ -148,5 +158,28 @@ export const STUDY_PLANS: StudyPlanItem[] = [
     slug: 'btg-2-dias',
     title: 'Plano intensivo — BTG — 2 dias',
     contentPath: 'content/study-plans/BTG-2-DIAS.md',
+  },
+];
+
+export const LABS: LabItem[] = [
+  {
+    slug: 'angular-digital-equities',
+    title: 'Angular Digital Equities',
+    description: 'Terminal de renda variável para integrar Angular, estado, RxJS, filas e real time.',
+    stack: 'Angular · TypeScript · RxJS',
+    status: 'active',
+    vacancySlug: 'btg-digital-equities',
+    skills: ['angular', 'typescript', 'rxjs', 'queues-messaging', 'websockets', 'performance'],
+    contentPath: 'content/labs/angular-digital-equities/README.md',
+  },
+  {
+    slug: 'typescript-order-processing',
+    title: 'TypeScript Order Processing',
+    description: 'Pipeline orientado a eventos com idempotência, retry, DLQ e observabilidade.',
+    stack: 'Node.js · TypeScript · Vitest',
+    status: 'foundation',
+    vacancySlug: 'btg-digital-equities',
+    skills: ['typescript', 'oop', 'solid', 'queues-messaging', 'architecture'],
+    contentPath: 'content/labs/typescript-order-processing/README.md',
   },
 ];

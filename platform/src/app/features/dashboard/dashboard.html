@@ -1,96 +1,59 @@
 <section class="dashboard">
   <header class="dashboard__welcome">
-    <div><span class="page-eyebrow">{{ currentDate }}</span><h1>Pronto para evoluir?</h1><p>Seu foco está claro. Continue de onde parou e mantenha o ritmo.</p></div>
-    <div class="dashboard__welcome-actions"><a mat-flat-button routerLink="/skills/angular"><mat-icon>play_arrow</mat-icon> Sessão de foco</a><div class="dashboard__streak"><span><mat-icon>local_fire_department</mat-icon><strong>7 dias</strong></span><small>melhor sequência: 12 dias</small></div></div>
+    <div><span class="page-eyebrow">{{ currentDate }}</span><h1>Evolução baseada em evidência</h1><p>O conteúdo está mapeado. O próximo passo é avaliar as skills antes de calcular gaps e progresso.</p></div>
+    <div class="dashboard__welcome-actions"><a mat-flat-button routerLink="/progress"><mat-icon>fact_check</mat-icon> Iniciar avaliação</a><div class="dashboard__streak"><span><mat-icon>verified</mat-icon><strong>{{ evidenceCount }} evidências</strong></span><small>nenhum nível presumido</small></div></div>
   </header>
+
   <div class="dashboard__stats">
     @for (stat of stats; track stat.label) {
-      <a class="dashboard__stat" [routerLink]="stat.path"><span class="dashboard__stat-icon {{ stat.tone }}"><mat-icon>{{ stat.icon }}</mat-icon></span><div><strong>{{ stat.value }}</strong><span>{{ stat.label }}</span></div><small>{{ stat.trend }}</small></a>
+      <a class="dashboard__stat" [routerLink]="stat.path"><span class="dashboard__stat-icon {{ stat.tone }}"><mat-icon>{{ stat.icon }}</mat-icon></span><div><strong>{{ stat.value }}</strong><span>{{ stat.label }}</span></div><small>{{ stat.note }}</small></a>
     }
   </div>
+
   <div class="dashboard__main-grid">
     @if (focusVacancy) {
       <article class="dashboard__focus surface-card">
-        <div class="dashboard__card-header"><div><span>Vaga em foco</span><h2>{{ focusVacancy.company }}</h2></div><span class="dashboard__live"><i></i> Em preparação</span></div>
+        <div class="dashboard__card-header"><div><span>Vaga em foco</span><h2>{{ focusVacancy.company }}</h2></div><span class="dashboard__live"><i></i> Mapeada</span></div>
         <p>{{ focusVacancy.title }}</p>
-        <div class="dashboard__focus-progress"><div><span>Preparação geral</span><strong>68%</strong></div><div class="dashboard__progress-track"><span></span></div></div>
-        <div class="dashboard__milestones"><div class="done"><mat-icon>check</mat-icon><span>Requisitos<small>Mapeados</small></span></div><div class="done"><mat-icon>check</mat-icon><span>Gap analysis<small>Concluído</small></span></div><div class="active"><mat-icon>school</mat-icon><span>Preparação<small>Em andamento</small></span></div><div><mat-icon>mic</mat-icon><span>Entrevista<small>Próxima etapa</small></span></div></div>
-        <a [routerLink]="['/vacancies', focusVacancy.slug]">Abrir preparação <mat-icon>arrow_forward</mat-icon></a>
+        <div class="dashboard__focus-progress"><div><span>Avaliação das skills</span><strong>{{ assessedSkills }}/{{ recentSkills.length + 9 }}</strong></div><div class="dashboard__progress-track"><span [style.width.%]="assessedSkills / (recentSkills.length + 9) * 100"></span></div></div>
+        <div class="dashboard__milestones"><div class="done"><mat-icon>check</mat-icon><span>Requisitos<small>Mapeados</small></span></div><div class="active"><mat-icon>priority_high</mat-icon><span>Níveis<small>Não avaliados</small></span></div><div><mat-icon>troubleshoot</mat-icon><span>Gap analysis<small>Pendente</small></span></div><div><mat-icon>school</mat-icon><span>Plano<small>A revisar</small></span></div></div>
+        <a [routerLink]="['/vacancies', focusVacancy.slug]">Abrir contexto da vaga <mat-icon>arrow_forward</mat-icon></a>
       </article>
     }
+
     <article class="dashboard__weekly surface-card">
-      <div class="dashboard__card-header"><div><span>Meta semanal</span><h2>4 de 5 sessões</h2></div><strong>80%</strong></div>
-      <div class="dashboard__week">@for (item of weekDays; track $index) { <div [class.done]="item.done"><span><mat-icon>{{ item.done ? 'check' : '' }}</mat-icon></span><small>{{ item.day }}</small></div> }</div>
-      <div class="dashboard__weekly-note"><mat-icon>bolt</mat-icon><span><strong>Mais uma sessão!</strong><small>Você está perto de fechar a meta.</small></span></div>
-      <a routerLink="/progress">Ver meu progresso <mat-icon>arrow_forward</mat-icon></a>
+      <div class="dashboard__card-header"><div><span>Fonte de verdade</span><h2>Tracking ainda não iniciado</h2></div><strong>0%</strong></div>
+      <div class="dashboard__weekly-note"><mat-icon>info</mat-icon><span><strong>Sem dados fictícios</strong><small>Horas, sequência, nível e gaps só aparecerão após registros reais.</small></span></div>
+      <a routerLink="/progress">Ver estado da avaliação <mat-icon>arrow_forward</mat-icon></a>
     </article>
   </div>
-  <article class="dashboard__tracks-chart surface-card">
-    <div class="dashboard__section-head dashboard__section-head--inside"><div><span>Evolução das trilhas</span><h2>Ritmo de aprendizado</h2></div><a routerLink="/tracks">Explorar trilhas <mat-icon>arrow_forward</mat-icon></a></div>
-    <div class="dashboard__tracks-layout">
-      <div class="dashboard__trend-chart">
-        <div class="dashboard__trend-axis"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
-        <svg viewBox="0 0 680 230" preserveAspectRatio="none" role="img" aria-label="Progresso das três trilhas nas últimas cinco semanas">
-          <g class="dashboard__trend-grid"><line x1="0" y1="15" x2="680" y2="15"/><line x1="0" y1="65" x2="680" y2="65"/><line x1="0" y1="115" x2="680" y2="115"/><line x1="0" y1="165" x2="680" y2="165"/><line x1="0" y1="215" x2="680" y2="215"/></g>
-          <path class="dashboard__track-line frontend" d="M0,175 C75,168 95,145 170,150 S275,115 340,120 S455,80 510,88 S620,55 680,64"/>
-          <path class="dashboard__track-line science" d="M0,202 C80,190 105,176 170,180 S280,158 340,162 S450,134 510,142 S620,116 680,126"/>
-          <path class="dashboard__track-line engineering" d="M0,210 C85,203 110,192 170,195 S275,174 340,180 S450,155 510,164 S620,140 680,148"/>
-          <g class="dashboard__track-points frontend"><circle cx="0" cy="175" r="4"/><circle cx="170" cy="150" r="4"/><circle cx="340" cy="120" r="4"/><circle cx="510" cy="88" r="4"/><circle cx="680" cy="64" r="5"/></g>
-          <g class="dashboard__track-points science"><circle cx="0" cy="202" r="4"/><circle cx="170" cy="180" r="4"/><circle cx="340" cy="162" r="4"/><circle cx="510" cy="142" r="4"/><circle cx="680" cy="126" r="5"/></g>
-          <g class="dashboard__track-points engineering"><circle cx="0" cy="210" r="4"/><circle cx="170" cy="195" r="4"/><circle cx="340" cy="180" r="4"/><circle cx="510" cy="164" r="4"/><circle cx="680" cy="148" r="5"/></g>
-        </svg>
-        <div class="dashboard__trend-x"><span>Sem 1</span><span>Sem 2</span><span>Sem 3</span><span>Sem 4</span><span>Agora</span></div>
-      </div>
-      <div class="dashboard__track-summary">
-        @for (track of trackProgress; track track.name) {
-          <a routerLink="/tracks">
-            <span class="dashboard__track-dot" [style.background]="track.color"></span>
-            <span class="dashboard__track-copy"><strong>{{ track.name }}</strong><small>Próxima: {{ track.next }}</small></span>
-            <span class="dashboard__track-score"><strong>{{ track.progress }}%</strong><small>{{ track.change }}</small></span>
-            <span class="dashboard__track-mini"><i [style.width.%]="track.progress" [style.background]="track.color"></i></span>
-          </a>
-        }
-      </div>
-    </div>
-  </article>
 
-  <div class="dashboard__section-head"><div><span>Continuar estudando</span><h2>Retome seu ritmo</h2></div><a routerLink="/skills">Explorar biblioteca <mat-icon>arrow_forward</mat-icon></a></div>
+  <div class="dashboard__section-head"><div><span>Base de conhecimento</span><h2>Skills aguardando avaliação</h2></div><a routerLink="/skills">Explorar biblioteca <mat-icon>arrow_forward</mat-icon></a></div>
   <div class="dashboard__continue">
     @for (skill of recentSkills; track skill.slug; let i = $index) {
       <a class="dashboard__study-card interactive-card" [routerLink]="['/skills', skill.slug]">
-        <div class="dashboard__study-top"><span class="dashboard__study-icon"><mat-icon>{{ i === 0 ? 'functions' : i === 1 ? 'data_array' : i === 2 ? 'account_tree' : 'code' }}</mat-icon></span><span class="dashboard__duration">{{ 20 + i * 5 }} min</span></div>
+        <div class="dashboard__study-top"><span class="dashboard__study-icon"><mat-icon>{{ i === 0 ? 'functions' : i === 1 ? 'data_array' : i === 2 ? 'account_tree' : 'code' }}</mat-icon></span><span class="dashboard__duration">Nível —</span></div>
         <span class="dashboard__study-kind">{{ categoryBreakdown[i % categoryBreakdown.length].label }}</span><h3>{{ skill.title }}</h3>
-        <div class="dashboard__study-progress"><span [style.width.%]="28 + i * 16"></span></div><small>{{ 28 + i * 16 }}% concluído</small>
+        <div class="dashboard__study-progress"><span style="width:0"></span></div><small>Não avaliada · sem evidências</small>
       </a>
     }
   </div>
 
   <div class="dashboard__insights">
     <article class="dashboard__priorities surface-card">
-      <div class="dashboard__section-head dashboard__section-head--inside"><div><span>Fila inteligente</span><h2>Prioridades recomendadas</h2></div><a routerLink="/journey">Ver jornada <mat-icon>arrow_forward</mat-icon></a></div>
+      <div class="dashboard__section-head dashboard__section-head--inside"><div><span>Próxima ação</span><h2>Fechar a etapa v0.2</h2></div><a routerLink="/journey">Ver jornada <mat-icon>arrow_forward</mat-icon></a></div>
       <div class="dashboard__priority-list">
-        @for (item of prioritySkills; track item.skill.slug; let i = $index) {
-          <a [routerLink]="['/skills', item.skill.slug]" class="dashboard__priority">
-            <span class="dashboard__priority-rank">0{{ i + 1 }}</span>
-            <span class="dashboard__priority-icon"><mat-icon>{{ i === 0 ? 'code' : i === 1 ? 'sync_alt' : 'account_tree' }}</mat-icon></span>
-            <span class="dashboard__priority-copy"><strong>{{ item.skill.title }}</strong><small>{{ item.reason }}</small></span>
-            <span class="dashboard__priority-progress"><i><b [style.width.%]="item.progress"></b></i><small>{{ item.progress }}%</small></span>
-            <span class="dashboard__priority-level">{{ item.level }}</span>
-            <mat-icon class="dashboard__priority-arrow">chevron_right</mat-icon>
-          </a>
-        }
+        <a routerLink="/progress" class="dashboard__priority"><span class="dashboard__priority-rank">01</span><span class="dashboard__priority-icon"><mat-icon>fact_check</mat-icon></span><span class="dashboard__priority-copy"><strong>Avaliar níveis atuais</strong><small>Registrar evidência antes de atribuir nível 0–6.</small></span><span class="dashboard__priority-level">Obrigatório</span><mat-icon class="dashboard__priority-arrow">chevron_right</mat-icon></a>
+        <a routerLink="/vacancies" class="dashboard__priority"><span class="dashboard__priority-rank">02</span><span class="dashboard__priority-icon"><mat-icon>difference</mat-icon></span><span class="dashboard__priority-copy"><strong>Definir níveis alvo</strong><small>Relacionar exigência da vaga com cada skill.</small></span><span class="dashboard__priority-level">Pendente</span><mat-icon class="dashboard__priority-arrow">chevron_right</mat-icon></a>
+        <a routerLink="/labs" class="dashboard__priority"><span class="dashboard__priority-rank">03</span><span class="dashboard__priority-icon"><mat-icon>science</mat-icon></span><span class="dashboard__priority-copy"><strong>Gerar evidência nos labs</strong><small>Usar projetos para comprovar aplicação real.</small></span><span class="dashboard__priority-level">Disponível</span><mat-icon class="dashboard__priority-arrow">chevron_right</mat-icon></a>
       </div>
     </article>
 
     <article class="dashboard__coverage surface-card">
-      <div class="dashboard__card-header"><div><span>Biblioteca</span><h2>Cobertura de skills</h2></div><a routerLink="/skills" aria-label="Abrir skills"><mat-icon>north_east</mat-icon></a></div>
+      <div class="dashboard__card-header"><div><span>Biblioteca</span><h2>Cobertura por categoria</h2></div><a routerLink="/skills" aria-label="Abrir skills"><mat-icon>north_east</mat-icon></a></div>
       <div class="dashboard__donut" [style.background]="coverageGradient"><span><strong>{{ recentSkills.length + 9 }}</strong><small>skills</small></span></div>
-      <div class="dashboard__coverage-list">
-        @for (group of categoryBreakdown; track group.category; let i = $index) {
-          <div><i [style.background]="categoryColors[i]"></i><span>{{ group.label }}</span><strong>{{ group.count }}</strong></div>
-        }
-      </div>
-      <p><mat-icon>lightbulb</mat-icon><span>Sua maior cobertura está em <strong>Frontend</strong>. Architecture é a próxima fronteira.</span></p>
+      <div class="dashboard__coverage-list">@for (group of categoryBreakdown; track group.category; let i = $index) {<div><i [style.background]="categoryColors[i]"></i><span>{{ group.label }}</span><strong>{{ group.count }}</strong></div>}</div>
+      <p><mat-icon>info</mat-icon><span>Cobertura mede itens documentados, não domínio. O domínio permanece <strong>não avaliado</strong>.</span></p>
     </article>
   </div>
 </section>

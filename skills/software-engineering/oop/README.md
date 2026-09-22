@@ -1,5 +1,13 @@
 # OOP em TypeScript
 
+## Nível atual
+`Não avaliado`
+
+Nenhum nível atribuído sem evidência registrada.
+
+## Nível alvo
+`A definir por vaga`
+
 ## Pilares
 
 ### Encapsulamento
@@ -54,3 +62,9 @@ function process(order: Order) {
 - polimorfismo sem herança?
 - TypeScript é orientado a objetos?
 - como Angular usa DI?
+
+## Gaps conhecidos
+- avaliação de domínio pendente.
+
+## Evidências de domínio
+- nenhuma evidência registrada.

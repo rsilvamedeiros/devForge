@@ -1,5 +1,13 @@
 # Algorithms & Big O
 
+## Nível atual
+`Não avaliado`
+
+Nenhum nível atribuído sem evidência registrada.
+
+## Nível alvo
+`A definir por vaga`
+
 ## Ordem de crescimento
 
 ```text
@@ -27,3 +35,9 @@ Não basta dizer "é rápido". Explicar:
 ## Frase útil
 
 > A solução inicial é O(n²) porque para cada elemento faço uma segunda busca. Posso usar um Map para fazer lookup médio O(1), reduzindo o tempo total para O(n), ao custo de O(n) de memória adicional.
+
+## Gaps conhecidos
+- avaliação de domínio pendente.
+
+## Evidências de domínio
+- nenhuma evidência registrada.

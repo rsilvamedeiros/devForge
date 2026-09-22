@@ -1,5 +1,13 @@
 # Arrays & Lists
 
+## Nível atual
+`Não avaliado`
+
+Nenhum nível atribuído sem evidência registrada.
+
+## Nível alvo
+`A definir por vaga`
+
 ## Objetivo
 
 Dominar manipulação de coleções usada em frontend e live coding.
@@ -44,3 +52,9 @@ Receber `Asset[]` do backend e:
 4. agrupar por setor;
 5. atualizar preço de um ativo sem mutar;
 6. renderizar com identidade estável.
+
+## Gaps conhecidos
+- avaliação de domínio pendente.
+
+## Evidências de domínio
+- nenhuma evidência registrada.

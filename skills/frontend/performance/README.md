@@ -1,5 +1,13 @@
 # Frontend Performance
 
+## Nível atual
+`Não avaliado`
+
+Nenhum nível atribuído sem evidência registrada.
+
+## Nível alvo
+`A definir por vaga`
+
 ## Angular
 - identidade estável em listas;
 - `track`;
@@ -17,3 +25,9 @@ Performance de UI também começa na escolha da estrutura:
 - evitar pipelines redundantes em coleções enormes sem necessidade.
 
 Sempre medir antes de otimizar produção, mas saber analisar custo em entrevista.
+
+## Gaps conhecidos
+- avaliação de domínio pendente.
+
+## Evidências de domínio
+- nenhuma evidência registrada.

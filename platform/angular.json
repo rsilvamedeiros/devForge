@@ -51,6 +51,11 @@
                 "glob": "**/*.md",
                 "input": "../study-plans",
                 "output": "content/study-plans"
+              },
+              {
+                "glob": "**/*.md",
+                "input": "../labs",
+                "output": "content/labs"
               }
             ],
             "styles": [

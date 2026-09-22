@@ -1,13 +1,15 @@
 import { fakeAsync, tick } from '@angular/core/testing';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { mockApiInterceptor } from '../../../core/http/mock-api.interceptor';
 import { AssetList } from './asset-list';
 
 describe('AssetList', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AssetList],
-      providers: [provideRouter([])],
+      providers: [provideRouter([]), provideHttpClient(withInterceptors([mockApiInterceptor]))],
     }).compileComponents();
   });
 

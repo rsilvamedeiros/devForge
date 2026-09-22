@@ -42,6 +42,7 @@
               <mat-chip-set>
                 <mat-chip>{{ categoryLabels[skill.category] }}</mat-chip>
               </mat-chip-set>
+              <span class="skills-catalog__level">Nível {{ skill.currentLevel ?? '—' }} · {{ skill.evidenceCount }} evidências</span>
               <span class="skills-catalog__open">Abrir skill →</span>
             </mat-card-content>
           </mat-card>

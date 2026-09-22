@@ -1,6 +1,6 @@
 # DevForge Platform
 
-A plataforma real do DevForge — não é um lab de prática (isso é `labs/`), é a "Udemy pessoal" que navega o conteúdo real do repositório: skills, vagas, challenges e planos de estudo.
+A plataforma real do DevForge — não é um lab de prática (isso é `labs/`), é a "Udemy pessoal" que navega o conteúdo real do repositório: skills, vagas, challenges, labs e planos de estudo.
 
 ## Como funciona
 
@@ -12,9 +12,10 @@ Um índice leve em `src/app/core/data/content-index.ts` mapeia slug → categori
 
 Angular Material (tema `azure-blue`, mesma paleta do `labs/angular-digital-equities` para consistência visual entre os dois projetos Angular do repo).
 
-- `MatToolbar` + `MatSidenav`/`MatNavList` — shell com navegação por seção (Dashboard, Skills, Vagas, Challenges, Planos de estudo). Sidebar colapsável (botão de menu no header) e responsiva: vira `mode="over"` (overlay, fecha ao navegar) abaixo do breakpoint `Handset` do `@angular/cdk/layout`, `mode="side"` (fixa, colapsável) acima dele.
+- `MatToolbar` + `MatSidenav`/`MatNavList` — shell com navegação por Dashboard, Progresso, Jornada, Trilhas, Insights, Skills, Challenges, Labs, Planos e Vagas. Sidebar colapsável e responsiva.
 - `MatCard` em grid — catálogo estilo curso (Skills, Challenges, Planos de estudo), com busca (`MatFormField`/`MatInput`) e filtro por categoria (`MatChipListbox`) em Skills e Challenges.
-- Dashboard com card de "vaga em foco", barras de distribuição de skills por categoria e atalhos "continue estudando" — não só contadores.
+- Dashboard com dados derivados do conteúdo real e estados explícitos de “não avaliado”; não inventa nível, XP, horas ou gaps.
+- Catálogo de Labs com stack, status, skills exercitadas, vaga relacionada e README real.
 - `MatTabGroup` — página de vaga, alternando entre Visão geral / Requisitos / Preparação.
 - `ngx-markdown` — renderização do conteúdo real, com `MatProgressBar` indeterminado enquanto o `.md` carrega (eventos `(ready)`/`(error)` do `<markdown>`) e CSS global em `src/styles.scss` para tabelas, blocos de código e citações.
 
@@ -30,9 +31,11 @@ src/app/
 │   └── data/content-index.ts      # índice slug → categoria → caminho do .md real
 ├── features/
 │   ├── dashboard/
+│   ├── progress/ + journey/ + tracks/ + insights/
 │   ├── skills/skills-catalog/ + skill-detail/
 │   ├── vacancies/vacancy-list/ + vacancy-detail/
 │   ├── challenges/challenge-catalog/ + challenge-detail/
+│   ├── labs/lab-catalog/ + lab-detail/
 │   └── study-plans/study-plan-list/ + study-plan-detail/
 └── shared/layout/
     ├── header/
@@ -58,7 +61,9 @@ Isto implementa o item "v0.3 — aplicação local" do `ROADMAP.md` da raiz do D
 - [x] catálogo de Challenges lendo o `.md` real
 - [x] lista de Vagas + detalhe com abas (Visão geral / Requisitos / Preparação)
 - [x] lista de Planos de estudo + detalhe
+- [x] catálogo e detalhe de Labs
+- [x] níveis não avaliados tratados sem métricas demonstrativas
 - [ ] cadastro de vaga pela UI (hoje só leitura — cadastro ainda é via `devforge-new-vacancy`)
-- [ ] matriz vaga × skill com nível atual/gap calculado (hoje os arquivos de skill não têm "Nível atual" estruturado — depende disso existir primeiro)
+- [ ] matriz vaga × skill com nível atual/gap calculado (os campos existem, mas os níveis aguardam evidência)
 - [ ] dashboard de gaps
 - [ ] indicador de nível de domínio nos cards de skill (0-6), quando os `.md` passarem a ter essa seção

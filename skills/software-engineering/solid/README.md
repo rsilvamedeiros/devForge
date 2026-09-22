@@ -1,5 +1,13 @@
 # SOLID
 
+## Nível atual
+`Não avaliado`
+
+Nenhum nível atribuído sem evidência registrada.
+
+## Nível alvo
+`A definir por vaga`
+
 ## S — Single Responsibility
 Uma unidade deve ter uma razão principal para mudar.
 
@@ -22,3 +30,9 @@ SRP + OCP + DIP.
 ## Exercício
 
 Implementar Jokenpô e depois adicionar movimentos sem espalhar novos `if/else` por toda a aplicação.
+
+## Gaps conhecidos
+- avaliação de domínio pendente.
+
+## Evidências de domínio
+- nenhuma evidência registrada.

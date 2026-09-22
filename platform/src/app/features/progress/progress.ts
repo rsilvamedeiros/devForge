@@ -15,25 +15,26 @@ import { CHALLENGES, SKILLS } from '../../core/data/content-index';
 export class Progress {
   readonly skills = SKILLS;
   readonly challenges = CHALLENGES;
+  readonly assessedSkills = SKILLS.filter(skill => skill.currentLevel !== null).length;
+  readonly evidenceCount = SKILLS.reduce((sum, skill) => sum + skill.evidenceCount, 0);
   readonly completed = signal<string[]>(this.loadCompleted());
   readonly completion = computed(() => Math.round((this.completed().length / CHALLENGES.length) * 100));
-  readonly weeklyActivity = [42, 68, 35, 82, 100, 58, 24];
-  readonly weekDays = ['S', 'T', 'Q', 'Q', 'S', 'S', 'D'];
 
   toggleChallenge(slug: string, checked: boolean): void {
     this.completed.update(items => checked ? [...items, slug] : items.filter(item => item !== slug));
-    if (typeof localStorage !== 'undefined') {
+    try {
       localStorage.setItem('devforge.completedChallenges', JSON.stringify(this.completed()));
+    } catch {
+      // A seleção continua ativa durante a sessão.
     }
   }
 
   private loadCompleted(): string[] {
-    if (typeof localStorage === 'undefined') return ['frequency-counter', 'two-sum'];
     try {
       const saved = localStorage.getItem('devforge.completedChallenges');
-      return saved ? JSON.parse(saved) : ['frequency-counter', 'two-sum'];
+      return saved ? JSON.parse(saved) : [];
     } catch {
-      return ['frequency-counter', 'two-sum'];
+      return [];
     }
   }
 }

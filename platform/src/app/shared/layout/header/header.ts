@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
-import { CHALLENGES, SKILLS, STUDY_PLANS, VACANCIES } from '../../../core/data/content-index';
+import { CHALLENGES, LABS, SKILLS, STUDY_PLANS, VACANCIES } from '../../../core/data/content-index';
 import { ThemeService } from '../../../core/services/theme.service';
 
 @Component({
@@ -47,6 +47,7 @@ export class Header {
       ...CHALLENGES.map(item => ({ title: item.title, path: ['/challenges', item.slug] })),
       ...VACANCIES.map(item => ({ title: `${item.company} ${item.title}`, path: ['/vacancies', item.slug] })),
       ...STUDY_PLANS.map(item => ({ title: item.title, path: ['/study-plans', item.slug] })),
+      ...LABS.map(item => ({ title: item.title, path: ['/labs', item.slug] })),
     ].find(item => item.title.toLowerCase().includes(term));
 
     if (target) this.router.navigate(target.path);

@@ -1,11 +1,15 @@
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { AssetService } from './asset.service';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { mockApiInterceptor } from '../http/mock-api.interceptor';
 
 describe('AssetService', () => {
   let service: AssetService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(withInterceptors([mockApiInterceptor]))],
+    });
     service = TestBed.inject(AssetService);
   });
 

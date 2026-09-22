@@ -1,13 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import {
   CHALLENGES,
+  LABS,
   SKILL_CATEGORY_LABELS,
   SKILLS,
-  STUDY_PLANS,
   VACANCIES,
 } from '../../core/data/content-index';
 import { SkillCategory } from '../../core/models/content.model';
@@ -17,13 +16,13 @@ interface StatCard {
   value: number;
   icon: string;
   path: string;
-  trend: string;
+  note: string;
   tone: string;
 }
 
 @Component({
   selector: 'app-dashboard',
-  imports: [MatCardModule, MatIconModule, MatButtonModule, RouterLink],
+  imports: [MatButtonModule, MatIconModule, RouterLink],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -35,14 +34,18 @@ export class Dashboard {
     month: 'long',
   }).format(new Date());
 
-  readonly stats: StatCard[] = [
-    { label: 'Skills mapeadas', value: SKILLS.length, icon: 'school', path: '/skills', trend: '+3 no mês', tone: 'violet' },
-    { label: 'Vagas ativas', value: VACANCIES.length, icon: 'work_outline', path: '/vacancies', trend: '1 em foco', tone: 'cyan' },
-    { label: 'Challenges', value: CHALLENGES.length, icon: 'terminal', path: '/challenges', trend: '2 concluídos', tone: 'green' },
-    { label: 'Planos ativos', value: STUDY_PLANS.length, icon: 'calendar_month', path: '/study-plans', trend: '72% da semana', tone: 'amber' },
-  ];
-
+  readonly assessedSkills = SKILLS.filter(skill => skill.currentLevel !== null).length;
+  readonly evidenceCount = SKILLS.reduce((sum, skill) => sum + skill.evidenceCount, 0);
   readonly focusVacancy = VACANCIES[0];
+  readonly recentSkills = SKILLS.slice(0, 4);
+  readonly labs = LABS;
+
+  readonly stats: StatCard[] = [
+    { label: 'Skills mapeadas', value: SKILLS.length, icon: 'school', path: '/skills', note: `${this.assessedSkills} avaliadas`, tone: 'violet' },
+    { label: 'Vagas registradas', value: VACANCIES.length, icon: 'work_outline', path: '/vacancies', note: 'Fonte real do repositório', tone: 'cyan' },
+    { label: 'Challenges', value: CHALLENGES.length, icon: 'terminal', path: '/challenges', note: 'Conclusão registrada manualmente', tone: 'green' },
+    { label: 'Labs', value: LABS.length, icon: 'science', path: '/labs', note: 'Projetos de integração', tone: 'amber' },
+  ];
 
   readonly categoryBreakdown = (Object.keys(SKILL_CATEGORY_LABELS) as SkillCategory[]).map(
     category => ({
@@ -51,29 +54,8 @@ export class Dashboard {
       count: SKILLS.filter(skill => skill.category === category).length,
     })
   );
-
-  readonly maxCategoryCount = Math.max(...this.categoryBreakdown.map(group => group.count));
-
-  readonly recentSkills = SKILLS.slice(0, 4);
-
-  readonly prioritySkills = [
-    { skill: SKILLS.find(skill => skill.slug === 'angular')!, reason: 'Skill crítica para a vaga em foco', level: 'Prioridade alta', progress: 76 },
-    { skill: SKILLS.find(skill => skill.slug === 'rxjs')!, reason: 'Maior gap técnico identificado', level: 'Revisar hoje', progress: 48 },
-    { skill: SKILLS.find(skill => skill.slug === 'architecture')!, reason: 'Preparação para system design', level: 'Próxima', progress: 32 },
-  ];
-
   readonly categoryColors = ['#6558f5', '#48c9d4', '#f0a44b'];
   readonly coverageGradient = this.buildCoverageGradient();
-  readonly trackProgress = [
-    { name: 'Frontend Specialist', progress: 68, change: '+12%', color: '#6558f5', next: 'RxJS' },
-    { name: 'Computer Science', progress: 44, change: '+8%', color: '#48c9d4', next: 'Data Structures' },
-    { name: 'Software Engineering', progress: 36, change: '+5%', color: '#f0a44b', next: 'Architecture' },
-  ];
-
-  readonly weekDays = [
-    { day: 'S', done: true }, { day: 'T', done: true }, { day: 'Q', done: true },
-    { day: 'Q', done: true }, { day: 'S', done: false }, { day: 'S', done: false }, { day: 'D', done: false },
-  ];
 
   private buildCoverageGradient(): string {
     const total = this.categoryBreakdown.reduce((sum, group) => sum + group.count, 0);

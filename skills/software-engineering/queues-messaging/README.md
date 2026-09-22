@@ -1,5 +1,13 @@
 # Queues & Messaging
 
+## Nível atual
+`Não avaliado`
+
+Nenhum nível atribuído sem evidência registrada.
+
+## Nível alvo
+`A definir por vaga`
+
 ## Queue como estrutura
 
 FIFO.
@@ -36,3 +44,9 @@ O consumidor processa uma ordem, persiste, mas cai antes do ACK. A mensagem pode
 - AWS SQS
 
 Não decorar produto; entender modelo e trade-offs.
+
+## Gaps conhecidos
+- avaliação de domínio pendente.
+
+## Evidências de domínio
+- nenhuma evidência registrada.

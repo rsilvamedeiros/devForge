@@ -1,5 +1,13 @@
 # Data Structures
 
+## Nível atual
+`Não avaliado`
+
+Nenhum nível atribuído sem evidência registrada.
+
+## Nível alvo
+`A definir por vaga`
+
 ## Array
 Boa iteração e acesso por índice. Busca por valor normalmente O(n).
 
@@ -21,3 +29,9 @@ Importante conceitualmente para entender nós e inserções; menor prioridade pa
 ## Pergunta central
 
 > Qual estrutura representa melhor o problema e quais operações serão mais frequentes?
+
+## Gaps conhecidos
+- avaliação de domínio pendente.
+
+## Evidências de domínio
+- nenhuma evidência registrada.
