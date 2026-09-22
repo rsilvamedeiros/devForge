@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
+import { SKILLS } from '../../core/data/content-index';
 
 @Component({
   selector: 'app-journey',
@@ -10,6 +11,7 @@ import { RouterLink } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Journey {
+  readonly totalSkills = SKILLS.length;
   readonly steps = [
     { icon: 'work_outline', title: 'Vaga', copy: 'Defina um alvo real', path: '/vacancies', status: 'done' },
     { icon: 'fact_check', title: 'Requisitos', copy: 'Traduza o que importa', path: '/vacancies', status: 'done' },

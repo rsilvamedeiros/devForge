@@ -35,6 +35,7 @@ export class Dashboard {
   }).format(new Date());
 
   readonly assessedSkills = SKILLS.filter(skill => skill.currentLevel !== null).length;
+  readonly skillsCount = SKILLS.length;
   readonly evidenceCount = SKILLS.reduce((sum, skill) => sum + skill.evidenceCount, 0);
   readonly focusVacancy = VACANCIES[0];
   readonly recentSkills = SKILLS.slice(0, 4);

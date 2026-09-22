@@ -15,7 +15,7 @@
       <article class="dashboard__focus surface-card">
         <div class="dashboard__card-header"><div><span>Vaga em foco</span><h2>{{ focusVacancy.company }}</h2></div><span class="dashboard__live"><i></i> Mapeada</span></div>
         <p>{{ focusVacancy.title }}</p>
-        <div class="dashboard__focus-progress"><div><span>Avaliação das skills</span><strong>{{ assessedSkills }}/{{ recentSkills.length + 9 }}</strong></div><div class="dashboard__progress-track"><span [style.width.%]="assessedSkills / (recentSkills.length + 9) * 100"></span></div></div>
+        <div class="dashboard__focus-progress"><div><span>Avaliação das skills</span><strong>{{ assessedSkills }}/{{ skillsCount }}</strong></div><div class="dashboard__progress-track"><span [style.width.%]="assessedSkills / skillsCount * 100"></span></div></div>
         <div class="dashboard__milestones"><div class="done"><mat-icon>check</mat-icon><span>Requisitos<small>Mapeados</small></span></div><div class="active"><mat-icon>priority_high</mat-icon><span>Níveis<small>Não avaliados</small></span></div><div><mat-icon>troubleshoot</mat-icon><span>Gap analysis<small>Pendente</small></span></div><div><mat-icon>school</mat-icon><span>Plano<small>A revisar</small></span></div></div>
         <a [routerLink]="['/vacancies', focusVacancy.slug]">Abrir contexto da vaga <mat-icon>arrow_forward</mat-icon></a>
       </article>
@@ -51,7 +51,7 @@
 
     <article class="dashboard__coverage surface-card">
       <div class="dashboard__card-header"><div><span>Biblioteca</span><h2>Cobertura por categoria</h2></div><a routerLink="/skills" aria-label="Abrir skills"><mat-icon>north_east</mat-icon></a></div>
-      <div class="dashboard__donut" [style.background]="coverageGradient"><span><strong>{{ recentSkills.length + 9 }}</strong><small>skills</small></span></div>
+      <div class="dashboard__donut" [style.background]="coverageGradient"><span><strong>{{ skillsCount }}</strong><small>skills</small></span></div>
       <div class="dashboard__coverage-list">@for (group of categoryBreakdown; track group.category; let i = $index) {<div><i [style.background]="categoryColors[i]"></i><span>{{ group.label }}</span><strong>{{ group.count }}</strong></div>}</div>
       <p><mat-icon>info</mat-icon><span>Cobertura mede itens documentados, não domínio. O domínio permanece <strong>não avaliado</strong>.</span></p>
     </article>

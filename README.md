@@ -87,4 +87,4 @@ devforge/
 2. Abra o caso [`vacancies/btg-digital-equities`](vacancies/btg-digital-equities/).
 3. Siga [`study-plans/BTG-2-DIAS.md`](study-plans/BTG-2-DIAS.md).
 4. Implemente os desafios sem IA primeiro; use IA depois para revisão e alternativas.
-5. Use os labs para integrar os conceitos: Angular Digital Equities para frontend e TypeScript Order Processing para mensageria.
+5. Use os labs para integrar os conceitos: Angular Digital Equities, React Service Operations e TypeScript Order Processing.

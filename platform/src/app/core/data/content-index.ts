@@ -47,6 +47,12 @@ const SKILL_DEFINITIONS: SkillDefinition[] = [
     contentPath: 'content/skills/frontend/performance/README.md',
   },
   {
+    slug: 'react',
+    title: 'React',
+    category: 'frontend',
+    contentPath: 'content/skills/frontend/react/README.md',
+  },
+  {
     slug: 'rest',
     title: 'REST',
     category: 'frontend',
@@ -171,6 +177,15 @@ export const LABS: LabItem[] = [
     vacancySlug: 'btg-digital-equities',
     skills: ['angular', 'typescript', 'rxjs', 'queues-messaging', 'websockets', 'performance'],
     contentPath: 'content/labs/angular-digital-equities/README.md',
+  },
+  {
+    slug: 'react-service-operations',
+    title: 'React Service Operations',
+    description: 'Central de atendimento com tickets, SLA, estado remoto e atualização otimista.',
+    stack: 'React · TypeScript · TanStack Query',
+    status: 'active',
+    skills: ['react', 'typescript', 'rest', 'performance'],
+    contentPath: 'content/labs/react-service-operations/README.md',
   },
   {
     slug: 'typescript-order-processing',

@@ -1,0 +1,20 @@
+import { ArrowRight, CheckCircle2, Clock3, Headphones, Inbox, MessageSquare, MoreHorizontal, TrendingUp, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { MetricCard } from '../components/metric-card';
+import { StatusBadge } from '../components/status-badge';
+import { useTickets } from '../features/tickets/ticket-hooks';
+
+export function DashboardPage() {
+  const { data: tickets = [], isLoading } = useTickets();
+  const currentDate = new Intl.DateTimeFormat('pt-BR', { weekday: 'long', day: '2-digit', month: 'long' }).format(new Date());
+  const active = tickets.filter(ticket => ticket.status !== 'resolved');
+  const urgent = tickets.filter(ticket => ticket.priority === 'urgent' && ticket.status !== 'resolved');
+  const breached = tickets.filter(ticket => ticket.slaMinutesLeft < 0);
+
+  return <section className="page dashboard-page"><header className="page-header"><div><span className="eyebrow">{currentDate}</span><h1>Bom dia, Ana.</h1><p>A operação está estável. Há <strong>{urgent.length} tickets urgentes</strong> pedindo atenção.</p></div><Link className="primary-button" to="/tickets"><Inbox/>Abrir fila</Link></header>
+    <div className="metrics"><MetricCard icon={Inbox} label="Tickets ativos" value={String(active.length)} detail="2 recebidos na última hora"/><MetricCard icon={Clock3} label="Tempo médio" value="8m 24s" detail="↓ 12% vs. semana anterior" tone="cyan"/><MetricCard icon={CheckCircle2} label="SLA cumprido" value="98,7%" detail={`${breached.length} ticket fora do prazo`} tone="green"/><MetricCard icon={Users} label="Agentes online" value="7/9" detail="Capacidade em 74%" tone="amber"/></div>
+    <div className="dashboard-grid"><article className="panel queue-panel"><div className="panel-header"><div><span>Fila prioritária</span><h2>Tickets que precisam de atenção</h2></div><Link to="/tickets">Ver todos <ArrowRight/></Link></div>{isLoading ? <div className="loading-list">Sincronizando fila...</div> : <div className="ticket-list compact">{tickets.slice(0,5).map(ticket => <Link to={`/tickets/${ticket.id}`} key={ticket.id} className="ticket-row"><span className={`customer-avatar avatar-${ticket.priority}`}>{ticket.customerInitials}</span><div className="ticket-main"><strong>{ticket.subject}</strong><small>{ticket.id} · {ticket.customer}</small></div><StatusBadge status={ticket.status}/><span className={`priority priority--${ticket.priority}`}>{ticket.priority}</span><div className="assignee"><span>{ticket.assigneeInitials}</span><small>{ticket.updatedAt}</small></div><MoreHorizontal/></Link>)}</div>}</article>
+      <article className="panel workload"><div className="panel-header"><div><span>Equipe</span><h2>Distribuição de carga</h2></div><button className="ghost-icon"><MoreHorizontal/></button></div><div className="donut"><span><strong>74%</strong><small>capacidade</small></span></div><div className="legend"><div><i className="violet"/><span>Em atendimento</span><strong>12</strong></div><div><i className="cyan"/><span>Aguardando</span><strong>5</strong></div><div><i className="gray"/><span>Disponível</span><strong>4</strong></div></div></article></div>
+    <div className="dashboard-bottom"><article className="panel activity-chart"><div className="panel-header"><div><span>Performance</span><h2>Volume por período</h2></div><span className="positive"><TrendingUp/>+18,4%</span></div><div className="bars">{[38,52,46,68,74,61,88,72,94,82,67,76].map((height,index)=><i key={index} style={{height:`${height}%`}} className={index===8?'active':''}/>)}</div><div className="axis"><span>08h</span><span>10h</span><span>12h</span><span>14h</span><span>16h</span><span>18h</span></div></article><article className="panel quick-insight"><span><Headphones/></span><small>Insight operacional</small><h2>Chat concentra 46% do volume</h2><p>Reforce a escala entre 14h e 16h para reduzir o tempo de primeira resposta.</p><Link to="/analytics">Ver analytics <ArrowRight/></Link><MessageSquare className="watermark"/></article></div>
+  </section>;
+}

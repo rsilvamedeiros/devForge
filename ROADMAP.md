@@ -32,6 +32,10 @@
 
 ## Labs
 - [x] Angular Digital Equities — terminal financeiro e integração frontend
+- [x] React Service Operations — tickets, SLA e estado remoto
 - [x] TypeScript Order Processing — fila, retry, DLQ e idempotência
+- [ ] Next.js — App Router, Server Components e caching
+- [ ] Vue — Composition API e Pinia
+- [ ] Svelte — runes, reatividade e SvelteKit
 - [ ] integração HTTP/WebSocket entre os dois labs
 - [ ] próximo lab orientado por nova vaga ou gap comprovado

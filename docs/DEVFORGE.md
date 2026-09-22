@@ -188,6 +188,14 @@ O primeiro laboratório será um Digital Equities Dashboard em Angular. Ele exis
 
 O segundo laboratório, `typescript-order-processing`, separa o processamento orientado a eventos da interface Angular. Ele aprofunda fila, retry, DLQ, idempotência, POO e testes sem transformar o primeiro lab em um monólito didático.
 
+### Portfólio por tecnologia
+
+A evolução dos labs também pode cobrir uma tecnologia principal por projeto, começando por frontend. Cada lab deve manter domínio, UX e decisões próprias — não ser apenas a mesma tela reescrita em outro framework.
+
+- `angular-digital-equities` — Angular em operações financeiras;
+- `react-service-operations` — React em atendimento e SLA;
+- próximos: Next.js, Vue e Svelte, conforme prioridade de estudo.
+
 ## 11. Evolução futura
 
 Possível aplicação:

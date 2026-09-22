@@ -24,6 +24,7 @@ interface LearningTrack {
 })
 export class Tracks {
   readonly Math = Math;
+  readonly totalSkills = SKILLS.length;
   readonly tracks: LearningTrack[] = [
     {
       slug: 'frontend-specialist',
