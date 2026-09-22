@@ -1,9 +1,17 @@
-import { ChangeDetectionStrategy, Component, output, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  HostListener,
+  inject,
+  output,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
-import { inject } from '@angular/core';
 import { CHALLENGES, SKILLS, STUDY_PLANS, VACANCIES } from '../../../core/data/content-index';
 import { ThemeService } from '../../../core/services/theme.service';
 
@@ -19,6 +27,15 @@ export class Header {
   readonly theme = inject(ThemeService);
   readonly menuToggle = output<void>();
   readonly searchTerm = signal('');
+  readonly searchInput = viewChild<ElementRef<HTMLInputElement>>('searchInput');
+
+  @HostListener('document:keydown', ['$event'])
+  focusSearch(event: KeyboardEvent): void {
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+      event.preventDefault();
+      this.searchInput()?.nativeElement.focus();
+    }
+  }
 
   search(event: Event): void {
     event.preventDefault();

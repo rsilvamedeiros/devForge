@@ -31,6 +31,8 @@
   --mdc-list-list-item-hover-leading-icon-color: #ffffff;
   --mdc-list-list-item-focus-label-text-color: #ffffff;
   --mdc-list-list-item-focus-leading-icon-color: #ffffff;
+  --mat-list-list-item-label-text-color: var(--sidebar-text);
+  --mat-list-list-item-leading-icon-color: var(--sidebar-text);
 
   a { position: relative; margin-bottom: 0.15rem; border-radius: 11px; color: var(--sidebar-text); }
   a:hover { background: var(--sidebar-surface); color: white; }
@@ -40,7 +42,11 @@
     color: white;
     background: var(--sidebar-active);
   }
-  mat-icon { color: currentColor; }
+  a .mat-mdc-list-item-title { color: var(--sidebar-text) !important; }
+  a mat-icon { color: var(--sidebar-text) !important; }
+  a:hover .mat-mdc-list-item-title, a:hover mat-icon { color: #ffffff !important; }
+  a.mdc-list-item--activated .mat-mdc-list-item-title { color: #ffffff !important; }
+  a.mdc-list-item--activated mat-icon { color: #b7b0ff !important; }
 }
 .sidebar__active-mark { position: absolute; left: -0.65rem; width: 3px; height: 0; border-radius: 0 4px 4px 0; background: #8d83ff; transition: height 180ms ease; }
 .mdc-list-item--activated .sidebar__active-mark { height: 24px; }

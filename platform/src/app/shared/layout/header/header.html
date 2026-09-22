@@ -9,28 +9,29 @@
   </div>
 
   <form class="header__search" role="search" (submit)="search($event)">
-    <mat-icon>search</mat-icon>
+    <span class="header__search-icon"><mat-icon>search</mat-icon></span>
     <input
+      #searchInput
       type="search"
       aria-label="Buscar em todo o DevForge"
       placeholder="Buscar skills, challenges, vagas..."
       [value]="searchTerm()"
       (input)="searchTerm.set($any($event.target).value)"
     />
-    <span class="header__shortcut">⌘ K</span>
+    <span class="header__shortcut">Ctrl K</span>
   </form>
 
   <div class="header__actions">
     <button
+      mat-icon-button
       class="header__theme"
       type="button"
       (click)="theme.toggle()"
+      [class.is-active]="theme.isDark()"
       [attr.aria-label]="theme.isDark() ? 'Ativar tema claro' : 'Ativar tema escuro'"
       [attr.title]="theme.isDark() ? 'Ativar tema claro' : 'Ativar tema escuro'"
     >
-      <mat-icon>{{ theme.isDark() ? 'dark_mode' : 'light_mode' }}</mat-icon>
-      <span>{{ theme.isDark() ? 'Escuro' : 'Claro' }}</span>
-      <i class="header__theme-switch" [class.is-on]="theme.isDark()"><b></b></i>
+      <mat-icon>{{ theme.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
     </button>
     <button mat-icon-button type="button" aria-label="Notificações"><mat-icon>notifications_none</mat-icon></button>
     <div class="header__avatar" aria-label="Perfil do usuário">RS</div>
