@@ -8,6 +8,7 @@ interface NavItem {
   path: string;
   icon: string;
   badge?: string;
+  badgeTone?: 'neutral' | 'progress' | 'live';
 }
 
 interface NavGroup {
@@ -30,21 +31,23 @@ export class Sidebar {
       label: 'Visão',
       items: [
         { label: 'Visão geral', path: '/dashboard', icon: 'grid_view' },
-        { label: 'Meu progresso', path: '/progress', icon: 'trending_up', badge: '72%' },
+        { label: 'Meu progresso', path: '/progress', icon: 'trending_up', badge: '72%', badgeTone: 'progress' },
+        { label: 'Insights', path: '/insights', icon: 'monitoring' },
         { label: 'Jornada', path: '/journey', icon: 'route' },
       ],
     },
     {
       label: 'Aprendizado',
       items: [
-        { label: 'Skills', path: '/skills', icon: 'school', badge: '13' },
-        { label: 'Challenges', path: '/challenges', icon: 'terminal', badge: '6' },
+        { label: 'Trilhas', path: '/tracks', icon: 'conversion_path', badge: '3', badgeTone: 'neutral' },
+        { label: 'Skills', path: '/skills', icon: 'school', badge: '13', badgeTone: 'neutral' },
+        { label: 'Challenges', path: '/challenges', icon: 'terminal', badge: '2/6', badgeTone: 'progress' },
         { label: 'Planos de estudo', path: '/study-plans', icon: 'calendar_month' },
       ],
     },
     {
       label: 'Carreira',
-      items: [{ label: 'Vagas', path: '/vacancies', icon: 'work_outline', badge: '1' }],
+      items: [{ label: 'Vagas', path: '/vacancies', icon: 'work_outline', badge: '1 ativa', badgeTone: 'live' }],
     },
   ];
 }

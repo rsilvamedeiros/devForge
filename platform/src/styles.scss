@@ -184,6 +184,19 @@ html[data-theme='dark'] {
   .journey__step.is-active {
     background: linear-gradient(135deg, #6558f5, #4e45cb) !important;
   }
+
+  .tracks__summary-icon,
+  .insights__stat-icon {
+    color: var(--forge-primary);
+    background: var(--forge-primary-soft);
+  }
+
+  .tracks__summary-icon.cyan,
+  .insights__stat-icon.cyan { color: #69dbe4; background: rgba(72, 201, 212, .12); }
+  .tracks__summary-icon.amber,
+  .insights__stat-icon.amber { color: #f0b765; background: rgba(240, 164, 75, .12); }
+  .tracks__summary-icon.green,
+  .insights__stat-icon.green { color: #69d29c; background: rgba(52, 168, 115, .12); }
 }
 
 .skills-catalog__toolbar,

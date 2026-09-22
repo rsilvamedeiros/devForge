@@ -25,6 +25,35 @@
       <a routerLink="/progress">Ver meu progresso <mat-icon>arrow_forward</mat-icon></a>
     </article>
   </div>
+  <article class="dashboard__tracks-chart surface-card">
+    <div class="dashboard__section-head dashboard__section-head--inside"><div><span>Evolução das trilhas</span><h2>Ritmo de aprendizado</h2></div><a routerLink="/tracks">Explorar trilhas <mat-icon>arrow_forward</mat-icon></a></div>
+    <div class="dashboard__tracks-layout">
+      <div class="dashboard__trend-chart">
+        <div class="dashboard__trend-axis"><span>100%</span><span>75%</span><span>50%</span><span>25%</span><span>0%</span></div>
+        <svg viewBox="0 0 680 230" preserveAspectRatio="none" role="img" aria-label="Progresso das três trilhas nas últimas cinco semanas">
+          <g class="dashboard__trend-grid"><line x1="0" y1="15" x2="680" y2="15"/><line x1="0" y1="65" x2="680" y2="65"/><line x1="0" y1="115" x2="680" y2="115"/><line x1="0" y1="165" x2="680" y2="165"/><line x1="0" y1="215" x2="680" y2="215"/></g>
+          <path class="dashboard__track-line frontend" d="M0,175 C75,168 95,145 170,150 S275,115 340,120 S455,80 510,88 S620,55 680,64"/>
+          <path class="dashboard__track-line science" d="M0,202 C80,190 105,176 170,180 S280,158 340,162 S450,134 510,142 S620,116 680,126"/>
+          <path class="dashboard__track-line engineering" d="M0,210 C85,203 110,192 170,195 S275,174 340,180 S450,155 510,164 S620,140 680,148"/>
+          <g class="dashboard__track-points frontend"><circle cx="0" cy="175" r="4"/><circle cx="170" cy="150" r="4"/><circle cx="340" cy="120" r="4"/><circle cx="510" cy="88" r="4"/><circle cx="680" cy="64" r="5"/></g>
+          <g class="dashboard__track-points science"><circle cx="0" cy="202" r="4"/><circle cx="170" cy="180" r="4"/><circle cx="340" cy="162" r="4"/><circle cx="510" cy="142" r="4"/><circle cx="680" cy="126" r="5"/></g>
+          <g class="dashboard__track-points engineering"><circle cx="0" cy="210" r="4"/><circle cx="170" cy="195" r="4"/><circle cx="340" cy="180" r="4"/><circle cx="510" cy="164" r="4"/><circle cx="680" cy="148" r="5"/></g>
+        </svg>
+        <div class="dashboard__trend-x"><span>Sem 1</span><span>Sem 2</span><span>Sem 3</span><span>Sem 4</span><span>Agora</span></div>
+      </div>
+      <div class="dashboard__track-summary">
+        @for (track of trackProgress; track track.name) {
+          <a routerLink="/tracks">
+            <span class="dashboard__track-dot" [style.background]="track.color"></span>
+            <span class="dashboard__track-copy"><strong>{{ track.name }}</strong><small>Próxima: {{ track.next }}</small></span>
+            <span class="dashboard__track-score"><strong>{{ track.progress }}%</strong><small>{{ track.change }}</small></span>
+            <span class="dashboard__track-mini"><i [style.width.%]="track.progress" [style.background]="track.color"></i></span>
+          </a>
+        }
+      </div>
+    </div>
+  </article>
+
   <div class="dashboard__section-head"><div><span>Continuar estudando</span><h2>Retome seu ritmo</h2></div><a routerLink="/skills">Explorar biblioteca <mat-icon>arrow_forward</mat-icon></a></div>
   <div class="dashboard__continue">
     @for (skill of recentSkills; track skill.slug; let i = $index) {

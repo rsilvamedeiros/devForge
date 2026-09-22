@@ -26,9 +26,15 @@
 - `platform/src/app/features/journey/journey.html`
 - `platform/src/app/features/journey/journey.scss`
 - `platform/src/app/features/journey/journey.ts`
+- `platform/src/app/features/insights/insights.html`
+- `platform/src/app/features/insights/insights.scss`
+- `platform/src/app/features/insights/insights.ts`
 - `platform/src/app/features/progress/progress.html`
 - `platform/src/app/features/progress/progress.scss`
 - `platform/src/app/features/progress/progress.ts`
+- `platform/src/app/features/tracks/tracks.html`
+- `platform/src/app/features/tracks/tracks.scss`
+- `platform/src/app/features/tracks/tracks.ts`
 - `resources/RESOURCES.md`
 - `skills/computer-science/algorithms-big-o/README.md`
 - `skills/computer-science/arrays-lists/README.md`

@@ -15,6 +15,14 @@ export const routes: Routes = [
     loadComponent: () => import('./features/journey/journey').then(m => m.Journey),
   },
   {
+    path: 'tracks',
+    loadComponent: () => import('./features/tracks/tracks').then(m => m.Tracks),
+  },
+  {
+    path: 'insights',
+    loadComponent: () => import('./features/insights/insights').then(m => m.Insights),
+  },
+  {
     path: 'skills',
     loadComponent: () =>
       import('./features/skills/skills-catalog/skills-catalog').then(m => m.SkillsCatalog),

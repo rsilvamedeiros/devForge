@@ -64,6 +64,11 @@ export class Dashboard {
 
   readonly categoryColors = ['#6558f5', '#48c9d4', '#f0a44b'];
   readonly coverageGradient = this.buildCoverageGradient();
+  readonly trackProgress = [
+    { name: 'Frontend Specialist', progress: 68, change: '+12%', color: '#6558f5', next: 'RxJS' },
+    { name: 'Computer Science', progress: 44, change: '+8%', color: '#48c9d4', next: 'Data Structures' },
+    { name: 'Software Engineering', progress: 36, change: '+5%', color: '#f0a44b', next: 'Architecture' },
+  ];
 
   readonly weekDays = [
     { day: 'S', done: true }, { day: 'T', done: true }, { day: 'Q', done: true },
