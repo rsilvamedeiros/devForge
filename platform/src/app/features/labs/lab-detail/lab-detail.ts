@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,10 +18,28 @@ import { LABS, SKILLS } from '../../../core/data/content-index';
 export class LabDetail {
   private readonly route = inject(ActivatedRoute);
   readonly loaded = signal(false);
+  readonly activeDocument = signal<'overview' | 'path' | 'exercises'>('overview');
   readonly lab = toSignal(this.route.paramMap.pipe(map(params => LABS.find(lab => lab.slug === params.get('slug')))));
+  readonly documentPath = computed(() => {
+    const item = this.lab();
+    if (!item) return '';
+    if (this.activeDocument() === 'path') return item.learningPath;
+    if (this.activeDocument() === 'exercises') return item.exercisesPath;
+    return item.contentPath;
+  });
   readonly skills = SKILLS;
 
   skillTitle(slug: string): string {
     return SKILLS.find(skill => skill.slug === slug)?.title ?? slug;
+  }
+
+  selectDocument(document: 'overview' | 'path' | 'exercises'): void {
+    this.loaded.set(false);
+    this.activeDocument.set(document);
+  }
+
+  implementationProgress(): number {
+    const modules = this.lab()?.modules ?? [];
+    return modules.length ? Math.round(modules.filter(module => module.status === 'implemented').length / modules.length * 100) : 0;
   }
 }

@@ -210,6 +210,10 @@ npm run dev:typescript
 
 O workspace é apenas uma camada de orquestração. Cada projeto preserva dependências, scripts e build próprios; futuros labs em outras linguagens continuam independentes do npm.
 
+### Qualidade antes de quantidade
+
+Antes de adicionar uma nova tecnologia, os labs ativos devem atender ao [`padrão de laboratório completo`](guides/LAB-STANDARD.md). Cada projeto precisa combinar experiência visual, funcionalidades, trilha de módulos, documentação das skills, exercícios progressivos, testes e critérios de evidência.
+
 ## 11. Evolução futura
 
 Possível aplicação:

@@ -16,4 +16,9 @@ export class LabCatalog {
   readonly labs = LABS;
   readonly activeCount = LABS.filter(lab => lab.status === 'active').length;
   readonly skillCount = new Set(LABS.flatMap(lab => lab.skills)).size;
+
+  implementationProgress(slug: string): number {
+    const modules = LABS.find(lab => lab.slug === slug)?.modules ?? [];
+    return modules.length ? Math.round(modules.filter(module => module.status === 'implemented').length / modules.length * 100) : 0;
+  }
 }

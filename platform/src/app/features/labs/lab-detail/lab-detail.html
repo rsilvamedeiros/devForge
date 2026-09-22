@@ -1,3 +1,24 @@
 @if (lab(); as item) {
-  <section class="lab-detail"><a mat-button routerLink="/labs" class="lab-detail__back"><mat-icon>arrow_back</mat-icon>Labs</a><header class="lab-detail__hero"><div><span class="page-eyebrow"><mat-icon>science</mat-icon>{{ item.stack }}</span><h1>{{ item.title }}</h1><p>{{ item.description }}</p><div class="lab-detail__links">@if (item.vacancySlug) {<a [routerLink]="['/vacancies', item.vacancySlug]"><mat-icon>work_outline</mat-icon>Vaga relacionada</a>}<span><i></i>{{ item.status === 'active' ? 'Em evolução' : 'Fundação pronta' }}</span></div></div><span class="lab-detail__icon"><mat-icon>{{ item.slug.includes('angular') ? 'candlestick_chart' : 'account_tree' }}</mat-icon></span></header><div class="lab-detail__layout"><main class="lab-detail__content surface-card">@if (!loaded()) {<mat-progress-bar mode="indeterminate"/>}<markdown [src]="item.contentPath" (ready)="loaded.set(true)" (error)="loaded.set(true)"/></main><aside><article class="surface-card"><span>Skills exercitadas</span><div>@for (skill of item.skills; track skill) {<a [routerLink]="['/skills', skill]">{{ skillTitle(skill) }}<mat-icon>north_east</mat-icon></a>}</div></article><article class="surface-card"><mat-icon>verified</mat-icon><h2>Evidência possível</h2><p>Concluir e explicar este lab pode sustentar uma futura atualização de nível. O registro continua obrigatório na skill.</p></article></aside></div></section>
+  <section class="lab-detail">
+    <a mat-button routerLink="/labs" class="lab-detail__back"><mat-icon>arrow_back</mat-icon>Labs</a>
+    <header class="lab-detail__hero">
+      <div><span class="page-eyebrow"><mat-icon>science</mat-icon>{{ item.stack }}</span><h1>{{ item.title }}</h1><p>{{ item.description }}</p><div class="lab-detail__links">@if (item.vacancySlug) {<a [routerLink]="['/vacancies', item.vacancySlug]"><mat-icon>work_outline</mat-icon>Vaga relacionada</a>}<span><i></i>Laboratório ativo</span></div></div>
+      <div class="lab-detail__score"><strong>{{ implementationProgress() }}%</strong><span>base implementada</span><mat-progress-bar mode="determinate" [value]="implementationProgress()"/><small>{{ item.modules.length }} módulos na trilha</small></div>
+    </header>
+
+    <nav class="lab-detail__tabs" aria-label="Conteúdo do laboratório">
+      <button [class.active]="activeDocument() === 'overview'" (click)="selectDocument('overview')"><mat-icon>dashboard</mat-icon>Visão geral</button>
+      <button [class.active]="activeDocument() === 'path'" (click)="selectDocument('path')"><mat-icon>route</mat-icon>Trilha</button>
+      <button [class.active]="activeDocument() === 'exercises'" (click)="selectDocument('exercises')"><mat-icon>exercise</mat-icon>Exercícios</button>
+    </nav>
+
+    <div class="lab-detail__layout">
+      <main class="lab-detail__content surface-card">@if (!loaded()) {<mat-progress-bar mode="indeterminate"/>}<markdown [src]="documentPath()" (ready)="loaded.set(true)" (error)="loaded.set(true)"/></main>
+      <aside>
+        <article class="surface-card lab-detail__modules"><span>Mapa do laboratório</span><div>@for (module of item.modules; track module.title; let index = $index) {<section [class.next]="module.status === 'next'"><b>@if (module.status === 'implemented') {<mat-icon>check</mat-icon>} @else { {{ index + 1 }} }</b><div><strong>{{ module.title }}</strong><small>{{ module.focus }}</small></div></section>}</div></article>
+        <article class="surface-card"><span>Skills exercitadas</span><div>@for (skill of item.skills; track skill) {<a [routerLink]="['/skills', skill]">{{ skillTitle(skill) }}<mat-icon>north_east</mat-icon></a>}</div></article>
+        <article class="surface-card lab-detail__evidence"><mat-icon>verified</mat-icon><h2>Evidência, não pontuação</h2><p>O progresso acima representa a base construída. Evoluir uma skill ainda exige demonstrar, explicar e registrar a evidência.</p></article>
+      </aside>
+    </div>
+  </section>
 } @else {<p>Lab não encontrado.</p>}

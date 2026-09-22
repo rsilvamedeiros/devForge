@@ -12,6 +12,14 @@ O **Nexa Ops** organiza tickets, SLAs, responsáveis e performance operacional.
 - listagem de tickets com busca e filtros;
 - detalhe com conversa, cliente, propriedades e atualização de status;
 - analytics com volume, canais, satisfação e ranking.
+- trilha React integrada, com módulos, exercícios e progresso local.
+
+## Experiência de aprendizagem
+
+- [`docs/LEARNING-PATH.md`](docs/LEARNING-PATH.md) organiza o projeto em cinco módulos;
+- [`docs/EXERCISES.md`](docs/EXERCISES.md) propõe desafios de fundamento, aplicação e arquitetura;
+- a rota `/learning` acompanha módulos sem confundir conclusão com nível de domínio;
+- a documentação permanente da tecnologia fica em [`skills/frontend/react`](../../skills/frontend/react/README.md).
 
 ## Skills exercitadas
 
@@ -62,6 +70,8 @@ npm run dev
 npm run build
 npm test
 ```
+
+Na raiz do DevForge, use `npm run dev:react`, `npm run build:react` e `npm run test:react`.
 
 ## Decisões
 

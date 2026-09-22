@@ -69,6 +69,10 @@ Convenções específicas para `labs/angular-digital-equities` (de `docs/guides/
 - Testes onde agregarem ao aprendizado, não por obrigação.
 - UI usa **Angular Material** (`ng add @angular/material` já feito, tema `azure-blue`) — evoluir uma tela significa trocar HTML cru por componentes Material (`MatFormField`, `MatTable`, `MatButton`, etc.), não escrever CSS do zero.
 
+## Padrão dos labs
+
+Todo lab novo ou evoluído deve seguir [`docs/guides/LAB-STANDARD.md`](docs/guides/LAB-STANDARD.md): produto com identidade visual, trilha de módulos, documentação das skills, exercícios progressivos, testes e critérios de evidência. Priorizar profundidade nos labs ativos antes de adicionar outra tecnologia. Progresso de módulo não altera automaticamente o nível de uma skill.
+
 ## Plataforma DevForge (`platform/`)
 
 - App Angular real (não exercício) que **lê o conteúdo real** dos `.md` de `skills/`, `vacancies/`, `challenges/`, `study-plans/` via assets copiados no build (`angular.json`) + `ngx-markdown` (`<markdown [src]="...">`), renderizado em runtime. **Nunca duplicar conteúdo** transcrevendo `.md` para TypeScript — se um dado precisa ser estruturado (slug, categoria, caminho), ele entra no índice leve em `core/data/content-index.ts`, nunca o conteúdo em si.

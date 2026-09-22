@@ -42,4 +42,13 @@ export interface LabItem {
   vacancySlug?: string;
   skills: string[];
   contentPath: string;
+  learningPath: string;
+  exercisesPath: string;
+  modules: LabModule[];
+}
+
+export interface LabModule {
+  title: string;
+  focus: string;
+  status: 'implemented' | 'next';
 }

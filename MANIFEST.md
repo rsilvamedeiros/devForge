@@ -12,6 +12,7 @@
 - `docs/architecture/INFORMATION-ARCHITECTURE.md`
 - `docs/DEVFORGE.md`
 - `docs/guides/CLAUDE-CODE-HANDOFF.md`
+- `docs/guides/LAB-STANDARD.md`
 - `docs/guides/STUDY-METHODOLOGY.md`
 - `docs/templates/CHALLENGE.md`
 - `docs/templates/INTERVIEW.md`
@@ -22,6 +23,8 @@
 - `labs/angular-digital-equities/.editorconfig`
 - `labs/angular-digital-equities/.gitignore`
 - `labs/angular-digital-equities/angular.json`
+- `labs/angular-digital-equities/docs/EXERCISES.md`
+- `labs/angular-digital-equities/docs/LEARNING-PATH.md`
 - `labs/angular-digital-equities/package.json`
 - `labs/angular-digital-equities/package-lock.json`
 - `labs/angular-digital-equities/public/favicon.ico`
@@ -56,6 +59,10 @@
 - `labs/angular-digital-equities/src/app/features/analytics/analytics.html`
 - `labs/angular-digital-equities/src/app/features/analytics/analytics.scss`
 - `labs/angular-digital-equities/src/app/features/analytics/analytics.ts`
+- `labs/angular-digital-equities/src/app/features/learning/learning.html`
+- `labs/angular-digital-equities/src/app/features/learning/learning.scss`
+- `labs/angular-digital-equities/src/app/features/learning/learning.spec.ts`
+- `labs/angular-digital-equities/src/app/features/learning/learning.ts`
 - `labs/angular-digital-equities/src/app/features/market/asset-detail/asset-detail.html`
 - `labs/angular-digital-equities/src/app/features/market/asset-detail/asset-detail.scss`
 - `labs/angular-digital-equities/src/app/features/market/asset-detail/asset-detail.ts`
@@ -97,6 +104,8 @@
 - `labs/angular-digital-equities/tsconfig.json`
 - `labs/angular-digital-equities/tsconfig.spec.json`
 - `labs/react-service-operations/.gitignore`
+- `labs/react-service-operations/docs/EXERCISES.md`
+- `labs/react-service-operations/docs/LEARNING-PATH.md`
 - `labs/react-service-operations/index.html`
 - `labs/react-service-operations/package.json`
 - `labs/react-service-operations/package-lock.json`
@@ -113,6 +122,8 @@
 - `labs/react-service-operations/src/main.tsx`
 - `labs/react-service-operations/src/pages/analytics-page.tsx`
 - `labs/react-service-operations/src/pages/dashboard-page.tsx`
+- `labs/react-service-operations/src/pages/learning-page.spec.tsx`
+- `labs/react-service-operations/src/pages/learning-page.tsx`
 - `labs/react-service-operations/src/pages/not-found-page.tsx`
 - `labs/react-service-operations/src/pages/ticket-detail-page.tsx`
 - `labs/react-service-operations/src/pages/tickets-page.tsx`
@@ -125,6 +136,9 @@
 - `labs/react-service-operations/tsconfig.tsbuildinfo`
 - `labs/react-service-operations/vite.config.ts`
 - `labs/typescript-order-processing/.gitignore`
+- `labs/typescript-order-processing/docs/EXERCISES.md`
+- `labs/typescript-order-processing/docs/LEARNING-PATH.md`
+- `labs/typescript-order-processing/index.html`
 - `labs/typescript-order-processing/package.json`
 - `labs/typescript-order-processing/package-lock.json`
 - `labs/typescript-order-processing/README.md`
@@ -134,6 +148,8 @@
 - `labs/typescript-order-processing/src/messaging/queue.ts`
 - `labs/typescript-order-processing/src/processing/idempotency-store.ts`
 - `labs/typescript-order-processing/src/processing/order-processor.ts`
+- `labs/typescript-order-processing/src/styles.css`
+- `labs/typescript-order-processing/src/ui.ts`
 - `labs/typescript-order-processing/tests/order-processor.spec.ts`
 - `labs/typescript-order-processing/tsconfig.json`
 - `MANIFEST.md`

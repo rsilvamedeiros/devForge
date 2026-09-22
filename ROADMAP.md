@@ -31,9 +31,13 @@
 - [ ] analytics de evolução
 
 ## Labs
+- [x] padrão de laboratório completo documentado
+- [x] trilhas e exercícios integrados aos labs ativos
+- [x] control room visual para o pipeline TypeScript
 - [x] Angular Digital Equities — terminal financeiro e integração frontend
 - [x] React Service Operations — tickets, SLA e estado remoto
 - [x] TypeScript Order Processing — fila, retry, DLQ e idempotência
+- [ ] consolidar evidências dos labs ativos antes de abrir uma nova tecnologia
 - [ ] Next.js — App Router, Server Components e caching
 - [ ] Vue — Composition API e Pinia
 - [ ] Svelte — runes, reatividade e SvelteKit

@@ -58,6 +58,19 @@ Um laboratório para praticar:
 - concentração por setor;
 - checklist pré-trade.
 
+### Trilha Angular
+- cinco módulos aplicados ao código do terminal;
+- progresso persistido localmente;
+- exercícios de fundamento, aplicação e arquitetura;
+- critérios explícitos para transformar implementação em evidência.
+
+## Experiência de aprendizagem
+
+- [`docs/LEARNING-PATH.md`](docs/LEARNING-PATH.md) descreve a sequência dos módulos;
+- [`docs/EXERCISES.md`](docs/EXERCISES.md) contém exercícios contextualizados no domínio financeiro;
+- a rota `/learning` conecta a trilha ao produto;
+- a documentação permanente da tecnologia fica em [`skills/frontend/angular`](../../skills/frontend/angular/README.md).
+
 ## Estrutura sugerida
 
 ```text
@@ -90,6 +103,8 @@ ng build      # dist/
 ng generate component features/market/asset-list
 ```
 
+Na raiz do DevForge, use `npm run dev:angular`, `npm run build:angular` e `npm run test:angular`.
+
 ## Estrutura real
 
 O app é uma plataforma de estudos com shell fixo (header + sidebar + conteúdo roteado), não uma página única:
@@ -97,7 +112,7 @@ O app é uma plataforma de estudos com shell fixo (header + sidebar + conteúdo 
 ```text
 src/app/
 ├── app.ts / app.html / app.scss   # shell: header + sidebar + <router-outlet>
-├── app.routes.ts                  # overview · market · watchlist · orders · portfolio · analytics · risk
+├── app.routes.ts                  # overview · market · watchlist · orders · portfolio · analytics · risk · learning
 ├── app.config.ts
 ├── core/
 │   ├── models/asset.model.ts
@@ -120,6 +135,7 @@ src/app/
 │   ├── portfolio/                 # posições, resultado e alocação
 │   ├── analytics/                 # performance, risco e frequência
 │   ├── risk/                      # limites, exposição e checklist pré-trade
+│   ├── learning/                  # trilha, exercícios e progresso local
 │   ├── watchlist/                 # favoritos e monitoramento em tempo real
 │   ├── market/
 │   │   ├── asset-list/            # listagem + busca + filtro por setor

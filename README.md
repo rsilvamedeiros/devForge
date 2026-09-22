@@ -84,6 +84,8 @@ npm run dev:typescript # lab TypeScript Order Processing
 
 Também existem comandos `build`, `build:<projeto>`, `test` e `test:<projeto>`. Cada projeto continua com seu próprio `package.json` e pode ser executado isoladamente.
 
+Cada lab segue o [`padrão de laboratório completo`](docs/guides/LAB-STANDARD.md): produto visual, trilha, documentação de skills, exercícios progressivos, testes e evidências.
+
 ## Escala de domínio
 
 | Nível | Critério |

@@ -31,5 +31,6 @@ export class Sidebar {
     { label: 'Portfólio', path: '/portfolio', icon: 'account_balance_wallet' },
     { label: 'Analytics', path: '/analytics', icon: 'query_stats' },
     { label: 'Central de risco', path: '/risk', icon: 'shield' },
+    { label: 'Trilha Angular', path: '/learning', icon: 'school', badge: () => '5' },
   ];
 }

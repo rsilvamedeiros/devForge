@@ -37,5 +37,9 @@ export const routes: Routes = [
     path: 'risk',
     loadComponent: () => import('./features/risk/risk').then(m => m.Risk),
   },
+  {
+    path: 'learning',
+    loadComponent: () => import('./features/learning/learning').then(m => m.Learning),
+  },
   { path: '**', redirectTo: 'overview' },
 ];
