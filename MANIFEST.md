@@ -34,6 +34,12 @@
 - `labs/angular-learning-lab/docs/09-PERFORMANCE-SECURITY.md`
 - `labs/angular-learning-lab/docs/10-SSR-TOOLING.md`
 - `labs/angular-learning-lab/docs/11-TECHNICAL-ASSESSMENTS.md`
+- `labs/angular-learning-lab/docs/12-DIRECTIVES-PIPES.md`
+- `labs/angular-learning-lab/docs/13-LIFECYCLE-RENDERING.md`
+- `labs/angular-learning-lab/docs/14-ADVANCED-COMPOSITION.md`
+- `labs/angular-learning-lab/docs/15-ACCESSIBILITY-I18N.md`
+- `labs/angular-learning-lab/docs/16-LIBRARIES-WORKSPACES.md`
+- `labs/angular-learning-lab/docs/17-DEBUGGING-OPERATIONS.md`
 - `labs/angular-learning-lab/docs/EXERCISES.md`
 - `labs/angular-learning-lab/docs/HANDBOOK.md`
 - `labs/angular-learning-lab/docs/LEARNING-PATH.md`

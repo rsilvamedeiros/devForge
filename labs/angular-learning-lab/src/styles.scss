@@ -55,6 +55,7 @@ html[data-theme='light'] {
 }
 
 * { box-sizing: border-box; }
+.mat-icon { flex: 0 0 auto; overflow: visible !important; line-height: 1 !important; vertical-align: middle; }
 html, body { height: 100%; }
 body { margin: 0; color: var(--lab-text); background: var(--lab-bg); font: 400 .875rem/1.5 'Manrope', sans-serif; letter-spacing: -.005em; transition: color 180ms ease, background-color 180ms ease; }
 h1, h2, h3, p { margin-top: 0; }
