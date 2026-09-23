@@ -1,0 +1,2 @@
+import { E2E_MISSIONS } from './e2e-missions';
+describe('E2E missions',()=>{it('covers the critical quality dimensions',()=>{expect(E2E_MISSIONS.map(item=>item.id)).toEqual(['navigation','theme','responsive','accessibility','failure'])});it('includes evidence and practical snippets',()=>{expect(E2E_MISSIONS.every(item=>item.scenarios.length>=3&&item.snippet.length>60&&item.evidence.length>20)).toBeTrue()})});

@@ -15,6 +15,7 @@ import { TECHNICAL_QA } from '../../../features/knowledge-center/technical-qa.da
 import { CODING_CHALLENGES } from '../../../features/coding-arena/coding-challenges';
 import { CAPSTONE_SPRINTS } from '../../../features/capstone-project/capstone-project.data';
 import { SANDBOX_CHALLENGES } from '../../../features/angular-sandbox/sandbox-challenges';
+import { E2E_MISSIONS } from '../../../features/e2e-quality/e2e-missions';
 
 interface SearchTarget {
   title: string;
@@ -52,6 +53,7 @@ export class Header {
     ...CODING_CHALLENGES.map(item => ({ title: item.title, route: '/coding-arena' })),
     ...CAPSTONE_SPRINTS.map(item => ({ title: `Projeto Final · ${item.title}`, route: '/capstone' })),
     ...SANDBOX_CHALLENGES.map(item => ({ title: `Angular Sandbox · ${item.title}`, route: '/sandbox' })),
+    ...E2E_MISSIONS.map(item => ({ title: `E2E & Quality · ${item.title}`, route: '/e2e-quality' })),
     { title: 'Quiz rápido Angular', route: '/quick-quiz' },
   ];
 

@@ -23,6 +23,8 @@
     "test": "npm run test:platform && npm run test:angular && npm run test:react && npm run test:typescript",
     "test:platform": "npm run test --workspace=devforge-platform -- --watch=false --browsers=ChromeHeadless",
     "test:angular": "npm run test --workspace=angular-learning-lab -- --watch=false --browsers=ChromeHeadless",
+    "test:e2e:angular": "npm run test:e2e --workspace=angular-learning-lab",
+    "test:e2e:angular:ui": "npm run test:e2e:ui --workspace=angular-learning-lab",
     "test:react": "npm run test --workspace=react-service-operations",
     "test:typescript": "npm run test --workspace=typescript-order-processing"
   }

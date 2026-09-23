@@ -47,6 +47,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/angular-sandbox/angular-sandbox').then(m => m.AngularSandbox),
   },
   {
+    path: 'e2e-quality',
+    loadComponent: () => import('./features/e2e-quality/e2e-quality').then(m => m.E2eQuality),
+  },
+  {
     path: 'assessments',
     loadComponent: () => import('./features/assessments/assessments').then(m => m.Assessments),
   },

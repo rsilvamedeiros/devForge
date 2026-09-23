@@ -44,7 +44,10 @@
 - `labs/angular-learning-lab/docs/EXERCISES.md`
 - `labs/angular-learning-lab/docs/HANDBOOK.md`
 - `labs/angular-learning-lab/docs/LEARNING-PATH.md`
+- `labs/angular-learning-lab/e2e/experience.spec.ts`
+- `labs/angular-learning-lab/e2e/navigation.spec.ts`
 - `labs/angular-learning-lab/package.json`
+- `labs/angular-learning-lab/playwright.config.ts`
 - `labs/angular-learning-lab/public/favicon.ico`
 - `labs/angular-learning-lab/README.md`
 - `labs/angular-learning-lab/src/app/app.config.ts`
@@ -114,6 +117,11 @@
 - `labs/angular-learning-lab/src/app/features/documentation/documentation.scss`
 - `labs/angular-learning-lab/src/app/features/documentation/documentation.ts`
 - `labs/angular-learning-lab/src/app/features/documentation/documentation-chapters.ts`
+- `labs/angular-learning-lab/src/app/features/e2e-quality/e2e-missions.spec.ts`
+- `labs/angular-learning-lab/src/app/features/e2e-quality/e2e-missions.ts`
+- `labs/angular-learning-lab/src/app/features/e2e-quality/e2e-quality.html`
+- `labs/angular-learning-lab/src/app/features/e2e-quality/e2e-quality.scss`
+- `labs/angular-learning-lab/src/app/features/e2e-quality/e2e-quality.ts`
 - `labs/angular-learning-lab/src/app/features/examples/code-editor.ts`
 - `labs/angular-learning-lab/src/app/features/examples/code-examples.ts`
 - `labs/angular-learning-lab/src/app/features/examples/example-index.ts`

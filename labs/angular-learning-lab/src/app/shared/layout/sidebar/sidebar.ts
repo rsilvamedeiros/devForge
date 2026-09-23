@@ -13,6 +13,7 @@ import { TECHNICAL_QA } from '../../../features/knowledge-center/technical-qa.da
 import { CODING_CHALLENGES } from '../../../features/coding-arena/coding-challenges';
 import { CAPSTONE_SPRINTS } from '../../../features/capstone-project/capstone-project.data';
 import { SANDBOX_CHALLENGES } from '../../../features/angular-sandbox/sandbox-challenges';
+import { E2E_MISSIONS } from '../../../features/e2e-quality/e2e-missions';
 
 interface NavItem {
   label: string;
@@ -72,6 +73,7 @@ export class Sidebar {
         { label: 'Angular Sandbox', path: '/sandbox', icon: 'developer_mode', badge: () => String(SANDBOX_CHALLENGES.length) },
         { label: 'Playground', path: '/examples', icon: 'code', badge: () => String(EXAMPLE_INDEX.length) },
         { label: 'Testing lab', path: '/testing', icon: 'science', badge: () => '5' },
+        { label: 'E2E & Quality', path: '/e2e-quality', icon: 'verified_user', badge: () => String(E2E_MISSIONS.length) },
       ],
     },
     {
