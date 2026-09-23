@@ -204,14 +204,19 @@
 - `labs/react-service-operations/src/components/metric-card.tsx`
 - `labs/react-service-operations/src/components/status-badge.spec.tsx`
 - `labs/react-service-operations/src/components/status-badge.tsx`
+- `labs/react-service-operations/src/data/component-recipes.ts`
+- `labs/react-service-operations/src/data/learning-tools.spec.ts`
+- `labs/react-service-operations/src/data/playground-exercises.ts`
 - `labs/react-service-operations/src/data/react-curriculum.spec.ts`
 - `labs/react-service-operations/src/data/react-curriculum.ts`
 - `labs/react-service-operations/src/data/tickets.ts`
 - `labs/react-service-operations/src/domain/ticket.ts`
 - `labs/react-service-operations/src/features/tickets/ticket-hooks.ts`
 - `labs/react-service-operations/src/layout/app-shell.tsx`
+- `labs/react-service-operations/src/learning-tools.css`
 - `labs/react-service-operations/src/main.tsx`
 - `labs/react-service-operations/src/pages/analytics-page.tsx`
+- `labs/react-service-operations/src/pages/component-catalog-page.tsx`
 - `labs/react-service-operations/src/pages/curriculum-page.tsx`
 - `labs/react-service-operations/src/pages/dashboard-page.tsx`
 - `labs/react-service-operations/src/pages/documentation-chapters.ts`
@@ -220,6 +225,7 @@
 - `labs/react-service-operations/src/pages/learning-page.spec.tsx`
 - `labs/react-service-operations/src/pages/learning-page.tsx`
 - `labs/react-service-operations/src/pages/not-found-page.tsx`
+- `labs/react-service-operations/src/pages/playground-page.tsx`
 - `labs/react-service-operations/src/pages/ticket-detail-page.tsx`
 - `labs/react-service-operations/src/pages/tickets-page.tsx`
 - `labs/react-service-operations/src/services/ticket-api.spec.ts`

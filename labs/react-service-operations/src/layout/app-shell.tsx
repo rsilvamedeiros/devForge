@@ -1,5 +1,5 @@
 import { useMemo, useState, type FormEvent } from 'react';
-import { Bell, Boxes, ChevronDown, CircleHelp, Code2, FlaskConical, GraduationCap, LayoutDashboard, LibraryBig, Map, Menu, Moon, Search, Sun, type LucideIcon } from 'lucide-react';
+import { Bell, Boxes, ChevronDown, CircleHelp, Code2, Component, FlaskConical, GraduationCap, LayoutDashboard, LibraryBig, Map, Menu, Moon, Search, Sun, Terminal, type LucideIcon } from 'lucide-react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useTheme } from '../app/theme-context';
 import { DOCUMENTATION_CHAPTERS } from '../pages/documentation-chapters';
@@ -8,9 +8,9 @@ interface NavigationGroup { label:string; items:Array<{to:string;label:string;ic
 const groups:NavigationGroup[] = [
   { label: 'Início', items: [{ to: '/', label: 'Visão geral', icon: LayoutDashboard, end: true }] },
   { label: 'Formação', items: [{ to: '/learning', label: 'Trilha React', icon: GraduationCap, badge: '5' },{ to: '/documentation', label: 'Documentação', icon: LibraryBig, badge: String(DOCUMENTATION_CHAPTERS.length) },{to:'/curriculum',label:'Mapa React',icon:Map,badge:'15'}] },
-  { label: 'Praticar', items: [{ to: '/tickets', label: 'Estudo de caso', icon: FlaskConical, badge: 'Ops' },{ to: '/analytics', label: 'Componentes reais', icon: Boxes }] },
+  { label: 'Praticar', items: [{to:'/components',label:'Catálogo vivo',icon:Component,badge:'12'},{to:'/playground',label:'Playground',icon:Terminal,badge:'4'},{ to: '/tickets', label: 'Estudo de caso', icon: FlaskConical, badge: 'Ops' },{ to: '/analytics', label: 'Visualizações', icon: Boxes }] },
 ];
-const searchTargets=[{label:'Trilha React',to:'/learning'},{label:'Documentação React',to:'/documentation'},{label:'Mapa de competências React',to:'/curriculum'},{label:'Estado e hooks',to:'/documentation'},{label:'Server state e TanStack Query',to:'/documentation'},{label:'Estudo de caso Nexa Ops',to:'/tickets'},{label:'Componentes e visualização',to:'/analytics'}];
+const searchTargets=[{label:'Trilha React',to:'/learning'},{label:'Documentação React',to:'/documentation'},{label:'Mapa de competências React',to:'/curriculum'},{label:'Catálogo de componentes e hooks',to:'/components'},{label:'Playground executável React',to:'/playground'},{label:'Estado e hooks',to:'/documentation'},{label:'Server state e TanStack Query',to:'/documentation'},{label:'Estudo de caso Nexa Ops',to:'/tickets'},{label:'Componentes e visualização',to:'/analytics'}];
 
 export function AppShell() {
   const [menuOpen,setMenuOpen]=useState(false);const[search,setSearch]=useState('');const navigate=useNavigate();const{theme,toggleTheme}=useTheme();
