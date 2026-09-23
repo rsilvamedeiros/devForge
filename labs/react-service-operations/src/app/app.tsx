@@ -7,6 +7,7 @@ import { LearningPage } from '../pages/learning-page';
 import { DocumentationPage } from '../pages/documentation-page';
 import { TicketDetailPage } from '../pages/ticket-detail-page';
 import { TicketsPage } from '../pages/tickets-page';
+import { CurriculumPage } from '../pages/curriculum-page';
 
 const router = createBrowserRouter([{
   path: '/',
@@ -18,6 +19,7 @@ const router = createBrowserRouter([{
     { path: 'analytics', element: <AnalyticsPage/> },
     { path: 'learning', element: <LearningPage/> },
     { path: 'documentation', element: <DocumentationPage/> },
+    { path: 'curriculum', element: <CurriculumPage/> },
     { path: '*', element: <NotFoundPage/> },
   ],
 }]);
