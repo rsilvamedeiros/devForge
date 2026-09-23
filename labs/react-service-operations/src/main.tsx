@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { App } from './app/app';
 import { ThemeProvider } from './app/theme-context';
 import './styles.css';
+import './academy-pages.css';
 
 const queryClient = new QueryClient({ defaultOptions: { queries: { staleTime: 30_000, retry: 1 } } });
 
