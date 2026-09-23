@@ -1,0 +1,127 @@
+.examples {
+  &__hero {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid var(--lab-border);
+    border-radius: 18px;
+    background: var(--lab-surface);
+  }
+
+  &__hero h1 { margin: .4rem 0 .5rem; }
+  &__hero p { max-width: 650px; margin: 0; color: var(--lab-muted); }
+  &__hero > div:last-child { text-align: right; }
+  &__hero strong { display: block; font-size: 2rem; }
+  &__hero span { color: var(--lab-muted); font-size: .8rem; }
+  &__hero small { display: block; margin-top: .2rem; color: var(--lab-muted); font-size: .7rem; }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+  }
+
+  &__nav { padding: 1rem .75rem; }
+
+  &__nav-label {
+    display: block;
+    padding: 0 .6rem .5rem;
+    color: var(--lab-muted);
+    font-size: .66rem;
+    font-weight: 700;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+  }
+
+  &__item {
+    display: flex;
+    width: 100%;
+    gap: .65rem;
+    margin-bottom: .3rem;
+    padding: .65rem;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    color: inherit;
+    background: transparent;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 160ms, background 160ms;
+
+    &:hover { background: var(--lab-bg); }
+    &.active { border-color: var(--lab-primary); background: var(--lab-primary-soft); }
+
+    > span {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      flex: 0 0 auto;
+      border-radius: 9px;
+      color: var(--lab-primary);
+      background: var(--lab-bg);
+    }
+
+    small { color: var(--lab-primary); font-size: .62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+    strong { display: block; margin-top: .1rem; font-size: .82rem; }
+    p { margin: .15rem 0 0; color: var(--lab-muted); font-size: .72rem; line-height: 1.4; }
+  }
+
+  &__main { display: grid; gap: 1rem; min-width: 0; }
+  &__editor-panel { padding: 1.5rem; }
+
+  &__editor-panel > header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__editor-panel h2 { margin: .3rem 0 0; font-size: 1.05rem; }
+  &__actions { display: flex; align-items: center; gap: .5rem; }
+
+  &__result {
+    margin-top: 1rem;
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--lab-border);
+    border-radius: 12px;
+    background: var(--lab-bg);
+
+    header { display: flex; align-items: center; gap: .5rem; margin-bottom: .6rem; }
+    header mat-icon { width: 1.15rem; height: 1.15rem; color: var(--lab-warning); font-size: 1.15rem; }
+    strong { font-size: .85rem; }
+    pre { margin: 0; overflow-x: auto; font-size: .8rem; line-height: 1.6; }
+
+    &.is-match { border-color: color-mix(in srgb, var(--lab-positive) 45%, transparent); }
+    &.is-match header mat-icon { color: var(--lab-positive); }
+    &.is-error { border-color: color-mix(in srgb, var(--lab-negative) 45%, transparent); }
+    &.is-error header mat-icon { color: var(--lab-negative); }
+  }
+
+  &__meta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+
+    article { padding: 1.25rem; min-width: 0; }
+    h3 { display: flex; align-items: center; gap: .4rem; margin: 0 0 .8rem; font-size: .88rem; }
+    h3 mat-icon { width: 1.05rem; height: 1.05rem; color: var(--lab-primary); font-size: 1.05rem; }
+    pre { margin: 0; max-height: 230px; overflow: auto; font-size: .76rem; line-height: 1.6; }
+    p { margin: 0; color: var(--lab-muted); font-size: .8rem; line-height: 1.6; }
+  }
+}
+
+@media (max-width: 980px) {
+  .examples__layout { grid-template-columns: 1fr; }
+  .examples__meta { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .examples__hero { flex-direction: column; align-items: flex-start; }
+  .examples__hero > div:last-child { text-align: left; }
+}

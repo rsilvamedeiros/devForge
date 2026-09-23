@@ -24,7 +24,7 @@ Ao terminar, você deve conseguir:
 
 ## Aplicação no lab
 
-O Atlas Trade usa standalone components, Angular Material, Signals, Reactive Forms, HttpClient, interceptor mock, RxJS, abstração WebSocket, lazy routes e `OnPush`. Procure cada conceito no código e execute os exercícios relacionados.
+O Angular Learning Lab usa standalone components, Angular Material, Signals, Reactive Forms, HttpClient, RxJS, lazy routes e `OnPush`. Procure cada conceito no código, observe as demonstrações e execute os exercícios relacionados.
 
 ## Limite
 

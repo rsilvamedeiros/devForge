@@ -171,7 +171,7 @@ O DevForge deve acelerar a preparação.
 
 ## 10. Primeiro laboratório
 
-O primeiro laboratório será um Digital Equities Dashboard em Angular. Ele existe para conectar:
+O primeiro laboratório é o Angular Learning Lab. Ele existe para ensinar Angular em uma experiência acadêmica completa e conectar:
 
 - HttpClient;
 - arrays;
@@ -180,19 +180,19 @@ O primeiro laboratório será um Digital Equities Dashboard em Angular. Ele exis
 - RxJS;
 - estado;
 - renderização de listas;
-- POO;
-- Queue;
-- WebSocket;
+- formulários tipados;
+- injeção de dependência;
+- Router e HttpClient;
 - performance;
 - arquitetura.
 
-O segundo laboratório, `typescript-order-processing`, separa o processamento orientado a eventos da interface Angular. Ele aprofunda fila, retry, DLQ, idempotência, POO e testes sem transformar o primeiro lab em um monólito didático.
+Os demais laboratórios devem seguir a mesma direção: uma tecnologia principal por ambiente, sem depender de um domínio comercial para justificar o aprendizado.
 
 ### Portfólio por tecnologia
 
 A evolução dos labs também pode cobrir uma tecnologia principal por projeto, começando por frontend. Cada lab deve manter domínio, UX e decisões próprias — não ser apenas a mesma tela reescrita em outro framework.
 
-- `angular-digital-equities` — Angular em operações financeiras;
+- `angular-learning-lab` — formação acadêmica completa em Angular;
 - `react-service-operations` — React em atendimento e SLA;
 - próximos: Next.js, Vue e Svelte, conforme prioridade de estudo.
 

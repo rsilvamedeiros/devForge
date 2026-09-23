@@ -1,0 +1,38 @@
+<mat-toolbar class="header">
+  <button mat-icon-button type="button" (click)="menuToggle.emit()" aria-label="Abrir ou fechar navegação"><mat-icon>menu</mat-icon></button>
+  <div class="header__brand"><span class="header__logo"><mat-icon>school</mat-icon></span><span><strong class="header__title">Formação Angular</strong><small>DevForge</small></span></div>
+
+  @if (nextModule(); as next) {
+    <div class="header__status"><i></i><span><strong>Próximo: {{ next.title }}</strong><small>Módulo {{ next.step }} · {{ overallProgress() }}% concluído</small></span></div>
+  } @else {
+    <div class="header__status"><i></i><span><strong>Trilha concluída</strong><small>{{ overallProgress() }}% da formação</small></span></div>
+  }
+
+  <div class="header__spacer"></div>
+
+  <form class="header__search" role="search" (submit)="search($event)">
+    <mat-icon>search</mat-icon>
+    <input type="search" aria-label="Buscar no material de estudo" placeholder="Buscar no material" [value]="searchTerm()" (input)="searchTerm.set($any($event.target).value)" />
+    <span>Enter</span>
+    @if (matches().length) {
+      <ul class="header__results">
+        @for (match of matches(); track match.title) {
+          <li><button type="button" (click)="go(match)">{{ match.title }}<small>{{ match.route }}</small></button></li>
+        }
+      </ul>
+    }
+  </form>
+
+  <button
+    mat-icon-button
+    type="button"
+    class="header__theme"
+    (click)="theme.toggle()"
+    [class.is-active]="theme.isDark()"
+    [attr.aria-label]="theme.isDark() ? 'Ativar tema claro' : 'Ativar tema escuro'"
+    [attr.title]="theme.isDark() ? 'Ativar tema claro' : 'Ativar tema escuro'"
+  >
+    <mat-icon>{{ theme.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+  </button>
+  <div class="header__profile"><span>DF</span><div><strong>Estudante</strong><small>{{ overallProgress() }}% concluído</small></div></div>
+</mat-toolbar>

@@ -1,0 +1,146 @@
+<section class="dash lab-page">
+  <header class="dash__hero">
+    <div class="dash__hero-copy">
+      <span class="lab-eyebrow"><mat-icon>school</mat-icon> Formação Angular</span>
+      <h1>Seu progresso</h1>
+      <p>Trilha, guia, prática e provas em um só lugar. O nível só sobe com evidência — leitura isolada não conta.</p>
+
+      @if (nextModule(); as next) {
+        <div class="dash__next">
+          <span><mat-icon>{{ next.icon }}</mat-icon></span>
+          <div>
+            <small>Próximo passo · Módulo {{ next.step }}</small>
+            <strong>{{ next.title }}</strong>
+          </div>
+          <a mat-flat-button color="primary" routerLink="/learning">Continuar</a>
+        </div>
+      } @else {
+        <div class="dash__next is-done">
+          <span><mat-icon>emoji_events</mat-icon></span>
+          <div>
+            <small>Trilha concluída</small>
+            <strong>Revise as provas abaixo de 80% para fechar a formação</strong>
+          </div>
+          <a mat-flat-button color="primary" routerLink="/assessments">Ver provas</a>
+        </div>
+      }
+    </div>
+
+    <div class="dash__ring" [style.--progress]="overallProgress()">
+      <div class="dash__ring-inner">
+        <strong>{{ overallProgress() }}%</strong>
+        <small>concluído</small>
+      </div>
+    </div>
+  </header>
+
+  <div class="dash__stats">
+    @for (stat of stats(); track stat.label) {
+      <article class="lab-panel dash__stat">
+        <span><mat-icon>{{ stat.icon }}</mat-icon></span>
+        <div>
+          <strong>{{ stat.value }}</strong>
+          <span>{{ stat.label }}</span>
+          <small>{{ stat.hint }}</small>
+        </div>
+      </article>
+    }
+  </div>
+
+  <div class="dash__charts">
+    <article class="lab-panel dash__chart">
+      <header>
+        <div>
+          <span class="lab-eyebrow">Desempenho</span>
+          <h2>Nota por prova</h2>
+        </div>
+        <a mat-button routerLink="/assessments">Fazer prova</a>
+      </header>
+
+      <ul class="dash__bars">
+        @for (exam of examScores(); track exam.id) {
+          <li>
+            <span class="dash__bar-label">{{ exam.title }}</span>
+            <div class="dash__bar-track">
+              <div
+                class="dash__bar-fill"
+                [class.is-passed]="exam.passed"
+                [class.is-empty]="!exam.taken"
+                [style.width.%]="exam.taken ? exam.percent : 2"
+              ></div>
+            </div>
+            <span class="dash__bar-value">{{ exam.taken ? exam.percent + '%' : '—' }}</span>
+          </li>
+        }
+      </ul>
+      <p class="dash__legend"><i class="is-passed"></i> aprovado (≥80%) <i class="is-partial"></i> abaixo do corte <i class="is-empty"></i> não realizada</p>
+    </article>
+
+    <article class="lab-panel dash__chart">
+      <header>
+        <div>
+          <span class="lab-eyebrow">Trilha</span>
+          <h2>Módulos</h2>
+        </div>
+        <a mat-button routerLink="/learning">Abrir trilha</a>
+      </header>
+
+      <ol class="dash__modules">
+        @for (module of modules; track module.id) {
+          <li [class.is-done]="moduleCompleted(module.id)">
+            <span class="dash__module-step">
+              @if (moduleCompleted(module.id)) { <mat-icon>check</mat-icon> } @else { {{ module.step }} }
+            </span>
+            <div>
+              <strong>{{ module.title }}</strong>
+              <small>{{ module.skills.join(' · ') }}</small>
+            </div>
+          </li>
+        }
+      </ol>
+    </article>
+  </div>
+
+  <div class="dash__reports">
+    <article class="lab-panel">
+      <header>
+        <div>
+          <span class="lab-eyebrow">Relatório</span>
+          <h2>Lacunas</h2>
+        </div>
+        <a mat-button routerLink="/reports">Relatório completo</a>
+      </header>
+
+      @if (gaps().length === 0) {
+        <p class="dash__empty"><mat-icon>task_alt</mat-icon> Nenhuma lacuna: todas as provas aprovadas.</p>
+      } @else {
+        <ul class="dash__gaps">
+          @for (gap of gaps(); track gap.id) {
+            <li>
+              <div>
+                <strong>{{ gap.title }}</strong>
+                <small>{{ gap.result ? gap.result.correct + '/' + gap.result.total + ' — refazer' : 'ainda não realizada' }}</small>
+              </div>
+              <a mat-button routerLink="/assessments"><mat-icon>arrow_forward</mat-icon></a>
+            </li>
+          }
+        </ul>
+      }
+    </article>
+
+    <article class="lab-panel">
+      <header>
+        <div>
+          <span class="lab-eyebrow">Biblioteca</span>
+          <h2>Material disponível</h2>
+        </div>
+      </header>
+
+      <ul class="dash__library">
+        <li><a routerLink="/documentation"><mat-icon>menu_book</mat-icon><div><strong>{{ chapters }} capítulos</strong><small>Guia Angular</small></div><mat-icon>chevron_right</mat-icon></a></li>
+        <li><a routerLink="/components"><mat-icon>widgets</mat-icon><div><strong>Catálogo vivo</strong><small>Demos com código real</small></div><mat-icon>chevron_right</mat-icon></a></li>
+        <li><a routerLink="/examples"><mat-icon>code</mat-icon><div><strong>{{ examples }} exemplos</strong><small>Executáveis no navegador</small></div><mat-icon>chevron_right</mat-icon></a></li>
+      </ul>
+    </article>
+  </div>
+</section>

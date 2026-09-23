@@ -1,0 +1,146 @@
+<section class="report lab-page">
+  <header class="report__hero">
+    <div>
+      <span class="lab-eyebrow"><mat-icon>assessment</mat-icon> Relatório de formação</span>
+      <h1>Evidência de domínio</h1>
+      <p>O que foi concluído, o que foi comprovado e onde ainda há lacuna. Esta é a base para atualizar o nível da skill no DevForge.</p>
+    </div>
+    <div class="report__level">
+      <strong>{{ masteryLevel().level }}/6</strong>
+      <span>{{ masteryLevel().label }}</span>
+      <small>Escala de domínio DevForge</small>
+    </div>
+  </header>
+
+  <div class="report__summary">
+    <article class="lab-panel">
+      <span class="lab-eyebrow">Trilha</span>
+      <strong>{{ moduleProgress() }}%</strong>
+      <small>módulos concluídos</small>
+    </article>
+    <article class="lab-panel">
+      <span class="lab-eyebrow">Provas</span>
+      <strong>{{ examProgress() }}%</strong>
+      <small>aprovadas com ≥80%</small>
+    </article>
+    <article class="lab-panel">
+      <span class="lab-eyebrow">Aproveitamento</span>
+      <strong>{{ answeredQuestions() ? accuracy() + '%' : '—' }}</strong>
+      <small>{{ correctQuestions() }} de {{ answeredQuestions() }} questões</small>
+    </article>
+    <article class="lab-panel">
+      <span class="lab-eyebrow">Geral</span>
+      <strong>{{ overallProgress() }}%</strong>
+      <small>trilha + provas</small>
+    </article>
+  </div>
+
+  <article class="lab-panel report__block">
+    <header>
+      <div>
+        <span class="lab-eyebrow">Detalhamento</span>
+        <h2>Provas por capítulo</h2>
+      </div>
+      <a mat-button routerLink="/assessments">Ir para provas</a>
+    </header>
+
+    <table class="report__table">
+      <thead>
+        <tr><th>Capítulo</th><th>Acertos</th><th>Nota</th><th>Realizada em</th><th>Situação</th></tr>
+      </thead>
+      <tbody>
+        @for (row of examRows(); track row.id) {
+          <tr>
+            <td>{{ row.title }}</td>
+            <td>{{ row.result ? row.result.correct + '/' + row.result.total : '—' }}</td>
+            <td>{{ row.percent !== null ? row.percent + '%' : '—' }}</td>
+            <td>{{ row.result ? (row.result.takenAt | date: 'dd/MM/yyyy HH:mm') : '—' }}</td>
+            <td>
+              <span class="report__status" [class.is-passed]="row.passed" [class.is-pending]="!row.result">
+                {{ row.passed ? 'Aprovado' : (row.result ? 'Refazer' : 'Pendente') }}
+              </span>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </article>
+
+  <div class="report__columns">
+    <article class="lab-panel report__block">
+      <header>
+        <div>
+          <span class="lab-eyebrow">Ação</span>
+          <h2>Lacunas identificadas</h2>
+        </div>
+      </header>
+
+      @if (gaps().length === 0) {
+        <p class="report__empty"><mat-icon>task_alt</mat-icon> Sem lacunas: toda prova foi aprovada.</p>
+      } @else {
+        <ul class="report__gaps">
+          @for (gap of gaps(); track gap.id) {
+            <li>
+              <mat-icon>priority_high</mat-icon>
+              <div>
+                <strong>{{ gap.title }}</strong>
+                <small>{{ gap.result ? 'Ficou em ' + gap.result.correct + '/' + gap.result.total + ' — revise o capítulo antes de refazer.' : 'Prova ainda não realizada.' }}</small>
+              </div>
+            </li>
+          }
+        </ul>
+      }
+    </article>
+
+    <article class="lab-panel report__block">
+      <header>
+        <div>
+          <span class="lab-eyebrow">Histórico</span>
+          <h2>Evidências registradas</h2>
+        </div>
+      </header>
+
+      @if (evidence().length === 0) {
+        <p class="report__empty is-muted"><mat-icon>history</mat-icon> Nenhuma evidência ainda. Faça uma prova para registrar a primeira.</p>
+      } @else {
+        <ul class="report__timeline">
+          @for (entry of evidence(); track entry.at) {
+            <li>
+              <span><mat-icon>quiz</mat-icon></span>
+              <div>
+                <strong>{{ entry.label }}</strong>
+                <small>{{ entry.detail }}</small>
+              </div>
+              <time>{{ entry.at | date: 'dd/MM HH:mm' }}</time>
+            </li>
+          }
+        </ul>
+      }
+    </article>
+  </div>
+
+  <article class="lab-panel report__block">
+    <header>
+      <div>
+        <span class="lab-eyebrow">Trilha</span>
+        <h2>Módulos e a prova que comprova cada um</h2>
+      </div>
+      <a mat-button routerLink="/learning">Abrir trilha</a>
+    </header>
+
+    <ol class="report__modules">
+      @for (module of modules; track module.id) {
+        <li [class.is-done]="moduleCompleted(module.id)">
+          <span>{{ module.step }}</span>
+          <div>
+            <strong>{{ module.title }}</strong>
+            <small>{{ module.description }}</small>
+          </div>
+          <span class="report__status" [class.is-passed]="moduleCompleted(module.id)">
+            {{ moduleCompleted(module.id) ? 'Concluído' : 'Pendente' }}
+          </span>
+        </li>
+      }
+    </ol>
+  </article>
+</section>

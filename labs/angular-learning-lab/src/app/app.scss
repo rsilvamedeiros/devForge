@@ -1,0 +1,26 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+.app-shell {
+  flex: 1;
+  min-height: 0;
+}
+
+.app-sidenav {
+  width: 244px;
+  border: 0;
+  border-right: 1px solid var(--lab-border);
+  border-radius: 0;
+  background: var(--lab-sidebar);
+}
+
+.app-content {
+  min-height: 100%;
+  padding: 1.75rem 2rem 3rem;
+  background: radial-gradient(circle at 80% 0, rgba(85, 214, 190, .035), transparent 25%), var(--lab-bg);
+
+  @media(max-width: 700px) { padding: 1.25rem 1rem 2.5rem; }
+}

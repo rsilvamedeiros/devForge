@@ -77,7 +77,7 @@ A raiz funciona como um workspace npm. Depois de `npm install`, os projetos pode
 
 ```bash
 npm start             # plataforma DevForge
-npm run dev:angular   # lab Angular Digital Equities
+npm run dev:angular   # Angular Learning Lab
 npm run dev:react     # lab React Service Operations
 npm run dev:typescript # lab TypeScript Order Processing
 ```
@@ -106,4 +106,4 @@ Angular, React e TypeScript possuem handbooks próprios, divididos em capítulos
 2. Abra o caso [`vacancies/btg-digital-equities`](vacancies/btg-digital-equities/).
 3. Siga [`study-plans/BTG-2-DIAS.md`](study-plans/BTG-2-DIAS.md).
 4. Implemente os desafios sem IA primeiro; use IA depois para revisão e alternativas.
-5. Use os labs para integrar os conceitos: Angular Digital Equities, React Service Operations e TypeScript Order Processing.
+5. Use os labs para estudar cada tecnologia em profundidade, começando pelo Angular Learning Lab.

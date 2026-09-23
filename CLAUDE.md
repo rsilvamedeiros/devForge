@@ -18,13 +18,13 @@ A vaga referencia skills; a skill não pertence à vaga. Conhecimento é permane
 | `vacancies/` | um processo seletivo por subpasta |
 | `skills/<categoria>/<skill>/README.md` | conhecimento permanente por skill |
 | `challenges/<categoria>/` | exercícios e live coding |
-| `labs/` | projetos práticos de integração (exercícios ligados a uma vaga) |
+| `labs/` | ambientes acadêmicos completos, um por tecnologia principal |
 | `platform/` | a app real do DevForge (v0.3 do roadmap) — lê o conteúdo real de `skills/`, `vacancies/`, `challenges/`, `study-plans/`, não é um exercício |
 | `interviews/` | retrospectivas reais |
 | `study-plans/` | planos intensivos ou por vaga |
 | `resources/` | referências externas |
 
-**`labs/` vs. `platform/`:** um lab é prática isolada para uma vaga específica (ex.: `angular-digital-equities` simula um mercado/ordens pra treinar a etapa técnica da BTG). `platform/` é a plataforma de estudo em si — a "Udemy pessoal" que navega o conteúdo real do repositório. Não confundir os dois nem misturar código de um no outro.
+**`labs/` vs. `platform/`:** um lab ensina e exercita uma tecnologia em profundidade, com teoria, demos, exercícios, avaliações e evidências. `platform/` é a plataforma geral do DevForge, que navega o conteúdo real do repositório. Não confundir os dois nem misturar código de um no outro.
 
 Categorias de skill atuais: `computer-science`, `frontend`, `software-engineering` (ver [`docs/architecture/INFORMATION-ARCHITECTURE.md`](docs/architecture/INFORMATION-ARCHITECTURE.md) para a taxonomia completa, que também prevê `backend`, `infrastructure`, `databases`, `testing`, `security`).
 
@@ -62,9 +62,10 @@ Use essas skills proativamente quando o pedido do usuário corresponder claramen
 
 ## Laboratório Angular
 
-Convenções específicas para `labs/angular-digital-equities` (de `docs/guides/CLAUDE-CODE-HANDOFF.md`):
+Convenções específicas para `labs/angular-learning-lab` (de `docs/guides/CLAUDE-CODE-HANDOFF.md`):
 - Angular moderno + TypeScript strict.
 - Código didático, mas próximo de produção; evitar abstrações prematuras.
+- Escopo exclusivamente acadêmico: exemplos neutros de aulas, trilhas, progresso e conteúdo; sem simular produto financeiro.
 - Cada feature deve declarar quais skills exercita (comentário curto ou seção no README do lab).
 - Testes onde agregarem ao aprendizado, não por obrigação.
 - UI usa **Angular Material** (`ng add @angular/material` já feito, tema `azure-blue`) — evoluir uma tela significa trocar HTML cru por componentes Material (`MatFormField`, `MatTable`, `MatButton`, etc.), não escrever CSS do zero.

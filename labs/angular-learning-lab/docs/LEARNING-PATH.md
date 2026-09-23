@@ -1,66 +1,49 @@
-# Trilha de aprendizagem — Angular Digital Equities
+# Trilha de aprendizagem — Angular
 
 ## Objetivo
 
-Construir um terminal financeiro modular enquanto pratica Angular moderno, reatividade, streams e desenho de domínio.
-
-Referência completa: [`HANDBOOK.md`](HANDBOOK.md).
+Aprender Angular moderno em ciclos curtos de teoria, observação, implementação, teste e explicação.
 
 ## Módulo 1 — Componentes e navegação
 
-**Leitura:** [`01-FUNDAMENTALS.md`](01-FUNDAMENTALS.md) e [`02-COMPONENTS-TEMPLATES.md`](02-COMPONENTS-TEMPLATES.md).
+**Estudar:** standalone components, inputs, outputs, composição, Router e lazy loading.
 
-**Entrega:** shell responsivo e features carregadas por rota.
+**Praticar:** criar uma feature acadêmica com rota própria, estados de tela e navegação acessível.
 
-- standalone components;
-- Angular Material;
-- lazy loading;
-- inputs, outputs e composição.
+**Evidência:** explicar a fronteira entre componente de página, componente de apresentação e serviço.
 
 ## Módulo 2 — Signals e estado derivado
 
-**Leitura:** [`04-SIGNALS-RXJS-STATE.md`](04-SIGNALS-RXJS-STATE.md).
+**Estudar:** `signal`, `computed`, `effect`, imutabilidade e `OnPush`.
 
-**Entrega:** mercado pesquisável, watchlist e indicadores.
+**Praticar:** construir um catálogo pesquisável sem duplicar lista filtrada, totais ou progresso.
 
-- `signal` e `computed`;
-- estado local e compartilhado;
-- persistência no navegador;
-- `OnPush` e identidade de listas.
+**Evidência:** justificar qual dado é fonte, qual é derivado e onde cada estado pertence.
 
-## Módulo 3 — Formulários e domínio
+## Módulo 3 — Formulários e modelagem
 
-**Leitura:** [`03-DI-DATA-NAVIGATION.md`](03-DI-DATA-NAVIGATION.md).
+**Estudar:** Reactive Forms tipados, validadores, mensagens de erro e funções puras.
 
-**Entrega:** criação e validação de ordens.
+**Praticar:** criar um formulário de matrícula com validação, feedback e teste de fronteira.
 
-- Reactive Forms;
-- classes abstratas e polimorfismo;
-- validação de domínio;
-- fila FIFO genérica.
+**Evidência:** implementar o fluxo sem consulta e explicar por que a regra não fica espalhada no template.
 
-## Módulo 4 — HTTP e tempo real
+## Módulo 4 — HTTP, RxJS e assincronicidade
 
-**Leitura:** [`03-DI-DATA-NAVIGATION.md`](03-DI-DATA-NAVIGATION.md) e [`04-SIGNALS-RXJS-STATE.md`](04-SIGNALS-RXJS-STATE.md).
+**Estudar:** HttpClient, interceptors, operadores RxJS, tratamento de erro e cleanup.
 
-**Entrega:** API simulada e preços atualizados continuamente.
+**Praticar:** carregar conteúdo remoto e manter um stream de atividade com estados de loading, erro, vazio e pronto.
 
-- HttpClient e interceptor;
-- DTO para modelo de domínio;
-- RxJS e ciclo de vida;
-- abstração intercambiável de WebSocket.
+**Evidência:** comparar Observable e Signal e justificar a conversão na fronteira da interface.
 
-## Módulo 5 — Risco, performance e testes
+## Módulo 5 — Qualidade e arquitetura
 
-**Leitura:** [`05-QUALITY-ARCHITECTURE.md`](05-QUALITY-ARCHITECTURE.md).
+**Estudar:** testes, acessibilidade, performance, boundaries e organização por feature.
 
-**Entrega:** central de risco, analytics e suíte automatizada.
+**Praticar:** testar estado derivado, interações e falhas; revisar dependências entre features.
 
-- estado derivado entre features;
-- limites e guardrails;
-- testes de service, model e UI;
-- análise de performance baseada em evidência.
+**Evidência:** defender os trade-offs da solução e demonstrar a suíte automatizada passando.
 
-## Evidência esperada
+## Critério de conclusão
 
-Demonstre uma ordem do formulário até a fila, explique Signals versus RxJS e troque o price feed simulado pela abstração WebSocket. Registre a evidência nas skills correspondentes.
+Um módulo concluído organiza o percurso. A skill só evolui com evidência registrada: implementação, testes, explicação e justificativa das decisões.

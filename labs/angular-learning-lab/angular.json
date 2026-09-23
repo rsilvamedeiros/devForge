@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "digital-equities": {
+    "angular-learning-lab": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -73,10 +73,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "digital-equities:build:production"
+              "buildTarget": "angular-learning-lab:build:production"
             },
             "development": {
-              "buildTarget": "digital-equities:build:development"
+              "buildTarget": "angular-learning-lab:build:development"
             }
           },
           "defaultConfiguration": "development"

@@ -1,190 +1,90 @@
-# Angular Digital Equities Lab
+# Angular Learning Lab
 
-Projeto didático para integrar as skills da preparação.
+Laboratório acadêmico do DevForge para estudar Angular moderno com teoria, demonstrações executáveis, exercícios, avaliações e evidências de progresso.
 
-## Não é
-Uma simulação fiel de infraestrutura bancária.
+O objetivo é aprender Angular. O lab não simula um produto comercial nem depende de um domínio de negócio específico.
 
-## É
-Um laboratório para praticar:
-- Angular moderno;
-- TypeScript;
-- arrays;
-- estado;
-- RxJS;
-- POO;
-- filas;
-- real time;
-- performance.
+## Experiência de estudo
 
-## Features
-
-### Market
-- listar ativos;
-- buscar;
-- filtrar;
-- ordenar;
-- estado derivado;
-- atualização de preço.
-- carregamento via `HttpClient`, interceptor mock e mapping DTO → domínio.
-
-### Orders
-- criar ordem;
-- validar;
-- listar;
-- atualizar status;
-- modelar Buy/Sell;
-- Queue didática.
-
-### Real time
-- atualização simulada;
-- depois abstração WebSocket.
-
-### Overview, Portfolio e Analytics
-- dashboard com KPIs e curva patrimonial;
-- posições consolidadas e alocação por setor;
-- métricas de performance, risco e frequência operacional;
-- gráficos SVG responsivos, sem biblioteca adicional.
-
-### Watchlist e detalhe do ativo
-- favoritos persistidos no navegador;
-- cards com preço, variação e volume em tempo real;
-- busca global por ticker no header;
-- rota dinâmica por ativo com gráfico, livro de ofertas e indicadores simulados.
-
-### Central de risco
-- score derivado da exposição e das ordens em trânsito;
-- uso de limites operacionais;
-- concentração por setor;
-- checklist pré-trade.
-
-### Trilha Angular
-- cinco módulos aplicados ao código do terminal;
-- progresso persistido localmente;
-- exercícios de fundamento, aplicação e arquitetura;
-- critérios explícitos para transformar implementação em evidência.
-
-## Área de formação
-
-O terminal é o campo de prática; a formação em Angular é produto de primeira classe dentro dele. Cinco seções, todas navegáveis pela sidebar:
-
-| Rota | Seção | O que entrega |
+| Rota | Área | Entrega |
 |---|---|---|
-| `/learning` | **Trilha** | Cinco módulos com progresso persistido e critérios de evidência. |
-| `/documentation` | **Guia** | Os 8 capítulos reais de `docs/`, renderizados com `ngx-markdown`. |
-| `/components` | **Componentes** | Catálogo vivo: cada receita roda na página, com o código real, API usada e o que observar. |
-| `/examples` | **Exemplos** | Editor Monaco com execução real no browser, comparando a saída com a implementação de referência. |
-| `/assessments` | **Provas** | 25 questões corrigidas automaticamente; 80% registra evidência de domínio. |
+| `/overview` | Visão geral | Progresso, próximo passo, desempenho e lacunas. |
+| `/learning` | Trilha Angular | Cinco módulos progressivos e critérios de evidência. |
+| `/documentation` | Documentação | Oito capítulos Markdown renderizados dentro do app. |
+| `/components` | Componentes | Receitas interativas executadas por componentes reais. |
+| `/examples` | Playground | Exercícios editáveis e executáveis no navegador. |
+| `/assessments` | Avaliações | Questões por tema, correção e corte de 80%. |
+| `/reports` | Meu progresso | Lacunas, histórico e evidências de domínio. |
 
-Três decisões que sustentam isso:
+## Conteúdo
 
-- **Execução é real, não simulada.** `/examples` avalia o código editado com `new Function` e compara a saída com a referência — o que aparece é o resultado de quem escreveu, inclusive o erro.
-- **Demos são componentes de verdade.** `/components` renderiza via `NgComponentOutlet`; o bloco de código ao lado é a implementação que está rodando, não um trecho ilustrativo.
-- **Índices leves para a sidebar.** `exam-index.ts`, `example-index.ts` e `component-recipes.ts` existem separados dos dados pesados (banco de questões, código-fonte, componentes de demo) porque a sidebar só precisa contar — importar o conteúdo completo arrastaria Material, Forms e todo o texto para o bundle inicial. Specs garantem que índice e dado não desincronizem.
+- fundamentos, bootstrap e tooling;
+- standalone components, templates e control flow;
+- Signals, `computed`, RxJS e ownership de estado;
+- injeção de dependência, Router e HttpClient;
+- Reactive Forms tipados;
+- Angular Material e acessibilidade;
+- performance com `OnPush`;
+- testes e arquitetura de features.
 
-Conteúdo de origem: [`docs/LEARNING-PATH.md`](docs/LEARNING-PATH.md), [`docs/EXERCISES.md`](docs/EXERCISES.md) e [`docs/HANDBOOK.md`](docs/HANDBOOK.md). A skill permanente da tecnologia fica em [`skills/frontend/angular`](../../skills/frontend/angular/README.md).
+## Como o aprendizado funciona
 
-## Estrutura sugerida
+1. Leia o capítulo relacionado na documentação interna.
+2. Observe a receita no catálogo de componentes.
+3. Resolva o exercício no playground.
+4. Faça a avaliação do tema.
+5. Consulte o relatório e registre evidência na skill somente quando conseguir explicar e implementar.
+
+Concluir um item na interface não altera automaticamente o nível da skill. O progresso local organiza o estudo; a escala de domínio do DevForge exige evidência verificável.
+
+## Decisões técnicas
+
+- Angular standalone e TypeScript strict.
+- Rotas de feature carregadas sob demanda.
+- `ChangeDetectionStrategy.OnPush` nos componentes.
+- Angular Material como base da interface.
+- Signals para estado local e derivado; RxJS para fluxos assíncronos.
+- `ngx-markdown` para servir a documentação real de `docs/`.
+- Progresso persistido em `localStorage`.
+- Índices leves separados dos bancos de conteúdo para evitar inflar o bundle inicial.
+
+## Estrutura
 
 ```text
 src/app/
 ├── core/
-│   ├── models/
-│   ├── services/
-│   └── interceptors/
+│   ├── queue/                  # estrutura genérica para estudo
+│   └── services/               # progresso e tema
 ├── features/
-│   ├── market/
-│   └── orders/
-└── shared/
+│   ├── overview/               # dashboard acadêmico
+│   ├── learning/               # trilha e módulos
+│   ├── documentation/          # leitor dos arquivos Markdown
+│   ├── component-catalog/      # receitas e demos reais
+│   ├── examples/               # playground executável
+│   ├── assessments/            # provas e banco de questões
+│   └── reports/                # lacunas e evidências
+└── shared/layout/              # header e sidebar
+docs/                           # handbook, trilha e exercícios
 ```
 
-## UI
+## Executar
 
-[Angular Material](https://material.angular.dev) com tema Material 3 customizado, densidade compacta e identidade visual de terminal financeiro. Tipografia: Manrope para interface e DM Mono para valores. `provideAnimationsAsync()` está registrado em `app.config.ts`.
-
-Componentes já em uso: `MatToolbar` (header), `MatSidenav` + `MatNavList` (sidebar), `MatFormField`/`MatInput`/`MatSelect` (busca e filtro), `MatTable` (listagens), `MatButton`/`MatButtonToggle` (ações e escolha compra/venda), `MatCard` (agrupamento do formulário de ordem), `MatProgressSpinner` (loading). Evoluir tela nova = puxar o módulo do componente Material equivalente antes de estilizar à mão.
-
-## Rodando o projeto
-
-Gerado com Angular CLI 20.3.37 (standalone, sem SSR, SCSS).
+Na raiz do DevForge:
 
 ```bash
 npm install
-ng serve      # http://localhost:4200
-ng test       # Karma/Jasmine
-ng build      # dist/
-ng generate component features/market/asset-list
+npm run dev:angular
+npm run build:angular
+npm run test:angular
 ```
 
-Na raiz do DevForge, use `npm run dev:angular`, `npm run build:angular` e `npm run test:angular`.
+Ou dentro deste diretório:
 
-## Estrutura real
-
-O app é uma plataforma de estudos com shell fixo (header + sidebar + conteúdo roteado), não uma página única:
-
-```text
-src/app/
-├── app.ts / app.html / app.scss   # shell: header + sidebar + <router-outlet>
-├── app.routes.ts                  # overview · market · watchlist · orders · portfolio · analytics · risk · learning
-├── app.config.ts
-├── core/
-│   ├── models/asset.model.ts
-│   ├── models/order.model.ts      # Order abstrata + BuyOrder/SellOrder (POO)
-│   ├── mock/assets.mock.ts
-│   ├── api/asset-api.service.ts   # contrato HTTP e mapping DTO → domínio
-│   ├── http/mock-api.interceptor.ts # backend simulado com latência/erro
-│   ├── queue/queue.ts             # Queue<T> genérica (FIFO)
-│   ├── realtime/
-│   │   ├── price-feed.ts          # interface PriceFeed + InjectionToken PRICE_FEED (default: SimulatedPriceFeed)
-│   │   ├── simulated-price-feed.ts# implementação atual (RxJS interval + jitter)
-│   │   └── websocket-price-feed.ts# implementação alternativa via WebSocket real (não é a default; exige servidor)
-│   └── services/
-│       ├── asset.service.ts       # signals: assets/loading/error + assina o PriceFeed
-│       ├── order.service.ts       # fila de ordens + processamento FIFO simulado
-│       ├── theme.service.ts       # tema claro/escuro persistido
-│       └── watchlist.service.ts   # favoritos persistidos + estado compartilhado
-├── features/
-│   ├── overview/                  # dashboard, KPIs, movers e curva patrimonial
-│   ├── portfolio/                 # posições, resultado e alocação
-│   ├── analytics/                 # performance, risco e frequência
-│   ├── risk/                      # limites, exposição e checklist pré-trade
-│   ├── learning/                  # trilha, exercícios e progresso local
-│   ├── watchlist/                 # favoritos e monitoramento em tempo real
-│   ├── market/
-│   │   ├── asset-list/            # listagem + busca + filtro por setor
-│   │   └── asset-detail/          # rota por ticker, gráfico e livro de ofertas
-│   └── orders/
-│       ├── order-form/            # Reactive Forms
-│       ├── order-list/            # blotter de ordens
-│       └── orders-page/           # container da rota /orders
-└── shared/layout/
-    ├── header/
-    └── sidebar/                   # navegação entre features
+```bash
+npm install
+npm start
+npm test -- --watch=false --browsers=ChromeHeadless
+npm run build
 ```
 
-Cada nova feature entra como uma rota lazy (`loadComponent`) + um item em `shared/layout/sidebar/sidebar.ts`.
-
-## Roadmap
-
-- [x] bootstrap Angular
-- [x] app shell (header + sidebar + content, navegação por rotas)
-- [x] Asset model
-- [x] mock data
-- [x] `@for` + track
-- [x] Signal
-- [x] computed search/filter
-- [x] loading/error/empty
-- [x] HttpClient abstraction (`AssetApi` + interceptor mock + DTO mapping)
-- [x] Order model (classe abstrata `Order` + `BuyOrder`/`SellOrder`, taxa via polimorfismo)
-- [x] form (Reactive Forms em `order-form`)
-- [x] POO domain exercise (abstração/herança/polimorfismo em `order.model.ts`)
-- [x] Queue<T> (FIFO genérica em `core/queue/queue.ts`, usada por `OrderService` para processar ordens uma a uma)
-- [x] RxJS stream (`interval` + `map` em `SimulatedPriceFeed`)
-- [x] simulated prices (Market atualiza preços ao vivo a cada 1.5s, com jitter)
-- [x] WebSocket abstraction (`WebSocketPriceFeed` implementa `PriceFeed` com `rxjs/webSocket`; troca-se via `{ provide: PRICE_FEED, useClass: WebSocketPriceFeed }` em `app.config.ts` quando houver um servidor real — não é a implementação default)
-- [x] performance review (`ChangeDetectionStrategy.OnPush` em todos os componentes, coerente com o app ser 100% orientado a signals; rotas de feature já eram lazy via `loadComponent`)
-- [x] tests (34 specs cobrindo API, model, queue, services e price feeds — `ng test`)
-- [x] watchlist persistente (service com signals + `localStorage`)
-- [x] detalhe do ativo (rota dinâmica `/market/:symbol`)
-- [x] central de risco (exposição e limites derivados)
-- [x] tema claro/escuro e busca global por ticker
+Conteúdo permanente da tecnologia: [`skills/frontend/angular`](../../skills/frontend/angular/README.md).

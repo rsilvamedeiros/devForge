@@ -70,12 +70,12 @@ Nenhum nível atribuído sem evidência registrada.
 
 ## Handbook do laboratório
 
-- [Visão geral](../../../labs/angular-digital-equities/docs/HANDBOOK.md)
-- [Fundamentos e plataforma](../../../labs/angular-digital-equities/docs/01-FUNDAMENTALS.md)
-- [Componentes e templates](../../../labs/angular-digital-equities/docs/02-COMPONENTS-TEMPLATES.md)
-- [DI, dados e navegação](../../../labs/angular-digital-equities/docs/03-DI-DATA-NAVIGATION.md)
-- [Signals, RxJS e estado](../../../labs/angular-digital-equities/docs/04-SIGNALS-RXJS-STATE.md)
-- [Qualidade e arquitetura](../../../labs/angular-digital-equities/docs/05-QUALITY-ARCHITECTURE.md)
+- [Visão geral](../../../labs/angular-learning-lab/docs/HANDBOOK.md)
+- [Fundamentos e plataforma](../../../labs/angular-learning-lab/docs/01-FUNDAMENTALS.md)
+- [Componentes e templates](../../../labs/angular-learning-lab/docs/02-COMPONENTS-TEMPLATES.md)
+- [DI, dados e navegação](../../../labs/angular-learning-lab/docs/03-DI-DATA-NAVIGATION.md)
+- [Signals, RxJS e estado](../../../labs/angular-learning-lab/docs/04-SIGNALS-RXJS-STATE.md)
+- [Qualidade e arquitetura](../../../labs/angular-learning-lab/docs/05-QUALITY-ARCHITECTURE.md)
 
 ## Ponte com fundamentos
 

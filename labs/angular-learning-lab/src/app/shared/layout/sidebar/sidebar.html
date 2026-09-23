@@ -1,0 +1,20 @@
+<div class="sidebar__progress">
+  <span>Progresso na formação</span>
+  <strong>{{ overallProgress() }}%</strong>
+  <div class="sidebar__progress-track"><i [style.width.%]="overallProgress()"></i></div>
+  <small>{{ completedModules().length }} de {{ totalModules }} módulos concluídos</small>
+</div>
+
+@for (group of navGroups; track group.label) {
+  <div class="sidebar__label">{{ group.label }}</div>
+  <mat-nav-list class="sidebar__nav">
+    @for (item of group.items; track item.path) {
+      <a mat-list-item [routerLink]="item.path" routerLinkActive #rla="routerLinkActive" [activated]="rla.isActive" (click)="linkClick.emit()">
+        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon><span matListItemTitle>{{ item.label }}</span>
+        @if (item.badge) { <span class="sidebar__badge">{{ item.badge() }}</span> }
+      </a>
+    }
+  </mat-nav-list>
+}
+
+<div class="sidebar__footer"><span><i></i> Progresso salvo localmente</span></div>

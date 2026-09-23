@@ -6,7 +6,7 @@ Este repositório foi preparado como base documental. Antes de gerar muita infra
 
 1. Inspecionar toda a documentação.
 2. Não apagar conteúdo de estudo.
-3. Criar estrutura mínima para o `labs/angular-digital-equities`.
+3. Evoluir o `labs/angular-learning-lab` como ambiente acadêmico completo.
 4. Usar Angular moderno + TypeScript.
 5. Evitar overengineering.
 6. Criar commits pequenos por tópico de estudo.
@@ -22,17 +22,15 @@ Este repositório foi preparado como base documental. Antes de gerar muita infra
 
 ## Ordem sugerida
 
-1. Bootstrap Angular.
-2. Model `Asset`.
-3. Mock de assets.
-4. Listagem com `@for` + `track`.
-5. busca/filtro com Signal/computed.
-6. service + HttpClient/mock.
-7. orders.
-8. POO para domínio de ordens.
-9. Queue didática.
-10. RxJS.
-11. atualização de preço simulada.
-12. WebSocket abstraction.
-13. performance.
-14. testes.
+1. Fundamentos e bootstrap Angular.
+2. Componentes standalone e templates.
+3. Listagens com `@for` + `track`.
+4. Busca e filtro com Signal/computed.
+5. Reactive Forms tipados.
+6. Services, DI e HttpClient.
+7. Router e lazy loading.
+8. RxJS e fronteiras com Signals.
+9. Estado e persistência.
+10. Angular Material e acessibilidade.
+11. Performance.
+12. Testes e arquitetura.

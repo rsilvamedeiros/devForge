@@ -1,0 +1,93 @@
+<section class="catalog lab-page">
+  <header class="catalog__hero">
+    <div>
+      <span class="lab-eyebrow"><mat-icon>widgets</mat-icon> Catálogo vivo</span>
+      <h1>Componentes Angular</h1>
+      <p>Cada receita roda de verdade nesta página. O código ao lado é a implementação real — leia, compare com o comportamento e reproduza no seu exercício.</p>
+    </div>
+    <div>
+      <strong>{{ recipes.length }}</strong>
+      <span>receitas</span>
+      <small>{{ categories.length }} categorias</small>
+    </div>
+  </header>
+
+  <div class="catalog__layout">
+    <aside class="lab-panel catalog__nav">
+      @for (group of grouped(); track group.category) {
+        <div class="catalog__group">
+          <span class="catalog__group-label">{{ group.category }}</span>
+          @for (recipe of group.recipes; track recipe.id) {
+            <button
+              type="button"
+              class="catalog__item"
+              [class.active]="selected().id === recipe.id"
+              (click)="open(recipe)"
+            >
+              <span><mat-icon>{{ recipe.icon }}</mat-icon></span>
+              <div>
+                <strong>{{ recipe.title }}</strong>
+                <p>{{ recipe.description }}</p>
+              </div>
+            </button>
+          }
+        </div>
+      }
+    </aside>
+
+    <main class="catalog__main">
+      <article class="lab-panel catalog__demo">
+        <header>
+          <div>
+            <span class="lab-eyebrow">Demonstração ao vivo</span>
+            <h2>{{ selected().title }}</h2>
+            <p>{{ selected().description }}</p>
+          </div>
+        </header>
+
+        <div class="catalog__stage">
+          <ng-container [ngComponentOutlet]="demo()" />
+        </div>
+      </article>
+
+      <article class="lab-panel catalog__code-panel">
+        <header>
+          <div>
+            <span class="lab-eyebrow">Implementação</span>
+            <h2>Código real</h2>
+          </div>
+          <button mat-button type="button" (click)="toggleCode()">
+            <mat-icon>{{ showCode() ? 'visibility_off' : 'visibility' }}</mat-icon>
+            {{ showCode() ? 'Ocultar' : 'Mostrar' }}
+          </button>
+        </header>
+        @if (showCode()) {
+          <pre class="catalog__code"><code>{{ selected().code }}</code></pre>
+        }
+      </article>
+
+      <div class="catalog__meta">
+        <article class="lab-panel">
+          <h3><mat-icon>api</mat-icon> API usada</h3>
+          <dl>
+            @for (entry of selected().api; track entry.name) {
+              <div>
+                <dt><code>{{ entry.name }}</code></dt>
+                <dd>{{ entry.role }}</dd>
+              </div>
+            }
+          </dl>
+        </article>
+
+        <article class="lab-panel">
+          <h3><mat-icon>visibility</mat-icon> O que observar</h3>
+          <ul>
+            @for (item of selected().watch; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        </article>
+      </div>
+    </main>
+  </div>
+</section>
