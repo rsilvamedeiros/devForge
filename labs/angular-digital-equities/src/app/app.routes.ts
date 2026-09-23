@@ -41,5 +41,9 @@ export const routes: Routes = [
     path: 'learning',
     loadComponent: () => import('./features/learning/learning').then(m => m.Learning),
   },
+  {
+    path: 'documentation',
+    loadComponent: () => import('./features/documentation/documentation').then(m => m.Documentation),
+  },
   { path: '**', redirectTo: 'overview' },
 ];

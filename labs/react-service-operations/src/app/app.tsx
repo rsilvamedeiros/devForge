@@ -4,6 +4,7 @@ import { AnalyticsPage } from '../pages/analytics-page';
 import { DashboardPage } from '../pages/dashboard-page';
 import { NotFoundPage } from '../pages/not-found-page';
 import { LearningPage } from '../pages/learning-page';
+import { DocumentationPage } from '../pages/documentation-page';
 import { TicketDetailPage } from '../pages/ticket-detail-page';
 import { TicketsPage } from '../pages/tickets-page';
 
@@ -16,6 +17,7 @@ const router = createBrowserRouter([{
     { path: 'tickets/:id', element: <TicketDetailPage/> },
     { path: 'analytics', element: <AnalyticsPage/> },
     { path: 'learning', element: <LearningPage/> },
+    { path: 'documentation', element: <DocumentationPage/> },
     { path: '*', element: <NotFoundPage/> },
   ],
 }]);

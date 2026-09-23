@@ -1,13 +1,15 @@
 import { useState, type FormEvent } from 'react';
-import { BarChart3, Bell, BookOpenCheck, ChevronDown, CircleHelp, Inbox, LayoutDashboard, Menu, Moon, Search, Settings, Sun, Users, Zap } from 'lucide-react';
+import { BarChart3, Bell, BookOpenCheck, ChevronDown, CircleHelp, Inbox, LayoutDashboard, LibraryBig, Menu, Moon, Search, Settings, Sun, Users, Zap } from 'lucide-react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useTheme } from '../app/theme-context';
+import { DOCUMENTATION_CHAPTERS } from '../pages/documentation-chapters';
 
 const navigation = [
   { to: '/', label: 'Visão geral', icon: LayoutDashboard, end: true },
   { to: '/tickets', label: 'Tickets', icon: Inbox, badge: '8' },
   { to: '/analytics', label: 'Analytics', icon: BarChart3 },
   { to: '/learning', label: 'Trilha React', icon: BookOpenCheck, badge: '5' },
+  { to: '/documentation', label: 'Documentação', icon: LibraryBig, badge: String(DOCUMENTATION_CHAPTERS.length) },
 ];
 
 export function AppShell() {

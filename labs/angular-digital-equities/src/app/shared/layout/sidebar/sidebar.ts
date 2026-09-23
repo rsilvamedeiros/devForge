@@ -4,6 +4,7 @@ import { MatListModule } from '@angular/material/list';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { WatchlistService } from '../../../core/services/watchlist.service';
 import { OrderService } from '../../../core/services/order.service';
+import { DOCUMENTATION_CHAPTERS } from '../../../features/documentation/documentation-chapters';
 
 interface NavItem {
   label: string;
@@ -32,5 +33,6 @@ export class Sidebar {
     { label: 'Analytics', path: '/analytics', icon: 'query_stats' },
     { label: 'Central de risco', path: '/risk', icon: 'shield' },
     { label: 'Trilha Angular', path: '/learning', icon: 'school', badge: () => '5' },
+    { label: 'Documentação', path: '/documentation', icon: 'menu_book', badge: () => String(DOCUMENTATION_CHAPTERS.length) },
   ];
 }

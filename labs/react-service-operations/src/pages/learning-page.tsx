@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { BookOpen, Check, ChevronRight, Code2, FlaskConical, Layers3, Rocket, ShieldCheck, Sparkles } from 'lucide-react';
 
 const modules = [
@@ -62,6 +63,6 @@ export function LearningPage() {
     </div>
 
     <div className="section-heading exercise-heading"><div><span className="eyebrow">Prática guiada</span><h2>Exercícios do laboratório</h2></div><span className="module-count">4 desafios</span></div>
-    <div className="exercise-grid">{exercises.map((exercise, index) => <article className="panel exercise-card" key={exercise.title}><div><span className={`exercise-level ${exercise.tone}`}>{exercise.level}</span><strong>0{index + 1}</strong></div><h3>{exercise.title}</h3><p>{exercise.detail}</p><span>Ver enunciado no docs/EXERCISES.md <ChevronRight/></span></article>)}</div>
+    <div className="exercise-grid">{exercises.map((exercise, index) => <article className="panel exercise-card" key={exercise.title}><div><span className={`exercise-level ${exercise.tone}`}>{exercise.level}</span><strong>0{index + 1}</strong></div><h3>{exercise.title}</h3><p>{exercise.detail}</p><Link to="/documentation">Ver enunciado completo <ChevronRight/></Link></article>)}</div>
   </section>;
 }

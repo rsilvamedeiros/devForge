@@ -13,6 +13,6 @@
     <aside><article class="learning__next trade-panel"><span class="trade-eyebrow">Próximo passo</span><mat-icon>route</mat-icon><h2>{{ nextModule()?.title || 'Trilha concluída' }}</h2><p>{{ nextModule()?.description || 'Revise as decisões e registre evidências nas skills relacionadas.' }}</p>@if (nextModule(); as next) {<button mat-flat-button (click)="toggle(next.id)"><mat-icon>check</mat-icon>Marcar como concluído</button>}</article><article class="learning__evidence trade-panel"><mat-icon>workspace_premium</mat-icon><div><span class="trade-eyebrow">Evidência</span><h2>Explique sem consulta</h2><p>Demonstre uma ordem até a fila e compare quando usar Signals ou RxJS.</p></div></article></aside>
   </div>
 
-  <div class="learning__heading learning__exercise-heading"><div><span class="trade-eyebrow">Prática guiada</span><h2>Exercícios do laboratório</h2></div><span>docs/EXERCISES.md</span></div>
+  <div class="learning__heading learning__exercise-heading"><div><span class="trade-eyebrow">Prática guiada</span><h2>Exercícios do laboratório</h2></div><a routerLink="/documentation"><mat-icon>menu_book</mat-icon>Ler enunciados completos</a></div>
   <div class="learning__exercises">@for (exercise of exercises; track exercise.title; let index = $index) {<article class="trade-panel"><div><span>{{ exercise.level }}</span><strong>0{{ index + 1 }}</strong></div><mat-icon>{{ exercise.icon }}</mat-icon><h3>{{ exercise.title }}</h3><p>{{ exercise.description }}</p></article>}</div>
 </section>

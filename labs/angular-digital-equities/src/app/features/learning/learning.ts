@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/c
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { RouterLink } from '@angular/router';
 
 interface LearningModule {
   id: string;
@@ -14,7 +15,7 @@ interface LearningModule {
 
 @Component({
   selector: 'app-learning',
-  imports: [MatButtonModule, MatIconModule, MatProgressBarModule],
+  imports: [MatButtonModule, MatIconModule, MatProgressBarModule, RouterLink],
   templateUrl: './learning.html',
   styleUrl: './learning.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
