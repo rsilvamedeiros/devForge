@@ -5,10 +5,12 @@
   </header>
 
   <div class="learning__layout">
-    <main><div class="learning__heading"><div><span class="lab-eyebrow">Trilha principal</span><h2>Do componente à arquitetura</h2></div><span>5 módulos</span></div><div class="learning__modules">
-      @for (module of modules; track module.id) {
+    <main><div class="learning__heading"><div><span class="lab-eyebrow">Trilha principal</span><h2>Do componente à arquitetura</h2></div><span>{{ visibleModules().length }} módulos</span></div>
+    <div class="learning__tools"><label><mat-icon>search</mat-icon><input type="search" placeholder="Buscar módulo ou competência" [value]="query()" (input)="query.set($any($event.target).value)" /></label><div role="group" aria-label="Filtrar módulos"><button type="button" [class.active]="status() === 'all'" (click)="status.set('all')">Todos</button><button type="button" [class.active]="status() === 'pending'" (click)="status.set('pending')">Pendentes</button><button type="button" [class.active]="status() === 'completed'" (click)="status.set('completed')">Concluídos</button></div></div>
+    <div class="learning__modules">
+      @for (module of visibleModules(); track module.id) {
         <article class="learning__module lab-panel" [class.complete]="completed().includes(module.id)"><button mat-icon-button (click)="toggle(module.id)" [attr.aria-label]="(completed().includes(module.id) ? 'Reabrir ' : 'Concluir ') + module.title">@if (completed().includes(module.id)) {<mat-icon>check</mat-icon>} @else {<span>{{ module.step }}</span>}</button><span class="learning__module-icon"><mat-icon>{{ module.icon }}</mat-icon></span><div><small>Módulo {{ module.step }}</small><h3>{{ module.title }}</h3><p>{{ module.description }}</p><div>@for (skill of module.skills; track skill) {<span>{{ skill }}</span>}</div></div><mat-icon>chevron_right</mat-icon></article>
-      }
+      } @empty {<div class="learning__empty"><mat-icon>search_off</mat-icon><strong>Nenhum módulo encontrado</strong><span>Altere o termo ou o filtro selecionado.</span></div>}
     </div></main>
     <aside><article class="learning__next lab-panel"><span class="lab-eyebrow">Próximo passo</span><mat-icon>route</mat-icon><h2>{{ nextModule()?.title || 'Trilha concluída' }}</h2><p>{{ nextModule()?.description || 'Revise as decisões e registre evidências nas skills relacionadas.' }}</p>@if (nextModule(); as next) {<button mat-flat-button (click)="toggle(next.id)"><mat-icon>check</mat-icon>Marcar como concluído</button>}</article><article class="learning__evidence lab-panel"><mat-icon>workspace_premium</mat-icon><div><span class="lab-eyebrow">Evidência</span><h2>Explique sem consulta</h2><p>Implemente um fluxo com estado assíncrono e justifique quando usar Signals ou RxJS.</p></div></article></aside>
   </div>

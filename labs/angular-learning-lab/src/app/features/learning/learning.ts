@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -19,6 +19,17 @@ export class Learning {
   readonly completed = this.progressService.completedModules;
   readonly progress = this.progressService.moduleProgress;
   readonly nextModule = this.progressService.nextModule;
+  readonly query = signal('');
+  readonly status = signal<'all' | 'pending' | 'completed'>('all');
+  readonly visibleModules = computed(() => {
+    const term = this.query().trim().toLowerCase();
+    return this.modules.filter(module => {
+      const done = this.completed().includes(module.id);
+      const matchesStatus = this.status() === 'all' || (this.status() === 'completed' ? done : !done);
+      const matchesQuery = !term || `${module.title} ${module.description} ${module.skills.join(' ')}`.toLowerCase().includes(term);
+      return matchesStatus && matchesQuery;
+    });
+  });
 
   readonly exercises = [
     { level: 'Fundamento', title: 'Catálogo pesquisável', description: 'Combine busca, categoria e ordenação com computed.', icon: 'filter_alt' },

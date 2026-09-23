@@ -9,26 +9,26 @@ html {
 }
 
 :root {
-  --lab-bg: #0a0e17;
-  --lab-sidebar: #0d121d;
-  --lab-header: rgba(13, 18, 29, .94);
-  --lab-surface: #111825;
-  --lab-surface-2: #172131;
-  --lab-border: #253044;
-  --lab-text: #edf3fa;
-  --lab-muted: #8390a5;
-  --lab-primary: #55d6be;
-  --lab-primary-soft: rgba(85, 214, 190, .12);
-  --lab-blue: #6fa8ff;
-  --lab-positive: #53d39a;
+  --lab-bg: #101114;
+  --lab-sidebar: #141519;
+  --lab-header: rgba(20, 21, 25, .96);
+  --lab-surface: #181a20;
+  --lab-surface-2: #20232b;
+  --lab-border: #2d3038;
+  --lab-text: #f1f1f3;
+  --lab-muted: #9598a1;
+  --lab-primary: #e17a9b;
+  --lab-primary-soft: rgba(225, 122, 155, .11);
+  --lab-blue: #9aaee8;
+  --lab-positive: #72b89b;
   --lab-negative: #ff6f7d;
   --lab-warning: #f4b95f;
   --lab-warning-soft: rgba(244, 185, 95, .12);
   --lab-field-hover: #3b4a62;
   --lab-shadow: 0 18px 50px rgba(0, 0, 0, .22);
-  --lab-elevated: #151e2c;
+  --lab-elevated: #1c1e24;
   --lab-soft: rgba(255,255,255,.035);
-  --lab-accent-soft: rgba(85,214,190,.1);
+  --lab-accent-soft: rgba(225,122,155,.09);
 }
 
 html[data-theme='light'] {

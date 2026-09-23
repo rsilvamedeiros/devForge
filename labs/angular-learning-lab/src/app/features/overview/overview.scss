@@ -9,18 +9,18 @@
     border: 1px solid var(--lab-border);
     overflow: hidden;
     border-radius: 24px;
-    background: radial-gradient(circle at 88% 15%,rgba(85,214,190,.2),transparent 28%),radial-gradient(circle at 5% 120%,rgba(111,168,255,.19),transparent 38%),linear-gradient(135deg,#121c2b,#0d1522);
+    background: radial-gradient(circle at 88% 15%,rgba(202,85,126,.14),transparent 30%),linear-gradient(135deg,#202127,#17181d);
     box-shadow:0 24px 60px rgba(0,0,0,.18);
   }
 
   &__hero-copy { max-width: 620px; }
   &__hero h1 { max-width:650px;margin: .55rem 0 .6rem;color:#f5f8fc;font-size:clamp(2rem,4vw,3.1rem); }
   &__hero p { max-width:650px;margin: 0; color:#aeb9c9;font-size:.92rem; }
-  &__hero .lab-eyebrow{display:flex;align-items:center;gap:.4rem;color:#6be0c7}
+  &__hero .lab-eyebrow{display:flex;align-items:center;gap:.4rem;color:#eda1b9}
   &__hero .lab-eyebrow mat-icon{width:17px;height:17px;font-size:17px}
   &__course-meta{display:flex;flex-wrap:wrap;gap:.6rem 1.1rem;margin-top:1rem;color:#91a0b3;font-size:.67rem}
   &__course-meta span{display:flex;align-items:center;gap:.3rem}
-  &__course-meta mat-icon{width:15px;height:15px;color:#6be0c7;font-size:15px}
+  &__course-meta mat-icon{width:15px;height:15px;color:#eda1b9;font-size:15px}
 
   &__next {
     display: flex;
@@ -58,7 +58,7 @@
     flex: 0 0 auto;
     border-radius: 50%;
     position:relative;
-    background: conic-gradient(#62ddc3 calc(var(--progress) * 1%), rgba(255,255,255,.09) 0);
+    background: conic-gradient(#df7899 calc(var(--progress) * 1%), rgba(255,255,255,.09) 0);
     box-shadow:0 0 0 12px rgba(255,255,255,.025),0 20px 45px rgba(0,0,0,.2);
   }
 
@@ -68,7 +68,7 @@
     width: 136px;
     height: 136px;
     border-radius: 50%;
-    background:#101a28;
+    background:#191a1f;
     text-align: center;
 
     strong { color:#fff;font-size: 2rem; line-height: 1; }

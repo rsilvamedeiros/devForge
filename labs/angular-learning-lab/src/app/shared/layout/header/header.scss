@@ -1,7 +1,7 @@
 .header { position: relative; z-index: 5; min-height: 72px; gap: .9rem; padding: 0 1.25rem; color: var(--lab-text); border-bottom: 1px solid var(--lab-border); background: var(--lab-header); box-shadow:0 6px 24px rgba(0,0,0,.04); backdrop-filter: blur(18px); }
 .header__brand { display: flex; min-width: 210px; align-items: center; gap: .65rem; }
 .header__brand > span:last-child { display: flex; flex-direction: column; }
-.header__logo { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 10px; color: #07100f; background: linear-gradient(145deg, #70ead1, #3ebca5); box-shadow: 0 8px 20px rgba(85,214,190,.16); }
+.header__logo { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 10px; color: #fff; background: linear-gradient(145deg, #df7899, #a9486d); box-shadow: 0 8px 20px rgba(202,85,126,.14); }
 .header__title { font-size: .9rem; letter-spacing: -.02em; }
 .header__brand small, .header__profile small { color: var(--lab-muted); font-size: .6rem; }
 .header__status { display: flex; align-items: center; gap: .55rem; padding-left: 1rem; border-left: 1px solid var(--lab-border); }
