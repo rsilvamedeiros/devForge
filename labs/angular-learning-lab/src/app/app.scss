@@ -10,7 +10,7 @@
 }
 
 .app-sidenav {
-  width: 244px;
+  width: 258px;
   border: 0;
   border-right: 1px solid var(--lab-border);
   border-radius: 0;
@@ -19,8 +19,8 @@
 
 .app-content {
   min-height: 100%;
-  padding: 1.75rem 2rem 3rem;
-  background: radial-gradient(circle at 80% 0, rgba(85, 214, 190, .035), transparent 25%), var(--lab-bg);
+  padding: 2rem clamp(1.25rem, 3vw, 3rem) 4rem;
+  background: radial-gradient(circle at 82% -10%, rgba(85,214,190,.075), transparent 30%),radial-gradient(circle at 10% 110%,rgba(111,168,255,.045),transparent 32%),var(--lab-bg);
 
   @media(max-width: 700px) { padding: 1.25rem 1rem 2.5rem; }
 }

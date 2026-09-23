@@ -1,15 +1,16 @@
 <section class="dash lab-page">
   <header class="dash__hero">
     <div class="dash__hero-copy">
-      <span class="lab-eyebrow"><mat-icon>school</mat-icon> Formação Angular</span>
-      <h1>Seu progresso</h1>
-      <p>Trilha, guia, prática e provas em um só lugar. O nível só sobe com evidência — leitura isolada não conta.</p>
+      <span class="lab-eyebrow"><mat-icon>school</mat-icon> Sua formação em andamento</span>
+      <h1>Continue evoluindo em Angular</h1>
+      <p>Uma jornada prática do fundamento à arquitetura, com conteúdo aprofundado, laboratórios e validação real de conhecimento.</p>
+      <div class="dash__course-meta"><span><mat-icon>layers</mat-icon>5 módulos</span><span><mat-icon>schedule</mat-icon>Trilha contínua</span><span><mat-icon>workspace_premium</mat-icon>Certificação por evidência</span></div>
 
       @if (nextModule(); as next) {
         <div class="dash__next">
           <span><mat-icon>{{ next.icon }}</mat-icon></span>
           <div>
-            <small>Próximo passo · Módulo {{ next.step }}</small>
+            <small>CONTINUAR DE ONDE PAROU · MÓDULO {{ next.step }}</small>
             <strong>{{ next.title }}</strong>
           </div>
           <a mat-flat-button color="primary" routerLink="/learning">Continuar</a>

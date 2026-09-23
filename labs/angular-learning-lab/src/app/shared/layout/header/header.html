@@ -12,7 +12,7 @@
 
   <form class="header__search" role="search" (submit)="search($event)">
     <mat-icon>search</mat-icon>
-    <input type="search" aria-label="Buscar no material de estudo" placeholder="Buscar no material" [value]="searchTerm()" (input)="searchTerm.set($any($event.target).value)" />
+    <input type="search" aria-label="Buscar no material de estudo" placeholder="Buscar aulas, APIs e conteúdos..." [value]="searchTerm()" (input)="searchTerm.set($any($event.target).value)" />
     <span>Enter</span>
     @if (matches().length) {
       <ul class="header__results">
