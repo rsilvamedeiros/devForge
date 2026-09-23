@@ -1,10 +1,10 @@
-# React Service Operations Lab
+# React Learning Lab
 
-Central de atendimento construída para praticar React moderno em um domínio diferente do mercado financeiro.
+Plataforma acadêmica do DevForge para dominar React moderno com teoria, trilha progressiva, exercícios e aplicações reais.
 
-## Produto
+## Estudo de caso
 
-O **Nexa Ops** organiza tickets, SLAs, responsáveis e performance operacional.
+O antigo produto **Nexa Ops** permanece como estudo de caso executável para investigar composição, estado remoto, cache, mutations e testes.
 
 ### Páginas
 
