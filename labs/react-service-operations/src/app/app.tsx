@@ -1,27 +1,5 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { AppShell } from '../layout/app-shell';
-import { AnalyticsPage } from '../pages/analytics-page';
-import { DashboardPage } from '../pages/dashboard-page';
-import { NotFoundPage } from '../pages/not-found-page';
-import { LearningPage } from '../pages/learning-page';
-import { DocumentationPage } from '../pages/documentation-page';
-import { TicketDetailPage } from '../pages/ticket-detail-page';
-import { TicketsPage } from '../pages/tickets-page';
-import { CurriculumPage } from '../pages/curriculum-page';
-
-const router = createBrowserRouter([{
-  path: '/',
-  element: <AppShell/>,
-  children: [
-    { index: true, element: <DashboardPage/> },
-    { path: 'tickets', element: <TicketsPage/> },
-    { path: 'tickets/:id', element: <TicketDetailPage/> },
-    { path: 'analytics', element: <AnalyticsPage/> },
-    { path: 'learning', element: <LearningPage/> },
-    { path: 'documentation', element: <DocumentationPage/> },
-    { path: 'curriculum', element: <CurriculumPage/> },
-    { path: '*', element: <NotFoundPage/> },
-  ],
-}]);
-
-export function App() { return <RouterProvider router={router}/>; }
+import{lazy,Suspense,type ReactNode}from'react';import{createBrowserRouter,RouterProvider}from'react-router-dom';import{AppShell}from'../layout/app-shell';
+const DashboardPage=lazy(()=>import('../pages/dashboard-page').then(m=>({default:m.DashboardPage})));const AnalyticsPage=lazy(()=>import('../pages/analytics-page').then(m=>({default:m.AnalyticsPage})));const NotFoundPage=lazy(()=>import('../pages/not-found-page').then(m=>({default:m.NotFoundPage})));const LearningPage=lazy(()=>import('../pages/learning-page').then(m=>({default:m.LearningPage})));const DocumentationPage=lazy(()=>import('../pages/documentation-page').then(m=>({default:m.DocumentationPage})));const TicketDetailPage=lazy(()=>import('../pages/ticket-detail-page').then(m=>({default:m.TicketDetailPage})));const TicketsPage=lazy(()=>import('../pages/tickets-page').then(m=>({default:m.TicketsPage})));const CurriculumPage=lazy(()=>import('../pages/curriculum-page').then(m=>({default:m.CurriculumPage})));const ComponentCatalogPage=lazy(()=>import('../pages/component-catalog-page').then(m=>({default:m.ComponentCatalogPage})));const PlaygroundPage=lazy(()=>import('../pages/playground-page').then(m=>({default:m.PlaygroundPage})));
+const withLoading=(element:ReactNode)=><Suspense fallback={<div className="route-loading"><i/><span>Carregando laboratório...</span></div>}>{element}</Suspense>;
+const router=createBrowserRouter([{path:'/',element:<AppShell/>,children:[{index:true,element:withLoading(<DashboardPage/>)},{path:'learning',element:withLoading(<LearningPage/>)},{path:'documentation',element:withLoading(<DocumentationPage/>)},{path:'curriculum',element:withLoading(<CurriculumPage/>)},{path:'components',element:withLoading(<ComponentCatalogPage/>)},{path:'playground',element:withLoading(<PlaygroundPage/>)},{path:'tickets',element:withLoading(<TicketsPage/>)},{path:'tickets/:id',element:withLoading(<TicketDetailPage/>)},{path:'analytics',element:withLoading(<AnalyticsPage/>)},{path:'*',element:withLoading(<NotFoundPage/>)}]}]);
+export function App(){return <RouterProvider router={router}/>}
