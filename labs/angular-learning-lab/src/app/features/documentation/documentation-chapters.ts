@@ -19,4 +19,5 @@ export const DOCUMENTATION_CHAPTERS: DocumentChapter[] = [
   { title: 'SSR e tooling', description: 'Hydration, prerender, build e operação.', path: 'docs/10-SSR-TOOLING.md', icon: 'public' },
   { title: 'Trilha de aprendizado', description: 'Sequência sugerida e critérios de domínio.', path: 'docs/LEARNING-PATH.md', icon: 'route' },
   { title: 'Exercícios', description: 'Enunciados completos da prática guiada.', path: 'docs/EXERCISES.md', icon: 'fitness_center' },
+  { title: 'Avaliações técnicas', description: 'Provinhas, simulados e critérios por senioridade.', path: 'docs/11-TECHNICAL-ASSESSMENTS.md', icon: 'assignment_turned_in' },
 ];

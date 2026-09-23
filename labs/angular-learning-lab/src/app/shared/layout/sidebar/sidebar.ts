@@ -8,6 +8,7 @@ import { DOCUMENTATION_CHAPTERS } from '../../../features/documentation/document
 import { EXAMPLE_INDEX } from '../../../features/examples/example-index';
 import { EXAM_INDEX } from '../../../features/assessments/exam-index';
 import { ANGULAR_APIS, ANGULAR_AREAS } from '../../../core/data/angular-knowledge';
+import { TECHNICAL_ASSESSMENTS } from '../../../features/technical-assessments/technical-assessment-bank';
 
 interface NavItem {
   label: string;
@@ -65,7 +66,14 @@ export class Sidebar {
       items: [
         { label: 'Playground', path: '/examples', icon: 'code', badge: () => String(EXAMPLE_INDEX.length) },
         { label: 'Testing lab', path: '/testing', icon: 'science', badge: () => '5' },
-        { label: 'Avaliações', path: '/assessments', icon: 'quiz', badge: () => String(EXAM_INDEX.length) },
+      ],
+    },
+    {
+      label: 'Avaliar',
+      items: [
+        { label: 'Testes técnicos', path: '/technical-tests', icon: 'task', badge: () => String(TECHNICAL_ASSESSMENTS.filter(item => item.mode === 'quiz').length) },
+        { label: 'Simulados', path: '/mock-exams', icon: 'timer', badge: () => String(TECHNICAL_ASSESSMENTS.filter(item => item.mode === 'mock').length) },
+        { label: 'Provas por tema', path: '/assessments', icon: 'quiz', badge: () => String(EXAM_INDEX.length) },
       ],
     },
     {

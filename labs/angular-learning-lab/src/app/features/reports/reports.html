@@ -66,6 +66,37 @@
     </table>
   </article>
 
+  <article class="lab-panel report__block">
+    <header>
+      <div>
+        <span class="lab-eyebrow">Carreira</span>
+        <h2>Testes técnicos por senioridade</h2>
+      </div>
+      <a mat-button routerLink="/technical-tests">Abrir testes técnicos</a>
+    </header>
+
+    <table class="report__table">
+      <thead>
+        <tr><th>Avaliação</th><th>Nível</th><th>Formato</th><th>Melhor nota</th><th>Situação</th></tr>
+      </thead>
+      <tbody>
+        @for (row of technicalRows(); track row.id) {
+          <tr>
+            <td>{{ row.title }}</td>
+            <td>{{ row.level }}</td>
+            <td>{{ row.mode === 'quiz' ? 'Provinha' : 'Simulado' }}</td>
+            <td>{{ row.result ? row.result.percent + '%' : '—' }}</td>
+            <td>
+              <span class="report__status" [class.is-passed]="row.result?.passed" [class.is-pending]="!row.result">
+                {{ row.result?.passed ? 'Aprovado' : (row.result ? 'Refazer' : 'Pendente') }}
+              </span>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </article>
+
   <div class="report__columns">
     <article class="lab-panel report__block">
       <header>

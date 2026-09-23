@@ -10,13 +10,15 @@ O objetivo é aprender Angular. O lab não simula um produto comercial nem depen
 |---|---|---|
 | `/overview` | Visão geral | Progresso, próximo passo, desempenho e lacunas. |
 | `/learning` | Trilha Angular | Cinco módulos progressivos e critérios de evidência. |
-| `/documentation` | Documentação | Treze capítulos Markdown renderizados dentro do app. |
+| `/documentation` | Documentação | Quatorze capítulos Markdown renderizados dentro do app. |
 | `/curriculum` | Mapa Angular | Quinze áreas e competências do fundamento ao avançado. |
 | `/reference` | APIs essenciais | Referência pesquisável com uso, alertas e exemplos. |
 | `/components` | Componentes | Quatorze receitas interativas executadas por componentes reais. |
 | `/architecture` | Arquitetura | Camadas, decisões recorrentes e code smells. |
 | `/examples` | Playground | Exercícios editáveis e executáveis no navegador. |
 | `/testing` | Testing Lab | Receitas de unidade, componentes, DI, HTTP e Router. |
+| `/technical-tests` | Testes técnicos | Provinhas rápidas para Júnior, Pleno e Sênior. |
+| `/mock-exams` | Simulados | Avaliações cronometradas por senioridade. |
 | `/assessments` | Avaliações | Questões por tema, correção e corte de 80%. |
 | `/reports` | Meu progresso | Lacunas, histórico e evidências de domínio. |
 
@@ -71,6 +73,7 @@ src/app/
 │   ├── architecture-guide/     # decisões e boundaries
 │   ├── examples/               # playground executável
 │   ├── testing-lab/            # receitas de testes
+│   ├── technical-assessments/  # provinhas e simulados por senioridade
 │   ├── assessments/            # provas e banco de questões
 │   └── reports/                # lacunas e evidências
 └── shared/layout/              # header e sidebar

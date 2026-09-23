@@ -1,4 +1,4 @@
-# Manifest
+﻿# Manifest
 
 - `.gitignore`
 - `challenges/arrays/01-frequency-counter.md`
@@ -33,6 +33,7 @@
 - `labs/angular-learning-lab/docs/08-TESTING.md`
 - `labs/angular-learning-lab/docs/09-PERFORMANCE-SECURITY.md`
 - `labs/angular-learning-lab/docs/10-SSR-TOOLING.md`
+- `labs/angular-learning-lab/docs/11-TECHNICAL-ASSESSMENTS.md`
 - `labs/angular-learning-lab/docs/EXERCISES.md`
 - `labs/angular-learning-lab/docs/HANDBOOK.md`
 - `labs/angular-learning-lab/docs/LEARNING-PATH.md`
@@ -109,6 +110,14 @@
 - `labs/angular-learning-lab/src/app/features/reports/reports.html`
 - `labs/angular-learning-lab/src/app/features/reports/reports.scss`
 - `labs/angular-learning-lab/src/app/features/reports/reports.ts`
+- `labs/angular-learning-lab/src/app/features/technical-assessments/assessment-workspace.html`
+- `labs/angular-learning-lab/src/app/features/technical-assessments/assessment-workspace.scss`
+- `labs/angular-learning-lab/src/app/features/technical-assessments/assessment-workspace.ts`
+- `labs/angular-learning-lab/src/app/features/technical-assessments/mock-exams.ts`
+- `labs/angular-learning-lab/src/app/features/technical-assessments/technical-assessment.service.ts`
+- `labs/angular-learning-lab/src/app/features/technical-assessments/technical-assessment-bank.spec.ts`
+- `labs/angular-learning-lab/src/app/features/technical-assessments/technical-assessment-bank.ts`
+- `labs/angular-learning-lab/src/app/features/technical-assessments/technical-tests.ts`
 - `labs/angular-learning-lab/src/app/features/testing-lab/testing-lab.html`
 - `labs/angular-learning-lab/src/app/features/testing-lab/testing-lab.scss`
 - `labs/angular-learning-lab/src/app/features/testing-lab/testing-lab.ts`
@@ -188,7 +197,6 @@
 - `labs/typescript-order-processing/tests/order-processor.spec.ts`
 - `labs/typescript-order-processing/tsconfig.json`
 - `labs/typescript-order-processing/vite.config.ts`
-- `MANIFEST.md`
 - `package.json`
 - `package-lock.json`
 - `platform/.editorconfig`

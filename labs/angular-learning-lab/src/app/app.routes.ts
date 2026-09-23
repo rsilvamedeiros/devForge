@@ -39,6 +39,14 @@ export const routes: Routes = [
     loadComponent: () => import('./features/assessments/assessments').then(m => m.Assessments),
   },
   {
+    path: 'technical-tests',
+    loadComponent: () => import('./features/technical-assessments/technical-tests').then(m => m.TechnicalTests),
+  },
+  {
+    path: 'mock-exams',
+    loadComponent: () => import('./features/technical-assessments/mock-exams').then(m => m.MockExams),
+  },
+  {
     path: 'testing',
     loadComponent: () => import('./features/testing-lab/testing-lab').then(m => m.TestingLab),
   },

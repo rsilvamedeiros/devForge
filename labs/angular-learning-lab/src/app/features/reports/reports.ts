@@ -5,6 +5,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { LearningProgressService } from '../../core/services/learning-progress.service';
 import { EXAM_INDEX } from '../assessments/exam-index';
+import { TECHNICAL_ASSESSMENTS } from '../technical-assessments/technical-assessment-bank';
+import { TechnicalAssessmentService } from '../technical-assessments/technical-assessment.service';
 
 @Component({
   selector: 'app-reports',
@@ -15,6 +17,7 @@ import { EXAM_INDEX } from '../assessments/exam-index';
 })
 export class Reports {
   private readonly progressService = inject(LearningProgressService);
+  private readonly technicalAssessmentService = inject(TechnicalAssessmentService);
 
   readonly overallProgress = this.progressService.overallProgress;
   readonly moduleProgress = this.progressService.moduleProgress;
@@ -37,6 +40,13 @@ export class Reports {
         passed: this.progressService.isPassed(exam.id),
       };
     })
+  );
+
+  readonly technicalRows = computed(() =>
+    TECHNICAL_ASSESSMENTS.map(assessment => ({
+      ...assessment,
+      result: this.technicalAssessmentService.resultFor(assessment.id),
+    }))
   );
 
   /** Escala de domínio do DevForge (0–6) derivada da evidência registrada. */
