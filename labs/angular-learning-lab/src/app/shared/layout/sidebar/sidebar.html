@@ -1,8 +1,9 @@
+<div class="sidebar__edition"><span><mat-icon>bolt</mat-icon> Angular 20</span><small>Learning Bible</small></div>
+
 <div class="sidebar__progress">
-  <span>Progresso na formação</span>
-  <strong>{{ overallProgress() }}%</strong>
+  <div><span>Progresso</span><strong>{{ overallProgress() }}%</strong></div>
   <div class="sidebar__progress-track"><i [style.width.%]="overallProgress()"></i></div>
-  <small>{{ completedModules().length }} de {{ totalModules }} módulos concluídos</small>
+  <small>{{ completedModules().length }}/{{ totalModules }} módulos</small>
 </div>
 
 @for (group of navGroups; track group.label) {
@@ -17,4 +18,4 @@
   </mat-nav-list>
 }
 
-<div class="sidebar__footer"><span><i></i> Progresso salvo localmente</span></div>
+<div class="sidebar__footer"><span><i></i> Progresso local</span><small>v1 acadêmica</small></div>

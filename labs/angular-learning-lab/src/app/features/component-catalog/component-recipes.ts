@@ -11,6 +11,30 @@ export interface ComponentRecipe {
 
 export const COMPONENT_RECIPES: ComponentRecipe[] = [
   {
+    id: 'input-output', title: 'Inputs e outputs com signals', category: 'Componentes', description: 'Fluxo unidirecional: o pai possui o estado e o filho comunica intenções.', icon: 'swap_horiz',
+    api: [{name:'input.required<T>()',role:'Entrada obrigatória, tipada e reativa.'},{name:'output<T>()',role:'Evento tipado emitido para o consumidor.'}],
+    watch: ['O componente filho não altera diretamente o estado do pai.','O evento descreve a mudança solicitada e mantém ownership claro.'],
+    code: `readonly label = input.required<string>();\nreadonly value = input(0);\nreadonly changed = output<number>();\n\n// template do filho\n<button (click)="changed.emit(value() + 1)">Incrementar</button>`,
+  },
+  {
+    id: 'model-binding', title: 'Two-way binding com model()', category: 'Componentes', description: 'Um controle editável expõe valor com binding bidirecional tipado.', icon: 'sync',
+    api: [{name:'model<T>()',role:'Combina input gravável e output de mudança.'},{name:'[(value)]',role:'Sintaxe banana-in-a-box do consumidor.'}],
+    watch: ['O valor continua visível como signal no pai e no filho.','Use para controles; prefira output para eventos de domínio.'],
+    code: `// filho\nreadonly value = model('');\n\n// pai\nreadonly title = signal('Signals no Angular');\n\n<app-title-editor [(value)]="title" />`,
+  },
+  {
+    id: 'control-flow', title: 'Control flow nativo', category: 'Templates', description: 'Estados mutuamente exclusivos com @switch e listas com @for.', icon: 'alt_route',
+    api: [{name:'@switch / @case',role:'Seleciona um bloco a partir de um estado.'},{name:'@for (...; track ...)',role:'Renderiza coleção com identidade.'}],
+    watch: ['Uma união de estados evita combinações impossíveis.','O template apenas apresenta um estado já nomeado.'],
+    code: `@switch (state()) {\n  @case ('loading') { <mat-spinner /> }\n  @case ('error') { <app-error /> }\n  @default { <app-content /> }\n}`,
+  },
+  {
+    id: 'custom-pipe', title: 'Pipe puro customizado', category: 'Templates', description: 'Transforma um valor para apresentação sem mudar a fonte.', icon: 'transform',
+    api: [{name:'PipeTransform',role:'Contrato da transformação.'},{name:'pure: true',role:'Reexecuta quando a referência dos argumentos muda.'}],
+    watch: ['A fonte permanece numérica; somente a view recebe o texto.','Pipes não são lugar para I/O ou efeitos colaterais.'],
+    code: `@Pipe({ name: 'studyTime', pure: true })\nexport class StudyTimePipe implements PipeTransform {\n  transform(minutes: number): string {\n    const hours = Math.floor(minutes / 60);\n    return hours ? hours + 'h ' + (minutes % 60) + 'min' : minutes + 'min';\n  }\n}`,
+  },
+  {
     id: 'signal-derived',
     title: 'Estado derivado com signal + computed',
     category: 'Reatividade',

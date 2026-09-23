@@ -15,6 +15,18 @@ export const routes: Routes = [
     loadComponent: () => import('./features/documentation/documentation').then(m => m.Documentation),
   },
   {
+    path: 'curriculum',
+    loadComponent: () => import('./features/curriculum/curriculum').then(m => m.Curriculum),
+  },
+  {
+    path: 'reference',
+    loadComponent: () => import('./features/api-reference/api-reference').then(m => m.ApiReference),
+  },
+  {
+    path: 'architecture',
+    loadComponent: () => import('./features/architecture-guide/architecture-guide').then(m => m.ArchitectureGuide),
+  },
+  {
     path: 'components',
     loadComponent: () => import('./features/component-catalog/component-catalog').then(m => m.ComponentCatalog),
   },
@@ -25,6 +37,10 @@ export const routes: Routes = [
   {
     path: 'assessments',
     loadComponent: () => import('./features/assessments/assessments').then(m => m.Assessments),
+  },
+  {
+    path: 'testing',
+    loadComponent: () => import('./features/testing-lab/testing-lab').then(m => m.TestingLab),
   },
   {
     path: 'reports',

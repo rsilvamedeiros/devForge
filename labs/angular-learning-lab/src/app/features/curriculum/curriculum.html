@@ -1,0 +1,14 @@
+<section class="curriculum lab-page">
+  <header class="curriculum__hero"><div><span class="lab-eyebrow"><mat-icon>map</mat-icon> Mapa de competências</span><h1>A superfície do Angular</h1><p>Um mapa completo para saber o que estudar, em qual profundidade e qual resultado demonstra domínio.</p></div><div><strong>{{ areas().length }}/15</strong><span>áreas visíveis</span><small>{{ topicCount }} tópicos mapeados</small></div></header>
+  <nav class="curriculum__filters">@for(level of levels;track level){<button type="button" [class.active]="activeLevel() === level" (click)="activeLevel.set(level)">{{ level }}</button>}</nav>
+  <div class="curriculum__grid">
+    @for(area of areas();track area.id;let index=$index){
+      <article class="curriculum__card lab-panel">
+        <header><span><mat-icon>{{ area.icon }}</mat-icon></span><div><small>{{ area.level }} · {{ (index + 1).toString().padStart(2, '0') }}</small><h2>{{ area.title }}</h2></div></header>
+        <p>{{ area.description }}</p><ul>@for(topic of area.topics;track topic){<li>{{ topic }}</li>}</ul>
+        <footer><div><small>Você domina quando</small><strong>{{ area.outcome }}</strong></div><a routerLink="/documentation"><mat-icon>arrow_forward</mat-icon></a></footer>
+      </article>
+    }
+  </div>
+</section>
+

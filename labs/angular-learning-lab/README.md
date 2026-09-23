@@ -10,9 +10,13 @@ O objetivo é aprender Angular. O lab não simula um produto comercial nem depen
 |---|---|---|
 | `/overview` | Visão geral | Progresso, próximo passo, desempenho e lacunas. |
 | `/learning` | Trilha Angular | Cinco módulos progressivos e critérios de evidência. |
-| `/documentation` | Documentação | Oito capítulos Markdown renderizados dentro do app. |
+| `/documentation` | Documentação | Treze capítulos Markdown renderizados dentro do app. |
+| `/curriculum` | Mapa Angular | Quinze áreas e competências do fundamento ao avançado. |
+| `/reference` | APIs essenciais | Referência pesquisável com uso, alertas e exemplos. |
 | `/components` | Componentes | Receitas interativas executadas por componentes reais. |
+| `/architecture` | Arquitetura | Camadas, decisões recorrentes e code smells. |
 | `/examples` | Playground | Exercícios editáveis e executáveis no navegador. |
+| `/testing` | Testing Lab | Receitas de unidade, componentes, DI, HTTP e Router. |
 | `/assessments` | Avaliações | Questões por tema, correção e corte de 80%. |
 | `/reports` | Meu progresso | Lacunas, histórico e evidências de domínio. |
 
@@ -26,6 +30,7 @@ O objetivo é aprender Angular. O lab não simula um produto comercial nem depen
 - Angular Material e acessibilidade;
 - performance com `OnPush`;
 - testes e arquitetura de features.
+- SSR, hydration, tooling, performance e segurança.
 
 ## Como o aprendizado funciona
 
@@ -59,8 +64,12 @@ src/app/
 │   ├── overview/               # dashboard acadêmico
 │   ├── learning/               # trilha e módulos
 │   ├── documentation/          # leitor dos arquivos Markdown
+│   ├── curriculum/             # mapa completo de competências
+│   ├── api-reference/          # referência pesquisável
 │   ├── component-catalog/      # receitas e demos reais
+│   ├── architecture-guide/     # decisões e boundaries
 │   ├── examples/               # playground executável
+│   ├── testing-lab/            # receitas de testes
 │   ├── assessments/            # provas e banco de questões
 │   └── reports/                # lacunas e evidências
 └── shared/layout/              # header e sidebar

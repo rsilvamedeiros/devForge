@@ -9,6 +9,7 @@ import { EXAM_INDEX } from '../../../features/assessments/exam-index';
 import { COMPONENT_RECIPES } from '../../../features/component-catalog/component-recipes';
 import { DOCUMENTATION_CHAPTERS } from '../../../features/documentation/documentation-chapters';
 import { EXAMPLE_INDEX } from '../../../features/examples/example-index';
+import { ANGULAR_APIS, ANGULAR_AREAS } from '../../../core/data/angular-knowledge';
 
 interface SearchTarget {
   title: string;
@@ -39,6 +40,8 @@ export class Header {
     ...COMPONENT_RECIPES.map(recipe => ({ title: recipe.title, route: '/components' })),
     ...EXAMPLE_INDEX.map(example => ({ title: example.title, route: '/examples' })),
     ...EXAM_INDEX.map(exam => ({ title: exam.title, route: '/assessments' })),
+    ...ANGULAR_AREAS.map(area => ({ title: area.title, route: '/curriculum' })),
+    ...ANGULAR_APIS.map(api => ({ title: api.name, route: '/reference' })),
   ];
 
   readonly matches = computed(() => {

@@ -7,6 +7,7 @@ import { COMPONENT_RECIPES } from '../../../features/component-catalog/component
 import { DOCUMENTATION_CHAPTERS } from '../../../features/documentation/documentation-chapters';
 import { EXAMPLE_INDEX } from '../../../features/examples/example-index';
 import { EXAM_INDEX } from '../../../features/assessments/exam-index';
+import { ANGULAR_APIS, ANGULAR_AREAS } from '../../../core/data/angular-knowledge';
 
 interface NavItem {
   label: string;
@@ -38,18 +39,32 @@ export class Sidebar {
 
   readonly navGroups: NavGroup[] = [
     {
-      label: 'Aprender',
+      label: 'Início',
       items: [
         { label: 'Visão geral', path: '/overview', icon: 'grid_view' },
+      ],
+    },
+    {
+      label: 'Formação',
+      items: [
         { label: 'Trilha Angular', path: '/learning', icon: 'school', badge: () => `${this.completedModules().length}/${this.totalModules}` },
         { label: 'Documentação', path: '/documentation', icon: 'menu_book', badge: () => String(DOCUMENTATION_CHAPTERS.length) },
+        { label: 'Mapa Angular', path: '/curriculum', icon: 'map', badge: () => String(ANGULAR_AREAS.length) },
+      ],
+    },
+    {
+      label: 'Referência',
+      items: [
+        { label: 'APIs essenciais', path: '/reference', icon: 'api', badge: () => String(ANGULAR_APIS.length) },
+        { label: 'Componentes', path: '/components', icon: 'widgets', badge: () => String(COMPONENT_RECIPES.length) },
+        { label: 'Arquitetura', path: '/architecture', icon: 'architecture' },
       ],
     },
     {
       label: 'Praticar',
       items: [
-        { label: 'Componentes', path: '/components', icon: 'widgets', badge: () => String(COMPONENT_RECIPES.length) },
         { label: 'Playground', path: '/examples', icon: 'code', badge: () => String(EXAMPLE_INDEX.length) },
+        { label: 'Testing lab', path: '/testing', icon: 'science', badge: () => '5' },
         { label: 'Avaliações', path: '/assessments', icon: 'quiz', badge: () => String(EXAM_INDEX.length) },
       ],
     },
