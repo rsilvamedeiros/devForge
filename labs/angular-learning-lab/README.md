@@ -13,7 +13,7 @@ O objetivo é aprender Angular. O lab não simula um produto comercial nem depen
 | `/documentation` | Documentação | Treze capítulos Markdown renderizados dentro do app. |
 | `/curriculum` | Mapa Angular | Quinze áreas e competências do fundamento ao avançado. |
 | `/reference` | APIs essenciais | Referência pesquisável com uso, alertas e exemplos. |
-| `/components` | Componentes | Receitas interativas executadas por componentes reais. |
+| `/components` | Componentes | Quatorze receitas interativas executadas por componentes reais. |
 | `/architecture` | Arquitetura | Camadas, decisões recorrentes e code smells. |
 | `/examples` | Playground | Exercícios editáveis e executáveis no navegador. |
 | `/testing` | Testing Lab | Receitas de unidade, componentes, DI, HTTP e Router. |
@@ -50,6 +50,7 @@ Concluir um item na interface não altera automaticamente o nível da skill. O p
 - Angular Material como base da interface.
 - Signals para estado local e derivado; RxJS para fluxos assíncronos.
 - `ngx-markdown` para servir a documentação real de `docs/`.
+- Catálogo vivo cobrindo componentes, templates, diretivas, forms, reatividade e performance.
 - Progresso persistido em `localStorage`.
 - Índices leves separados dos bancos de conteúdo para evitar inflar o bundle inicial.
 

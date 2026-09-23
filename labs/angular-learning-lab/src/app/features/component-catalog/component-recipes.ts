@@ -11,6 +11,36 @@ export interface ComponentRecipe {
 
 export const COMPONENT_RECIPES: ComponentRecipe[] = [
   {
+    id:'content-projection',title:'Projeção com ng-content',category:'Componentes',description:'O componente define a estrutura e o consumidor fornece conteúdo por slots.',icon:'dashboard_customize',
+    api:[{name:'<ng-content>',role:'Slot padrão para conteúdo projetado.'},{name:'select="[card-title]"',role:'Direciona conteúdo para um slot nomeado.'}],
+    watch:['O card não precisa conhecer o tipo concreto do conteúdo.','Projeção resolve composição; inputs continuam melhores para dados.'],
+    code:`@Component({\n  selector: 'app-study-card',\n  template: \`<header><ng-content select="[card-title]" /></header>\n             <main><ng-content /></main>\n             <footer><ng-content select="[card-actions]" /></footer>\`\n})\nexport class StudyCard {}`,
+  },
+  {
+    id:'attribute-directive',title:'Diretiva de atributo',category:'Diretivas',description:'Adiciona comportamento a um elemento existente sem introduzir outra view.',icon:'auto_fix_high',
+    api:[{name:'@Directive',role:'Declara comportamento reutilizável.'},{name:'host',role:'Vincula propriedades e eventos do elemento hospedeiro.'}],
+    watch:['A diretiva cuida do comportamento, não do conteúdo.','Prefira host metadata para bindings estáticos e reativos simples.'],
+    code:`@Directive({\n  selector: '[appLearningHighlight]',\n  host: { '[class.active]': 'active' }\n})\nexport class LearningHighlightDirective {\n  active = false;\n  @HostListener('mouseenter') enter() { this.active = true; }\n}`,
+  },
+  {
+    id:'view-query',title:'Query reativa com viewChild',category:'Componentes',description:'Consulta um elemento da view como Signal e usa a referência somente quando necessário.',icon:'center_focus_strong',
+    api:[{name:'viewChild<T>()',role:'Query reativa para elemento, diretiva ou componente filho.'},{name:'ElementRef',role:'Ponte para API nativa; deve permanecer localizada.'}],
+    watch:['A query pode estar ausente antes de o elemento existir.','Acesso ao DOM é pontual; estado visual continua declarativo.'],
+    code:`readonly box = viewChild<ElementRef<HTMLElement>>('box');\n\nfocusBox(): void {\n  this.box()?.nativeElement.focus();\n}`,
+  },
+  {
+    id:'async-pipe',title:'Observable com AsyncPipe',category:'Reatividade',description:'O template consome um stream e o Angular gerencia assinatura e cleanup.',icon:'stream',
+    api:[{name:'AsyncPipe',role:'Assina Observable ou Promise e entrega o último valor.'},{name:'startWith()',role:'Fornece estado inicial antes da primeira emissão.'}],
+    watch:['Não existe subscribe manual no componente.','Streams frios repetidos no template podem exigir compartilhamento.'],
+    code:`readonly review$ = interval(1000).pipe(\n  map(value => 'há ' + (value + 1) + 's'),\n  startWith('agora')\n);\n\n// template\n{{ review$ | async }}`,
+  },
+  {
+    id:'defer-block',title:'Carregamento com @defer',category:'Performance',description:'Adia conteúdo e dependências até um gatilho relevante.',icon:'hourglass_top',
+    api:[{name:'@defer (when ...)',role:'Define gatilho de carregamento do bloco.'},{name:'@placeholder',role:'Conteúdo leve antes do carregamento.'}],
+    watch:['O placeholder pertence ao bundle inicial; o bloco pode virar chunk lazy.','Escolha gatilho pela jornada, não apenas para reduzir números.'],
+    code:`@defer (when loaded()) {\n  <app-heavy-content />\n} @placeholder {\n  <p>Aguardando intenção do usuário.</p>\n}`,
+  },
+  {
     id: 'input-output', title: 'Inputs e outputs com signals', category: 'Componentes', description: 'Fluxo unidirecional: o pai possui o estado e o filho comunica intenções.', icon: 'swap_horiz',
     api: [{name:'input.required<T>()',role:'Entrada obrigatória, tipada e reativa.'},{name:'output<T>()',role:'Evento tipado emitido para o consumidor.'}],
     watch: ['O componente filho não altera diretamente o estado do pai.','O evento descreve a mudança solicitada e mantém ownership claro.'],
