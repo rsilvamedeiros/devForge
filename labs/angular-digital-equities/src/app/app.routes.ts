@@ -45,5 +45,17 @@ export const routes: Routes = [
     path: 'documentation',
     loadComponent: () => import('./features/documentation/documentation').then(m => m.Documentation),
   },
+  {
+    path: 'components',
+    loadComponent: () => import('./features/component-catalog/component-catalog').then(m => m.ComponentCatalog),
+  },
+  {
+    path: 'examples',
+    loadComponent: () => import('./features/examples/examples').then(m => m.Examples),
+  },
+  {
+    path: 'assessments',
+    loadComponent: () => import('./features/assessments/assessments').then(m => m.Assessments),
+  },
   { path: '**', redirectTo: 'overview' },
 ];

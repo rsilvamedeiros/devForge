@@ -5,6 +5,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { WatchlistService } from '../../../core/services/watchlist.service';
 import { OrderService } from '../../../core/services/order.service';
 import { DOCUMENTATION_CHAPTERS } from '../../../features/documentation/documentation-chapters';
+import { COMPONENT_RECIPES } from '../../../features/component-catalog/component-recipes';
+import { EXAMPLE_INDEX } from '../../../features/examples/example-index';
+import { EXAM_INDEX } from '../../../features/assessments/exam-index';
 
 interface NavItem {
   label: string;
@@ -33,6 +36,9 @@ export class Sidebar {
     { label: 'Analytics', path: '/analytics', icon: 'query_stats' },
     { label: 'Central de risco', path: '/risk', icon: 'shield' },
     { label: 'Trilha Angular', path: '/learning', icon: 'school', badge: () => '5' },
-    { label: 'Documentação', path: '/documentation', icon: 'menu_book', badge: () => String(DOCUMENTATION_CHAPTERS.length) },
+    { label: 'Guia', path: '/documentation', icon: 'menu_book', badge: () => String(DOCUMENTATION_CHAPTERS.length) },
+    { label: 'Componentes', path: '/components', icon: 'widgets', badge: () => String(COMPONENT_RECIPES.length) },
+    { label: 'Exemplos', path: '/examples', icon: 'code', badge: () => String(EXAMPLE_INDEX.length) },
+    { label: 'Provas', path: '/assessments', icon: 'quiz', badge: () => String(EXAM_INDEX.length) },
   ];
 }

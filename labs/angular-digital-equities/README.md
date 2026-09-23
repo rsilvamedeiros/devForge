@@ -64,13 +64,25 @@ Um laboratório para praticar:
 - exercícios de fundamento, aplicação e arquitetura;
 - critérios explícitos para transformar implementação em evidência.
 
-## Experiência de aprendizagem
+## Área de formação
 
-- [`docs/LEARNING-PATH.md`](docs/LEARNING-PATH.md) descreve a sequência dos módulos;
-- [`docs/EXERCISES.md`](docs/EXERCISES.md) contém exercícios contextualizados no domínio financeiro;
-- [`docs/HANDBOOK.md`](docs/HANDBOOK.md) indexa a documentação completa de Angular;
-- a rota `/learning` conecta a trilha ao produto;
-- a documentação permanente da tecnologia fica em [`skills/frontend/angular`](../../skills/frontend/angular/README.md).
+O terminal é o campo de prática; a formação em Angular é produto de primeira classe dentro dele. Cinco seções, todas navegáveis pela sidebar:
+
+| Rota | Seção | O que entrega |
+|---|---|---|
+| `/learning` | **Trilha** | Cinco módulos com progresso persistido e critérios de evidência. |
+| `/documentation` | **Guia** | Os 8 capítulos reais de `docs/`, renderizados com `ngx-markdown`. |
+| `/components` | **Componentes** | Catálogo vivo: cada receita roda na página, com o código real, API usada e o que observar. |
+| `/examples` | **Exemplos** | Editor Monaco com execução real no browser, comparando a saída com a implementação de referência. |
+| `/assessments` | **Provas** | 25 questões corrigidas automaticamente; 80% registra evidência de domínio. |
+
+Três decisões que sustentam isso:
+
+- **Execução é real, não simulada.** `/examples` avalia o código editado com `new Function` e compara a saída com a referência — o que aparece é o resultado de quem escreveu, inclusive o erro.
+- **Demos são componentes de verdade.** `/components` renderiza via `NgComponentOutlet`; o bloco de código ao lado é a implementação que está rodando, não um trecho ilustrativo.
+- **Índices leves para a sidebar.** `exam-index.ts`, `example-index.ts` e `component-recipes.ts` existem separados dos dados pesados (banco de questões, código-fonte, componentes de demo) porque a sidebar só precisa contar — importar o conteúdo completo arrastaria Material, Forms e todo o texto para o bundle inicial. Specs garantem que índice e dado não desincronizem.
+
+Conteúdo de origem: [`docs/LEARNING-PATH.md`](docs/LEARNING-PATH.md), [`docs/EXERCISES.md`](docs/EXERCISES.md) e [`docs/HANDBOOK.md`](docs/HANDBOOK.md). A skill permanente da tecnologia fica em [`skills/frontend/angular`](../../skills/frontend/angular/README.md).
 
 ## Estrutura sugerida
 
