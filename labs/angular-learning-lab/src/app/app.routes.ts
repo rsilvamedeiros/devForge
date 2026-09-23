@@ -51,6 +51,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/e2e-quality/e2e-quality').then(m => m.E2eQuality),
   },
   {
+    path: 'certification',
+    loadComponent: () => import('./features/final-certification/final-certification').then(m => m.FinalCertification),
+  },
+  {
     path: 'assessments',
     loadComponent: () => import('./features/assessments/assessments').then(m => m.Assessments),
   },

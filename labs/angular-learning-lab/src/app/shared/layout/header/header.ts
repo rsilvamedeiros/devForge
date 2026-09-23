@@ -54,6 +54,7 @@ export class Header {
     ...CAPSTONE_SPRINTS.map(item => ({ title: `Projeto Final · ${item.title}`, route: '/capstone' })),
     ...SANDBOX_CHALLENGES.map(item => ({ title: `Angular Sandbox · ${item.title}`, route: '/sandbox' })),
     ...E2E_MISSIONS.map(item => ({ title: `E2E & Quality · ${item.title}`, route: '/e2e-quality' })),
+    { title: 'Avaliação final e certificação Angular', route: '/certification' },
     { title: 'Quiz rápido Angular', route: '/quick-quiz' },
   ];
 

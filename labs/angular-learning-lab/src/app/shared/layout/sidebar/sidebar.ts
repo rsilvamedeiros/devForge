@@ -90,6 +90,7 @@ export class Sidebar {
       label: 'Evoluir',
       items: [
         { label: 'Projeto Final', path: '/capstone', icon: 'workspace_premium', badge: () => String(CAPSTONE_SPRINTS.length) },
+        { label: 'Certificação', path: '/certification', icon: 'verified', badge: () => 'Final' },
         { label: 'Meu progresso', path: '/reports', icon: 'assessment' },
       ],
     },

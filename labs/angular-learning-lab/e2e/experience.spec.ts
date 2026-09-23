@@ -21,8 +21,8 @@ test('mobile navigation opens and closes after selection', async ({ page }, test
 });
 
 test('every page exposes one primary heading', async ({ page }) => {
-  for (const route of ['/overview', '/learning', '/documentation', '/sandbox', '/capstone']) {
+  for (const route of ['/overview', '/learning', '/documentation', '/sandbox', '/capstone', '/certification']) {
     await page.goto(route, { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('main h1')).toHaveCount(1);
+    await expect(page.locator('.app-content > router-outlet + * > .lab-page > header h1')).toHaveCount(1);
   }
 });

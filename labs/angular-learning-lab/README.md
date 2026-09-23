@@ -15,6 +15,7 @@ O objetivo é aprender Angular. O lab não simula um produto comercial nem depen
 | `/capstone` | Projeto Final | Capstone em seis sprints com entregáveis e evidências verificáveis. |
 | `/sandbox` | Angular Sandbox | Workspaces multiarquivo com validação instantânea. |
 | `/e2e-quality` | E2E & Quality | Missões orientadas a risco e suíte Playwright executável. |
+| `/certification` | Avaliação final | Prova transversal, gates de evidência e certificado local. |
 | `/technical-qa` | Perguntas técnicas | Respostas discursivas filtradas por nível e assunto. |
 | `/quick-quiz` | Quiz rápido | Dez questões com correção e explicação imediatas. |
 | `/curriculum` | Mapa Angular | Quinze áreas e competências do fundamento ao avançado. |

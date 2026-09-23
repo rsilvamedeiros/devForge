@@ -129,6 +129,11 @@
 - `labs/angular-learning-lab/src/app/features/examples/examples.scss`
 - `labs/angular-learning-lab/src/app/features/examples/examples.spec.ts`
 - `labs/angular-learning-lab/src/app/features/examples/examples.ts`
+- `labs/angular-learning-lab/src/app/features/final-certification/final-assessment.data.spec.ts`
+- `labs/angular-learning-lab/src/app/features/final-certification/final-assessment.data.ts`
+- `labs/angular-learning-lab/src/app/features/final-certification/final-certification.html`
+- `labs/angular-learning-lab/src/app/features/final-certification/final-certification.scss`
+- `labs/angular-learning-lab/src/app/features/final-certification/final-certification.ts`
 - `labs/angular-learning-lab/src/app/features/knowledge-center/knowledge-center.spec.ts`
 - `labs/angular-learning-lab/src/app/features/knowledge-center/quick-quiz.html`
 - `labs/angular-learning-lab/src/app/features/knowledge-center/quick-quiz.scss`
