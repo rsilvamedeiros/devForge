@@ -9,6 +9,7 @@ import './learning-tools.css';
 import './assessments.css';
 import './advanced-practice.css';
 import './graduation.css';
+import './responsive-polish.css';
 
 const queryClient = new QueryClient({ defaultOptions: { queries: { staleTime: 30_000, retry: 1 } } });
 

@@ -247,6 +247,7 @@
 - `labs/react-service-operations/src/pages/technical-qa-page.tsx`
 - `labs/react-service-operations/src/pages/ticket-detail-page.tsx`
 - `labs/react-service-operations/src/pages/tickets-page.tsx`
+- `labs/react-service-operations/src/responsive-polish.css`
 - `labs/react-service-operations/src/services/ticket-api.spec.ts`
 - `labs/react-service-operations/src/services/ticket-api.ts`
 - `labs/react-service-operations/src/styles.css`
