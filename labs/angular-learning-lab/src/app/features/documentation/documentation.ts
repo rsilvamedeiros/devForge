@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, computed, inject, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MarkdownComponent } from 'ngx-markdown';
@@ -14,6 +14,11 @@ import { DOCUMENTATION_CHAPTERS, DocumentChapter } from './documentation-chapter
 export class Documentation {
   private readonly host: ElementRef<HTMLElement> = inject(ElementRef);
   readonly chapters = DOCUMENTATION_CHAPTERS;
+  readonly query = signal('');
+  readonly filteredChapters = computed(() => {
+    const term = this.query().trim().toLowerCase();
+    return this.chapters.filter(chapter => !term || `${chapter.title} ${chapter.description}`.toLowerCase().includes(term));
+  });
   readonly selected = signal(this.chapters[0]);
   readonly loaded = signal(false);
 

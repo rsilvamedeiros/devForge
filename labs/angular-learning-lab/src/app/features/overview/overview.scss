@@ -113,6 +113,22 @@
     margin-bottom: 1.25rem;
   }
 
+  &__study-tools{margin:1.5rem 0}
+  &__study-tools>header{display:flex;align-items:end;justify-content:space-between;margin-bottom:.8rem}
+  &__study-tools>header h2{margin:.25rem 0 0;font-size:1.1rem}
+  &__study-tools>header>span{color:var(--lab-muted);font-size:.68rem}
+  &__study-tools>div{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem}
+  &__study-tools a{display:grid;grid-template-columns:42px minmax(0,1fr) 18px;align-items:start;gap:.7rem;padding:1rem;border:1px solid var(--lab-border);border-radius:14px;color:var(--lab-text);background:var(--lab-surface);text-decoration:none;transition:transform 160ms,border-color 160ms,box-shadow 160ms}
+  &__study-tools a:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--lab-primary) 55%,var(--lab-border));box-shadow:0 14px 32px rgba(0,0,0,.09)}
+  &__study-tools a>span{display:grid;width:42px;height:42px;place-items:center;border-radius:11px;color:var(--lab-primary);background:var(--lab-primary-soft)}
+  &__study-tools a>div{min-width:0}
+  &__study-tools a small{color:var(--lab-primary);font-size:.56rem;font-weight:700;text-transform:uppercase}
+  &__study-tools a strong{display:block;margin:.15rem 0;font-size:.8rem}
+  &__study-tools a p{margin:0;color:var(--lab-muted);font-size:.65rem;line-height:1.45}
+  &__study-tools a>mat-icon{width:17px;height:17px;color:var(--lab-muted);font-size:17px;transition:transform 160ms}
+  &__study-tools a:hover>mat-icon{color:var(--lab-primary);transform:translateX(3px)}
+  &__study-tools a.is-featured{background:linear-gradient(145deg,var(--lab-surface),var(--lab-primary-soft))}
+
   &__chart, &__reports article { padding: 1.35rem; }
 
   &__chart > header,
@@ -241,9 +257,12 @@
 @media (max-width: 1020px) {
   .dash__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .dash__charts, .dash__reports { grid-template-columns: 1fr; }
+  .dash__study-tools > div { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 
 @media (max-width: 760px) {
   .dash__hero { flex-direction: column; align-items: flex-start; }
   .dash__stats { grid-template-columns: 1fr; }
+  .dash__study-tools > div { grid-template-columns:1fr; }
+  .dash__study-tools > header > span { display:none; }
 }

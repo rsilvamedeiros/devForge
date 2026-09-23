@@ -9,7 +9,9 @@
 .header__status > span { display: flex; flex-direction: column; } .header__status strong { font-size: .68rem; } .header__status small { color: var(--lab-muted); font-size: .58rem; }
 .header__spacer { flex: 1; }
 .header__search { display:flex;width:min(340px,29vw);height:40px;align-items:center;gap:.55rem;padding:0 .65rem;border:1px solid var(--lab-border);border-radius:11px;background:var(--lab-surface-2);transition:border-color 160ms ease,box-shadow 160ms ease,background 160ms ease }.header__search:focus-within{border-color:var(--lab-primary);background:var(--lab-surface);box-shadow:0 0 0 3px var(--lab-primary-soft)}.header__search mat-icon{width:1.05rem;height:1.05rem;color:var(--lab-muted);font-size:1.05rem}.header__search input{min-width:0;flex:1;border:0;outline:0;color:var(--lab-text);background:transparent;font-size:.7rem}.header__search input::placeholder{color:var(--lab-muted)}.header__search span{padding:.15rem .35rem;border:1px solid var(--lab-border);border-radius:5px;color:var(--lab-muted);background:var(--lab-surface);font:.5rem 'DM Mono'}
-.header__theme { border: 1px solid transparent; transition: color 160ms ease, border-color 160ms ease, background 160ms ease; }
+.header__theme { display: inline-grid !important; width: 40px !important; height: 40px !important; flex: 0 0 40px; place-items: center; padding: 0 !important; border: 1px solid transparent; line-height: 1 !important; transition: color 160ms ease, border-color 160ms ease, background 160ms ease; }
+.header__theme mat-icon { display: block; width: 20px; height: 20px; margin: 0 !important; font-size: 20px; line-height: 20px !important; }
+.header__theme .mat-mdc-button-touch-target { width: 40px; height: 40px; }
 .header__theme:hover { border-color: var(--lab-border); background: var(--lab-surface-2); }
 .header__theme.is-active { color: var(--lab-warning); background: var(--lab-warning-soft); }
 .header__notification { position: relative; } .header__notification > i { position: absolute; top: 8px; right: 8px; width: 6px; height: 6px; border: 1px solid var(--lab-sidebar); border-radius: 50%; background: var(--lab-negative); }
