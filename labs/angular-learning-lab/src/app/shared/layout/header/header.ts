@@ -13,6 +13,7 @@ import { ANGULAR_APIS, ANGULAR_AREAS } from '../../../core/data/angular-knowledg
 import { TECHNICAL_ASSESSMENTS } from '../../../features/technical-assessments/technical-assessment-bank';
 import { TECHNICAL_QA } from '../../../features/knowledge-center/technical-qa.data';
 import { CODING_CHALLENGES } from '../../../features/coding-arena/coding-challenges';
+import { CAPSTONE_SPRINTS } from '../../../features/capstone-project/capstone-project.data';
 
 interface SearchTarget {
   title: string;
@@ -48,6 +49,7 @@ export class Header {
     ...TECHNICAL_ASSESSMENTS.map(item => ({ title: item.title, route: item.mode === 'quiz' ? '/technical-tests' : '/mock-exams' })),
     ...TECHNICAL_QA.map(item => ({ title: item.question, route: '/technical-qa' })),
     ...CODING_CHALLENGES.map(item => ({ title: item.title, route: '/coding-arena' })),
+    ...CAPSTONE_SPRINTS.map(item => ({ title: `Projeto Final · ${item.title}`, route: '/capstone' })),
     { title: 'Quiz rápido Angular', route: '/quick-quiz' },
   ];
 

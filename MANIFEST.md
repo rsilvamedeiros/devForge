@@ -72,6 +72,11 @@
 - `labs/angular-learning-lab/src/app/features/assessments/assessments.ts`
 - `labs/angular-learning-lab/src/app/features/assessments/exam-index.ts`
 - `labs/angular-learning-lab/src/app/features/assessments/question-bank.ts`
+- `labs/angular-learning-lab/src/app/features/capstone-project/capstone-project.data.spec.ts`
+- `labs/angular-learning-lab/src/app/features/capstone-project/capstone-project.data.ts`
+- `labs/angular-learning-lab/src/app/features/capstone-project/capstone-project.html`
+- `labs/angular-learning-lab/src/app/features/capstone-project/capstone-project.scss`
+- `labs/angular-learning-lab/src/app/features/capstone-project/capstone-project.ts`
 - `labs/angular-learning-lab/src/app/features/coding-arena/coding-arena.html`
 - `labs/angular-learning-lab/src/app/features/coding-arena/coding-arena.scss`
 - `labs/angular-learning-lab/src/app/features/coding-arena/coding-arena.ts`

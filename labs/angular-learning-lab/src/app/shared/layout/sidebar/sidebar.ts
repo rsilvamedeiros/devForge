@@ -11,6 +11,7 @@ import { ANGULAR_APIS, ANGULAR_AREAS } from '../../../core/data/angular-knowledg
 import { TECHNICAL_ASSESSMENTS } from '../../../features/technical-assessments/technical-assessment-bank';
 import { TECHNICAL_QA } from '../../../features/knowledge-center/technical-qa.data';
 import { CODING_CHALLENGES } from '../../../features/coding-arena/coding-challenges';
+import { CAPSTONE_SPRINTS } from '../../../features/capstone-project/capstone-project.data';
 
 interface NavItem {
   label: string;
@@ -84,6 +85,7 @@ export class Sidebar {
     {
       label: 'Evoluir',
       items: [
+        { label: 'Projeto Final', path: '/capstone', icon: 'workspace_premium', badge: () => String(CAPSTONE_SPRINTS.length) },
         { label: 'Meu progresso', path: '/reports', icon: 'assessment' },
       ],
     },

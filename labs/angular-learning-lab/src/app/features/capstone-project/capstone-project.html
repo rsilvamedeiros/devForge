@@ -1,0 +1,38 @@
+<section class="capstone lab-page">
+  <header class="capstone__hero">
+    <div><span class="lab-eyebrow"><mat-icon>workspace_premium</mat-icon> Módulo de fechamento 01</span><h1>Projeto Final Angular</h1><p>Construa uma academia digital completa e prove que consegue transformar requisitos em arquitetura, código testável e uma entrega profissional.</p><div class="capstone__hero-tags"><span>6 sprints</span><span>{{ totalTasks }} entregáveis</span><span>Júnior → Sênior</span></div></div>
+    <aside><div class="capstone__ring" [style.--progress]="progress()"><strong>{{ progress() }}%</strong></div><div><small>PROGRESSO DO CAPSTONE</small><strong>{{ completedCount() }} de {{ totalTasks }} evidências</strong><span>{{ readyForReview() ? 'Pronto para revisão final' : 'Conclua os critérios verificáveis' }}</span></div></aside>
+  </header>
+
+  <section class="capstone__brief lab-panel">
+    <div><span class="lab-eyebrow">Briefing</span><h2>Angular Academy</h2><p>Uma plataforma de cursos com catálogo, autenticação, matrícula, painel do aluno e acompanhamento de progresso. O backend pode ser simulado: a avaliação está na qualidade das decisões Angular.</p></div>
+    <dl><div><dt>Usuários</dt><dd>Visitante, aluno e administrador</dd></div><div><dt>Qualidade</dt><dd>Testes, a11y e performance obrigatórios</dd></div><div><dt>Entrega</dt><dd>Repositório, documentação e defesa técnica</dd></div></dl>
+  </section>
+
+  <div class="capstone__workspace">
+    <nav aria-label="Sprints do projeto final">
+      @for (sprint of sprints; track sprint.id) {
+        <button type="button" [class.active]="selectedSprintId() === sprint.id" [class.done]="sprintProgress(sprint.id) === 100" (click)="selectedSprintId.set(sprint.id)">
+          <span><mat-icon>{{ sprintProgress(sprint.id) === 100 ? 'check' : sprint.icon }}</mat-icon></span><div><small>SPRINT {{ sprint.number }}</small><strong>{{ sprint.title }}</strong><i><b [style.width.%]="sprintProgress(sprint.id)"></b></i></div><em>{{ sprintProgress(sprint.id) }}%</em>
+        </button>
+      }
+    </nav>
+
+    <main class="lab-panel">
+      @if (selectedSprint(); as sprint) {
+        <header><span><mat-icon>{{ sprint.icon }}</mat-icon></span><div><small>SPRINT {{ sprint.number }} · {{ sprint.tasks.length }} ENTREGÁVEIS</small><h2>{{ sprint.title }}</h2><p>{{ sprint.objective }}</p></div></header>
+        <div class="capstone__skills">@for (skill of sprint.skills; track skill) { <span>{{ skill }}</span> }</div>
+        <div class="capstone__tasks">
+          @for (task of sprint.tasks; track task.id; let index = $index) {
+            <article [class.complete]="isCompleted(task.id)">
+              <button type="button" (click)="toggle(task.id)" [attr.aria-label]="(isCompleted(task.id) ? 'Reabrir ' : 'Concluir ') + task.title"><mat-icon>{{ isCompleted(task.id) ? 'check' : 'radio_button_unchecked' }}</mat-icon></button>
+              <div><small>0{{ index + 1 }}</small><h3>{{ task.title }}</h3><p>{{ task.description }}</p><footer><mat-icon>fact_check</mat-icon><span><b>Evidência esperada</b>{{ task.evidence }}</span></footer></div>
+            </article>
+          }
+        </div>
+      }
+    </main>
+  </div>
+
+  <footer class="capstone__gate" [class.ready]="readyForReview()"><span><mat-icon>{{ readyForReview() ? 'verified' : 'lock' }}</mat-icon></span><div><small>GATE DE CONCLUSÃO</small><strong>{{ readyForReview() ? 'Capstone pronto para defesa técnica' : 'A conclusão exige todas as evidências' }}</strong><p>{{ readyForReview() ? 'Revise o repositório, prepare a demonstração e registre a retrospectiva.' : 'Marcar tarefas organiza o trabalho; a aprovação final dependerá da avaliação prática.' }}</p></div></footer>
+</section>
