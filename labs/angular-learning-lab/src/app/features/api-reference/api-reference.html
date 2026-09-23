@@ -21,9 +21,8 @@
     <article class="reference__detail lab-panel">
       <span class="reference__kind">{{ selected().kind }}</span><h2>{{ selected().name }}</h2><p class="reference__summary">{{ selected().summary }}</p>
       <div class="reference__decision"><section><mat-icon>check_circle</mat-icon><div><small>Use quando</small><p>{{ selected().useWhen }}</p></div></section><section class="avoid"><mat-icon>warning</mat-icon><div><small>Evite</small><p>{{ selected().avoid }}</p></div></section></div>
-      <div class="reference__code"><span>Assinatura de referência</span><pre><code>{{ selected().example }}</code></pre></div>
+      <div class="reference__code"><span>Assinatura de referência</span><app-code-block [code]="selected().example" filename="angular-api.ts" /></div>
       <footer><mat-icon>psychology</mat-icon><p>Memorize o problema resolvido pela API, não apenas sua sintaxe.</p></footer>
     </article>
   </div>
 </section>
-

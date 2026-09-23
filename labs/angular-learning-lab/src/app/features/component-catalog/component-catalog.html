@@ -62,7 +62,7 @@
           </button>
         </header>
         @if (showCode()) {
-          <pre class="catalog__code"><code>{{ selected().code }}</code></pre>
+          <app-code-block [code]="selected().code" filename="example.component.ts" />
         }
       </article>
 

@@ -4,11 +4,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { RouterLink } from '@angular/router';
 import { LearningProgressService, PASS_RATIO } from '../../core/services/learning-progress.service';
+import { CodeBlock } from '../../shared/ui/code-block/code-block';
 import { EXAMS, Exam } from './question-bank';
 
 @Component({
   selector: 'app-assessments',
-  imports: [MatButtonModule, MatIconModule, MatProgressBarModule, RouterLink],
+  imports: [MatButtonModule, MatIconModule, MatProgressBarModule, RouterLink, CodeBlock],
   templateUrl: './assessments.html',
   styleUrl: './assessments.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

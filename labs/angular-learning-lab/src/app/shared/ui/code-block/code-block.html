@@ -1,0 +1,4 @@
+<section class="code-window" aria-label="Trecho de código">
+  <header><span class="code-window__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="code-window__file"><mat-icon>code</mat-icon>{{ filename() }}</span><span class="code-window__language">{{ language() }}</span><button type="button" (click)="copy()" [attr.aria-label]="copied() ? 'Código copiado' : 'Copiar código'"><mat-icon>{{ copied() ? 'check' : 'content_copy' }}</mat-icon>{{ copied() ? 'Copiado' : 'Copiar' }}</button></header>
+  <div class="code-window__body"><pre><code>{{ code() }}</code></pre></div>
+</section>

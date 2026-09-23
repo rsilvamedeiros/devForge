@@ -61,7 +61,7 @@
                 @else { Executou, mas a saída difere da referência }
               </strong>
             </header>
-            <pre><code>{{ result.output }}</code></pre>
+            <app-code-block [code]="result.output" language="json" filename="output.json" />
           </div>
         }
       </article>
@@ -69,11 +69,11 @@
       <div class="examples__meta">
         <article class="lab-panel">
           <h3><mat-icon>input</mat-icon> Entrada</h3>
-          <pre><code>{{ inputPreview() }}</code></pre>
+          <app-code-block [code]="inputPreview()" language="json" filename="input.json" />
         </article>
         <article class="lab-panel">
           <h3><mat-icon>fact_check</mat-icon> Saída de referência</h3>
-          <pre><code>{{ expectedPreview() }}</code></pre>
+          <app-code-block [code]="expectedPreview()" language="json" filename="expected.json" />
         </article>
       </div>
 

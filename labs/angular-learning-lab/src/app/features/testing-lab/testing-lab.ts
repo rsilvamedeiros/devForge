@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { CodeBlock } from '../../shared/ui/code-block/code-block';
 
-@Component({selector:'app-testing-lab',imports:[MatIconModule],templateUrl:'./testing-lab.html',styleUrl:'./testing-lab.scss',changeDetection:ChangeDetectionStrategy.OnPush})
+@Component({selector:'app-testing-lab',imports:[MatIconModule,CodeBlock],templateUrl:'./testing-lab.html',styleUrl:'./testing-lab.scss',changeDetection:ChangeDetectionStrategy.OnPush})
 export class TestingLab {
   readonly active = signal(0);
   readonly recipes = [
@@ -13,4 +14,3 @@ export class TestingLab {
   ];
   readonly pyramid = [{label:'Funções e domínio',value:55},{label:'Componentes e integrações',value:35},{label:'Fluxos ponta a ponta',value:10}];
 }
-

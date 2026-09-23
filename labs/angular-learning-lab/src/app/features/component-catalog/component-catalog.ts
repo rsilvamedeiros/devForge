@@ -2,12 +2,13 @@ import { NgComponentOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { CodeBlock } from '../../shared/ui/code-block/code-block';
 import { COMPONENT_DEMOS } from './component-demos';
 import { COMPONENT_RECIPES, ComponentRecipe } from './component-recipes';
 
 @Component({
   selector: 'app-component-catalog',
-  imports: [NgComponentOutlet, MatButtonModule, MatIconModule],
+  imports: [NgComponentOutlet, MatButtonModule, MatIconModule, CodeBlock],
   templateUrl: './component-catalog.html',
   styleUrl: './component-catalog.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { ANGULAR_APIS } from '../../core/data/angular-knowledge';
+import { CodeBlock } from '../../shared/ui/code-block/code-block';
 
 @Component({
   selector: 'app-api-reference',
-  imports: [MatIconModule],
+  imports: [MatIconModule, CodeBlock],
   templateUrl: './api-reference.html',
   styleUrl: './api-reference.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -23,4 +24,3 @@ export class ApiReference {
     );
   });
 }
-

@@ -127,6 +127,9 @@
 - `labs/angular-learning-lab/src/app/shared/layout/sidebar/sidebar.html`
 - `labs/angular-learning-lab/src/app/shared/layout/sidebar/sidebar.scss`
 - `labs/angular-learning-lab/src/app/shared/layout/sidebar/sidebar.ts`
+- `labs/angular-learning-lab/src/app/shared/ui/code-block/code-block.html`
+- `labs/angular-learning-lab/src/app/shared/ui/code-block/code-block.scss`
+- `labs/angular-learning-lab/src/app/shared/ui/code-block/code-block.ts`
 - `labs/angular-learning-lab/src/index.html`
 - `labs/angular-learning-lab/src/main.ts`
 - `labs/angular-learning-lab/src/styles.scss`

@@ -61,6 +61,17 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .lab-intro { margin-bottom: 0; color: var(--lab-muted); }
 .lab-panel { border: 1px solid var(--lab-border); border-radius: 16px; background: var(--lab-surface); box-shadow: 0 1px 0 rgba(255,255,255,.025) inset; }
 .lab-mono { font-family: 'DM Mono', monospace; }
+.markdown-code-window { overflow: hidden; margin: 1rem 0; border: 1px solid #293448; border-radius: 12px; background: #0b1019; box-shadow: 0 12px 28px rgba(0,0,0,.16); }
+.markdown-code-window__toolbar { display: flex; min-height: 42px; align-items: center; gap: .7rem; padding: 0 .8rem; border-bottom: 1px solid #293448; color: #9da9ba; background: #121a27; }
+.markdown-code-window__toolbar > span { display: flex; gap: 5px; }
+.markdown-code-window__toolbar i { width: 8px; height: 8px; border-radius: 50%; background: #ff6b72; }
+.markdown-code-window__toolbar i:nth-child(2) { background: #e9b949; }
+.markdown-code-window__toolbar i:nth-child(3) { background: #3cc98b; }
+.markdown-code-window__toolbar strong { flex: 1; font: 500 .68rem 'DM Mono', monospace; }
+.markdown-code-window__toolbar button { padding: .35rem .6rem; border: 1px solid #334157; border-radius: 7px; color: #c6d0de; background: #192333; font-family: 'Material Symbols Outlined', 'Manrope', sans-serif; font-size: .64rem; cursor: pointer; }
+.markdown-code-window__toolbar button:hover { color: #fff; border-color: #55d6be; }
+.documentation__markdown .markdown-code-window pre { margin: 0; padding: 1.1rem 1.25rem; border: 0; border-radius: 0; color: #d7e0eb; background: linear-gradient(90deg, rgba(85,214,190,.035), transparent 35%); }
+.documentation__markdown .markdown-code-window pre code { color: inherit; font: 500 .76rem/1.75 'DM Mono', Consolas, monospace; }
 .mat-mdc-form-field { --mat-form-field-outlined-input-text-color: var(--lab-text); --mat-form-field-outlined-label-text-color: var(--lab-muted); --mat-form-field-outlined-outline-color: var(--lab-border); --mat-form-field-outlined-hover-outline-color: var(--lab-field-hover); --mat-form-field-outlined-focus-outline-color: var(--lab-primary); --mat-form-field-container-text-font: 'Manrope'; }
 .mat-mdc-table { --mat-table-background-color: transparent; --mat-table-header-headline-color: var(--lab-muted); --mat-table-row-item-label-text-color: var(--lab-text); --mat-table-row-item-outline-color: var(--lab-border); }
 .mat-mdc-card { --mat-card-outlined-outline-color: var(--lab-border); --mat-card-outlined-container-color: var(--lab-surface); --mat-card-subtitle-text-color: var(--lab-muted); }

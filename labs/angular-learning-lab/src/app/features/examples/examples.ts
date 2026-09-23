@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { CodeBlock } from '../../shared/ui/code-block/code-block';
 import { CodeEditor } from './code-editor';
 import { CODE_EXAMPLES, CodeExample } from './code-examples';
 
@@ -12,7 +13,7 @@ interface RunOutcome {
 
 @Component({
   selector: 'app-examples',
-  imports: [CodeEditor, MatButtonModule, MatIconModule],
+  imports: [CodeEditor, CodeBlock, MatButtonModule, MatIconModule],
   templateUrl: './examples.html',
   styleUrl: './examples.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

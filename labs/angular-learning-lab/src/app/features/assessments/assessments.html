@@ -69,7 +69,7 @@
             </div>
 
             @if (question.code) {
-              <pre class="exams__code"><code>{{ question.code }}</code></pre>
+              <app-code-block [code]="question.code" filename="question.ts" />
             }
 
             <div class="exams__options">

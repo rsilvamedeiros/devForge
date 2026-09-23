@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, inject, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MarkdownComponent } from 'ngx-markdown';
@@ -12,6 +12,7 @@ import { DOCUMENTATION_CHAPTERS, DocumentChapter } from './documentation-chapter
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Documentation {
+  private readonly host: ElementRef<HTMLElement> = inject(ElementRef);
   readonly chapters = DOCUMENTATION_CHAPTERS;
   readonly selected = signal(this.chapters[0]);
   readonly loaded = signal(false);
@@ -19,5 +20,30 @@ export class Documentation {
   open(chapter: DocumentChapter): void {
     this.loaded.set(false);
     this.selected.set(chapter);
+  }
+
+  markdownReady(): void {
+    this.loaded.set(true);
+    window.setTimeout(() => {
+      this.host.nativeElement.querySelectorAll('.documentation__markdown pre').forEach((pre: Element) => {
+        if (pre.parentElement?.classList.contains('markdown-code-window')) return;
+        const frame = document.createElement('div');
+        frame.className = 'markdown-code-window';
+        const toolbar = document.createElement('div');
+        toolbar.className = 'markdown-code-window__toolbar';
+        toolbar.innerHTML = '<span><i></i><i></i><i></i></span><strong>Exemplo de código</strong><button type="button" data-copy-code>content_copy&nbsp; Copiar</button>';
+        pre.parentNode?.insertBefore(frame, pre);
+        frame.append(toolbar, pre);
+      });
+    });
+  }
+
+  async copyMarkdownCode(event: MouseEvent): Promise<void> {
+    const button = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-copy-code]');
+    if (!button) return;
+    const code = button.closest('.markdown-code-window')?.querySelector('code')?.textContent ?? '';
+    await navigator.clipboard.writeText(code);
+    button.textContent = 'check  Copiado';
+    window.setTimeout(() => button.textContent = 'content_copy  Copiar', 1800);
   }
 }

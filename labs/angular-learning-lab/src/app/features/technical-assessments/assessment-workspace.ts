@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component, OnDestroy, computed, inject, input,
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { CodeBlock } from '../../shared/ui/code-block/code-block';
 import { AssessmentMode, TECHNICAL_ASSESSMENTS, TechnicalAssessmentPack } from './technical-assessment-bank';
 import { TechnicalAssessmentService } from './technical-assessment.service';
 
-@Component({selector:'app-assessment-workspace',imports:[MatButtonModule,MatIconModule,MatProgressBarModule],templateUrl:'./assessment-workspace.html',styleUrl:'./assessment-workspace.scss',changeDetection:ChangeDetectionStrategy.OnPush})
+@Component({selector:'app-assessment-workspace',imports:[MatButtonModule,MatIconModule,MatProgressBarModule,CodeBlock],templateUrl:'./assessment-workspace.html',styleUrl:'./assessment-workspace.scss',changeDetection:ChangeDetectionStrategy.OnPush})
 export class AssessmentWorkspace implements OnDestroy {
   readonly mode=input.required<AssessmentMode>();
   readonly progress=inject(TechnicalAssessmentService);
@@ -30,4 +31,3 @@ export class AssessmentWorkspace implements OnDestroy {
   ngOnDestroy():void { this.stopTimer(); }
   private stopTimer():void { if(this.timer){clearInterval(this.timer);this.timer=undefined} }
 }
-
