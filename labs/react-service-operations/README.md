@@ -22,6 +22,8 @@ O antigo produto **Nexa Ops** permanece como estudo de caso executável para inv
 - a rota `/learning` acompanha módulos sem confundir conclusão com nível de domínio;
 - a rota `/curriculum` organiza quinze áreas de competência do fundamento à arquitetura;
 - as rotas `/components` e `/playground` oferecem receitas vivas e exercícios executáveis;
+- `/coding-arena`, `/technical-qa` e `/assessments` validam prática, comunicação e senioridade;
+- `/sandbox` e `/capstone` integram prática multiarquivo e projeto final em seis sprints;
 - a documentação permanente da tecnologia fica em [`skills/frontend/react`](../../skills/frontend/react/README.md).
 
 ## Skills exercitadas
