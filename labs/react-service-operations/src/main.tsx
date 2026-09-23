@@ -8,6 +8,7 @@ import './academy-pages.css';
 import './learning-tools.css';
 import './assessments.css';
 import './advanced-practice.css';
+import './graduation.css';
 
 const queryClient = new QueryClient({ defaultOptions: { queries: { staleTime: 30_000, retry: 1 } } });
 

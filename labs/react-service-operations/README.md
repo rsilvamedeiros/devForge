@@ -24,6 +24,9 @@ O antigo produto **Nexa Ops** permanece como estudo de caso executável para inv
 - as rotas `/components` e `/playground` oferecem receitas vivas e exercícios executáveis;
 - `/coding-arena`, `/technical-qa` e `/assessments` validam prática, comunicação e senioridade;
 - `/sandbox` e `/capstone` integram prática multiarquivo e projeto final em seis sprints;
+- `/e2e-lab` orienta oito jornadas críticas com riscos e assertions explícitas;
+- `/skills-report` consolida seis gates em um índice ponderado de domínio;
+- `/certificate` libera uma credencial personalizada e imprimível após todas as evidências;
 - a documentação permanente da tecnologia fica em [`skills/frontend/react`](../../skills/frontend/react/README.md).
 
 ## Skills exercitadas
@@ -91,6 +94,6 @@ Na raiz do DevForge, use `npm run dev:react`, `npm run build:react` e `npm run t
 - criação real de ticket com formulário validado;
 - paginação e virtualização;
 - filtros sincronizados integralmente com a URL;
-- testes de fluxos completos;
+- automação dos cenários guiados do E2E Lab com Playwright;
 - API REST externa;
 - autenticação e permissões por papel.
