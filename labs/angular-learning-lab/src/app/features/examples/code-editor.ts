@@ -10,7 +10,9 @@ import {
   viewChild,
 } from '@angular/core';
 
-type MonacoEditor = { getValue(): string; setValue(value: string): void; dispose(): void; onDidChangeModelContent(listener: () => void): void };
+type MonacoModel = object;
+type MonacoEditor = { getValue(): string; setValue(value: string): void; getModel(): MonacoModel | null; dispose(): void; onDidChangeModelContent(listener: () => void): void };
+type MonacoApi = { editor: { setModelLanguage(model: MonacoModel, language: string): void } };
 
 @Component({
   selector: 'app-code-editor',
@@ -24,10 +26,12 @@ type MonacoEditor = { getValue(): string; setValue(value: string): void; dispose
 export class CodeEditor implements AfterViewInit, OnDestroy {
   readonly value = input.required<string>();
   readonly theme = input<'vs' | 'vs-dark'>('vs-dark');
+  readonly language = input('javascript');
   readonly valueChange = output<string>();
 
   private readonly host = viewChild.required<ElementRef<HTMLElement>>('host');
   private editor: MonacoEditor | null = null;
+  private monaco: MonacoApi | null = null;
 
   constructor() {
     effect(() => {
@@ -36,14 +40,20 @@ export class CodeEditor implements AfterViewInit, OnDestroy {
         this.editor.setValue(next);
       }
     });
+    effect(() => {
+      const language = this.language();
+      const model = this.editor?.getModel();
+      if (model && this.monaco) this.monaco.editor.setModelLanguage(model, language);
+    });
   }
 
   async ngAfterViewInit(): Promise<void> {
     const monaco = await import('monaco-editor');
+    this.monaco = monaco as unknown as MonacoApi;
 
     this.editor = monaco.editor.create(this.host().nativeElement, {
       value: this.value(),
-      language: 'javascript',
+      language: this.language(),
       theme: this.theme(),
       automaticLayout: true,
       minimap: { enabled: false },

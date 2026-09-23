@@ -12,6 +12,7 @@ import { TECHNICAL_ASSESSMENTS } from '../../../features/technical-assessments/t
 import { TECHNICAL_QA } from '../../../features/knowledge-center/technical-qa.data';
 import { CODING_CHALLENGES } from '../../../features/coding-arena/coding-challenges';
 import { CAPSTONE_SPRINTS } from '../../../features/capstone-project/capstone-project.data';
+import { SANDBOX_CHALLENGES } from '../../../features/angular-sandbox/sandbox-challenges';
 
 interface NavItem {
   label: string;
@@ -68,6 +69,7 @@ export class Sidebar {
       label: 'Praticar',
       items: [
         { label: 'Coding Arena', path: '/coding-arena', icon: 'terminal', badge: () => String(CODING_CHALLENGES.length) },
+        { label: 'Angular Sandbox', path: '/sandbox', icon: 'developer_mode', badge: () => String(SANDBOX_CHALLENGES.length) },
         { label: 'Playground', path: '/examples', icon: 'code', badge: () => String(EXAMPLE_INDEX.length) },
         { label: 'Testing lab', path: '/testing', icon: 'science', badge: () => '5' },
       ],

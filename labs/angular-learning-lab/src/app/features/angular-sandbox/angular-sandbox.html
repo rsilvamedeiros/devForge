@@ -1,0 +1,22 @@
+<section class="sandbox lab-page">
+  <header class="sandbox__hero"><div><span class="lab-eyebrow"><mat-icon>developer_mode</mat-icon> Módulo de fechamento 02</span><h1>Angular Sandbox</h1><p>Trabalhe como em uma feature real: TypeScript, template, estilos e testes no mesmo workspace, com validações arquiteturais instantâneas.</p></div><aside><strong>{{ completed().length }}/{{ challenges.length }}</strong><span>workspaces concluídos</span><i><b [style.width.%]="completed().length / challenges.length * 100"></b></i></aside></header>
+
+  <div class="sandbox__layout">
+    <aside class="sandbox__challenges lab-panel"><header><span class="lab-eyebrow">Workspaces</span><strong>Do componente à arquitetura</strong></header>@for (challenge of challenges; track challenge.id; let index = $index) {<button type="button" [class.active]="selected().id === challenge.id" [class.done]="completed().includes(challenge.id)" (click)="openChallenge(challenge)"><span>@if (completed().includes(challenge.id)) {<mat-icon>check</mat-icon>} @else { {{ index + 1 }} }</span><div><small>{{ challenge.level }}</small><strong>{{ challenge.title }}</strong></div><mat-icon>chevron_right</mat-icon></button>}</aside>
+
+    <main>
+      <article class="sandbox__brief lab-panel"><div><span><mat-icon>{{ selected().icon }}</mat-icon></span><div><small>{{ selected().level }} · {{ selected().files.length }} ARQUIVOS</small><h2>{{ selected().title }}</h2><p>{{ selected().description }}</p></div></div><ul>@for (requirement of selected().requirements; track requirement) {<li><mat-icon>check_circle</mat-icon>{{ requirement }}</li>}</ul></article>
+
+      <article class="sandbox__ide">
+        <header class="sandbox__ide-top"><div><i></i><i></i><i></i><span>angular-sandbox / {{ selected().id }}</span></div><div><button type="button" class="secondary" (click)="reset()"><mat-icon>restart_alt</mat-icon>Resetar</button><button type="button" (click)="validate()"><mat-icon>fact_check</mat-icon>Validar workspace</button></div></header>
+        <div class="sandbox__ide-body">
+          <nav aria-label="Arquivos do exercício"><strong>EXPLORER</strong><span>src/app/{{ selected().id }}</span>@for (file of selected().files; track file.name) {<button type="button" [class.active]="activeFile().name === file.name" (click)="openFile(file)"><mat-icon>{{ file.language === 'html' ? 'html' : file.language === 'scss' ? 'css' : file.name.includes('spec') ? 'science' : 'data_object' }}</mat-icon>{{ file.name }}@if (workspace()[file.name] !== file.content) {<i></i>}</button>}</nav>
+          <section class="sandbox__editor"><div class="sandbox__tabs"><span><mat-icon>{{ activeFile().language === 'html' ? 'html' : activeFile().language === 'scss' ? 'css' : 'data_object' }}</mat-icon>{{ activeFile().name }}<i></i></span></div><app-code-editor [value]="currentValue()" [language]="activeFile().language" (valueChange)="updateFile($event)" /></section>
+        </div>
+        <footer class="sandbox__status"><span><mat-icon>account_tree</mat-icon>{{ selected().level }}</span><span>{{ activeFile().language }} · UTF-8 · Spaces: 2</span></footer>
+      </article>
+
+      @if (results().length) {<section class="sandbox__results lab-panel" [class.success]="allPassed()"><header><div><mat-icon>{{ allPassed() ? 'verified' : 'rule' }}</mat-icon><strong>{{ allPassed() ? 'Workspace aprovado' : 'Revisão do workspace' }}</strong></div><span>{{ passedCount() }}/{{ results().length }}</span></header><div>@for (result of results(); track result.label) {<article [class.passed]="result.passed"><mat-icon>{{ result.passed ? 'check_circle' : 'cancel' }}</mat-icon><div><strong>{{ result.label }}</strong>@if (!result.passed) {<small>{{ result.hint }}</small>}</div></article>}</div></section>}
+    </main>
+  </div>
+</section>

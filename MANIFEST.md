@@ -60,6 +60,11 @@
 - `labs/angular-learning-lab/src/app/core/services/learning-progress.service.spec.ts`
 - `labs/angular-learning-lab/src/app/core/services/learning-progress.service.ts`
 - `labs/angular-learning-lab/src/app/core/services/theme.service.ts`
+- `labs/angular-learning-lab/src/app/features/angular-sandbox/angular-sandbox.html`
+- `labs/angular-learning-lab/src/app/features/angular-sandbox/angular-sandbox.scss`
+- `labs/angular-learning-lab/src/app/features/angular-sandbox/angular-sandbox.ts`
+- `labs/angular-learning-lab/src/app/features/angular-sandbox/sandbox-challenges.spec.ts`
+- `labs/angular-learning-lab/src/app/features/angular-sandbox/sandbox-challenges.ts`
 - `labs/angular-learning-lab/src/app/features/api-reference/api-reference.html`
 - `labs/angular-learning-lab/src/app/features/api-reference/api-reference.scss`
 - `labs/angular-learning-lab/src/app/features/api-reference/api-reference.ts`

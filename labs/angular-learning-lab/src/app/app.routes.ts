@@ -43,6 +43,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/capstone-project/capstone-project').then(m => m.CapstoneProject),
   },
   {
+    path: 'sandbox',
+    loadComponent: () => import('./features/angular-sandbox/angular-sandbox').then(m => m.AngularSandbox),
+  },
+  {
     path: 'assessments',
     loadComponent: () => import('./features/assessments/assessments').then(m => m.Assessments),
   },

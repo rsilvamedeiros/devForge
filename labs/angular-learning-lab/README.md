@@ -13,6 +13,7 @@ O objetivo é aprender Angular. O lab não simula um produto comercial nem depen
 | `/documentation` | Documentação | Vinte e um capítulos Markdown renderizados dentro do app. |
 | `/coding-arena` | Coding Arena | Desafios progressivos com Monaco e testes públicos/ocultos. |
 | `/capstone` | Projeto Final | Capstone em seis sprints com entregáveis e evidências verificáveis. |
+| `/sandbox` | Angular Sandbox | Workspaces multiarquivo com validação instantânea. |
 | `/technical-qa` | Perguntas técnicas | Respostas discursivas filtradas por nível e assunto. |
 | `/quick-quiz` | Quiz rápido | Dez questões com correção e explicação imediatas. |
 | `/curriculum` | Mapa Angular | Quinze áreas e competências do fundamento ao avançado. |
