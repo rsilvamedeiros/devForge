@@ -1,4 +1,4 @@
-﻿# Manifest
+# Manifest
 
 - `.gitignore`
 - `challenges/arrays/01-frequency-counter.md`
@@ -40,6 +40,7 @@
 - `labs/angular-learning-lab/docs/15-ACCESSIBILITY-I18N.md`
 - `labs/angular-learning-lab/docs/16-LIBRARIES-WORKSPACES.md`
 - `labs/angular-learning-lab/docs/17-DEBUGGING-OPERATIONS.md`
+- `labs/angular-learning-lab/docs/18-MODERN-ANGULAR.md`
 - `labs/angular-learning-lab/docs/EXERCISES.md`
 - `labs/angular-learning-lab/docs/HANDBOOK.md`
 - `labs/angular-learning-lab/docs/LEARNING-PATH.md`
@@ -71,6 +72,11 @@
 - `labs/angular-learning-lab/src/app/features/assessments/assessments.ts`
 - `labs/angular-learning-lab/src/app/features/assessments/exam-index.ts`
 - `labs/angular-learning-lab/src/app/features/assessments/question-bank.ts`
+- `labs/angular-learning-lab/src/app/features/coding-arena/coding-arena.html`
+- `labs/angular-learning-lab/src/app/features/coding-arena/coding-arena.scss`
+- `labs/angular-learning-lab/src/app/features/coding-arena/coding-arena.ts`
+- `labs/angular-learning-lab/src/app/features/coding-arena/coding-challenges.spec.ts`
+- `labs/angular-learning-lab/src/app/features/coding-arena/coding-challenges.ts`
 - `labs/angular-learning-lab/src/app/features/component-catalog/component-catalog.html`
 - `labs/angular-learning-lab/src/app/features/component-catalog/component-catalog.scss`
 - `labs/angular-learning-lab/src/app/features/component-catalog/component-catalog.ts`

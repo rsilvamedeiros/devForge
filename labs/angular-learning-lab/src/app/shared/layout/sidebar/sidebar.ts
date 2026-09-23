@@ -10,6 +10,7 @@ import { EXAM_INDEX } from '../../../features/assessments/exam-index';
 import { ANGULAR_APIS, ANGULAR_AREAS } from '../../../core/data/angular-knowledge';
 import { TECHNICAL_ASSESSMENTS } from '../../../features/technical-assessments/technical-assessment-bank';
 import { TECHNICAL_QA } from '../../../features/knowledge-center/technical-qa.data';
+import { CODING_CHALLENGES } from '../../../features/coding-arena/coding-challenges';
 
 interface NavItem {
   label: string;
@@ -65,6 +66,7 @@ export class Sidebar {
     {
       label: 'Praticar',
       items: [
+        { label: 'Coding Arena', path: '/coding-arena', icon: 'terminal', badge: () => String(CODING_CHALLENGES.length) },
         { label: 'Playground', path: '/examples', icon: 'code', badge: () => String(EXAMPLE_INDEX.length) },
         { label: 'Testing lab', path: '/testing', icon: 'science', badge: () => '5' },
       ],

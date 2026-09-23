@@ -1,0 +1,2 @@
+import { CODING_CHALLENGES } from './coding-challenges';
+describe('Coding arena',()=>{it('has progressive challenges with public and hidden tests',()=>{expect(new Set(CODING_CHALLENGES.map(item=>item.level))).toEqual(new Set(['Júnior','Pleno','Sênior']));expect(CODING_CHALLENGES.every(item=>item.tests.some(test=>test.hidden)&&item.tests.some(test=>!test.hidden))).toBeTrue()});it('keeps challenge identifiers unique',()=>expect(new Set(CODING_CHALLENGES.map(item=>item.id)).size).toBe(CODING_CHALLENGES.length))});

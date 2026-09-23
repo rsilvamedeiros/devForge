@@ -35,6 +35,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/examples/examples').then(m => m.Examples),
   },
   {
+    path: 'coding-arena',
+    loadComponent: () => import('./features/coding-arena/coding-arena').then(m => m.CodingArena),
+  },
+  {
     path: 'assessments',
     loadComponent: () => import('./features/assessments/assessments').then(m => m.Assessments),
   },
