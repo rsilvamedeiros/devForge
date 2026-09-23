@@ -9,6 +9,7 @@ import { EXAMPLE_INDEX } from '../../../features/examples/example-index';
 import { EXAM_INDEX } from '../../../features/assessments/exam-index';
 import { ANGULAR_APIS, ANGULAR_AREAS } from '../../../core/data/angular-knowledge';
 import { TECHNICAL_ASSESSMENTS } from '../../../features/technical-assessments/technical-assessment-bank';
+import { TECHNICAL_QA } from '../../../features/knowledge-center/technical-qa.data';
 
 interface NavItem {
   label: string;
@@ -71,6 +72,8 @@ export class Sidebar {
     {
       label: 'Avaliar',
       items: [
+        { label: 'Perguntas técnicas', path: '/technical-qa', icon: 'forum', badge: () => String(TECHNICAL_QA.length) },
+        { label: 'Quiz rápido', path: '/quick-quiz', icon: 'bolt', badge: () => '10' },
         { label: 'Testes técnicos', path: '/technical-tests', icon: 'task', badge: () => String(TECHNICAL_ASSESSMENTS.filter(item => item.mode === 'quiz').length) },
         { label: 'Simulados', path: '/mock-exams', icon: 'timer', badge: () => String(TECHNICAL_ASSESSMENTS.filter(item => item.mode === 'mock').length) },
         { label: 'Provas por tema', path: '/assessments', icon: 'quiz', badge: () => String(EXAM_INDEX.length) },

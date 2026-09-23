@@ -105,6 +105,14 @@
 - `labs/angular-learning-lab/src/app/features/examples/examples.scss`
 - `labs/angular-learning-lab/src/app/features/examples/examples.spec.ts`
 - `labs/angular-learning-lab/src/app/features/examples/examples.ts`
+- `labs/angular-learning-lab/src/app/features/knowledge-center/knowledge-center.spec.ts`
+- `labs/angular-learning-lab/src/app/features/knowledge-center/quick-quiz.html`
+- `labs/angular-learning-lab/src/app/features/knowledge-center/quick-quiz.scss`
+- `labs/angular-learning-lab/src/app/features/knowledge-center/quick-quiz.ts`
+- `labs/angular-learning-lab/src/app/features/knowledge-center/technical-qa.data.ts`
+- `labs/angular-learning-lab/src/app/features/knowledge-center/technical-qa.html`
+- `labs/angular-learning-lab/src/app/features/knowledge-center/technical-qa.scss`
+- `labs/angular-learning-lab/src/app/features/knowledge-center/technical-qa.ts`
 - `labs/angular-learning-lab/src/app/features/learning/learning.html`
 - `labs/angular-learning-lab/src/app/features/learning/learning.scss`
 - `labs/angular-learning-lab/src/app/features/learning/learning.spec.ts`

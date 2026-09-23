@@ -11,6 +11,7 @@ import { DOCUMENTATION_CHAPTERS } from '../../../features/documentation/document
 import { EXAMPLE_INDEX } from '../../../features/examples/example-index';
 import { ANGULAR_APIS, ANGULAR_AREAS } from '../../../core/data/angular-knowledge';
 import { TECHNICAL_ASSESSMENTS } from '../../../features/technical-assessments/technical-assessment-bank';
+import { TECHNICAL_QA } from '../../../features/knowledge-center/technical-qa.data';
 
 interface SearchTarget {
   title: string;
@@ -44,6 +45,8 @@ export class Header {
     ...ANGULAR_AREAS.map(area => ({ title: area.title, route: '/curriculum' })),
     ...ANGULAR_APIS.map(api => ({ title: api.name, route: '/reference' })),
     ...TECHNICAL_ASSESSMENTS.map(item => ({ title: item.title, route: item.mode === 'quiz' ? '/technical-tests' : '/mock-exams' })),
+    ...TECHNICAL_QA.map(item => ({ title: item.question, route: '/technical-qa' })),
+    { title: 'Quiz rápido Angular', route: '/quick-quiz' },
   ];
 
   readonly matches = computed(() => {

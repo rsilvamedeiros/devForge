@@ -54,4 +54,5 @@ export const TECHNICAL_ASSESSMENTS: TechnicalAssessmentPack[] = (Object.keys(poo
   {id:`mock-${level.toLowerCase()}`,title:`Simulado ${level}`,level,mode:'mock',description:descriptions[level],duration:level === 'Júnior' ? 20 : level === 'Pleno' ? 25 : 30,passScore:80,focus:level === 'Júnior' ? ['base Angular','componentes','reatividade'] : level === 'Pleno' ? ['integração','qualidade','ownership'] : ['trade-offs','boundaries','escala'],questions:pools[level]},
 ]);
 
-export const TECHNICAL_QUESTION_COUNT = junior.length + pleno.length + senior.length;
+export const TECHNICAL_QUESTIONS: Question[] = [...junior, ...pleno, ...senior];
+export const TECHNICAL_QUESTION_COUNT = TECHNICAL_QUESTIONS.length;

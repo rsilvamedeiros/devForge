@@ -11,6 +11,8 @@ O objetivo é aprender Angular. O lab não simula um produto comercial nem depen
 | `/overview` | Visão geral | Progresso, próximo passo, desempenho e lacunas. |
 | `/learning` | Trilha Angular | Cinco módulos progressivos e critérios de evidência. |
 | `/documentation` | Documentação | Vinte capítulos Markdown renderizados dentro do app. |
+| `/technical-qa` | Perguntas técnicas | Respostas discursivas filtradas por nível e assunto. |
+| `/quick-quiz` | Quiz rápido | Dez questões com correção e explicação imediatas. |
 | `/curriculum` | Mapa Angular | Quinze áreas e competências do fundamento ao avançado. |
 | `/reference` | APIs essenciais | Referência pesquisável com uso, alertas e exemplos. |
 | `/components` | Componentes | Quatorze receitas interativas executadas por componentes reais. |
