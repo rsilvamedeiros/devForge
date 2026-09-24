@@ -294,6 +294,7 @@
 - `labs/typescript/README.md`
 - `labs/typescript/src/academy.css`
 - `labs/typescript/src/academy/academy-content.ts`
+- `labs/typescript/src/academy/academy-enhancements.css`
 - `labs/typescript/src/academy/typescript-academy.ts`
 - `labs/typescript/src/academy/version-history.css`
 - `labs/typescript/src/academy/version-history.ts`
