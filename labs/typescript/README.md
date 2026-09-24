@@ -42,6 +42,12 @@ Lit usa classes TypeScript, propriedades reativas, templates tipados e Web Compo
 
 ## Experiência de aprendizagem
 
+- dashboard acadêmico com progresso e próximos passos;
+- currículo de 12 módulos do fundamento à arquitetura;
+- documentação navegável com 13 capítulos e exemplos;
+- 8 Type Challenges com editor e validação conceitual;
+- avaliação técnica progressiva com resultado e explicações;
+- interface mobile-first construída com Lit;
 - [`docs/LEARNING-PATH.md`](docs/LEARNING-PATH.md) evolui contratos até arquitetura distribuída;
 - [`docs/EXERCISES.md`](docs/EXERCISES.md) cobre erros tipados, backoff, replay e inbox/outbox;
 - [`docs/HANDBOOK.md`](docs/HANDBOOK.md) indexa a documentação completa de TypeScript;
@@ -70,6 +76,10 @@ Na raiz do DevForge, use `npm run dev:typescript`, `npm run build:typescript` e 
 
 ## Próximas evoluções
 
+- playground com compilação TypeScript no navegador;
+- provas separadas por senioridade;
+- debugging lab e runtime validation lab;
+- capstone, relatório de competências e certificação;
 - persistência de inbox/outbox;
 - backoff exponencial;
 - métricas de throughput e latência;
