@@ -6,7 +6,7 @@ Este repositório foi preparado como base documental. Antes de gerar muita infra
 
 1. Inspecionar toda a documentação.
 2. Não apagar conteúdo de estudo.
-3. Evoluir o `labs/angular-learning-lab` como ambiente acadêmico completo.
+3. Evoluir o `labs/angular` como ambiente acadêmico completo.
 4. Usar Angular moderno + TypeScript.
 5. Evitar overengineering.
 6. Criar commits pequenos por tópico de estudo.

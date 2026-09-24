@@ -4,28 +4,28 @@
   "private": true,
   "workspaces": [
     "platform",
-    "labs/angular-learning-lab",
-    "labs/react-service-operations",
-    "labs/typescript-order-processing"
+    "labs/angular",
+    "labs/react",
+    "labs/typescript"
   ],
   "scripts": {
     "start": "npm run dev:platform",
     "dev": "npm run dev:platform",
     "dev:platform": "npm run start --workspace=devforge-platform",
-    "dev:angular": "npm run start --workspace=angular-learning-lab",
-    "dev:react": "npm run dev --workspace=react-service-operations",
-    "dev:typescript": "npm run start --workspace=typescript-order-processing",
+    "dev:angular": "npm run start --workspace=@devforge/angular",
+    "dev:react": "npm run dev --workspace=@devforge/react",
+    "dev:typescript": "npm run start --workspace=@devforge/typescript",
     "build": "npm run build --workspaces --if-present",
     "build:platform": "npm run build --workspace=devforge-platform",
-    "build:angular": "npm run build --workspace=angular-learning-lab",
-    "build:react": "npm run build --workspace=react-service-operations",
-    "build:typescript": "npm run build --workspace=typescript-order-processing",
+    "build:angular": "npm run build --workspace=@devforge/angular",
+    "build:react": "npm run build --workspace=@devforge/react",
+    "build:typescript": "npm run build --workspace=@devforge/typescript",
     "test": "npm run test:platform && npm run test:angular && npm run test:react && npm run test:typescript",
     "test:platform": "npm run test --workspace=devforge-platform -- --watch=false --browsers=ChromeHeadless",
-    "test:angular": "npm run test --workspace=angular-learning-lab -- --watch=false --browsers=ChromeHeadless",
-    "test:e2e:angular": "npm run test:e2e --workspace=angular-learning-lab",
-    "test:e2e:angular:ui": "npm run test:e2e:ui --workspace=angular-learning-lab",
-    "test:react": "npm run test --workspace=react-service-operations",
-    "test:typescript": "npm run test --workspace=typescript-order-processing"
+    "test:angular": "npm run test --workspace=@devforge/angular -- --watch=false --browsers=ChromeHeadless",
+    "test:e2e:angular": "npm run test:e2e --workspace=@devforge/angular",
+    "test:e2e:angular:ui": "npm run test:e2e:ui --workspace=@devforge/angular",
+    "test:react": "npm run test --workspace=@devforge/react",
+    "test:typescript": "npm run test --workspace=@devforge/typescript"
   }
 }

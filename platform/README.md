@@ -10,7 +10,7 @@ Um índice leve em `src/app/core/data/content-index.ts` mapeia slug → categori
 
 ## UI
 
-Angular Material (tema `azure-blue`, mesma paleta do `labs/angular-digital-equities` para consistência visual entre os dois projetos Angular do repo).
+Angular Material (tema `azure-blue`, alinhado ao `labs/angular` para consistência visual entre a plataforma e a Angular Academy).
 
 - `MatToolbar` + `MatSidenav`/`MatNavList` — shell com navegação por Dashboard, Progresso, Jornada, Trilhas, Insights, Skills, Challenges, Labs, Planos e Vagas. Sidebar colapsável e responsiva.
 - `MatCard` em grid — catálogo estilo curso (Skills, Challenges, Planos de estudo), com busca (`MatFormField`/`MatInput`) e filtro por categoria (`MatChipListbox`) em Skills e Challenges.

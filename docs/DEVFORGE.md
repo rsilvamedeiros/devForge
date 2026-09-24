@@ -192,8 +192,9 @@ Os demais laboratórios devem seguir a mesma direção: uma tecnologia principal
 
 A evolução dos labs também pode cobrir uma tecnologia principal por projeto, começando por frontend. Cada lab deve manter domínio, UX e decisões próprias — não ser apenas a mesma tela reescrita em outro framework.
 
-- `angular-learning-lab` — formação acadêmica completa em Angular;
-- `react-service-operations` — React em atendimento e SLA;
+- `labs/angular` — formação acadêmica completa em Angular;
+- `labs/react` — formação acadêmica completa em React;
+- `labs/typescript` — TypeScript Academy com Lit como camada visual didática;
 - próximos: Next.js, Vue e Svelte, conforme prioridade de estudo.
 
 ### Execução centralizada

@@ -59,12 +59,12 @@ Nenhum nível atribuído sem evidência registrada.
 
 ## Handbook do laboratório
 
-- [Visão geral](../../../labs/react-service-operations/docs/HANDBOOK.md)
-- [Fundamentos e composição](../../../labs/react-service-operations/docs/01-FUNDAMENTALS-COMPOSITION.md)
-- [Estado, hooks e formulários](../../../labs/react-service-operations/docs/02-STATE-HOOKS-FORMS.md)
-- [Rotas e estado remoto](../../../labs/react-service-operations/docs/03-ROUTING-SERVER-STATE.md)
-- [Arquitetura e experiência](../../../labs/react-service-operations/docs/04-ARCHITECTURE-UX.md)
-- [Qualidade e performance](../../../labs/react-service-operations/docs/05-QUALITY-PERFORMANCE.md)
+- [Visão geral](../../../labs/react/docs/HANDBOOK.md)
+- [Fundamentos e composição](../../../labs/react/docs/01-FUNDAMENTALS-COMPOSITION.md)
+- [Estado, hooks e formulários](../../../labs/react/docs/02-STATE-HOOKS-FORMS.md)
+- [Rotas e estado remoto](../../../labs/react/docs/03-ROUTING-SERVER-STATE.md)
+- [Arquitetura e experiência](../../../labs/react/docs/04-ARCHITECTURE-UX.md)
+- [Qualidade e performance](../../../labs/react/docs/05-QUALITY-PERFORMANCE.md)
 
 ## Quando usar
 
@@ -79,7 +79,7 @@ Nenhum nível atribuído sem evidência registrada.
 
 ## Exemplos
 
-O lab `react-service-operations` aplica React em uma central de atendimento com tickets, SLA, filtros e atualização otimista.
+O lab `labs/react` transforma React em uma formação acadêmica completa, mantendo a central de atendimento como um dos estudos de caso.
 
 ## Complexidade / performance
 
@@ -120,7 +120,7 @@ O lab `react-service-operations` aplica React em uma central de atendimento com 
 
 ## Aplicação real
 
-- `labs/react-service-operations`.
+- `labs/react`.
 
 ## Gaps conhecidos
 

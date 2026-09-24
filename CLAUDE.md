@@ -62,7 +62,7 @@ Use essas skills proativamente quando o pedido do usuário corresponder claramen
 
 ## Laboratório Angular
 
-Convenções específicas para `labs/angular-learning-lab` (de `docs/guides/CLAUDE-CODE-HANDOFF.md`):
+Convenções específicas para `labs/angular` (de `docs/guides/CLAUDE-CODE-HANDOFF.md`):
 - Angular moderno + TypeScript strict.
 - Código didático, mas próximo de produção; evitar abstrações prematuras.
 - Escopo exclusivamente acadêmico: exemplos neutros de aulas, trilhas, progresso e conteúdo; sem simular produto financeiro.

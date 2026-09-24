@@ -1,5 +1,6 @@
 import './styles.css';
 import './documentation.css';
+import './components/academy-badge.js';
 import { marked } from 'marked';
 import { Order } from './domain/order.js';
 import { Message } from './messaging/message.js';
@@ -52,7 +53,7 @@ if (!app) throw new Error('App root not found.');
 
 app.innerHTML = `
   <div class="ambient ambient--one"></div><div class="ambient ambient--two"></div>
-  <header class="topbar"><a class="brand" href="#"><span>↯</span><div><strong>Pulse Queue</strong><small>ORDER PROCESSING LAB</small></div></a><div class="environment"><i></i> Sandbox environment <span>v0.1</span></div><div class="top-actions"><button id="theme" class="icon-button" aria-label="Alternar tema">◐</button><span class="operator">RS</span></div></header>
+  <header class="topbar"><a class="brand" href="#"><academy-badge label="TS" detail="TypeScript strict">TS</academy-badge><div><strong>TypeScript Academy</strong><small>DEVFORGE LEARNING LAB</small></div></a><div class="environment"><i></i> Lit learning environment <span>v1</span></div><div class="top-actions"><button id="theme" class="icon-button" aria-label="Alternar tema">◐</button><span class="operator">DF</span></div></header>
   <aside class="sidebar"><nav><span>CONTROL ROOM</span><a class="active" href="#pipeline">⌁ <b>Pipeline</b></a><a href="#events">≡ <b>Event log</b><em id="event-badge">0</em></a><span>LEARNING</span><a href="#pipeline">◇ <b>Arquitetura</b></a><a href="#exercises">⌘ <b>Exercícios</b><em>4</em></a><a href="#documentation">▤ <b>Documentação</b><em>${documents.length}</em></a></nav><div class="study-card"><span>LAB PROGRESS</span><strong>TypeScript resiliente</strong><div><i style="width:80%"></i></div><small>4 de 5 módulos implementados</small></div><footer><i></i><div><strong>Runtime conectado</strong><small>In-memory · local</small></div></footer></aside>
   <main>
     <section class="hero"><div><span class="eyebrow">EVENT-DRIVEN LABORATORY</span><h1>Order processing<br/><em>under control.</em></h1><p>Visualize mensagens atravessando a fila principal, retry e dead-letter queue. Quebre o gateway, processe novamente e explique o resultado.</p><div class="hero-actions"><button class="primary" id="enqueue">+ Enfileirar ordem</button><button class="secondary" id="process">▶ Processar próxima</button></div></div><div class="hero-visual"><div class="orbit"><span>TS</span><i></i><i></i><i></i></div><small>STRICT MODE</small></div></section>

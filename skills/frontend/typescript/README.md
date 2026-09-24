@@ -58,12 +58,12 @@ Nenhum nível atribuído sem evidência registrada.
 
 ## Handbook do laboratório
 
-- [Visão geral](../../../labs/typescript-order-processing/docs/HANDBOOK.md)
-- [Sistema de tipos e narrowing](../../../labs/typescript-order-processing/docs/01-TYPE-SYSTEM-NARROWING.md)
-- [Funções, generics e utilities](../../../labs/typescript-order-processing/docs/02-FUNCTIONS-GENERICS-UTILITIES.md)
-- [Objetos, classes e módulos](../../../labs/typescript-order-processing/docs/03-OBJECTS-CLASSES-MODULES.md)
-- [Async, erros e runtime](../../../labs/typescript-order-processing/docs/04-ASYNC-ERRORS-RUNTIME.md)
-- [Configuração e arquitetura](../../../labs/typescript-order-processing/docs/05-CONFIG-QUALITY-ARCHITECTURE.md)
+- [Visão geral](../../../labs/typescript/docs/HANDBOOK.md)
+- [Sistema de tipos e narrowing](../../../labs/typescript/docs/01-TYPE-SYSTEM-NARROWING.md)
+- [Funções, generics e utilities](../../../labs/typescript/docs/02-FUNCTIONS-GENERICS-UTILITIES.md)
+- [Objetos, classes e módulos](../../../labs/typescript/docs/03-OBJECTS-CLASSES-MODULES.md)
+- [Async, erros e runtime](../../../labs/typescript/docs/04-ASYNC-ERRORS-RUNTIME.md)
+- [Configuração e arquitetura](../../../labs/typescript/docs/05-CONFIG-QUALITY-ARCHITECTURE.md)
 
 ## Coleções
 

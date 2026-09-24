@@ -1,6 +1,6 @@
-# TypeScript Order Processing Lab
+# TypeScript Academy
 
-Laboratório de arquitetura orientada a eventos para praticar processamento resiliente de ordens.
+Formação acadêmica de TypeScript do sistema de tipos à arquitetura, usando **Lit** como camada visual TypeScript-first e o processamento resiliente de ordens como um dos estudos de caso.
 
 O **Pulse Queue** adiciona uma control room visual ao pipeline: é possível enfileirar ordens, interromper o gateway, observar retries, levar poison messages à DLQ e acompanhar o event log.
 
@@ -25,6 +25,12 @@ Producer → Main Queue → Order Processor
 - tratamento de falhas;
 - testes automatizados;
 - decisões de arquitetura e trade-offs.
+- Web Components tipados e reatividade com Lit;
+- contratos entre propriedades, eventos e DOM.
+
+## Por que Lit
+
+Lit usa classes TypeScript, propriedades reativas, templates tipados e Web Components nativos com uma API pequena. Isso permite explicar TypeScript no navegador — generics, decorators, unions, eventos e módulos — sem transformar a Academy em um curso de outro framework de aplicação.
 
 ## Cenários cobertos
 
