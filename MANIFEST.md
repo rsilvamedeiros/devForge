@@ -269,6 +269,7 @@
 - `labs/react/tsconfig.tsbuildinfo`
 - `labs/react/vite.config.ts`
 - `labs/typescript/.gitignore`
+- `labs/typescript/17-VERSION-TIMELINE.md`
 - `labs/typescript/docs/01-TYPE-SYSTEM-NARROWING.md`
 - `labs/typescript/docs/02-FUNCTIONS-GENERICS-UTILITIES.md`
 - `labs/typescript/docs/03-OBJECTS-CLASSES-MODULES.md`
@@ -294,6 +295,8 @@
 - `labs/typescript/src/academy.css`
 - `labs/typescript/src/academy/academy-content.ts`
 - `labs/typescript/src/academy/typescript-academy.ts`
+- `labs/typescript/src/academy/version-history.css`
+- `labs/typescript/src/academy/version-history.ts`
 - `labs/typescript/src/components/academy-badge.ts`
 - `labs/typescript/src/documentation.css`
 - `labs/typescript/src/domain/order.ts`
@@ -304,8 +307,10 @@
 - `labs/typescript/src/processing/order-processor.ts`
 - `labs/typescript/src/styles.css`
 - `labs/typescript/src/ui.ts`
+- `labs/typescript/src/vite-env.d.ts`
 - `labs/typescript/tests/academy-content.spec.ts`
 - `labs/typescript/tests/order-processor.spec.ts`
+- `labs/typescript/tests/version-history.spec.ts`
 - `labs/typescript/tsconfig.json`
 - `labs/typescript/vite.config.ts`
 - `package.json`

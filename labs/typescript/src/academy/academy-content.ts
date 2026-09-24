@@ -33,6 +33,7 @@ export const DOCUMENTS:DocItem[]=[
 {title:'tsconfig profissional',description:'Strictness, modules, references e builds.',path:'/14-TSCONFIG-PROFESSIONAL.md'},
 {title:'Testes de tipos',description:'Compile-time assertions, ts-expect-error e CI.',path:'/15-TYPE-TESTING.md'},
 {title:'Arquitetura TypeScript',description:'Boundaries, ownership e evolução de contratos.',path:'/16-TYPESCRIPT-ARCHITECTURE.md'},
+{title:'Linha do tempo de versões',description:'Marcos, mudanças e estratégias de migração do 1.0 ao 7.0.',path:'/17-VERSION-TIMELINE.md'},
 {title:'Trilha de aprendizado',description:'Sequência sugerida e critérios de domínio.',path:'/LEARNING-PATH.md'},
 {title:'Exercícios',description:'Prática guiada com progressão de dificuldade.',path:'/EXERCISES.md'},
 ];
