@@ -279,6 +279,12 @@
 - `labs/typescript/docs/08-DECORATORS-METAPROGRAMMING.md`
 - `labs/typescript/docs/09-LIT-WEB-COMPONENTS.md`
 - `labs/typescript/docs/10-LIBRARY-DESIGN.md`
+- `labs/typescript/docs/11-FUNCTIONS-VARIANCE.md`
+- `labs/typescript/docs/12-DOMAIN-MODELING.md`
+- `labs/typescript/docs/13-ASYNC-CONCURRENCY.md`
+- `labs/typescript/docs/14-TSCONFIG-PROFESSIONAL.md`
+- `labs/typescript/docs/15-TYPE-TESTING.md`
+- `labs/typescript/docs/16-TYPESCRIPT-ARCHITECTURE.md`
 - `labs/typescript/docs/EXERCISES.md`
 - `labs/typescript/docs/HANDBOOK.md`
 - `labs/typescript/docs/LEARNING-PATH.md`

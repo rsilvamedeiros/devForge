@@ -27,6 +27,12 @@ export const DOCUMENTS:DocItem[]=[
 {title:'Decorators e metaprogramação',description:'Decorators modernos, metadata e limites.',path:'/08-DECORATORS-METAPROGRAMMING.md'},
 {title:'Lit e Web Components',description:'Reatividade, propriedades, eventos e slots tipados.',path:'/09-LIT-WEB-COMPONENTS.md'},
 {title:'Design de bibliotecas',description:'APIs públicas, declarations, exports e type tests.',path:'/10-LIBRARY-DESIGN.md'},
+{title:'Funções e variance',description:'Overloads, callbacks, this, covariance e contravariance.',path:'/11-FUNCTIONS-VARIANCE.md'},
+{title:'Modelagem de domínio',description:'Estados válidos, Result, entities e invariantes.',path:'/12-DOMAIN-MODELING.md'},
+{title:'Async e concorrência',description:'Promise, cancellation, pools e async iterators.',path:'/13-ASYNC-CONCURRENCY.md'},
+{title:'tsconfig profissional',description:'Strictness, modules, references e builds.',path:'/14-TSCONFIG-PROFESSIONAL.md'},
+{title:'Testes de tipos',description:'Compile-time assertions, ts-expect-error e CI.',path:'/15-TYPE-TESTING.md'},
+{title:'Arquitetura TypeScript',description:'Boundaries, ownership e evolução de contratos.',path:'/16-TYPESCRIPT-ARCHITECTURE.md'},
 {title:'Trilha de aprendizado',description:'Sequência sugerida e critérios de domínio.',path:'/LEARNING-PATH.md'},
 {title:'Exercícios',description:'Prática guiada com progressão de dificuldade.',path:'/EXERCISES.md'},
 ];
@@ -40,6 +46,10 @@ export const CHALLENGES:TypeChallenge[]=[
 {id:'infer-return',level:'Avançado',title:'Unwrap Promise',brief:'Extraia recursivamente o valor de uma Promise sem usar Awaited.',starter:`type Unwrap<T> = unknown;`,solutionPattern:/T\s+extends\s+Promise<infer\s+/,hint:'Conditional type com infer e recursão.',skills:['conditional','infer']},
 {id:'routes',level:'Avançado',title:'Parâmetros de rota',brief:'Converta /courses/:courseId/lessons/:lessonId em um objeto tipado.',starter:`type RouteParams<Path extends string> = unknown;`,solutionPattern:/`[^`]*:\$\{infer\s+/,hint:'Use template literal types recursivos.',skills:['template literals','infer']},
 {id:'brand',level:'Avançado',title:'IDs nominais',brief:'Impeça que UserId e CourseId sejam trocados apesar de ambos serem string.',starter:`type UserId = string;\ntype CourseId = string;`,solutionPattern:/unique\s+symbol|__brand/,hint:'Interseção com uma marca que não existe no runtime.',skills:['branding','domain modeling']},
+{id:'result',level:'Fundamentos',title:'Result discriminado',brief:'Modele sucesso e falha sem booleanos opcionais.',starter:`type Result<T> = unknown;`,solutionPattern:/ok\s*:\s*true[\s\S]*ok\s*:\s*false|ok\s*:\s*false[\s\S]*ok\s*:\s*true/,hint:'Crie uma união discriminada por ok.',skills:['unions','domain modeling']},
+{id:'satisfies',level:'Intermediário',title:'Configuração preservada',brief:'Valide um mapa de rotas sem perder os tipos literais.',starter:`const routes = { home: '/', course: '/courses/:id' };`,solutionPattern:/satisfies\s+Record/,hint:'Use satisfies Record<string, `/${string}`>.',skills:['satisfies','inference']},
+{id:'deep-partial',level:'Avançado',title:'DeepPartial seguro',brief:'Transforme objetos recursivamente sem destruir funções.',starter:`type DeepPartial<T> = unknown;`,solutionPattern:/T\s+extends\s+Function|T\s+extends\s+\([^)]*\)\s*=>/,hint:'Trate funções antes de mapear objetos.',skills:['conditional','mapped type']},
+{id:'typed-emitter',level:'Avançado',title:'Event emitter tipado',brief:'Relacione nomes de eventos aos respectivos payloads.',starter:`class Emitter<Events> {\n  on(event: unknown, listener: unknown) {}\n  emit(event: unknown, payload: unknown) {}\n}`,solutionPattern:/K\s+extends\s+keyof\s+Events/,hint:'Cada método precisa de K extends keyof Events e Events[K].',skills:['generics','callbacks','event maps']},
 ];
 export interface Question{id:string;level:Level;prompt:string;options:string[];answer:number;explanation:string}
 export const QUESTIONS:Question[]=[

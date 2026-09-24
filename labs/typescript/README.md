@@ -44,8 +44,9 @@ Lit usa classes TypeScript, propriedades reativas, templates tipados e Web Compo
 
 - dashboard acadêmico com progresso e próximos passos;
 - currículo de 12 módulos do fundamento à arquitetura;
-- documentação navegável com 13 capítulos e exemplos;
-- 8 Type Challenges com editor e validação conceitual;
+- documentação navegável com 19 capítulos e exemplos;
+- 12 Type Challenges com editor e validação conceitual;
+- banco escrito com 18 exercícios progressivos;
 - avaliação técnica progressiva com resultado e explicações;
 - interface mobile-first construída com Lit;
 - [`docs/LEARNING-PATH.md`](docs/LEARNING-PATH.md) evolui contratos até arquitetura distribuída;

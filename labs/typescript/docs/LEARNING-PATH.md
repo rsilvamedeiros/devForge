@@ -1,66 +1,104 @@
-# Trilha de aprendizagem — TypeScript Order Processing
+# Trilha de aprendizagem — TypeScript Academy
 
 ## Objetivo
 
-Evoluir de uma fila em memória para um pipeline observável e resiliente, mantendo contratos explícitos e decisões justificáveis.
+Evoluir da leitura de tipos básicos para modelagem, runtime safety, bibliotecas e arquitetura. Cada módulo exige conceito, prática, explicação e evidência.
 
-Referência completa: [`HANDBOOK.md`](HANDBOOK.md).
+## Fase 1 — fundamentos
 
-## Módulo 1 — Modelagem e contratos
+### 1. Modelo mental e inferência
 
-**Leitura:** [`01-TYPE-SYSTEM-NARROWING.md`](01-TYPE-SYSTEM-NARROWING.md) e [`02-FUNCTIONS-GENERICS-UTILITIES.md`](02-FUNCTIONS-GENERICS-UTILITIES.md).
+Entenda análise estática, emissão JavaScript, annotations, inference e contextual typing.
 
-**Entrega:** ordem, mensagem, fila genérica e validação.
+**Entrega:** remover annotations redundantes de um exemplo sem perder segurança.
 
-- unions e interfaces;
-- generics;
-- imutabilidade seletiva;
-- erros de domínio.
+### 2. Unions e narrowing
 
-## Módulo 2 — Processamento e idempotência
+Pratique `typeof`, `instanceof`, `in`, predicates, discriminated unions e `never`.
 
-**Leitura:** [`03-OBJECTS-CLASSES-MODULES.md`](03-OBJECTS-CLASSES-MODULES.md).
+**Entrega:** estados de request impossíveis de combinar incorretamente.
 
-**Entrega:** consumer que evita efeito duplicado.
+### 3. Funções e contratos
 
-- composição e injeção de dependência;
-- idempotency key;
-- separação entre transporte e domínio;
-- semânticas at-least-once.
+Estude signatures, callbacks, overloads, `this`, optional parameters e variance.
 
-## Módulo 3 — Retry e DLQ
+**Entrega:** API de parsing cujos retornos dependem das entradas.
 
-**Leitura:** [`04-ASYNC-ERRORS-RUNTIME.md`](04-ASYNC-ERRORS-RUNTIME.md).
+## Fase 2 — aplicação
 
-**Entrega:** falhas transitórias retornam e poison messages são isoladas.
+### 4. Objetos e domínio
 
-- política de tentativas;
-- dead-letter queue;
-- classificação de falhas;
-- testes determinísticos.
+Compare `interface` e `type`, structural typing, readonly, classes, composição e brands.
 
-## Módulo 4 — Observabilidade visual
+**Entrega:** entidades separadas dos DTOs externos.
 
-**Leitura:** [`05-CONFIG-QUALITY-ARCHITECTURE.md`](05-CONFIG-QUALITY-ARCHITECTURE.md).
+### 5. Generics
 
-**Entrega:** control room com filas, resultados e event log em tempo real.
+Use constraints, `keyof`, indexed access, defaults e inferência entre argumentos.
 
-- métricas derivadas;
-- simulação controlável;
-- representação visual do pipeline;
-- estado da UI sem framework.
+**Entrega:** `pick`, `pluck` e event emitter type-safe.
 
-## Módulo 5 — Evolução distribuída
+### 6. Transformações de tipos
 
-**Leitura:** [`04-ASYNC-ERRORS-RUNTIME.md`](04-ASYNC-ERRORS-RUNTIME.md) e [`05-CONFIG-QUALITY-ARCHITECTURE.md`](05-CONFIG-QUALITY-ARCHITECTURE.md).
+Mapped, conditional, distributivity, `infer`, templates e utilities.
 
-**Entrega:** desenho de inbox/outbox, persistência e particionamento.
+**Entrega:** EventMap, DeepReadonly e RouteParams com type tests.
 
-- consistência e atomicidade;
-- backoff com jitter;
-- ordenação por chave;
-- throughput, latência e backpressure.
+### 7. Runtime safety
 
-## Evidência esperada
+Valide `unknown`, modele Result, aplique schemas/parsers e proteja boundaries.
 
-Execute cenários de sucesso, retry e DLQ na control room e explique por que o sistema não promete exactly-once. Registre a evidência nas skills de filas, arquitetura e TypeScript.
+**Entrega:** parser de API que retorna erros com caminho do campo.
+
+## Fase 3 — engenharia
+
+### 8. Async e concorrência
+
+Promises, AbortSignal, pools, async iterators, erro e idempotência.
+
+**Entrega:** pool limitado e cancelável com testes determinísticos.
+
+### 9. Módulos e bibliotecas
+
+ESM, declarations, exports, API pública, SemVer e consumo externo.
+
+**Entrega:** package mínimo com subpath export e type tests.
+
+### 10. Configuração e arquitetura
+
+Strict flags, module resolution, project references, boundaries e performance do compilador.
+
+**Entrega:** tsconfig base justificado e grafo sem import circular.
+
+### 11. Testes e qualidade
+
+Integre Vitest, compile-time assertions, `@ts-expect-error`, lint e CI.
+
+**Entrega:** matriz de testes runtime e type-level para uma API genérica.
+
+### 12. TypeScript no navegador
+
+LitElement, propriedades reativas, eventos tipados, lifecycle, Shadow DOM e slots.
+
+**Entrega:** Web Component acessível com propriedade discriminada e evento tipado.
+
+## Ordem de prática
+
+Para cada módulo:
+
+1. leia o capítulo correspondente;
+2. reproduza exemplos sem copiar;
+3. resolva um Type Challenge na Academy;
+4. execute um exercício do mesmo nível;
+5. escreva um caso inválido que deve falhar na compilação;
+6. explique a decisão e uma alternativa.
+
+## Critério de domínio
+
+- **Júnior:** lê erros, usa unions e evita `any`.
+- **Pleno:** projeta generics, valida runtime e mantém APIs claras.
+- **Sênior:** controla boundaries, evolução, custo do compilador e contratos públicos.
+
+## Evidência final
+
+O estudante deve concluir os 12 módulos, resolver os 12 Type Challenges, atingir ao menos 80% na avaliação e defender o estudo de caso explicando onde os tipos terminam e o runtime começa.
