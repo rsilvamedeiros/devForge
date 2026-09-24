@@ -10,6 +10,7 @@ import './assessments.css';
 import './advanced-practice.css';
 import './graduation.css';
 import './responsive-polish.css';
+import './diagnostic-labs.css';
 
 const queryClient = new QueryClient({ defaultOptions: { queries: { staleTime: 30_000, retry: 1 } } });
 

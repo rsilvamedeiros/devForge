@@ -212,6 +212,8 @@
 - `labs/react-service-operations/src/data/capstone-sprints.ts`
 - `labs/react-service-operations/src/data/coding-challenges.ts`
 - `labs/react-service-operations/src/data/component-recipes.ts`
+- `labs/react-service-operations/src/data/diagnostic-labs.spec.ts`
+- `labs/react-service-operations/src/data/diagnostic-labs.ts`
 - `labs/react-service-operations/src/data/graduation.spec.ts`
 - `labs/react-service-operations/src/data/graduation.ts`
 - `labs/react-service-operations/src/data/learning-tools.spec.ts`
@@ -220,6 +222,7 @@
 - `labs/react-service-operations/src/data/react-curriculum.ts`
 - `labs/react-service-operations/src/data/sandbox-workspaces.ts`
 - `labs/react-service-operations/src/data/tickets.ts`
+- `labs/react-service-operations/src/diagnostic-labs.css`
 - `labs/react-service-operations/src/domain/ticket.ts`
 - `labs/react-service-operations/src/features/tickets/ticket-hooks.ts`
 - `labs/react-service-operations/src/graduation.css`
@@ -234,6 +237,7 @@
 - `labs/react-service-operations/src/pages/component-catalog-page.tsx`
 - `labs/react-service-operations/src/pages/curriculum-page.tsx`
 - `labs/react-service-operations/src/pages/dashboard-page.tsx`
+- `labs/react-service-operations/src/pages/debugging-lab-page.tsx`
 - `labs/react-service-operations/src/pages/documentation-chapters.ts`
 - `labs/react-service-operations/src/pages/documentation-page.css`
 - `labs/react-service-operations/src/pages/documentation-page.tsx`
@@ -241,6 +245,7 @@
 - `labs/react-service-operations/src/pages/learning-page.spec.tsx`
 - `labs/react-service-operations/src/pages/learning-page.tsx`
 - `labs/react-service-operations/src/pages/not-found-page.tsx`
+- `labs/react-service-operations/src/pages/performance-lab-page.tsx`
 - `labs/react-service-operations/src/pages/playground-page.tsx`
 - `labs/react-service-operations/src/pages/sandbox-page.tsx`
 - `labs/react-service-operations/src/pages/skills-report-page.tsx`

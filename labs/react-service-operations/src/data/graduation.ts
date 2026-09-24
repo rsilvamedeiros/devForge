@@ -14,12 +14,14 @@ export interface ProgressMetric{id:string;label:string;done:number;total:number;
 function array(key:string):string[]{try{return JSON.parse(localStorage.getItem(key)??'[]')}catch{return[]}}
 function assessment(level:string){try{const value=JSON.parse(localStorage.getItem(`react-learning-lab.assessment.${level}`)??'null');return value?.score>=4?1:0}catch{return 0}}
 export function readProgress():ProgressMetric[]{return[
-{id:'trail',label:'Trilha principal',done:array('nexa-learning-progress').length,total:5,weight:15,route:'/learning'},
-{id:'arena',label:'Coding Arena',done:array('react-learning-lab.coding-arena').length,total:5,weight:20,route:'/coding-arena'},
-{id:'assessments',label:'Avaliações',done:['Júnior','Pleno','Sênior'].reduce((sum,level)=>sum+assessment(level),0),total:3,weight:15,route:'/assessments'},
-{id:'sandbox',label:'React Sandbox',done:array('react-learning-lab.sandbox.completed').length,total:3,weight:15,route:'/sandbox'},
-{id:'capstone',label:'Projeto final',done:array('react-learning-lab.capstone').length,total:18,weight:25,route:'/capstone'},
-{id:'e2e',label:'Cenários E2E',done:array('react-learning-lab.e2e').length,total:E2E_COUNT,weight:10,route:'/e2e-lab'},
+{id:'trail',label:'Trilha principal',done:array('nexa-learning-progress').length,total:5,weight:12,route:'/learning'},
+{id:'arena',label:'Coding Arena',done:array('react-learning-lab.coding-arena').length,total:5,weight:16,route:'/coding-arena'},
+{id:'assessments',label:'Avaliações',done:['Júnior','Pleno','Sênior'].reduce((sum,level)=>sum+assessment(level),0),total:3,weight:12,route:'/assessments'},
+{id:'debugging',label:'Debugging Lab',done:array('react-learning-lab.debugging').length,total:6,weight:9,route:'/debugging-lab'},
+{id:'performance',label:'Performance Lab',done:array('react-learning-lab.performance').length,total:6,weight:9,route:'/performance-lab'},
+{id:'sandbox',label:'React Sandbox',done:array('react-learning-lab.sandbox.completed').length,total:3,weight:12,route:'/sandbox'},
+{id:'capstone',label:'Projeto final',done:array('react-learning-lab.capstone').length,total:18,weight:22,route:'/capstone'},
+{id:'e2e',label:'Cenários E2E',done:array('react-learning-lab.e2e').length,total:E2E_COUNT,weight:8,route:'/e2e-lab'},
 ]}
 export function progressScore(metrics=readProgress()){return Math.round(metrics.reduce((sum,item)=>sum+Math.min(item.done/item.total,1)*item.weight,0))}
 export function isCertified(metrics=readProgress()){return metrics.every(item=>item.done>=item.total)}
