@@ -3,12 +3,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MarkdownComponent } from 'ngx-markdown';
 import { DOCUMENTATION_CHAPTERS, DocumentChapter } from './documentation-chapters';
+import { ANGULAR_DOC_VERSIONS } from './angular-version-history';
 
 @Component({
   selector: 'app-documentation',
   imports: [MarkdownComponent, MatIconModule, MatProgressBarModule],
   templateUrl: './documentation.html',
-  styleUrl: './documentation.scss',
+  styleUrls: ['./documentation.scss', './version-selector.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Documentation {
@@ -21,6 +22,12 @@ export class Documentation {
   });
   readonly selected = signal(this.chapters[0]);
   readonly loaded = signal(false);
+  readonly versions = ANGULAR_DOC_VERSIONS;
+  readonly selectedVersion = signal(this.versions[0]);
+
+  selectVersion(version: string): void {
+    this.selectedVersion.set(this.versions.find(item => item.version === version) ?? this.versions[0]);
+  }
 
   open(chapter: DocumentChapter): void {
     this.loaded.set(false);

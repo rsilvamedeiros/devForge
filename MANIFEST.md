@@ -113,10 +113,12 @@
 - `labs/angular/src/app/features/curriculum/curriculum.html`
 - `labs/angular/src/app/features/curriculum/curriculum.scss`
 - `labs/angular/src/app/features/curriculum/curriculum.ts`
+- `labs/angular/src/app/features/documentation/angular-version-history.ts`
 - `labs/angular/src/app/features/documentation/documentation.html`
 - `labs/angular/src/app/features/documentation/documentation.scss`
 - `labs/angular/src/app/features/documentation/documentation.ts`
 - `labs/angular/src/app/features/documentation/documentation-chapters.ts`
+- `labs/angular/src/app/features/documentation/version-selector.scss`
 - `labs/angular/src/app/features/e2e-quality/e2e-missions.spec.ts`
 - `labs/angular/src/app/features/e2e-quality/e2e-missions.ts`
 - `labs/angular/src/app/features/e2e-quality/e2e-quality.html`
@@ -254,6 +256,7 @@
 - `labs/react/src/pages/not-found-page.tsx`
 - `labs/react/src/pages/performance-lab-page.tsx`
 - `labs/react/src/pages/playground-page.tsx`
+- `labs/react/src/pages/react-version-history.ts`
 - `labs/react/src/pages/sandbox-page.tsx`
 - `labs/react/src/pages/skills-report-page.tsx`
 - `labs/react/src/pages/technical-qa-page.tsx`
