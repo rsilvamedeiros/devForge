@@ -9,6 +9,8 @@ Referência do laboratório para dominar React moderno com TypeScript, do modelo
 3. **Rotas e dados remotos** — Router, URL, fetch, cache, mutations e consistência.
 4. **Arquitetura e experiência** — feature boundaries, acessibilidade, styling e design system.
 5. **Qualidade e performance** — testes, profiling, memoização, concorrência e segurança.
+6. **Referência de APIs** — componentes nativos, hooks modernos, Actions e integração com DOM.
+7. **Prática de produção** — formulários, acessibilidade, debugging, performance e receitas completas.
 
 ## Competência esperada
 
@@ -24,3 +26,10 @@ Referência do laboratório para dominar React moderno com TypeScript, do modelo
 ## Aplicação no lab
 
 O Nexa Ops aplica composição, custom hooks, React Router, TanStack Query, mutation otimista, tema persistido, filtros e testes com Testing Library.
+
+## Como consultar
+
+- Comece pelos capítulos 01–05 para construir o modelo mental.
+- Use 06–12 para arquitetura e tópicos avançados.
+- Consulte 13–18 como referência de APIs e implementação profissional.
+- Copie os exemplos no leitor, modifique-os no Playground e valide decisões nos Labs.

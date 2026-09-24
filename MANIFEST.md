@@ -192,6 +192,12 @@
 - `labs/react-service-operations/docs/10-SSR-SERVER-COMPONENTS.md`
 - `labs/react-service-operations/docs/11-SECURITY-DELIVERY.md`
 - `labs/react-service-operations/docs/12-ECOSYSTEM-OPERATIONS.md`
+- `labs/react-service-operations/docs/13-COMPONENT-API-REFERENCE.md`
+- `labs/react-service-operations/docs/14-HOOKS-COMPLETE-REFERENCE.md`
+- `labs/react-service-operations/docs/15-FORMS-ACTIONS-VALIDATION.md`
+- `labs/react-service-operations/docs/16-TESTING-ACCESSIBILITY-REFERENCE.md`
+- `labs/react-service-operations/docs/17-PERFORMANCE-DEBUGGING-REFERENCE.md`
+- `labs/react-service-operations/docs/18-PRODUCTION-RECIPES.md`
 - `labs/react-service-operations/docs/EXERCISES.md`
 - `labs/react-service-operations/docs/HANDBOOK.md`
 - `labs/react-service-operations/docs/LEARNING-PATH.md`
@@ -239,6 +245,7 @@
 - `labs/react-service-operations/src/pages/dashboard-page.tsx`
 - `labs/react-service-operations/src/pages/debugging-lab-page.tsx`
 - `labs/react-service-operations/src/pages/documentation-chapters.ts`
+- `labs/react-service-operations/src/pages/documentation-enhancements.css`
 - `labs/react-service-operations/src/pages/documentation-page.css`
 - `labs/react-service-operations/src/pages/documentation-page.tsx`
 - `labs/react-service-operations/src/pages/e2e-lab-page.tsx`
