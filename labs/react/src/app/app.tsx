@@ -1,9 +1,134 @@
-import{lazy,Suspense,type ReactNode}from'react';import{createBrowserRouter,RouterProvider}from'react-router-dom';import{AppShell}from'../layout/app-shell';
-const DashboardPage=lazy(()=>import('../pages/dashboard-page').then(m=>({default:m.DashboardPage})));const AnalyticsPage=lazy(()=>import('../pages/analytics-page').then(m=>({default:m.AnalyticsPage})));const NotFoundPage=lazy(()=>import('../pages/not-found-page').then(m=>({default:m.NotFoundPage})));const LearningPage=lazy(()=>import('../pages/learning-page').then(m=>({default:m.LearningPage})));const DocumentationPage=lazy(()=>import('../pages/documentation-page').then(m=>({default:m.DocumentationPage})));const TicketDetailPage=lazy(()=>import('../pages/ticket-detail-page').then(m=>({default:m.TicketDetailPage})));const TicketsPage=lazy(()=>import('../pages/tickets-page').then(m=>({default:m.TicketsPage})));const CurriculumPage=lazy(()=>import('../pages/curriculum-page').then(m=>({default:m.CurriculumPage})));const ComponentCatalogPage=lazy(()=>import('../pages/component-catalog-page').then(m=>({default:m.ComponentCatalogPage})));const PlaygroundPage=lazy(()=>import('../pages/playground-page').then(m=>({default:m.PlaygroundPage})));
-const CodingArenaPage=lazy(()=>import('../pages/coding-arena-page').then(m=>({default:m.CodingArenaPage})));const TechnicalQaPage=lazy(()=>import('../pages/technical-qa-page').then(m=>({default:m.TechnicalQaPage})));const AssessmentsPage=lazy(()=>import('../pages/assessments-page').then(m=>({default:m.AssessmentsPage})));
-const SandboxPage=lazy(()=>import('../pages/sandbox-page').then(m=>({default:m.SandboxPage})));const CapstonePage=lazy(()=>import('../pages/capstone-page').then(m=>({default:m.CapstonePage})));
-const E2eLabPage=lazy(()=>import('../pages/e2e-lab-page').then(m=>({default:m.E2eLabPage})));const SkillsReportPage=lazy(()=>import('../pages/skills-report-page').then(m=>({default:m.SkillsReportPage})));const CertificatePage=lazy(()=>import('../pages/certificate-page').then(m=>({default:m.CertificatePage})));
-const DebuggingLabPage=lazy(()=>import('../pages/debugging-lab-page').then(m=>({default:m.DebuggingLabPage})));const PerformanceLabPage=lazy(()=>import('../pages/performance-lab-page').then(m=>({default:m.PerformanceLabPage})));
-const withLoading=(element:ReactNode)=><Suspense fallback={<div className="route-loading"><i/><span>Carregando laboratório...</span></div>}>{element}</Suspense>;
-const router=createBrowserRouter([{path:'/',element:<AppShell/>,children:[{index:true,element:withLoading(<DashboardPage/>)},{path:'learning',element:withLoading(<LearningPage/>)},{path:'documentation',element:withLoading(<DocumentationPage/>)},{path:'curriculum',element:withLoading(<CurriculumPage/>)},{path:'components',element:withLoading(<ComponentCatalogPage/>)},{path:'playground',element:withLoading(<PlaygroundPage/>)},{path:'coding-arena',element:withLoading(<CodingArenaPage/>)},{path:'technical-qa',element:withLoading(<TechnicalQaPage/>)},{path:'assessments',element:withLoading(<AssessmentsPage/>)},{path:'sandbox',element:withLoading(<SandboxPage/>)},{path:'capstone',element:withLoading(<CapstonePage/>)},{path:'e2e-lab',element:withLoading(<E2eLabPage/>)},{path:'debugging-lab',element:withLoading(<DebuggingLabPage/>)},{path:'performance-lab',element:withLoading(<PerformanceLabPage/>)},{path:'skills-report',element:withLoading(<SkillsReportPage/>)},{path:'certificate',element:withLoading(<CertificatePage/>)},{path:'tickets',element:withLoading(<TicketsPage/>)},{path:'tickets/:id',element:withLoading(<TicketDetailPage/>)},{path:'analytics',element:withLoading(<AnalyticsPage/>)},{path:'*',element:withLoading(<NotFoundPage/>)}]}]);
-export function App(){return <RouterProvider router={router}/>}
+import { lazy, Suspense, type ReactNode } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AppShell } from "../layout/app-shell";
+const DashboardPage = lazy(() =>
+  import("../pages/dashboard-page").then((m) => ({ default: m.DashboardPage })),
+);
+const AnalyticsPage = lazy(() =>
+  import("../pages/analytics-page").then((m) => ({ default: m.AnalyticsPage })),
+);
+const NotFoundPage = lazy(() =>
+  import("../pages/not-found-page").then((m) => ({ default: m.NotFoundPage })),
+);
+const LearningPage = lazy(() =>
+  import("../pages/learning-page").then((m) => ({ default: m.LearningPage })),
+);
+const DocumentationPage = lazy(() =>
+  import("../pages/documentation-page").then((m) => ({
+    default: m.DocumentationPage,
+  })),
+);
+const TicketDetailPage = lazy(() =>
+  import("../pages/ticket-detail-page").then((m) => ({
+    default: m.TicketDetailPage,
+  })),
+);
+const TicketsPage = lazy(() =>
+  import("../pages/tickets-page").then((m) => ({ default: m.TicketsPage })),
+);
+const CurriculumPage = lazy(() =>
+  import("../pages/curriculum-page").then((m) => ({
+    default: m.CurriculumPage,
+  })),
+);
+const ComponentCatalogPage = lazy(() =>
+  import("../pages/component-catalog-page").then((m) => ({
+    default: m.ComponentCatalogPage,
+  })),
+);
+const PlaygroundPage = lazy(() =>
+  import("../pages/playground-page").then((m) => ({
+    default: m.PlaygroundPage,
+  })),
+);
+const CodingArenaPage = lazy(() =>
+  import("../pages/coding-arena-page").then((m) => ({
+    default: m.CodingArenaPage,
+  })),
+);
+const TechnicalQaPage = lazy(() =>
+  import("../pages/technical-qa-page").then((m) => ({
+    default: m.TechnicalQaPage,
+  })),
+);
+const AssessmentsPage = lazy(() =>
+  import("../pages/assessments-page").then((m) => ({
+    default: m.AssessmentsPage,
+  })),
+);
+const SandboxPage = lazy(() =>
+  import("../pages/sandbox-page").then((m) => ({ default: m.SandboxPage })),
+);
+const CapstonePage = lazy(() =>
+  import("../pages/capstone-page").then((m) => ({ default: m.CapstonePage })),
+);
+const E2eLabPage = lazy(() =>
+  import("../pages/e2e-lab-page").then((m) => ({ default: m.E2eLabPage })),
+);
+const SkillsReportPage = lazy(() =>
+  import("../pages/skills-report-page").then((m) => ({
+    default: m.SkillsReportPage,
+  })),
+);
+const CertificatePage = lazy(() =>
+  import("../pages/certificate-page").then((m) => ({
+    default: m.CertificatePage,
+  })),
+);
+const DebuggingLabPage = lazy(() =>
+  import("../pages/debugging-lab-page").then((m) => ({
+    default: m.DebuggingLabPage,
+  })),
+);
+const PerformanceLabPage = lazy(() =>
+  import("../pages/performance-lab-page").then((m) => ({
+    default: m.PerformanceLabPage,
+  })),
+);
+const VersionTimelinePage = lazy(() =>
+  import("../pages/version-timeline-page").then((m) => ({ default: m.VersionTimelinePage })),
+);
+const withLoading = (element: ReactNode) => (
+  <Suspense
+    fallback={
+      <div className="route-loading">
+        <i />
+        <span>Carregando laboratório...</span>
+      </div>
+    }
+  >
+    {element}
+  </Suspense>
+);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppShell />,
+    children: [
+      { index: true, element: withLoading(<DashboardPage />) },
+      { path: "learning", element: withLoading(<LearningPage />) },
+      { path: "documentation", element: withLoading(<DocumentationPage />) },
+      { path: "versions", element: withLoading(<VersionTimelinePage />) },
+      { path: "curriculum", element: withLoading(<CurriculumPage />) },
+      { path: "components", element: withLoading(<ComponentCatalogPage />) },
+      { path: "playground", element: withLoading(<PlaygroundPage />) },
+      { path: "coding-arena", element: withLoading(<CodingArenaPage />) },
+      { path: "technical-qa", element: withLoading(<TechnicalQaPage />) },
+      { path: "assessments", element: withLoading(<AssessmentsPage />) },
+      { path: "sandbox", element: withLoading(<SandboxPage />) },
+      { path: "capstone", element: withLoading(<CapstonePage />) },
+      { path: "e2e-lab", element: withLoading(<E2eLabPage />) },
+      { path: "debugging-lab", element: withLoading(<DebuggingLabPage />) },
+      { path: "performance-lab", element: withLoading(<PerformanceLabPage />) },
+      { path: "skills-report", element: withLoading(<SkillsReportPage />) },
+      { path: "certificate", element: withLoading(<CertificatePage />) },
+      { path: "tickets", element: withLoading(<TicketsPage />) },
+      { path: "tickets/:id", element: withLoading(<TicketDetailPage />) },
+      { path: "analytics", element: withLoading(<AnalyticsPage />) },
+      { path: "*", element: withLoading(<NotFoundPage />) },
+    ],
+  },
+]);
+export function App() {
+  return <RouterProvider router={router} />;
+}

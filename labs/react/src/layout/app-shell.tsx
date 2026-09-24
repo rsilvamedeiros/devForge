@@ -1,28 +1,333 @@
-import { useMemo, useState, type FormEvent } from 'react';
-import { Award, BarChart3, Bell, Boxes, Bug, ChevronDown, CircleHelp, ClipboardCheck, Code2, Component, FlaskConical, Gauge, GraduationCap, LayoutDashboard, LibraryBig, Map, Menu, MessageSquareText, Moon, PlayCircle, Search, Sun, Terminal, Trophy, type LucideIcon } from 'lucide-react';
-import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import { useTheme } from '../app/theme-context';
-import { DOCUMENTATION_CHAPTERS } from '../pages/documentation-chapters';
-import { progressScore, readProgress } from '../data/graduation';
+import { useMemo, useState, type FormEvent } from "react";
+import {
+  Award,
+  BarChart3,
+  Bell,
+  Boxes,
+  Bug,
+  ChevronDown,
+  CircleHelp,
+  ClipboardCheck,
+  Code2,
+  Component,
+  FlaskConical,
+  Gauge,
+  GraduationCap,
+  LayoutDashboard,
+  LibraryBig,
+  GitCompareArrows,
+  Map,
+  Menu,
+  MessageSquareText,
+  Moon,
+  PlayCircle,
+  Search,
+  Sun,
+  Terminal,
+  Trophy,
+  type LucideIcon,
+} from "lucide-react";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { useTheme } from "../app/theme-context";
+import { DOCUMENTATION_CHAPTERS } from "../pages/documentation-chapters";
+import { progressScore, readProgress } from "../data/graduation";
 
-interface NavigationGroup { label:string; items:Array<{to:string;label:string;icon:LucideIcon;end?:boolean;badge?:string}> }
-const groups:NavigationGroup[] = [
-  { label: 'Início', items: [{ to: '/', label: 'Visão geral', icon: LayoutDashboard, end: true }] },
-  { label: 'Formação', items: [{ to: '/learning', label: 'Trilha React', icon: GraduationCap, badge: '5' },{ to: '/documentation', label: 'Documentação', icon: LibraryBig, badge: String(DOCUMENTATION_CHAPTERS.length) },{to:'/curriculum',label:'Mapa React',icon:Map,badge:'15'}] },
-  { label: 'Praticar', items: [{to:'/components',label:'Catálogo vivo',icon:Component,badge:'12'},{to:'/playground',label:'Playground',icon:Terminal,badge:'4'},{ to: '/tickets', label: 'Estudo de caso', icon: FlaskConical, badge: 'Ops' },{ to: '/analytics', label: 'Visualizações', icon: Boxes }] },
-  {label:'Avaliar',items:[{to:'/coding-arena',label:'Coding Arena',icon:Code2,badge:'5'},{to:'/technical-qa',label:'Perguntas técnicas',icon:MessageSquareText,badge:'12'},{to:'/assessments',label:'Testes técnicos',icon:ClipboardCheck,badge:'3'}]},{label:'Investigar',items:[{to:'/debugging-lab',label:'Debugging Lab',icon:Bug,badge:'6'},{to:'/performance-lab',label:'Performance Lab',icon:Gauge,badge:'6'}]},{label:'Evoluir',items:[{to:'/sandbox',label:'React Sandbox',icon:Terminal,badge:'3'},{to:'/capstone',label:'Projeto Final',icon:Trophy,badge:'6'},{to:'/e2e-lab',label:'E2E Test Lab',icon:PlayCircle,badge:'8'}]},{label:'Concluir',items:[{to:'/skills-report',label:'Meu relatório',icon:BarChart3},{to:'/certificate',label:'Certificação',icon:Award}]},
+interface NavigationGroup {
+  label: string;
+  items: Array<{
+    to: string;
+    label: string;
+    icon: LucideIcon;
+    end?: boolean;
+    badge?: string;
+  }>;
+}
+const groups: NavigationGroup[] = [
+  {
+    label: "Início",
+    items: [
+      { to: "/", label: "Visão geral", icon: LayoutDashboard, end: true },
+    ],
+  },
+  {
+    label: "Formação",
+    items: [
+      {
+        to: "/learning",
+        label: "Trilha React",
+        icon: GraduationCap,
+        badge: "5",
+      },
+      {
+        to: "/documentation",
+        label: "Documentação",
+        icon: LibraryBig,
+        badge: String(DOCUMENTATION_CHAPTERS.length),
+      },
+      { to: "/versions", label: "Linha do tempo", icon: GitCompareArrows, badge: "4" },
+      { to: "/curriculum", label: "Mapa React", icon: Map, badge: "15" },
+    ],
+  },
+  {
+    label: "Praticar",
+    items: [
+      {
+        to: "/components",
+        label: "Catálogo vivo",
+        icon: Component,
+        badge: "12",
+      },
+      { to: "/playground", label: "Playground", icon: Terminal, badge: "4" },
+      {
+        to: "/tickets",
+        label: "Estudo de caso",
+        icon: FlaskConical,
+        badge: "Ops",
+      },
+      { to: "/analytics", label: "Visualizações", icon: Boxes },
+    ],
+  },
+  {
+    label: "Avaliar",
+    items: [
+      { to: "/coding-arena", label: "Coding Arena", icon: Code2, badge: "5" },
+      {
+        to: "/technical-qa",
+        label: "Perguntas técnicas",
+        icon: MessageSquareText,
+        badge: "12",
+      },
+      {
+        to: "/assessments",
+        label: "Testes técnicos",
+        icon: ClipboardCheck,
+        badge: "3",
+      },
+    ],
+  },
+  {
+    label: "Investigar",
+    items: [
+      { to: "/debugging-lab", label: "Debugging Lab", icon: Bug, badge: "6" },
+      {
+        to: "/performance-lab",
+        label: "Performance Lab",
+        icon: Gauge,
+        badge: "6",
+      },
+    ],
+  },
+  {
+    label: "Evoluir",
+    items: [
+      { to: "/sandbox", label: "React Sandbox", icon: Terminal, badge: "3" },
+      { to: "/capstone", label: "Projeto Final", icon: Trophy, badge: "6" },
+      { to: "/e2e-lab", label: "E2E Test Lab", icon: PlayCircle, badge: "8" },
+    ],
+  },
+  {
+    label: "Concluir",
+    items: [
+      { to: "/skills-report", label: "Meu relatório", icon: BarChart3 },
+      { to: "/certificate", label: "Certificação", icon: Award },
+    ],
+  },
 ];
-const searchTargets=[{label:'Trilha React',to:'/learning'},{label:'Documentação React',to:'/documentation'},{label:'Mapa de competências React',to:'/curriculum'},{label:'Catálogo de componentes e hooks',to:'/components'},{label:'Playground executável React',to:'/playground'},{label:'React Coding Arena',to:'/coding-arena'},{label:'Perguntas técnicas React',to:'/technical-qa'},{label:'Testes técnicos por senioridade',to:'/assessments'},{label:'Debugging Lab React',to:'/debugging-lab'},{label:'Performance Lab React',to:'/performance-lab'},{label:'E2E Test Lab',to:'/e2e-lab'},{label:'Relatório de competências',to:'/skills-report'},{label:'Certificação React',to:'/certificate'},{label:'Estado e hooks',to:'/documentation'},{label:'Server state e TanStack Query',to:'/documentation'},{label:'Estudo de caso Nexa Ops',to:'/tickets'},{label:'Componentes e visualização',to:'/analytics'}];
+const searchTargets = [
+  { label: "Trilha React", to: "/learning" },
+  { label: "Documentação React", to: "/documentation" },
+  { label: "Mapa de competências React", to: "/curriculum" },
+  { label: "Catálogo de componentes e hooks", to: "/components" },
+  { label: "Playground executável React", to: "/playground" },
+  { label: "React Coding Arena", to: "/coding-arena" },
+  { label: "Perguntas técnicas React", to: "/technical-qa" },
+  { label: "Testes técnicos por senioridade", to: "/assessments" },
+  { label: "Debugging Lab React", to: "/debugging-lab" },
+  { label: "Performance Lab React", to: "/performance-lab" },
+  { label: "E2E Test Lab", to: "/e2e-lab" },
+  { label: "Relatório de competências", to: "/skills-report" },
+  { label: "Certificação React", to: "/certificate" },
+  { label: "Estado e hooks", to: "/documentation" },
+  { label: "Server state e TanStack Query", to: "/documentation" },
+  { label: "Estudo de caso Nexa Ops", to: "/tickets" },
+  { label: "Componentes e visualização", to: "/analytics" },
+];
 
 export function AppShell() {
-  const [menuOpen,setMenuOpen]=useState(false);const[search,setSearch]=useState('');const navigate=useNavigate();const{theme,toggleTheme}=useTheme();
-  const academyProgress=progressScore(readProgress());
-  const matches=useMemo(()=>{const term=search.trim().toLowerCase();return term.length<2?[]:searchTargets.filter(item=>item.label.toLowerCase().includes(term)).slice(0,5)},[search]);
-  function go(to:string){navigate(to);setSearch('');setMenuOpen(false)}
-  function submitSearch(event:FormEvent){event.preventDefault();if(matches[0])go(matches[0].to)}
-  return <div className="shell academy-shell">
-    <header className="topbar"><button className="icon-button menu-button" onClick={()=>setMenuOpen(open=>!open)} aria-label="Abrir navegação"><Menu/></button><NavLink to="/" className="brand"><span><Code2/></span><div><strong>React Academy</strong><small>DevForge Learning Lab</small></div></NavLink><form className="global-search" onSubmit={submitSearch}><Search/><input value={search} onChange={event=>setSearch(event.target.value)} placeholder="Buscar aulas, hooks e conteúdos..." aria-label="Buscar no material de estudo"/><kbd>Enter</kbd>{matches.length>0&&<ul className="search-results">{matches.map(item=><li key={item.label}><button type="button" onClick={()=>go(item.to)}>{item.label}<small>{item.to}</small></button></li>)}</ul>}</form><div className="topbar__actions"><button className="icon-button" onClick={toggleTheme} aria-label={theme==='dark'?'Ativar tema claro':'Ativar tema escuro'}>{theme==='dark'?<Sun/>:<Moon/>}</button><button className="icon-button notification" aria-label="Notificações"><Bell/><i/></button><div className="profile"><span>DF</span><div><strong>Estudante</strong><small>Formação React</small></div><ChevronDown/></div></div></header>
-    <aside className={`sidebar academy-sidebar ${menuOpen?'is-open':''}`}><div className="workspace"><span><Code2/></span><div><strong>React 19</strong><small>Formação completa</small></div><em>v19</em></div><div className="sidebar-progress"><div><span>Progresso</span><strong>{academyProgress}%</strong></div><i><b style={{width:`${academyProgress}%`}}/></i><small>{academyProgress===100?'Formação concluída':'Evidências da formação'}</small></div><nav>{groups.map(group=><div key={group.label} className="nav-group"><p>{group.label}</p>{group.items.map(item=><NavLink key={item.to} to={item.to} end={item.end} onClick={()=>setMenuOpen(false)}>{({isActive})=><><item.icon className={isActive?'active-icon':''}/><span>{item.label}</span>{item.badge&&<em>{item.badge}</em>}</>}</NavLink>)}</div>)}</nav><div className="sidebar__health"><div><span><i/>Ambiente acadêmico</span><strong>React</strong></div><p>Aprenda, pratique e produza evidências.</p><div><b style={{width:`${academyProgress}%`}}/></div></div><a className="sidebar__help" href="https://react.dev" target="_blank" rel="noreferrer"><CircleHelp/><span><strong>React oficial</strong><small>Documentação de referência</small></span></a></aside>
-    <main className="main"><Outlet/></main>{menuOpen&&<button className="backdrop" onClick={()=>setMenuOpen(false)} aria-label="Fechar navegação"/>}
-  </div>;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
+  const academyProgress = progressScore(readProgress());
+  const matches = useMemo(() => {
+    const term = search.trim().toLowerCase();
+    return term.length < 2
+      ? []
+      : searchTargets
+          .filter((item) => item.label.toLowerCase().includes(term))
+          .slice(0, 5);
+  }, [search]);
+  function go(to: string) {
+    navigate(to);
+    setSearch("");
+    setMenuOpen(false);
+  }
+  function submitSearch(event: FormEvent) {
+    event.preventDefault();
+    if (matches[0]) go(matches[0].to);
+  }
+  return (
+    <div className="shell academy-shell">
+      <header className="topbar">
+        <button
+          className="icon-button menu-button"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-label="Abrir navegação"
+        >
+          <Menu />
+        </button>
+        <NavLink to="/" className="brand">
+          <span>
+            <Code2 />
+          </span>
+          <div>
+            <strong>React Academy</strong>
+            <small>DevForge Learning Lab</small>
+          </div>
+        </NavLink>
+        <form className="global-search" onSubmit={submitSearch}>
+          <Search />
+          <input
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+            placeholder="Buscar aulas, hooks e conteúdos..."
+            aria-label="Buscar no material de estudo"
+          />
+          <kbd>Enter</kbd>
+          {matches.length > 0 && (
+            <ul className="search-results">
+              {matches.map((item) => (
+                <li key={item.label}>
+                  <button type="button" onClick={() => go(item.to)}>
+                    {item.label}
+                    <small>{item.to}</small>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </form>
+        <div className="topbar__actions">
+          <button
+            className="icon-button"
+            onClick={toggleTheme}
+            aria-label={
+              theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro"
+            }
+          >
+            {theme === "dark" ? <Sun /> : <Moon />}
+          </button>
+          <button
+            className="icon-button notification"
+            aria-label="Notificações"
+          >
+            <Bell />
+            <i />
+          </button>
+          <div className="profile">
+            <span>DF</span>
+            <div>
+              <strong>Estudante</strong>
+              <small>Formação React</small>
+            </div>
+            <ChevronDown />
+          </div>
+        </div>
+      </header>
+      <aside className={`sidebar academy-sidebar ${menuOpen ? "is-open" : ""}`}>
+        <div className="workspace">
+          <span>
+            <Code2 />
+          </span>
+          <div>
+            <strong>React 19</strong>
+            <small>Formação completa</small>
+          </div>
+          <em>v19</em>
+        </div>
+        <div className="sidebar-progress">
+          <div>
+            <span>Progresso</span>
+            <strong>{academyProgress}%</strong>
+          </div>
+          <i>
+            <b style={{ width: `${academyProgress}%` }} />
+          </i>
+          <small>
+            {academyProgress === 100
+              ? "Formação concluída"
+              : "Evidências da formação"}
+          </small>
+        </div>
+        <nav>
+          {groups.map((group) => (
+            <div key={group.label} className="nav-group">
+              <p>{group.label}</p>
+              {group.items.map((item) => (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  end={item.end}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {({ isActive }) => (
+                    <>
+                      <item.icon className={isActive ? "active-icon" : ""} />
+                      <span>{item.label}</span>
+                      {item.badge && <em>{item.badge}</em>}
+                    </>
+                  )}
+                </NavLink>
+              ))}
+            </div>
+          ))}
+        </nav>
+        <div className="sidebar__health">
+          <div>
+            <span>
+              <i />
+              Ambiente acadêmico
+            </span>
+            <strong>React</strong>
+          </div>
+          <p>Aprenda, pratique e produza evidências.</p>
+          <div>
+            <b style={{ width: `${academyProgress}%` }} />
+          </div>
+        </div>
+        <a
+          className="sidebar__help"
+          href="https://react.dev"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <CircleHelp />
+          <span>
+            <strong>React oficial</strong>
+            <small>Documentação de referência</small>
+          </span>
+        </a>
+      </aside>
+      <main className="main">
+        <Outlet />
+      </main>
+      {menuOpen && (
+        <button
+          className="backdrop"
+          onClick={() => setMenuOpen(false)}
+          aria-label="Fechar navegação"
+        />
+      )}
+    </div>
+  );
 }

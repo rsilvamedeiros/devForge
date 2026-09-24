@@ -5,6 +5,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { LearningProgressService } from '../../../core/services/learning-progress.service';
 import { COMPONENT_RECIPES } from '../../../features/component-catalog/component-recipes';
 import { DOCUMENTATION_CHAPTERS } from '../../../features/documentation/documentation-chapters';
+import { ANGULAR_DOC_VERSIONS } from '../../../features/documentation/angular-version-history';
 import { EXAMPLE_INDEX } from '../../../features/examples/example-index';
 import { EXAM_INDEX } from '../../../features/assessments/exam-index';
 import { ANGULAR_APIS, ANGULAR_AREAS } from '../../../core/data/angular-knowledge';
@@ -55,6 +56,7 @@ export class Sidebar {
       items: [
         { label: 'Trilha Angular', path: '/learning', icon: 'school', badge: () => `${this.completedModules().length}/${this.totalModules}` },
         { label: 'Documentação', path: '/documentation', icon: 'menu_book', badge: () => String(DOCUMENTATION_CHAPTERS.length) },
+        { label: 'Linha do tempo', path: '/versions', icon: 'history', badge: () => String(ANGULAR_DOC_VERSIONS.length) },
         { label: 'Mapa Angular', path: '/curriculum', icon: 'map', badge: () => String(ANGULAR_AREAS.length) },
       ],
     },

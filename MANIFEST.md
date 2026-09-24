@@ -119,6 +119,7 @@
 - `labs/angular/src/app/features/documentation/documentation.ts`
 - `labs/angular/src/app/features/documentation/documentation-chapters.ts`
 - `labs/angular/src/app/features/documentation/version-selector.scss`
+- `labs/angular/src/app/features/documentation/version-timeline.ts`
 - `labs/angular/src/app/features/e2e-quality/e2e-missions.spec.ts`
 - `labs/angular/src/app/features/e2e-quality/e2e-missions.ts`
 - `labs/angular/src/app/features/e2e-quality/e2e-quality.html`
@@ -262,6 +263,8 @@
 - `labs/react/src/pages/technical-qa-page.tsx`
 - `labs/react/src/pages/ticket-detail-page.tsx`
 - `labs/react/src/pages/tickets-page.tsx`
+- `labs/react/src/pages/version-timeline-page.css`
+- `labs/react/src/pages/version-timeline-page.tsx`
 - `labs/react/src/responsive-polish.css`
 - `labs/react/src/services/ticket-api.spec.ts`
 - `labs/react/src/services/ticket-api.ts`
